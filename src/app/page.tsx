@@ -1,65 +1,260 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useMemo, useCallback } from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { terraces } from "@/data/terraces";
+import FilterBar from "@/components/FilterBar";
+import TerraceCard from "@/components/TerraceCard";
+import TerraceDetail from "@/components/TerraceDetail";
+
+const Map = dynamic(() => import("@/components/Map"), { ssr: false });
+
+const MONTREAL_CENTER: [number, number] = [45.5152, -73.58];
+const DEFAULT_ZOOM = 13;
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+  const [neighborhood, setNeighborhood] = useState("");
+  const [terraceType, setTerraceType] = useState("");
+  const [dogFriendly, setDogFriendly] = useState(false);
+  const [covered, setCovered] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [mobileView, setMobileView] = useState<"map" | "list">("list");
+
+  const filtered = useMemo(() => {
+    return terraces.filter((t) => {
+      if (search) {
+        const q = search.toLowerCase();
+        const match =
+          t.name.toLowerCase().includes(q) ||
+          t.address.toLowerCase().includes(q) ||
+          t.cuisineType.toLowerCase().includes(q) ||
+          t.neighborhood.toLowerCase().includes(q);
+        if (!match) return false;
+      }
+      if (neighborhood && t.neighborhood !== neighborhood) return false;
+      if (terraceType && t.terraceType !== terraceType) return false;
+      if (dogFriendly && !t.dogFriendly) return false;
+      if (covered && !t.covered) return false;
+      return true;
+    });
+  }, [search, neighborhood, terraceType, dogFriendly, covered]);
+
+  const selectedTerrace = selectedId
+    ? terraces.find((t) => t.id === selectedId) ?? null
+    : null;
+
+  const mapCenter = useMemo<[number, number]>(() => {
+    if (selectedTerrace) return [selectedTerrace.lat, selectedTerrace.lng];
+    return MONTREAL_CENTER;
+  }, [selectedTerrace]);
+
+  const mapZoom = selectedTerrace ? 16 : DEFAULT_ZOOM;
+
+  const openTerrace = useCallback((id: string) => {
+    setSelectedId(id);
+  }, []);
+
+  const closeTerrace = useCallback(() => {
+    setSelectedId(null);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
+      {/* ── Desktop sidebar ── */}
+      <div className="hidden md:flex w-[380px] lg:w-[420px] shrink-0 flex-col h-full border-r border-border-strong bg-background">
+        {/* Header — always visible */}
+        <div className="p-5 pb-0 shrink-0">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2.5">
+              <span className="text-2xl leading-none">&#9788;</span>
+              <div>
+                <h1 className="font-display text-lg font-bold tracking-tight leading-none">
+                  Terrace Season
+                </h1>
+                <p className="text-[11px] text-muted mt-0.5 tracking-wide uppercase">
+                  Montr&eacute;al
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/submit"
+              className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
+            >
+              + Suggest
+            </Link>
+          </div>
+        </div>
+
+        {/* Filters or Detail — swaps based on selection */}
+        {selectedTerrace ? (
+          <TerraceDetail terrace={selectedTerrace} onClose={closeTerrace} />
+        ) : (
+          <>
+            <div className="px-5 pb-0 shrink-0">
+              <FilterBar
+                search={search}
+                onSearchChange={setSearch}
+                selectedNeighborhood={neighborhood}
+                onNeighborhoodChange={setNeighborhood}
+                selectedType={terraceType}
+                onTypeChange={setTerraceType}
+                dogFriendly={dogFriendly}
+                onDogFriendlyChange={setDogFriendly}
+                covered={covered}
+                onCoveredChange={setCovered}
+                resultCount={filtered.length}
+              />
+            </div>
+
+            <div className="mx-5 mt-3 h-px bg-border shrink-0" />
+
+            <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+              {filtered.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-3xl mb-2">&#9789;</p>
+                  <p className="text-sm text-muted">No terraces match your filters.</p>
+                </div>
+              ) : (
+                filtered.map((t, i) => (
+                  <div
+                    key={t.id}
+                    className="card-enter"
+                    style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
+                  >
+                    <TerraceCard
+                      terrace={t}
+                      selected={selectedId === t.id}
+                      onClick={() => openTerrace(t.id)}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* ── Desktop map ── */}
+      <div className="hidden md:block flex-1 h-full">
+        <Map
+          terraces={filtered}
+          selectedId={selectedId}
+          onSelect={openTerrace}
+          center={mapCenter}
+          zoom={mapZoom}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+      </div>
+
+      {/* ── Mobile layout ── */}
+      <div className="md:hidden flex flex-col h-full">
+        {/* Mobile header */}
+        <div className="shrink-0 px-4 pt-3 pb-2 bg-background border-b border-border">
+          <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center gap-2">
+              <span className="text-xl leading-none">&#9788;</span>
+              <h1 className="font-display text-base font-bold tracking-tight leading-none">
+                Terrace Season
+              </h1>
+            </div>
+            <Link
+              href="/submit"
+              className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              + Suggest
+            </Link>
+          </div>
+
+          {!selectedTerrace && (
+            <FilterBar
+              search={search}
+              onSearchChange={setSearch}
+              selectedNeighborhood={neighborhood}
+              onNeighborhoodChange={setNeighborhood}
+              selectedType={terraceType}
+              onTypeChange={setTerraceType}
+              dogFriendly={dogFriendly}
+              onDogFriendlyChange={setDogFriendly}
+              covered={covered}
+              onCoveredChange={setCovered}
+              resultCount={filtered.length}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          )}
         </div>
-      </main>
+
+        {/* Mobile: detail takes over, or show tabs */}
+        {selectedTerrace ? (
+          <TerraceDetail terrace={selectedTerrace} onClose={closeTerrace} />
+        ) : (
+          <>
+            <div className="shrink-0 flex bg-background border-b border-border">
+              <button
+                onClick={() => setMobileView("list")}
+                className={`flex-1 py-2.5 text-xs font-medium text-center transition-colors cursor-pointer ${
+                  mobileView === "list"
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-muted"
+                }`}
+              >
+                List ({filtered.length})
+              </button>
+              <button
+                onClick={() => setMobileView("map")}
+                className={`flex-1 py-2.5 text-xs font-medium text-center transition-colors cursor-pointer ${
+                  mobileView === "map"
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-muted"
+                }`}
+              >
+                Map
+              </button>
+            </div>
+
+            <div className="flex-1 relative overflow-hidden">
+              <div
+                className={`absolute inset-0 overflow-y-auto p-3 space-y-2 transition-opacity duration-200 ${
+                  mobileView === "list"
+                    ? "opacity-100 z-10"
+                    : "opacity-0 z-0 pointer-events-none"
+                }`}
+              >
+                {filtered.length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-3xl mb-2">&#9789;</p>
+                    <p className="text-sm text-muted">No terraces match your filters.</p>
+                  </div>
+                ) : (
+                  filtered.map((t) => (
+                    <TerraceCard
+                      key={t.id}
+                      terrace={t}
+                      selected={selectedId === t.id}
+                      onClick={() => openTerrace(t.id)}
+                    />
+                  ))
+                )}
+              </div>
+
+              <div
+                className={`absolute inset-0 transition-opacity duration-200 ${
+                  mobileView === "map"
+                    ? "opacity-100 z-10"
+                    : "opacity-0 z-0 pointer-events-none"
+                }`}
+              >
+                <Map
+                  terraces={filtered}
+                  selectedId={selectedId}
+                  onSelect={openTerrace}
+                  center={mapCenter}
+                  zoom={mapZoom}
+                />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
