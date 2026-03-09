@@ -295,7 +295,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Garden patio with distillery products and locavore cuisine. Sources: Tourisme Montreal.",
+      "A 55-seat interior courtyard garden inside a 19th-century building named after two former Montreal mayors. Celebrates Quebec's craft distillery scene with locally farmed ingredients and English-inspired pub food. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
   },
   {
     id: "17",
@@ -313,7 +313,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Back stone patio. Seafood-focused menu. Sources: Tourisme Montreal.",
+      "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
   },
   {
     id: "18",
@@ -331,7 +331,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Desert-themed courtyard. Smoked and charcoal-cooked specialties. Sources: Tourisme Montreal.",
+      "The private courtyard of Hotel Saint-Sulpice, designed to evoke Arizona's desert serenity. Chef Piérard works with smoking, charcoal grilling, and fermentation. One of Old Montreal's most peaceful and hidden outdoor escapes. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
   },
   {
     id: "19",
@@ -693,14 +693,14 @@ export const terraces: Terrace[] = [
     cuisineType: "Japanese Izakaya",
     terraceType: "backyard", // confirmed: "40-seat hidden patio"
     capacity: 40,
-    covered: false,
+    covered: true,
     dogFriendly: false,
-    heated: false,
+    heated: true,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "40-seat hidden patio. Japanese izakaya described as one of downtown Montreal's best-kept secrets. Sources: Tourisme Montreal.",
+      "A 40-seat enclosed and heated terrace tucked beside St-James Church in the shadow of downtown office towers. Playful izakaya menu: karaage, Japadogs, soba salad with bacon, sake, and lychee mojitos. Sources: Tastet, Spotted by Locals.",
   },
   {
     id: "39",
@@ -718,7 +718,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Third-floor patio at Fairmont le Reine Elizabeth. Chic cocktail bar. Sources: Tourisme Montreal.",
+      "A palm-lined third-floor terrace atop the Fairmont Queen Elizabeth, inspired by the glam rock era of Ziggy Stardust. Seasonal cocktails, gourmet BBQ, and DJs Thursday–Saturday. Open summer only. Sources: Tastet, The Rooftop Guide, Gentologie.",
   },
   {
     id: "40",
@@ -1071,12 +1071,12 @@ export const terraces: Terrace[] = [
     terraceType: "backyard", // confirmed: "Luxury backyard patio with a pond"
     covered: false,
     dogFriendly: false,
-    heated: false,
+    heated: true,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Luxury backyard patio with a pond. Transforms a corner of the Plateau into Southeast Asia. Unique cocktail menu. Sources: Tourisme Montreal.",
+      "One of the most sought-after back terraces on the island, featuring a small pond and heated patio near Parc La Fontaine. Pan-Asian dishes spanning Thailand, Japan, India, and Cambodia, with cocktails fusing Oriental flavours. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
   },
   {
     id: "59",
@@ -1094,7 +1094,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Lush back patio off busy Mont-Royal Avenue. Sources: Tourisme Montreal.",
+      "A candlelit back terrace with a lush, relaxed vibe on Mont-Royal Avenue. Eclectic ambiance with creative cocktails, charcuterie, and a diverse local crowd. Sources: Yelp, Wanderlog.",
   },
   {
     id: "60",
@@ -1112,7 +1112,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Back courtyard patio. Live indie music sets. Sources: Tourisme Montreal.",
+      "Legendary indie music venue and café-bar on Saint-Laurent with live music 7 nights a week. Has hosted Arcade Fire and Helena Deland. Vegetarian and vegan menu. Sources: TripAdvisor, Wikipedia.",
   },
   {
     id: "61",
@@ -1130,7 +1130,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Verdant back terrace. Operating since the 1980s. Home-made sangria. Sources: Tourisme Montreal.",
+      "A flower-and-vine-draped garden terrace on Saint-Denis operating since 1985. Beloved for its homemade sangria and generous French-Mediterranean salads. One of the Plateau's most charming back patios. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "62",
@@ -1345,10 +1345,10 @@ export const terraces: Terrace[] = [
   {
     id: "73",
     name: "Pumpui",
-    address: "83 Rue Saint-Zotique O",
+    address: "83 Rue Saint-Zotique E",
     lat: 45.5305,
-    lng: -73.6015,
-    neighborhood: "Mile-Ex",
+    lng: -73.5985,
+    neighborhood: "Petite-Patrie",
     cuisineType: "Thai",
     terraceType: "backyard", // confirmed: "Back patio"
     covered: false,
@@ -1358,7 +1358,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Back patio. Thai curry restaurant. Sources: Tourisme Montreal.",
+      "A 'lan khao gang' — a Thai curry shop and grocery hybrid common in Thailand but rare in North America. Casual outdoor seating, short menu of authentic curries, no reservations. Sources: Tastet, Yelp.",
   },
 
   // =============================================
@@ -1660,7 +1660,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Hidden rooftop terrace on Plaza Saint-Hubert. Tropical hideaway. Sources: Tourisme Montreal.",
+      "A hidden tiki bar tucked inside Bar Idole on Plaza Saint-Hubert, open since 2017. Tropical cocktails served in sculpted pineapple glasses, immersive kitschy decor. Open daily until 3am. Sources: Yelp, RestoMontreal, The Main.",
   },
   {
     id: "90",
@@ -1671,14 +1671,14 @@ export const terraces: Terrace[] = [
     neighborhood: "Petite-Patrie",
     cuisineType: "Pizza / Wine Bar",
     terraceType: "rooftop", // confirmed: "Rooftop patio"
-    covered: false,
+    covered: true,
     dogFriendly: false,
     heated: false,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Rooftop patio. Pizzas, seasonal vegetables, natural wines. Sources: Tourisme Montreal.",
+      "A covered rooftop on Plaza Saint-Hubert styled as a 1960s Italian-American sports bar. Crispy hybrid pizzas (New York/New Haven/NJ styles), natural wines, and Rat Pack-era aesthetics. Sources: Cult MTL, The Main.",
   },
 
   // =============================================
@@ -1953,7 +1953,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Bohemian-chic courtyard. Mediterranean cuisine inspired by Mykonos and Ibiza. Sources: Tourisme Montreal.",
+      "A sun-drenched Mediterranean courtyard set inside the historic New City Gas site, framed by stone walls and curated art installations. Mezze, charcoal-grilled dishes, and private-import wines in a space evoking Mykonos, Tulum, and Ibiza. Sources: Time Out Montreal, MTL Blog, Tourisme Montreal.",
   },
   {
     id: "106",
@@ -1963,15 +1963,15 @@ export const terraces: Terrace[] = [
     lng: -73.5650,
     neighborhood: "Griffintown",
     cuisineType: "Italian",
-    // type unknown — "Industrial loft terrace" is ambiguous
-    covered: false,
+    terraceType: "backyard",
+    covered: true,
     dogFriendly: false,
     heated: false,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Industrial loft terrace. Upscale Italian cuisine. Sources: Tourisme Montreal.",
+      "A 90-seat terrace with a retractable roof inside a lovingly restored 1889 industrial loft with iron beams and brick walls. Northern Italian cuisine using local organic ingredients from Piedmont, Lombardy, and Emilia-Romagna. Sources: RestoMontreal, TripAdvisor.",
   },
   {
     id: "107",
@@ -2198,7 +2198,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "60-seat hidden terrace. New Orleans-themed. Creative cocktails. Sources: Tourisme Montreal.",
+      "A massive backyard terrace at this New Orleans-inspired bar from the team behind Midway and Marion. Perfectly frothy Ramos Gin Fizzes, stiff Sazeracs, baked oysters, and gumbo laced with cheese curds. Sources: MTL Blog, The Main, RestoMontreal.",
   },
   {
     id: "118",
@@ -2433,14 +2433,14 @@ export const terraces: Terrace[] = [
     neighborhood: "Downtown",
     cuisineType: "Fusion / Asian",
     terraceType: "rooftop", // confirmed: "Renaissance Montreal hotel rooftop"
-    covered: false,
+    covered: true,
     dogFriendly: false,
     heated: false,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Rooftop at Renaissance Montreal hotel. Mini-pool, lounge areas, tropical decor, fusion with Asian influences. Sources: Tourisme Montreal.",
+      "A two-story half-covered rooftop with a compact urban pool atop the Renaissance Montreal Hotel, steps from Place Ville-Marie. Asian fusion cuisine and signature cocktails with downtown skyline views. Open May–September. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
   },
   {
     id: "131",
@@ -2540,14 +2540,14 @@ export const terraces: Terrace[] = [
     neighborhood: "Downtown",
     cuisineType: "Mediterranean",
     terraceType: "rooftop", // confirmed: "Rooftop"
-    covered: false,
+    covered: true,
     dogFriendly: false,
-    heated: false,
+    heated: true,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Rooftop terrace. Mediterranean cuisine, signature cocktails. Sources: Tourisme Montreal.",
+      "A covered, heated rooftop terrace facing St-James Church in the Quartier des Spectacles. Mediterranean cuisine, live jazz Wednesday–Thursday, DJs Friday–Saturday. Sources: Tourisme Montreal, OpenTable.",
   },
 
   // LATIN QUARTER
@@ -2567,7 +2567,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Two terraces including a back terrace. House-brewed beers. Sources: Tourisme Montreal.",
+      "Craft microbrewery in the heart of the Latin Quarter serving exclusive beers from their Saint-Hyacinthe brewery. Two terraces including a back patio. Duck confit mac & cheese, smoked brisket poutine. Sources: RestoMontreal, Tourisme Montreal.",
   },
   {
     id: "138",
@@ -2584,7 +2584,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "42 beers on menu. Sources: Tourisme Montreal.",
+      "A bustling brewpub on Saint-Denis with one of Canada's largest beer selections: 44 taps, 550 bottles, and a 700+ beer bible. Large vibrant terrace, pub food, and retro arcade games. Sources: RestoMontreal, BeerAdvocate.",
   },
 
   // PLATEAU-MONT-ROYAL
@@ -2672,7 +2672,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Café, pastry, brunch. Sources: Tourisme Montreal.",
+      "A waffle café on Avenue Duluth with two terraces — a front sidewalk terrace and a charming back courtyard full of ivy, greenery, and a winding staircase. Gaufre brunch boards, vegan and gluten-free options. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "144",
@@ -2690,7 +2690,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Hidden tiki-bar terrace. Tropical vibe, rum/tequila, mojitos, tapas. Sources: Tourisme Montreal.",
+      "A festive lush back terrace at this legendary Plateau rum bar, open since 2003. Over 200 rums from 20+ countries, Latin tapas, themed nights including karaoke and musical quiz. Sources: TripAdvisor, The Main, Barraca.",
   },
   {
     id: "145",
@@ -2727,7 +2727,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Stylish patio. Handcrafted pastries. Sources: Tourisme Montreal.",
+      "A stylish sidewalk terrace on Saint-Viateur in the heart of Mile End. Handcrafted pastries and specialty coffee. Sources: Tourisme Montreal.",
   },
 
   // PETITE-PATRIE / ROSEMONT
@@ -2800,7 +2800,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Back terrace on Plaza Saint-Hubert. Nachos, burgers, local beers. Sources: Tourisme Montreal.",
+      "A sidewalk patio on Plaza Saint-Hubert specializing in Quebec microbrewery beers — 16 taps and 45 bottles. Pub food, quiz nights Mondays, karaoke Thursdays. Sources: Tourisme Montreal, Yelp.",
   },
   {
     id: "151",
@@ -2868,7 +2868,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Italian aperitivo, antipasti. Sources: Tourisme Montreal.",
+      "Canada's first cocktail bar dedicated to the art of aperitivo, with a 60-seat terrace on Saint-Laurent. Extensive amaro and vermouth collection, negroni vending machine, and Italo disco vinyl. Opened 2023. Sources: Tastet, NUVO, Tourisme Montreal.",
   },
   {
     id: "155",
@@ -2903,7 +2903,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Boréale beer, seasonal snacks. Sources: Tourisme Montreal.",
+      "Boréale brewery's taproom in Mile-Ex with a sidewalk terrace extending to the street. Exclusive and seasonal beers, pizzas and snacks, with furniture crafted by local artisans. Sources: Boréale, Tourisme Montreal.",
   },
 
   // VILLERAY
@@ -2939,7 +2939,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Spanish tapas, natural wines. Sources: Tourisme Montreal.",
+      "A neighbourhood Iberian wine bar with a casual terrace, channeling the spirit of small Spanish counters. Natural and biodynamic wines (mostly private imports), patatas bravas, chorizo in cider, and a free bowl of olives on arrival. Sources: Tastet, Tourisme Montreal, The Main.",
   },
   {
     id: "159",
@@ -2956,7 +2956,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Oyster bar, gastronomic dishes. Sources: Tourisme Montreal.",
+      "A gourmet pub with one of the best oyster bars in town, plus wagyu steak, truffle fries, lobster mac and cheese, and creative cocktails. Stylish decor with DJs some evenings. Sources: Tourisme Montreal, RestoMontreal.",
   },
 
   // HOCHELAGA
@@ -2992,7 +2992,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Franco-Québécois cuisine, sangria bar. Sources: Tourisme Montreal.",
+      "An urban brasserie inside a converted fire station in the Angus Shops area. Inventive Franco-Québécois cuisine, soaring ceilings, brick walls, a spiral staircase, and a charming terrace. Sources: RestoMontreal, TripAdvisor, Tourisme Montreal.",
   },
 
   // LITTLE BURGUNDY / SAINT-HENRI / GRIFFINTOWN
@@ -3081,7 +3081,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Waterfront terrace. Craft beer brewed on site, organic wines. Sources: Tourisme Montreal.",
+      "A 100-seat terrace along the Lachine Canal with views of the waterway and bike path. Craft beers brewed on site (including barrel-aged specialties), organic wines, and ping-pong and arcade games inside. Sources: Memento, Tourisme Montreal, The Main.",
   },
 
   // VERDUN
@@ -3094,14 +3094,14 @@ export const terraces: Terrace[] = [
     neighborhood: "Verdun",
     cuisineType: "Brewery",
     terraceType: "backyard", // confirmed: "Garden patio"
-    covered: false,
+    covered: true,
     dogFriendly: false,
-    heated: false,
+    heated: true,
     photos: [],
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Garden patio. Craft beer. Open until 3 AM. Sources: Tourisme Montreal.",
+      "A 180-seat partly covered and heated beer garden in a historic former bank on Wellington Street — one of the prettiest patios in the city. 18 craft beers on tap, open until 3am. First bar to open in Verdun after its 80-year dry period. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "168",
@@ -3119,7 +3119,7 @@ export const terraces: Terrace[] = [
     seasonalOpen: "May",
     seasonalClose: "October",
     description:
-      "Back patio. Tea house. Sources: Tourisme Montreal.",
+      "A tranquil back patio at this beloved Verdun tea house open since 2003. Over 100 loose teas including Vietnam Oolong and Feu de l'Arctique, scones, and light desserts. Sources: RestoMontreal, Bonjour Québec.",
   },
 
   // OUTREMONT
