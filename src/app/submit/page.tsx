@@ -237,7 +237,7 @@ function SubmitPageContent() {
                     min="0"
                     value={form.capacity}
                     onChange={(e) => update("capacity", e.target.value)}
-                    placeholder="e.g. 40"
+                    placeholder={t.capacityPlaceholder}
                     className={inputClass}
                   />
                 </Field>
@@ -300,7 +300,7 @@ function SubmitPageContent() {
                     type="text"
                     value={form.seasonalOpen}
                     onChange={(e) => update("seasonalOpen", e.target.value)}
-                    placeholder="e.g. May or April 15"
+                    placeholder={t.opensForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
@@ -309,7 +309,7 @@ function SubmitPageContent() {
                     type="text"
                     value={form.seasonalClose}
                     onChange={(e) => update("seasonalClose", e.target.value)}
-                    placeholder="e.g. October or Nov 1"
+                    placeholder={t.closesForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
@@ -400,7 +400,7 @@ function SubmitPageContent() {
                     type="text"
                     value={form.submitterName}
                     onChange={(e) => update("submitterName", e.target.value)}
-                    placeholder="Optional"
+                    placeholder={t.yourNamePlaceholder}
                     className={inputClass}
                   />
                 </Field>
@@ -409,7 +409,7 @@ function SubmitPageContent() {
                     type="email"
                     value={form.submitterEmail}
                     onChange={(e) => update("submitterEmail", e.target.value)}
-                    placeholder="So we can follow up"
+                    placeholder={t.yourEmailPlaceholder}
                     className={inputClass}
                   />
                 </Field>
