@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { terraces } from "@/data/terraces";
 
 const neighborhoods = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -18,30 +20,48 @@ const terraceTypes = [
   { value: "courtyard", label: "Courtyard / Hidden Patio" },
 ];
 
+const emptyForm = {
+  name: "", address: "", neighborhood: "", terraceType: "",
+  cuisineType: "", capacity: "", covered: false, dogFriendly: false,
+  heated: false, website: "", phone: "", openingHours: "",
+  seasonalOpen: "", seasonalClose: "", description: "",
+  submitterName: "", submitterEmail: "", submitterRole: "",
+};
+
 type FormState = "idle" | "submitting" | "success" | "error";
 
-export default function SubmitPage() {
+function SubmitPageContent() {
+  const searchParams = useSearchParams();
+  const editId = searchParams.get("edit");
+  const editTerrace = editId ? terraces.find((t) => t.id === editId) ?? null : null;
+  const isEdit = editTerrace !== null;
+
   const [state, setState] = useState<FormState>("idle");
-  const [form, setForm] = useState({
-    name: "",
-    address: "",
-    neighborhood: "",
-    terraceType: "",
-    cuisineType: "",
-    capacity: "",
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    website: "",
-    phone: "",
-    openingHours: "",
-    seasonalOpen: "",
-    seasonalClose: "",
-    description: "",
-    submitterName: "",
-    submitterEmail: "",
-    submitterRole: "",
-  });
+  const [form, setForm] = useState({ ...emptyForm });
+  const [images, setImages] = useState<File[]>([]);
+
+  useEffect(() => {
+    if (editTerrace) {
+      setForm({
+        name: editTerrace.name,
+        address: editTerrace.address,
+        neighborhood: editTerrace.neighborhood,
+        terraceType: editTerrace.terraceType ?? "",
+        cuisineType: editTerrace.cuisineType,
+        capacity: editTerrace.capacity ? String(editTerrace.capacity) : "",
+        covered: editTerrace.covered,
+        dogFriendly: editTerrace.dogFriendly,
+        heated: editTerrace.heated,
+        website: editTerrace.website ?? "",
+        phone: editTerrace.phone ?? "",
+        openingHours: editTerrace.openingHours ?? "",
+        seasonalOpen: editTerrace.seasonalOpen ?? "",
+        seasonalClose: editTerrace.seasonalClose ?? "",
+        description: editTerrace.description,
+        submitterName: "", submitterEmail: "", submitterRole: "",
+      });
+    }
+  }, [editTerrace]);
 
   function update(field: string, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -52,9 +72,9 @@ export default function SubmitPage() {
     setState("submitting");
 
     // For now, log to console — wire up to email/database in v2
-    console.log("Terrace submission:", form);
+    const payload = isEdit ? { type: "correction", editId, ...form } : { type: "new", ...form };
+    console.log("Terrace submission:", payload, "images:", images);
 
-    // Simulate a short delay
     await new Promise((r) => setTimeout(r, 800));
     setState("success");
   }
@@ -63,34 +83,42 @@ export default function SubmitPage() {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
         <div className="max-w-md text-center">
-          <div className="text-5xl mb-4">☀</div>
-          <h2 className="text-2xl font-bold mb-3">Thanks for submitting!</h2>
+          <div className="mb-4 flex justify-center">
+            <svg className="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+              <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+              <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+              <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+              <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+              <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+              <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+              <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+              <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold mb-3">
+            {isEdit ? "Thanks for the correction!" : "Thanks for submitting!"}
+          </h2>
           <p className="text-muted text-sm mb-6">
-            We'll review your terrace and add it to the map. It usually takes
-            1–3 days. We may reach out to you if we need more details.
+            {isEdit
+              ? "We'll review your suggested changes and update the listing if everything checks out."
+              : "We'll review your terrace and add it to the map. It usually takes 1–3 days. We may reach out to you if we need more details."}
           </p>
           <div className="flex gap-3 justify-center">
             <Link
               href="/"
-              className="px-4 py-2 rounded-lg bg-accent text-black text-sm font-medium hover:bg-accent-dim transition-colors"
+              className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors"
             >
               Back to the map
             </Link>
-            <button
-              onClick={() => {
-                setState("idle");
-                setForm({
-                  name: "", address: "", neighborhood: "", terraceType: "",
-                  cuisineType: "", capacity: "", covered: false, dogFriendly: false,
-                  heated: false, website: "", phone: "", openingHours: "",
-                  seasonalOpen: "", seasonalClose: "", description: "",
-                  submitterName: "", submitterEmail: "", submitterRole: "",
-                });
-              }}
-              className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
-            >
-              Submit another
-            </button>
+            {!isEdit && (
+              <button
+                onClick={() => { setState("idle"); setForm({ ...emptyForm }); setImages([]); }}
+                className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
+              >
+                Submit another
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -105,17 +133,30 @@ export default function SubmitPage() {
           &larr; Back to map
         </Link>
         <div className="flex items-center gap-2">
-          <span className="text-xl">☀</span>
+          <svg className="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+            <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+            <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+            <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+            <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+            <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+            <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+            <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+            <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+          </svg>
           <span className="font-bold">Terrace Season</span>
         </div>
       </div>
 
       <div className="max-w-2xl mx-auto px-6 py-10">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold mb-2">Submit a terrace</h1>
+          <h1 className="text-2xl font-bold mb-2">
+            {isEdit ? `Suggest a correction` : "Submit a terrace"}
+          </h1>
           <p className="text-muted text-sm">
-            Know a great terrace that's not on the map? Whether you're an owner,
-            manager, or just a regular — help us grow the list.
+            {isEdit
+              ? `Update the details for ${editTerrace.name}. Edit any fields that are wrong or missing and submit.`
+              : "Know a great terrace that's not on the map? Whether you're an owner, manager, or just a regular — help us grow the list."}
           </p>
         </div>
 
@@ -240,7 +281,7 @@ export default function SubmitPage() {
           {/* Hours & Season */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Hours & Season
+              Hours & Season (optional)
             </h2>
             <div className="space-y-4">
               <Field label="Opening hours">
@@ -253,26 +294,68 @@ export default function SubmitPage() {
                 />
               </Field>
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Season opens">
+                <Field label="Opens for season">
                   <input
                     type="text"
                     value={form.seasonalOpen}
                     onChange={(e) => update("seasonalOpen", e.target.value)}
-                    placeholder="e.g. May, April 15"
+                    placeholder="e.g. May or April 15"
                     className={inputClass}
                   />
                 </Field>
-                <Field label="Season closes">
+                <Field label="Closes for season">
                   <input
                     type="text"
                     value={form.seasonalClose}
                     onChange={(e) => update("seasonalClose", e.target.value)}
-                    placeholder="e.g. October, Halloween"
+                    placeholder="e.g. October or Nov 1"
                     className={inputClass}
                   />
                 </Field>
               </div>
             </div>
+          </section>
+
+          {/* Images */}
+          <section>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
+              Photos (optional)
+            </h2>
+            <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
+              <svg className="w-7 h-7 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-sm text-muted">
+                {images.length === 0
+                  ? "Upload photos of the terrace"
+                  : `${images.length} file${images.length > 1 ? "s" : ""} selected`}
+              </span>
+              <span className="text-xs text-muted/60">JPG, PNG, WEBP — up to 5 files</span>
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => {
+                  const files = Array.from(e.target.files ?? []).slice(0, 5);
+                  setImages(files);
+                }}
+              />
+            </label>
+            {images.length > 0 && (
+              <ul className="mt-2 space-y-1">
+                {images.map((f, i) => (
+                  <li key={i} className="text-xs text-muted flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M14 8h.01" strokeLinecap="round" strokeLinejoin="round" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {f.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
 
           {/* Contact */}
@@ -349,13 +432,23 @@ export default function SubmitPage() {
           <button
             type="submit"
             disabled={state === "submitting"}
-            className="w-full py-3 rounded-xl bg-accent text-black font-semibold text-sm hover:bg-accent-dim transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full py-3 rounded-xl bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {state === "submitting" ? "Submitting..." : "Submit terrace"}
+            {state === "submitting"
+              ? "Submitting..."
+              : isEdit ? "Send correction" : "Submit terrace"}
           </button>
         </form>
       </div>
     </div>
+  );
+}
+
+export default function SubmitPage() {
+  return (
+    <Suspense>
+      <SubmitPageContent />
+    </Suspense>
   );
 }
 

@@ -154,7 +154,7 @@ export default function Home() {
               href="/submit"
               className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
             >
-              + Suggest
+              + Submit
             </Link>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function Home() {
               href="/submit"
               className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
             >
-              + Suggest
+              + Submit
             </Link>
           </div>
 

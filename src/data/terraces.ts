@@ -19,8 +19,6 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassenelligan.com",
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "11:30 AM - 11:00 PM",
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
@@ -39,8 +37,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 11:00 PM",
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
@@ -58,8 +54,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Eighth-floor rooftop of Hotel William Gray with panoramic views of the Old Port, Ferris wheel, and St. Lawrence River. Firepits available. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, OpenTable, Montreal Diaries, Tourisme Montreal, Daily Hive.",
   },
@@ -76,8 +70,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Fourth-floor terrace of Hotel William Gray overlooking Place Jacques-Cartier. West Coast-inspired cuisine, lush decor, mezze plates. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
@@ -94,8 +86,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Rooftop bar on Hotel Place d'Armes with views of Place d'Armes square and Notre-Dame Basilica. Partially covered for gray days. Brunch, lunch, and dinner. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
   },
@@ -112,8 +102,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Four-storey complex on the waterfront with unobstructed Saint-Lawrence River views. Known for rose and sangria. Weekly events and late-night DJs. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
   },
@@ -130,8 +118,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden courtyard with colorful flowers and shrubs set against historic 1812 architecture (National Historical Site). Live jazz performances. Sweet and savory crepes, gourmet salads. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
   },
@@ -148,8 +134,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden garden courtyard with tree canopy, singing birds, and petanque area. Sources: Time Out, Tastet.",
   },
@@ -166,8 +150,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Oldest restaurant in the city, first constructed in 1688. Open-air courtyard terrace. Includes Velvet speakeasy bar downstairs. Sources: Time Out.",
   },
@@ -184,8 +166,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Prime location for people-watching and heritage architecture views. Trattoria-style Italian with housemade pasta, stone oven-braised meats. Italian-style weekend brunch with bellinis. Sources: OpenTable, Eater/Wanderlog.",
   },
@@ -202,8 +182,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Inner courtyard with cobblestones, awnings, flower baskets, hibiscus and oleander plants. Sources: Time Out, Tourisme Montreal.",
   },
@@ -220,8 +198,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Parisian brasserie atmosphere with views over De la Commune Street. French techniques with modern Montreal cuisine. Weekend brunch available. Sources: OpenTable.",
   },
@@ -238,8 +214,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Sixth-floor rooftop on Hampton Inn with lush jungle vegetation inspired by Vietnam's French colonial architecture. 7,000-square-foot space with tropical decor. Views of Old Montreal. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
@@ -256,8 +230,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace in prime Old Montreal setting. Sources: Tastet.",
   },
@@ -274,8 +246,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Garden courtyard on Saint-Gabriel street surrounded by old buildings. Features flowers, plants, outdoor bar, stone walls, and greenery for a private setting. Sources: experienceoldmontreal.com.",
   },
@@ -292,8 +262,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 55-seat interior courtyard garden inside a 19th-century building named after two former Montreal mayors. Celebrates Quebec's craft distillery scene with locally farmed ingredients and English-inspired pub food. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
   },
@@ -310,8 +278,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
   },
@@ -328,8 +294,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "The private courtyard of Hotel Saint-Sulpice, designed to evoke Arizona's desert serenity. Chef Piérard works with smoking, charcoal grilling, and fermentation. One of Old Montreal's most peaceful and hidden outdoor escapes. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
   },
@@ -346,8 +310,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Italian patio terrace with wood-fired pizza and Italian cocktails. Sources: Montreal Diaries.",
   },
@@ -364,8 +326,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming wine bar on Saint-Paul. Sources: Tastet.",
   },
@@ -382,8 +342,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming terrace on Saint-Paul Street. Sources: Tastet.",
   },
@@ -400,8 +358,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "14th floor of Hyatt Centric in Old Montreal with 360-degree views. Sources: The Rooftop Guide.",
   },
@@ -422,8 +378,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Pub tucked off Sainte-Catherine Street with a secret bi-leveled courtyard terrace. Walls covered in creeping vines, heat lamps. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
@@ -440,8 +394,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Ritz-Carlton garden courtyard with awning-covered wooden deck overlooking a French garden with flagstone paths, artificial brook, and duck pond. Michelin-calibre dining. Sources: Time Out, OpenTable, Tourisme Montreal, MTL Blog, Tastet.",
   },
@@ -458,8 +410,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Montreal's highest terrace at the 44th floor of Place Ville Marie. Breathtaking sunset views. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
@@ -476,8 +426,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 11:00 PM",
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
@@ -495,8 +443,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     description:
       "Year-round inner garden. Boho-chic, elegant and lush with greenery. One of the most beautiful terrasses for gourmet Japanese cuisine. Sources: Time Out, Tourisme Montreal, MTL Blog, Tastet.",
   },
@@ -513,8 +459,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Inner courtyard at Sofitel hotel. French cuisine with large yellow umbrellas, parasols, and plants. Glass-walled atrium. Live DJ entertainment. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
@@ -531,8 +475,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Third-floor rooftop terrace at Four Seasons Hotel. Chef Marcus Samuelsson. Seafood-focused menu with Japanese influences. Overlooks Leonard Cohen mural. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
@@ -550,8 +492,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "4:00 PM - 2:00 AM",
     description:
       "Stunning hidden terrace, a peaceful downtown escape. Sources: Tastet, Time Out.",
@@ -569,8 +509,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Stylish covered terrace. Portuguese cuisine. Sources: Tastet.",
   },
@@ -587,8 +525,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Off-the-beaten-path Mexican restaurant with a hidden patio. Cocktails, ceviche, tacos. Sources: Tourisme Montreal, Tastet.",
   },
@@ -605,8 +541,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden terrace on Saint-Alexandre Street. Shared dishes concept. Sources: Tourisme Montreal, Tastet.",
   },
@@ -623,8 +557,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     description:
       "Perched on the highest level of Place Ville Marie with panoramic 360-degree views. French restaurant with observation deck. Sources: Time Out.",
   },
@@ -641,8 +573,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Panoramic terrace with 180-degree view at DoubleTree by Hilton. Quebec-focused bistro food. Sources: Time Out, Tourisme Montreal.",
   },
@@ -660,8 +590,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Upscale French restaurant (Thursday-Saturday). 100-person rooftop bar with views of entertainment district. Known for high-end punch bowls. Sources: Time Out.",
   },
@@ -678,8 +606,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel. Retractable roof for any weather. Mediterranean cuisine. Sources: Tourisme Montreal, mtl.org.",
   },
@@ -697,8 +623,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 40-seat enclosed and heated terrace tucked beside St-James Church in the shadow of downtown office towers. Playful izakaya menu: karaage, Japadogs, soba salad with bacon, sake, and lychee mojitos. Sources: Tastet, Spotted by Locals.",
   },
@@ -715,8 +639,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A palm-lined third-floor terrace atop the Fairmont Queen Elizabeth, inspired by the glam rock era of Ziggy Stardust. Seasonal cocktails, gourmet BBQ, and DJs Thursday–Saturday. Open summer only. Sources: Tastet, The Rooftop Guide, Gentologie.",
   },
@@ -733,8 +655,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Promenade level of Marriott Chateau Champlain with views of the city and Windsor station. Asian-inspired cuisine and signature cocktails. Festive atmosphere. Sources: Tastet, mtl.org.",
   },
@@ -752,8 +672,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "8:00 AM - 10:00 PM",
     description:
       "Beautiful courtyard cafe. Bright white space with flowers. Sources: Tastet, Time Out.",
@@ -771,8 +689,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Large rooftop terrace atop the SAT arts space overlooking Saint-Laurent Boulevard. Urban jungle in the Quartier des spectacles. Rotating themes with local/international chefs. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
@@ -789,8 +705,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Grand terrace. Irish/English cuisine. Sources: Tastet.",
   },
@@ -807,8 +721,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Two terraces; one faces busy Crescent Street for people-watching. Sources: Daily Hive.",
   },
@@ -829,8 +741,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Rooftop terrace on 2nd floor. Craft beers, wines, cocktails, fermented nibbles. Spacious terrace with warm service. Sources: Tastet, Tourisme Montreal, Narcity.",
   },
@@ -852,8 +762,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "11:30 AM - 11:00 PM",
     description:
       "Terrace extends onto the Main. Popular for oysters and cocktails. Sources: Tastet.",
@@ -871,8 +779,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Seafood-centric fine-dining with stunning views of Jeanne-Mance Park. Japanese-accented cuisine. Sources: Time Out, OpenTable, Tastet.",
   },
@@ -889,8 +795,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden garden oasis with vibrant colors and a water fountain. Canopied by trees and fenced in. Community-focused cafe since 1976 with vegetarian/vegan-leaning menu. Sources: Time Out, Tourisme Montreal, Tastet.",
   },
@@ -908,8 +812,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden terrace with around fifty seats, decorated with plants and colorful murals. BYOW. Sources: Tastet, Tourisme Montreal.",
   },
@@ -926,8 +828,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "On Duluth Avenue since 1979. Montreal's first BYOW restaurant. Lush garden terrace evoking Mediterranean landscapes. Sources: Tastet, OpenTable.",
   },
@@ -944,8 +844,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Craft brewery with bright yellow picnic tables on rooftop. Sources: Tastet.",
   },
@@ -963,8 +861,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "4:00 PM - 1:00 AM",
     description:
       "Summer staple wine bar. Green and yellow decor. Sources: Tastet.",
@@ -982,8 +878,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming little terrace. Sources: Tastet.",
   },
@@ -1000,8 +894,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Sunny terrace on Saint-Denis Street. Sources: Tastet.",
   },
@@ -1018,8 +910,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Welcoming terrace with grass carpets. Sources: Tastet.",
   },
@@ -1036,8 +926,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Secluded and lush hidden garden. Persian mezze, natural/organic wines. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1054,8 +942,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "September",
     openingHours: "5:00 PM - 2:00 AM",
     description:
       "Charming little terrace on the Main. Sources: Tastet.",
@@ -1073,8 +959,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "One of the most sought-after back terraces on the island, featuring a small pond and heated patio near Parc La Fontaine. Pan-Asian dishes spanning Thailand, Japan, India, and Cambodia, with cocktails fusing Oriental flavours. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
   },
@@ -1091,8 +975,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A candlelit back terrace with a lush, relaxed vibe on Mont-Royal Avenue. Eclectic ambiance with creative cocktails, charcuterie, and a diverse local crowd. Sources: Yelp, Wanderlog.",
   },
@@ -1109,8 +991,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Legendary indie music venue and café-bar on Saint-Laurent with live music 7 nights a week. Has hosted Arcade Fire and Helena Deland. Vegetarian and vegan menu. Sources: TripAdvisor, Wikipedia.",
   },
@@ -1127,8 +1007,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A flower-and-vine-draped garden terrace on Saint-Denis operating since 1985. Beloved for its homemade sangria and generous French-Mediterranean salads. One of the Plateau's most charming back patios. Sources: TripAdvisor, RestoMontreal.",
   },
@@ -1145,8 +1023,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Near Avenue Mont-Royal. Sources: Tastet.",
   },
@@ -1163,8 +1039,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Winner of Cult MTL Best of MTL 2025 reader poll for best terrasse. Live DJs, craft beer, energetic atmosphere. Sources: Cult MTL, Montreal Diaries.",
   },
@@ -1186,8 +1060,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "April",
-    seasonalClose: "October",
     openingHours: "7:00 AM - 9:00 PM",
     description:
       "Mile End institution since 1970, founded by Italian immigrant Rocco Furfaro. Nearly impossible to find an open spot when the sun comes out. Sources: Tastet, Daily Hive.",
@@ -1205,8 +1077,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Small, unpretentious terrace. Sources: Tastet.",
   },
@@ -1223,8 +1093,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Mile End institution. Lively ambiance. Sources: Tastet.",
   },
@@ -1242,8 +1110,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "September",
     openingHours: "3:00 PM - 1:00 AM",
     description:
       "Leafy canopy terrace. Quebec craft beer institution. Sources: Tastet, Tourisme Montreal.",
@@ -1265,8 +1131,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Art Deco bar with rooftop terrace and city views. Pizza, beer, cocktails. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Tastet, Cult MTL, Tourisme Montreal.",
   },
@@ -1283,8 +1147,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Garage-door entrance terrace. Local products, modern cuisine. Some of the best cuisine in the city. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1301,8 +1163,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Stunning terrace. Venetian-inspired cicchetti. Sources: Tastet.",
   },
@@ -1319,8 +1179,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Vibrant terrace. Sources: Tastet.",
   },
@@ -1337,8 +1195,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Modern microbrewery with large garage door opening. Block parties. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1355,8 +1211,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 'lan khao gang' — a Thai curry shop and grocery hybrid common in Thailand but rare in North America. Casual outdoor seating, short menu of authentic curries, no reservations. Sources: Tastet, Yelp.",
   },
@@ -1377,8 +1231,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "One of the city's best streetside setups, ringed by trees and planters. Lush and intimate. Refined Syrian cuisine with 10-12 course tasting menu available. Sources: OpenTable, MTL Blog, Time Out, Tastet.",
   },
@@ -1395,8 +1247,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming covered terrace. French brasserie. Sources: Tastet.",
   },
@@ -1413,8 +1263,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Art deco interior. Retractable awnings covering tightly-packed cafe tables with hanging plants. Classic French comfort food. Sources: Time Out.",
   },
@@ -1431,8 +1279,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Watch passersby on Bernard Avenue. Sources: Tastet.",
   },
@@ -1449,8 +1295,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Large wooden deck patio on leafy Laurier Avenue. Italian classics, pizzas and pasta, casual dining. Sources: OpenTable.",
   },
@@ -1467,8 +1311,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Shaded terrace. Gourmet sandwiches, seasonal tasting menu. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1485,8 +1327,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Stunning terrace. Catalan wines. Sources: Tastet.",
   },
@@ -1503,8 +1343,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "European-inspired outdoor space. Sources: Tastet.",
   },
@@ -1521,8 +1359,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace stretches around the restaurant. Sources: Tastet.",
   },
@@ -1543,8 +1379,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street-side terrace. Sources: Tastet.",
   },
@@ -1561,8 +1395,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace becomes a lively gathering spot. Sources: Tastet.",
   },
@@ -1583,8 +1415,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Housed in a former garage. Cozy terrace beside the restaurant. One of the best Italian restaurants in Montreal. Sources: Tastet, Milesopedia.",
   },
@@ -1601,8 +1431,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace on Saint-Zotique street. Natural wines, seasonal small plates. Sources: Tastet, Montreal Diaries.",
   },
@@ -1620,8 +1448,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 12:00 AM",
     description:
       "Cozy indoor and street terraces on Beaubien. Craft beer destination. Sources: Tastet.",
@@ -1639,8 +1465,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charmingly simple street-side terrace. Sources: Tastet.",
   },
@@ -1657,8 +1481,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A hidden tiki bar tucked inside Bar Idole on Plaza Saint-Hubert, open since 2017. Tropical cocktails served in sculpted pineapple glasses, immersive kitschy decor. Open daily until 3am. Sources: Yelp, RestoMontreal, The Main.",
   },
@@ -1675,8 +1497,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A covered rooftop on Plaza Saint-Hubert styled as a 1960s Italian-American sports bar. Crispy hybrid pizzas (New York/New Haven/NJ styles), natural wines, and Rat Pack-era aesthetics. Sources: Cult MTL, The Main.",
   },
@@ -1697,8 +1517,6 @@ export const terraces: Terrace[] = [
     dogFriendly: true,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Canal-side terrace attached to McAuslan Brewery. Picnic tables, string lights, lush greenery. Wood-fired pizza Thursday-Sunday. Dogs welcomed. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, Daily Hive, Montreal Diaries.",
   },
@@ -1715,8 +1533,6 @@ export const terraces: Terrace[] = [
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs with open arms"
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "One of the city's largest terraces along the Lachine Canal. Industrial-chic brewery. Rotating craft beers, food trucks. Known for creamy IPAs and popular lagers. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Cult MTL, Narcity, Montreal Diaries, Tourisme Montreal, Tastet.",
   },
@@ -1733,8 +1549,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming back terraces. Acclaimed restaurant. Sources: Tastet, Daily Hive.",
   },
@@ -1751,8 +1565,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Secluded charming back terrace. Vegetables and organic/natural wines. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1769,8 +1581,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Two beautiful wooden terraces. Market-driven menu with daily-changing dishes. Heated and covered tables. Hyper-seasonal ingredients. Sources: Tastet, OpenTable.",
   },
@@ -1787,8 +1597,6 @@ export const terraces: Terrace[] = [
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs"
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Large green patio facing Lachine Canal. Colorful benches, green wall, picnic tables. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1805,8 +1613,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Pink-and-green terrace. Sources: Tastet.",
   },
@@ -1823,8 +1629,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Long, spacious terrace. Sources: Tastet.",
   },
@@ -1841,8 +1645,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Simple and welcoming terrace. Sources: Tastet.",
   },
@@ -1860,8 +1662,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Secret terrace with 35 seats in an old presbytery. 100% local menu. Prix-fixe seasonal. Sources: Tastet, Tourisme Montreal.",
   },
@@ -1878,8 +1678,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Charming terrace lined with plants. Sources: Tastet.",
   },
@@ -1896,8 +1694,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Spacious terrace. Sources: Tastet.",
   },
@@ -1914,8 +1710,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Inviting terrace. Sources: Tastet.",
   },
@@ -1932,8 +1726,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hedge-ringed off-street terrace with garden party atmosphere. Creative dishes with international flair. Sources: OpenTable.",
   },
@@ -1950,8 +1742,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A sun-drenched Mediterranean courtyard set inside the historic New City Gas site, framed by stone walls and curated art installations. Mezze, charcoal-grilled dishes, and private-import wines in a space evoking Mykonos, Tulum, and Ibiza. Sources: Time Out Montreal, MTL Blog, Tourisme Montreal.",
   },
@@ -1968,8 +1758,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 90-seat terrace with a retractable roof inside a lovingly restored 1889 industrial loft with iron beams and brick walls. Northern Italian cuisine using local organic ingredients from Piedmont, Lombardy, and Emilia-Romagna. Sources: RestoMontreal, TripAdvisor.",
   },
@@ -1986,8 +1774,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Patio situated directly on the water near Atwater Market. Sources: Daily Hive.",
   },
@@ -2004,8 +1790,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Spacious courtyard terrace with fire pit in converted industrial building. Quebec's bounty showcased. Tasting menu available. Fresh housemade pasta. Sources: OpenTable.",
   },
@@ -2026,8 +1810,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     description:
       "Covered and heated terrace. Buvette with shade for hot days. Sources: Tastet, Tourisme Montreal.",
   },
@@ -2044,8 +1826,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Back terrace with scattered tables, rattan chairs, hanging vines. Craft cocktails and microbrews. Sources: Time Out.",
   },
@@ -2066,8 +1846,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Retro design with small garden area. Market-priced food. Sources: Daily Hive.",
   },
@@ -2088,8 +1866,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Lush terrace. Local products focus. Sources: Tastet.",
   },
@@ -2110,8 +1886,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Welcoming terrace. Sources: Tastet.",
   },
@@ -2132,8 +1906,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace set up on Saint-Laurent Boulevard. Sources: Tastet.",
   },
@@ -2150,8 +1922,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Take-out counter with terrace. Sources: Tastet.",
   },
@@ -2172,8 +1942,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Large terrace at corner. Sources: Tastet.",
   },
@@ -2195,8 +1963,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A massive backyard terrace at this New Orleans-inspired bar from the team behind Midway and Marion. Perfectly frothy Ramos Gin Fizzes, stiff Sazeracs, baked oysters, and gumbo laced with cheese curds. Sources: MTL Blog, The Main, RestoMontreal.",
   },
@@ -2213,8 +1979,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Wooden terrace with charming lights. Sources: Tastet.",
   },
@@ -2235,8 +1999,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     description:
       "Cozy, colorful, and heated terrace. Sources: Tastet.",
   },
@@ -2259,8 +2021,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Plant-lined terrace under green canopy on the waterfront. DJ Thursdays, seasonal menu. Capacity ~400 guests. Sources: Tourisme Montreal, RestoMontreal.",
   },
@@ -2277,8 +2037,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street-facing terrace with house-brewed beers. Sources: RestoMontreal.",
   },
@@ -2294,8 +2052,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Mediterranean-style terrace. Tapas and paella. Sources: RestoMontreal.",
   },
@@ -2311,8 +2067,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Covered patio on Place Jacques-Cartier. Sources: RestoMontreal.",
   },
@@ -2329,8 +2083,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street-side terrace. Lobster-focused menu. Sources: RestoMontreal.",
   },
@@ -2347,8 +2099,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Front and back courtyard terraces. Live DJs Wed-Sat. Sources: RestoMontreal.",
   },
@@ -2364,8 +2114,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Terrace with live music. Sources: RestoMontreal.",
   },
@@ -2382,8 +2130,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street patio. Japanese cuisine. Sources: RestoMontreal.",
   },
@@ -2399,8 +2145,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "South Beach aesthetic, 2nd-floor lounge. Sources: Noovomoi, Tourisme Montreal.",
   },
@@ -2417,8 +2161,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street terrace. DJ on some nights. Sources: RestoMontreal.",
   },
@@ -2437,8 +2179,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A two-story half-covered rooftop with a compact urban pool atop the Renaissance Montreal Hotel, steps from Place Ville-Marie. Asian fusion cuisine and signature cocktails with downtown skyline views. Open May–September. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
   },
@@ -2455,8 +2195,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "3,500 sq ft rooftop with four-season pergola. Private salon available. Sources: Noovomoi, Tourisme Montreal.",
   },
@@ -2473,8 +2211,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Tulum-inspired sidewalk terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
   },
@@ -2490,8 +2226,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "French brasserie with weekend brunch. Sources: RestoMontreal, Tourisme Montreal.",
   },
@@ -2508,8 +2242,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Back garden with picnic tables (2 terraces). Japanese café. Sources: Tastet, Tourisme Montreal.",
   },
@@ -2526,8 +2258,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street-side terrace. Japanese cuisine. Sources: Daily Hive.",
   },
@@ -2544,8 +2274,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A covered, heated rooftop terrace facing St-James Church in the Quartier des Spectacles. Mediterranean cuisine, live jazz Wednesday–Thursday, DJs Friday–Saturday. Sources: Tourisme Montreal, OpenTable.",
   },
@@ -2564,8 +2292,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Craft microbrewery in the heart of the Latin Quarter serving exclusive beers from their Saint-Hyacinthe brewery. Two terraces including a back patio. Duck confit mac & cheese, smoked brisket poutine. Sources: RestoMontreal, Tourisme Montreal.",
   },
@@ -2581,8 +2307,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A bustling brewpub on Saint-Denis with one of Canada's largest beer selections: 44 taps, 550 bottles, and a 700+ beer bible. Large vibrant terrace, pub food, and retro arcade games. Sources: RestoMontreal, BeerAdvocate.",
   },
@@ -2601,8 +2325,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Backyard terrace with red lanterns. Modern Chinese cuisine. Sources: Tastet, Tourisme Montreal.",
   },
@@ -2618,8 +2340,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Covered terrace. Italian, fresh pasta. Sources: Tastet.",
   },
@@ -2635,8 +2355,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "French-inspired. BYOW. Sources: Tastet.",
   },
@@ -2652,8 +2370,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A hidden back terrace surrounded by vines — one of the Plateau's best-kept secrets. Serving traditional Berber and Algerian couscous since 1985. BYOW. Sources: TripAdvisor, RestoMontreal.",
   },
@@ -2669,8 +2385,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A waffle café on Avenue Duluth with two terraces — a front sidewalk terrace and a charming back courtyard full of ivy, greenery, and a winding staircase. Gaufre brunch boards, vegan and gluten-free options. Sources: TripAdvisor, RestoMontreal.",
   },
@@ -2687,8 +2401,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A festive lush back terrace at this legendary Plateau rum bar, open since 2003. Over 200 rums from 20+ countries, Latin tapas, themed nights including karaoke and musical quiz. Sources: TripAdvisor, The Main, Barraca.",
   },
@@ -2705,8 +2417,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Biergarten-style terrace. Grilled dishes, exclusive beers. Sources: Tastet, Tourisme Montreal.",
   },
@@ -2724,8 +2434,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A stylish sidewalk terrace on Saint-Viateur in the heart of Mile End. Handcrafted pastries and specialty coffee. Sources: Tourisme Montreal.",
   },
@@ -2744,8 +2452,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Small sidewalk terrace. Natural wines, charcuterie. Sources: Tastet.",
   },
@@ -2761,8 +2467,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Greenery-filled terrace. Sharing platters. Sources: Tastet.",
   },
@@ -2779,8 +2483,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Back terrace. Creative ice cream flavors, vegan options. Sources: Tourisme Montreal, Milesopedia.",
   },
@@ -2797,8 +2499,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A sidewalk patio on Plaza Saint-Hubert specializing in Quebec microbrewery beers — 16 taps and 45 bottles. Pub food, quiz nights Mondays, karaoke Thursdays. Sources: Tourisme Montreal, Yelp.",
   },
@@ -2814,8 +2514,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Mezzanine and summer terrace. Eco-friendly café. Sources: Tastet.",
   },
@@ -2831,8 +2529,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Corner terrace. Artisanal roasting. Sources: Tastet.",
   },
@@ -2848,8 +2544,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Small terrace. Micro-café-caviste. Sources: Tastet.",
   },
@@ -2865,8 +2559,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Canada's first cocktail bar dedicated to the art of aperitivo, with a 60-seat terrace on Saint-Laurent. Extensive amaro and vermouth collection, negroni vending machine, and Italo disco vinyl. Opened 2023. Sources: Tastet, NUVO, Tourisme Montreal.",
   },
@@ -2883,8 +2575,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Street terrace. Italian pastries, gelato. Sources: Tastet.",
   },
@@ -2900,8 +2590,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Boréale brewery's taproom in Mile-Ex with a sidewalk terrace extending to the street. Exclusive and seasonal beers, pizzas and snacks, with furniture crafted by local artisans. Sources: Boréale, Tourisme Montreal.",
   },
@@ -2919,8 +2607,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Vibrant terrace. Café-bar with Asian influences. Sources: Tastet, Tourisme Montreal.",
   },
@@ -2936,8 +2622,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A neighbourhood Iberian wine bar with a casual terrace, channeling the spirit of small Spanish counters. Natural and biodynamic wines (mostly private imports), patatas bravas, chorizo in cider, and a free bowl of olives on arrival. Sources: Tastet, Tourisme Montreal, The Main.",
   },
@@ -2953,8 +2637,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A gourmet pub with one of the best oyster bars in town, plus wagyu steak, truffle fries, lobster mac and cheese, and creative cocktails. Stylish decor with DJs some evenings. Sources: Tourisme Montreal, RestoMontreal.",
   },
@@ -2972,8 +2654,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Cozy terrace. Natural wine, Vietnamese heritage. Sources: Tastet.",
   },
@@ -2989,8 +2669,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "An urban brasserie inside a converted fire station in the Angus Shops area. Inventive Franco-Québécois cuisine, soaring ceilings, brick walls, a spiral staircase, and a charming terrace. Sources: RestoMontreal, TripAdvisor, Tourisme Montreal.",
   },
@@ -3009,8 +2687,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Leafy back terrace. Steakhouse. Sources: Noovomoi, Tourisme Montreal.",
   },
@@ -3027,8 +2703,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Hidden backyard patio behind Elena restaurant. 'Ruelle à Pizza,' picnic tables, no reservation needed. Sources: Noovomoi, Tourisme Montreal.",
   },
@@ -3044,8 +2718,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Spacious patio. Craft beers, microbrewery since 2008. Sources: RestoMontreal, Tourisme Montreal.",
   },
@@ -3061,8 +2733,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Wooden benches terrace. Sources: Tastet.",
   },
@@ -3078,8 +2748,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 100-seat terrace along the Lachine Canal with views of the waterway and bike path. Craft beers brewed on site (including barrel-aged specialties), organic wines, and ping-pong and arcade games inside. Sources: Memento, Tourisme Montreal, The Main.",
   },
@@ -3098,8 +2766,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A 180-seat partly covered and heated beer garden in a historic former bank on Wellington Street — one of the prettiest patios in the city. 18 craft beers on tap, open until 3am. First bar to open in Verdun after its 80-year dry period. Sources: TripAdvisor, RestoMontreal.",
   },
@@ -3116,8 +2782,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A tranquil back patio at this beloved Verdun tea house open since 2003. Over 100 loose teas including Vietnam Oolong and Feu de l'Arctique, scones, and light desserts. Sources: RestoMontreal, Bonjour Québec.",
   },
@@ -3136,8 +2800,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Sidewalk terrace. Japanese-Peruvian fusion. Sources: Noovomoi.",
   },
@@ -3155,8 +2817,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Sunlit terrace. Italian pastries. Sources: Tastet.",
   },
@@ -3177,8 +2837,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     website: "https://rossocielo.com/en/",
     description:
       "Laval's only 10th-floor rooftop terrace atop the Courtyard by Marriott, steps from Montmorency metro. Panoramic views of both Laval and Montreal skylines. Italian cuisine on the ground floor, rooftop cocktails above. Sources: Tourisme Laval, RestoMontreal.",
@@ -3196,8 +2854,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A reimagined 19th-century nautical clubhouse on the Rivière-des-Mille-Îles in Vieux Sainte-Rose. Terrace overlooking the river, DJs on weekends, weekly-changing menu, and karaoke upstairs. Sources: Tourisme Laval, RestoMontreal.",
   },
@@ -3214,8 +2870,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A refined Italian garden terrace in a century-old house in Sainte-Rose. Colorful flowers, mature trees, housemade desserts, and a Wine Spectator-recognized wine list. Sources: RestoMontreal, Tourisme Laval.",
   },
@@ -3231,8 +2885,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Laval craft brewery with 24 beers on tap and a terrace. Bistro menu with local ingredients, highlighted as one of the island's best terrace experiences. Sources: Tourisme Laval, RestoMontreal.",
   },
@@ -3248,8 +2900,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "One of Quebec's top-rated restaurants, housed in an elegant ancestral home in Vieux Sainte-Dorothée. Quaint terrace facing the village square. French gastronomic cuisine. Sources: Tourisme Laval, TripAdvisor, The Suburban.",
   },
@@ -3269,8 +2919,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "Two terraces — one covered, one open — seating 100 people total in the heart of Old Longueuil. Known for mussels, fries, and grilled meats with a wide selection of imported beers. Sources: RestoMontreal, Yelp.",
   },
@@ -3287,8 +2935,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A leafy back terrace offering a welcome escape in Longueuil. Housemade pasta and wood-fired pizza in a refined yet warm setting. Sources: RestoMontreal, RestoMontreal article.",
   },
@@ -3304,8 +2950,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A festive terrace at Quartier Dix30 with bold neon lights, retro arcade games, and a food-truck-style ordering window. Tacos, burritos, and mezcal cocktails until 3am. Sources: RestoMontreal, Dirty D.",
   },
@@ -3322,8 +2966,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     description:
       "A rooftop terrace overlooking the famous Dix30 fountain and square — ideal for Thai dishes and cocktails after a day of shopping. Thai Select Premium certified. Sources: Siam, Bonjour Québec.",
   },
