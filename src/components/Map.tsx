@@ -22,7 +22,7 @@ function isValidLatLng(lat: unknown, lng: unknown): boolean {
 function createIcon(active: boolean) {
   return L.divIcon({
     className: "",
-    html: `<div class="terrace-marker ${active ? "active" : ""}"><span class="terrace-marker-inner">&#9788;</span></div>`,
+    html: `<div class="terrace-marker ${active ? "active" : ""}"><span class="terrace-marker-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" fill="none" width="15" height="15"><path d="M10 1.5C5.6 1.5 1.5 5.4 1 9.5h18c-.5-4.1-4.6-8-9-8z" fill="white"/><path d="M10 9.5v9" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M10 18.5c0 1.5-1.5 2-2.5 2" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 36],
     popupAnchor: [0, -36],
