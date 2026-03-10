@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { terraces } from "@/data/terraces";
 
 const neighborhoods = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -18,31 +20,48 @@ const terraceTypes = [
   { value: "courtyard", label: "Courtyard / Hidden Patio" },
 ];
 
+const emptyForm = {
+  name: "", address: "", neighborhood: "", terraceType: "",
+  cuisineType: "", capacity: "", covered: false, dogFriendly: false,
+  heated: false, website: "", phone: "", openingHours: "",
+  seasonalOpen: "", seasonalClose: "", description: "",
+  submitterName: "", submitterEmail: "", submitterRole: "",
+};
+
 type FormState = "idle" | "submitting" | "success" | "error";
 
-export default function SubmitPage() {
+function SubmitPageContent() {
+  const searchParams = useSearchParams();
+  const editId = searchParams.get("edit");
+  const editTerrace = editId ? terraces.find((t) => t.id === editId) ?? null : null;
+  const isEdit = editTerrace !== null;
+
   const [state, setState] = useState<FormState>("idle");
-  const [form, setForm] = useState({
-    name: "",
-    address: "",
-    neighborhood: "",
-    terraceType: "",
-    cuisineType: "",
-    capacity: "",
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    website: "",
-    phone: "",
-    openingHours: "",
-    seasonalOpen: "",
-    seasonalClose: "",
-    description: "",
-    submitterName: "",
-    submitterEmail: "",
-    submitterRole: "",
-  });
+  const [form, setForm] = useState({ ...emptyForm });
   const [images, setImages] = useState<File[]>([]);
+
+  useEffect(() => {
+    if (editTerrace) {
+      setForm({
+        name: editTerrace.name,
+        address: editTerrace.address,
+        neighborhood: editTerrace.neighborhood,
+        terraceType: editTerrace.terraceType ?? "",
+        cuisineType: editTerrace.cuisineType,
+        capacity: editTerrace.capacity ? String(editTerrace.capacity) : "",
+        covered: editTerrace.covered,
+        dogFriendly: editTerrace.dogFriendly,
+        heated: editTerrace.heated,
+        website: editTerrace.website ?? "",
+        phone: editTerrace.phone ?? "",
+        openingHours: editTerrace.openingHours ?? "",
+        seasonalOpen: editTerrace.seasonalOpen ?? "",
+        seasonalClose: editTerrace.seasonalClose ?? "",
+        description: editTerrace.description,
+        submitterName: "", submitterEmail: "", submitterRole: "",
+      });
+    }
+  }, [editTerrace]);
 
   function update(field: string, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -53,9 +72,9 @@ export default function SubmitPage() {
     setState("submitting");
 
     // For now, log to console — wire up to email/database in v2
-    console.log("Terrace submission:", form, "images:", images);
+    const payload = isEdit ? { type: "correction", editId, ...form } : { type: "new", ...form };
+    console.log("Terrace submission:", payload, "images:", images);
 
-    // Simulate a short delay
     await new Promise((r) => setTimeout(r, 800));
     setState("success");
   }
@@ -77,34 +96,29 @@ export default function SubmitPage() {
               <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
             </svg>
           </div>
-          <h2 className="text-2xl font-bold mb-3">Thanks for submitting!</h2>
+          <h2 className="text-2xl font-bold mb-3">
+            {isEdit ? "Thanks for the correction!" : "Thanks for submitting!"}
+          </h2>
           <p className="text-muted text-sm mb-6">
-            We'll review your terrace and add it to the map. It usually takes
-            1–3 days. We may reach out to you if we need more details.
+            {isEdit
+              ? "We'll review your suggested changes and update the listing if everything checks out."
+              : "We'll review your terrace and add it to the map. It usually takes 1–3 days. We may reach out to you if we need more details."}
           </p>
           <div className="flex gap-3 justify-center">
             <Link
               href="/"
-              className="px-4 py-2 rounded-lg bg-accent text-black text-sm font-medium hover:bg-accent-dim transition-colors"
+              className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors"
             >
               Back to the map
             </Link>
-            <button
-              onClick={() => {
-                setState("idle");
-                setForm({
-                  name: "", address: "", neighborhood: "", terraceType: "",
-                  cuisineType: "", capacity: "", covered: false, dogFriendly: false,
-                  heated: false, website: "", phone: "", openingHours: "",
-                  seasonalOpen: "", seasonalClose: "", description: "",
-                  submitterName: "", submitterEmail: "", submitterRole: "",
-                });
-                setImages([]);
-              }}
-              className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
-            >
-              Submit another
-            </button>
+            {!isEdit && (
+              <button
+                onClick={() => { setState("idle"); setForm({ ...emptyForm }); setImages([]); }}
+                className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
+              >
+                Submit another
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -136,10 +150,13 @@ export default function SubmitPage() {
 
       <div className="max-w-2xl mx-auto px-6 py-10">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold mb-2">Submit a terrace</h1>
+          <h1 className="text-2xl font-bold mb-2">
+            {isEdit ? `Suggest a correction` : "Submit a terrace"}
+          </h1>
           <p className="text-muted text-sm">
-            Know a great terrace that's not on the map? Whether you're an owner,
-            manager, or just a regular — help us grow the list.
+            {isEdit
+              ? `Update the details for ${editTerrace.name}. Edit any fields that are wrong or missing and submit.`
+              : "Know a great terrace that's not on the map? Whether you're an owner, manager, or just a regular — help us grow the list."}
           </p>
         </div>
 
@@ -415,13 +432,23 @@ export default function SubmitPage() {
           <button
             type="submit"
             disabled={state === "submitting"}
-            className="w-full py-3 rounded-xl bg-accent text-black font-semibold text-sm hover:bg-accent-dim transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full py-3 rounded-xl bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {state === "submitting" ? "Submitting..." : "Submit terrace"}
+            {state === "submitting"
+              ? "Submitting..."
+              : isEdit ? "Send correction" : "Submit terrace"}
           </button>
         </form>
       </div>
     </div>
+  );
+}
+
+export default function SubmitPage() {
+  return (
+    <Suspense>
+      <SubmitPageContent />
+    </Suspense>
   );
 }
 

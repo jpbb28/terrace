@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Terrace } from "@/lib/types";
 
 const typeLabels: Record<string, string> = {
@@ -85,7 +86,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         </div>
 
         {/* CTA */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 mb-6">
           {terrace.website && (
             <a
               href={terrace.website}
@@ -111,6 +112,16 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               Call
             </a>
           )}
+        </div>
+
+        {/* Correction link */}
+        <div className="pt-4 border-t border-border">
+          <Link
+            href={`/submit?edit=${terrace.id}`}
+            className="text-xs text-muted hover:text-accent transition-colors"
+          >
+            Something wrong or missing? Suggest a correction
+          </Link>
         </div>
       </div>
     </div>
