@@ -7,6 +7,7 @@ import { terraces } from "@/data/terraces";
 import FilterBar from "@/components/FilterBar";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
+import { useLang } from "@/lib/LanguageContext";
 
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
@@ -26,6 +27,7 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
 }
 
 export default function Home() {
+  const { lang, setLang, t } = useLang();
   const [search, setSearch] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [terraceType, setTerraceType] = useState("");
@@ -164,12 +166,20 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <Link
-              href="/submit"
-              className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
-            >
-              + Submit
-            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors font-medium tracking-wide"
+              >
+                {lang === "en" ? "FR" : "EN"}
+              </button>
+              <Link
+                href="/submit"
+                className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
+              >
+                {t.submit}
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -188,19 +198,19 @@ export default function Home() {
               {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>
-                  <p className="text-sm text-muted">No terraces match your filters.</p>
+                  <p className="text-sm text-muted">{t.noResults}</p>
                 </div>
               ) : (
-                filteredWithDistance.map(({ terrace: t, distance }, i) => (
+                filteredWithDistance.map(({ terrace, distance }, i) => (
                   <div
-                    key={t.id}
+                    key={terrace.id}
                     className="card-enter"
                     style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
                   >
                     <TerraceCard
-                      terrace={t}
-                      selected={selectedId === t.id}
-                      onClick={() => openTerrace(t.id)}
+                      terrace={terrace}
+                      selected={selectedId === terrace.id}
+                      onClick={() => openTerrace(terrace.id)}
                       distance={distance}
                     />
                   </div>
@@ -243,12 +253,20 @@ export default function Home() {
                 Terrace Season
               </h1>
             </div>
-            <Link
-              href="/submit"
-              className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
-            >
-              + Submit
-            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted font-medium tracking-wide"
+              >
+                {lang === "en" ? "FR" : "EN"}
+              </button>
+              <Link
+                href="/submit"
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
+              >
+                {t.submit}
+              </Link>
+            </div>
           </div>
 
           {!selectedTerrace && <FilterBar {...filterBarProps} />}
@@ -268,7 +286,7 @@ export default function Home() {
                     : "text-muted"
                 }`}
               >
-                List ({filteredWithDistance.length})
+                {t.list} ({filteredWithDistance.length})
               </button>
               <button
                 onClick={() => setMobileView("map")}
@@ -278,7 +296,7 @@ export default function Home() {
                     : "text-muted"
                 }`}
               >
-                Map
+                {t.map}
               </button>
             </div>
 
@@ -294,15 +312,15 @@ export default function Home() {
                 {filteredWithDistance.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-3xl mb-2">&#9789;</p>
-                    <p className="text-sm text-muted">No terraces match your filters.</p>
+                    <p className="text-sm text-muted">{t.noResults}</p>
                   </div>
                 ) : (
-                  filteredWithDistance.map(({ terrace: t, distance }) => (
+                  filteredWithDistance.map(({ terrace, distance }) => (
                     <TerraceCard
-                      key={t.id}
-                      terrace={t}
-                      selected={selectedId === t.id}
-                      onClick={() => openTerrace(t.id)}
+                      key={terrace.id}
+                      terrace={terrace}
+                      selected={selectedId === terrace.id}
+                      onClick={() => openTerrace(terrace.id)}
                       distance={distance}
                     />
                   ))

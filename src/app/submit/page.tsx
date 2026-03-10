@@ -4,6 +4,7 @@ import { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
+import { useLang } from "@/lib/LanguageContext";
 
 const neighborhoods = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -11,13 +12,6 @@ const neighborhoods = [
   "NDG", "Old Montreal", "Outremont", "Parc-Extension", "Petite-Patrie",
   "Plateau-Mont-Royal", "Pointe-Saint-Charles", "Quartier des Spectacles",
   "Rosemont", "Saint-Henri", "The Village", "Verdun", "Villeray",
-];
-
-const terraceTypes = [
-  { value: "sidewalk", label: "Sidewalk / Streetside" },
-  { value: "rooftop", label: "Rooftop" },
-  { value: "backyard", label: "Backyard / Garden" },
-  { value: "courtyard", label: "Courtyard / Hidden Patio" },
 ];
 
 const emptyForm = {
@@ -35,6 +29,15 @@ function SubmitPageContent() {
   const editId = searchParams.get("edit");
   const editTerrace = editId ? terraces.find((t) => t.id === editId) ?? null : null;
   const isEdit = editTerrace !== null;
+
+  const { t } = useLang();
+
+  const terraceTypes = [
+    { value: "sidewalk", label: t.sidewalkFull },
+    { value: "rooftop", label: t.rooftop },
+    { value: "backyard", label: t.backyardFull },
+    { value: "courtyard", label: t.courtyardFull },
+  ];
 
   const [state, setState] = useState<FormState>("idle");
   const [form, setForm] = useState({ ...emptyForm });
@@ -97,26 +100,24 @@ function SubmitPageContent() {
             </svg>
           </div>
           <h2 className="text-2xl font-bold mb-3">
-            {isEdit ? "Thanks for the correction!" : "Thanks for submitting!"}
+            {isEdit ? t.thanksCorrection : t.thanksSubmit}
           </h2>
           <p className="text-muted text-sm mb-6">
-            {isEdit
-              ? "We'll review your suggested changes and update the listing if everything checks out."
-              : "We'll review your terrace and add it to the map. It usually takes 1–3 days. We may reach out to you if we need more details."}
+            {isEdit ? t.correctionMsg : t.submitMsg}
           </p>
           <div className="flex gap-3 justify-center">
             <Link
               href="/"
               className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors"
             >
-              Back to the map
+              {t.backToMapBtn}
             </Link>
             {!isEdit && (
               <button
                 onClick={() => { setState("idle"); setForm({ ...emptyForm }); setImages([]); }}
                 className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
               >
-                Submit another
+                {t.submitAnother}
               </button>
             )}
           </div>
@@ -130,7 +131,7 @@ function SubmitPageContent() {
       {/* Header */}
       <div className="border-b border-border px-6 py-4 flex items-center gap-4">
         <Link href="/" className="text-muted hover:text-foreground text-sm transition-colors">
-          &larr; Back to map
+          {t.backToMap}
         </Link>
         <div className="flex items-center gap-2">
           <svg className="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,12 +152,12 @@ function SubmitPageContent() {
       <div className="max-w-2xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-2xl font-bold mb-2">
-            {isEdit ? `Suggest a correction` : "Submit a terrace"}
+            {isEdit ? t.correctTitle : t.submitTitle}
           </h1>
           <p className="text-muted text-sm">
             {isEdit
-              ? `Update the details for ${editTerrace.name}. Edit any fields that are wrong or missing and submit.`
-              : "Know a great terrace that's not on the map? Whether you're an owner, manager, or just a regular — help us grow the list."}
+              ? t.correctSubtitle(editTerrace.name)
+              : t.submitSubtitle}
           </p>
         </div>
 
@@ -164,21 +165,21 @@ function SubmitPageContent() {
           {/* Terrace Info */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Terrace Info
+              {t.terraceInfoSection}
             </h2>
             <div className="space-y-4">
-              <Field label="Restaurant / Bar name" required>
+              <Field label={t.nameLabel} required>
                 <input
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) => update("name", e.target.value)}
-                  placeholder="e.g. Café Olimpico"
+                  placeholder={t.namePlaceholder}
                   className={inputClass}
                 />
               </Field>
 
-              <Field label="Address" required>
+              <Field label={t.addressLabel} required>
                 <input
                   type="text"
                   required
@@ -190,63 +191,63 @@ function SubmitPageContent() {
               </Field>
 
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Neighborhood" required>
+                <Field label={t.neighborhoodLabel} required>
                   <select
                     required
                     value={form.neighborhood}
                     onChange={(e) => update("neighborhood", e.target.value)}
                     className={inputClass}
                   >
-                    <option value="">Select...</option>
+                    <option value="">{t.selectPlaceholder}</option>
                     {neighborhoods.map((n) => (
                       <option key={n} value={n}>{n}</option>
                     ))}
                   </select>
                 </Field>
 
-                <Field label="Terrace type" required>
+                <Field label={t.terraceTypeLabel} required>
                   <select
                     required
                     value={form.terraceType}
                     onChange={(e) => update("terraceType", e.target.value)}
                     className={inputClass}
                   >
-                    <option value="">Select...</option>
-                    {terraceTypes.map((t) => (
-                      <option key={t.value} value={t.value}>{t.label}</option>
+                    <option value="">{t.selectPlaceholder}</option>
+                    {terraceTypes.map((tt) => (
+                      <option key={tt.value} value={tt.value}>{tt.label}</option>
                     ))}
                   </select>
                 </Field>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Cuisine type">
+                <Field label={t.cuisineLabel}>
                   <input
                     type="text"
                     value={form.cuisineType}
                     onChange={(e) => update("cuisineType", e.target.value)}
-                    placeholder="e.g. French Bistro, Brewery"
+                    placeholder={t.cuisinePlaceholder}
                     className={inputClass}
                   />
                 </Field>
 
-                <Field label="Approximate capacity">
+                <Field label={t.capacityLabel}>
                   <input
                     type="number"
                     min="0"
                     value={form.capacity}
                     onChange={(e) => update("capacity", e.target.value)}
-                    placeholder="e.g. 40"
+                    placeholder={t.capacityPlaceholder}
                     className={inputClass}
                   />
                 </Field>
               </div>
 
-              <Field label="Description">
+              <Field label={t.descriptionLabel}>
                 <textarea
                   value={form.description}
                   onChange={(e) => update("description", e.target.value)}
-                  placeholder="What makes this terrace special? Views, vibe, notable features..."
+                  placeholder={t.descriptionPlaceholder}
                   rows={3}
                   className={inputClass}
                 />
@@ -257,21 +258,21 @@ function SubmitPageContent() {
           {/* Features */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Features
+              {t.featuresSection}
             </h2>
             <div className="flex flex-wrap gap-4">
               <Checkbox
-                label="Dog-friendly"
+                label={t.dogFriendlyCheck}
                 checked={form.dogFriendly}
                 onChange={(v) => update("dogFriendly", v)}
               />
               <Checkbox
-                label="Covered / has awning"
+                label={t.coveredCheck}
                 checked={form.covered}
                 onChange={(v) => update("covered", v)}
               />
               <Checkbox
-                label="Heated"
+                label={t.heatedCheck}
                 checked={form.heated}
                 onChange={(v) => update("heated", v)}
               />
@@ -281,34 +282,34 @@ function SubmitPageContent() {
           {/* Hours & Season */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Hours & Season (optional)
+              {t.hoursSection}
             </h2>
             <div className="space-y-4">
-              <Field label="Opening hours">
+              <Field label={t.openingHoursLabel}>
                 <input
                   type="text"
                   value={form.openingHours}
                   onChange={(e) => update("openingHours", e.target.value)}
-                  placeholder="e.g. 11:30 AM – 11:00 PM"
+                  placeholder={t.openingHoursPlaceholder}
                   className={inputClass}
                 />
               </Field>
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Opens for season">
+                <Field label={t.opensForSeason}>
                   <input
                     type="text"
                     value={form.seasonalOpen}
                     onChange={(e) => update("seasonalOpen", e.target.value)}
-                    placeholder="e.g. May or April 15"
+                    placeholder={t.opensForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
-                <Field label="Closes for season">
+                <Field label={t.closesForSeason}>
                   <input
                     type="text"
                     value={form.seasonalClose}
                     onChange={(e) => update("seasonalClose", e.target.value)}
-                    placeholder="e.g. October or Nov 1"
+                    placeholder={t.closesForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
@@ -319,7 +320,7 @@ function SubmitPageContent() {
           {/* Images */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Photos (optional)
+              {t.photosSection}
             </h2>
             <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
               <svg className="w-7 h-7 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -327,10 +328,10 @@ function SubmitPageContent() {
               </svg>
               <span className="text-sm text-muted">
                 {images.length === 0
-                  ? "Upload photos of the terrace"
-                  : `${images.length} file${images.length > 1 ? "s" : ""} selected`}
+                  ? t.uploadPhotos
+                  : t.filesSelected(images.length)}
               </span>
-              <span className="text-xs text-muted/60">JPG, PNG, WEBP — up to 5 files</span>
+              <span className="text-xs text-muted/60">{t.photoHint}</span>
               <input
                 type="file"
                 accept="image/*"
@@ -361,11 +362,11 @@ function SubmitPageContent() {
           {/* Contact */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Contact (optional)
+              {t.contactSection}
             </h2>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Website">
+                <Field label={t.websiteLabel}>
                   <input
                     type="url"
                     value={form.website}
@@ -374,7 +375,7 @@ function SubmitPageContent() {
                     className={inputClass}
                   />
                 </Field>
-                <Field label="Phone">
+                <Field label={t.phoneLabel}>
                   <input
                     type="tel"
                     value={form.phone}
@@ -390,40 +391,40 @@ function SubmitPageContent() {
           {/* Submitter */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              About you
+              {t.aboutYouSection}
             </h2>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Your name">
+                <Field label={t.yourNameLabel}>
                   <input
                     type="text"
                     value={form.submitterName}
                     onChange={(e) => update("submitterName", e.target.value)}
-                    placeholder="Optional"
+                    placeholder={t.yourNamePlaceholder}
                     className={inputClass}
                   />
                 </Field>
-                <Field label="Your email">
+                <Field label={t.yourEmailLabel}>
                   <input
                     type="email"
                     value={form.submitterEmail}
                     onChange={(e) => update("submitterEmail", e.target.value)}
-                    placeholder="So we can follow up"
+                    placeholder={t.yourEmailPlaceholder}
                     className={inputClass}
                   />
                 </Field>
               </div>
-              <Field label="Your role">
+              <Field label={t.yourRoleLabel}>
                 <select
                   value={form.submitterRole}
                   onChange={(e) => update("submitterRole", e.target.value)}
                   className={inputClass}
                 >
-                  <option value="">Prefer not to say</option>
-                  <option value="owner">Owner / Manager</option>
-                  <option value="staff">Staff</option>
-                  <option value="regular">Regular customer</option>
-                  <option value="other">Other</option>
+                  <option value="">{t.preferNotSay}</option>
+                  <option value="owner">{t.roleOwner}</option>
+                  <option value="staff">{t.roleStaff}</option>
+                  <option value="regular">{t.roleRegular}</option>
+                  <option value="other">{t.roleOther}</option>
                 </select>
               </Field>
             </div>
@@ -435,8 +436,8 @@ function SubmitPageContent() {
             className="w-full py-3 rounded-xl bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {state === "submitting"
-              ? "Submitting..."
-              : isEdit ? "Send correction" : "Submit terrace"}
+              ? t.submitting
+              : isEdit ? t.sendCorrection : t.submitTerrace}
           </button>
         </form>
       </div>

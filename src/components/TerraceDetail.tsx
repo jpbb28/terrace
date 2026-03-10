@@ -2,13 +2,7 @@
 
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
-
-const typeLabels: Record<string, string> = {
-  sidewalk: "Sidewalk",
-  rooftop: "Rooftop",
-  backyard: "Backyard",
-  courtyard: "Courtyard",
-};
+import { useLang } from "@/lib/LanguageContext";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -16,6 +10,15 @@ interface TerraceDetailProps {
 }
 
 export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) {
+  const { t } = useLang();
+
+  const typeLabels: Record<string, string> = {
+    sidewalk: t.sidewalk,
+    rooftop: t.rooftop,
+    backyard: t.backyard,
+    courtyard: t.courtyard,
+  };
+
   return (
     <div className="flex flex-col h-full animate-fade-in">
       {/* Header accent bar */}
@@ -30,7 +33,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Back to list
+          {t.backToList}
         </button>
 
         {/* Name + neighborhood */}
@@ -59,20 +62,20 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         {/* Info grid */}
         <div className="grid grid-cols-2 gap-3 mb-6">
           {terrace.terraceType && (
-            <InfoItem label="Type" value={typeLabels[terrace.terraceType]} />
+            <InfoItem label={t.type} value={typeLabels[terrace.terraceType]} />
           )}
           {terrace.cuisineType && (
-            <InfoItem label="Cuisine" value={terrace.cuisineType} />
+            <InfoItem label={t.cuisine} value={terrace.cuisineType} />
           )}
           {terrace.capacity ? (
-            <InfoItem label="Capacity" value={`~${terrace.capacity} seats`} />
+            <InfoItem label={t.capacity} value={t.seatsDetail(terrace.capacity)} />
           ) : null}
           {terrace.openingHours && (
-            <InfoItem label="Hours" value={terrace.openingHours} />
+            <InfoItem label={t.hours} value={terrace.openingHours} />
           )}
           {terrace.seasonalOpen && terrace.seasonalClose && (
             <InfoItem
-              label="Season"
+              label={t.season}
               value={`${terrace.seasonalOpen} \u2013 ${terrace.seasonalClose}`}
             />
           )}
@@ -80,9 +83,9 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {terrace.dogFriendly && <Tag label="&#128054; Dog-friendly" />}
-          {terrace.covered && <Tag label="&#9748; Covered" />}
-          {terrace.heated && <Tag label="&#128293; Heated" />}
+          {terrace.dogFriendly && <Tag label={t.dogFriendlyTag} />}
+          {terrace.covered && <Tag label={t.coveredTagDetail} />}
+          {terrace.heated && <Tag label={t.heatedTag} />}
         </div>
 
         {/* CTA */}
@@ -96,7 +99,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
-            Google Maps
+            {t.googleMaps}
           </a>
 
           {terrace.website && (
@@ -106,7 +109,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-accent-hover transition-colors shadow-sm hover:shadow-md"
             >
-              Visit website
+              {t.visitWebsite}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -121,7 +124,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Call
+              {t.call}
             </a>
           )}
         </div>
@@ -135,7 +138,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M15.232 5.232l3.536 3.536M9 13l6.586-6.586a2 2 0 012.828 2.828L11.828 15.828a2 2 0 01-1.414.586H8v-2a2 2 0 01.586-1.414z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Suggest an edit
+            {t.suggestEdit}
           </Link>
         </div>
       </div>
