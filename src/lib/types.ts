@@ -24,7 +24,9 @@ export type Neighborhood =
   | "Pointe-Saint-Charles"
   | "Ahuntsic"
   | "Parc-Extension"
-  | "Old Port";
+  | "Old Port"
+  | "Laval"
+  | "South Shore";
 
 export interface Terrace {
   id: string;
