@@ -257,7 +257,7 @@ export const terraces: Terrace[] = [
     lng: -73.5560,
     neighborhood: "Old Montreal",
     cuisineType: "Distillery / Locavore",
-    terraceType: "backyard", // confirmed: "Garden patio"
+    terraceType: "courtyard", // confirmed: "interior courtyard garden"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -273,7 +273,7 @@ export const terraces: Terrace[] = [
     lng: -73.5565,
     neighborhood: "Old Montreal",
     cuisineType: "Seafood",
-    terraceType: "backyard", // confirmed: "Back stone patio"
+    terraceType: "courtyard", // confirmed: "courtyard terrace tucked behind stone-walled dining room"
     covered: false,
     dogFriendly: false,
     heated: false,
