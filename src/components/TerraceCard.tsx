@@ -2,6 +2,7 @@
 
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
+import { cuisineTypeFR } from "@/lib/i18n";
 
 interface TerraceCardProps {
   terrace: Terrace;
@@ -11,7 +12,7 @@ interface TerraceCardProps {
 }
 
 export default function TerraceCard({ terrace, selected, onClick, distance }: TerraceCardProps) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
     sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive", icon: "\u{1F6B6}" },
@@ -58,12 +59,12 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
       </div>
 
       <p className="text-xs text-foreground/60 mb-3 line-clamp-2 leading-relaxed">
-        {terrace.description}
+        {lang === "fr" && terrace.descriptionFr ? terrace.descriptionFr : terrace.description}
       </p>
 
       <div className="flex flex-wrap gap-1.5">
         <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted font-medium">
-          {terrace.cuisineType}
+          {lang === "fr" ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType) : terrace.cuisineType}
         </span>
         {terrace.capacity ? (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">

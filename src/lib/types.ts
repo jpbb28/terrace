@@ -48,4 +48,5 @@ export interface Terrace {
   seasonalClose?: string;
   openingHours?: string;
   description: string;
+  descriptionFr?: string;
 }
