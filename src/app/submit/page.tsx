@@ -42,6 +42,7 @@ export default function SubmitPage() {
     submitterEmail: "",
     submitterRole: "",
   });
+  const [images, setImages] = useState<File[]>([]);
 
   function update(field: string, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -52,7 +53,7 @@ export default function SubmitPage() {
     setState("submitting");
 
     // For now, log to console — wire up to email/database in v2
-    console.log("Terrace submission:", form);
+    console.log("Terrace submission:", form, "images:", images);
 
     // Simulate a short delay
     await new Promise((r) => setTimeout(r, 800));
@@ -98,6 +99,7 @@ export default function SubmitPage() {
                   seasonalOpen: "", seasonalClose: "", description: "",
                   submitterName: "", submitterEmail: "", submitterRole: "",
                 });
+                setImages([]);
               }}
               className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
             >
@@ -262,7 +264,7 @@ export default function SubmitPage() {
           {/* Hours & Season */}
           <section>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Hours & Season
+              Hours & Season (optional)
             </h2>
             <div className="space-y-4">
               <Field label="Opening hours">
@@ -275,26 +277,68 @@ export default function SubmitPage() {
                 />
               </Field>
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Season opens">
+                <Field label="Opens for season">
                   <input
                     type="text"
                     value={form.seasonalOpen}
                     onChange={(e) => update("seasonalOpen", e.target.value)}
-                    placeholder="e.g. May, April 15"
+                    placeholder="e.g. May or April 15"
                     className={inputClass}
                   />
                 </Field>
-                <Field label="Season closes">
+                <Field label="Closes for season">
                   <input
                     type="text"
                     value={form.seasonalClose}
                     onChange={(e) => update("seasonalClose", e.target.value)}
-                    placeholder="e.g. October, Halloween"
+                    placeholder="e.g. October or Nov 1"
                     className={inputClass}
                   />
                 </Field>
               </div>
             </div>
+          </section>
+
+          {/* Images */}
+          <section>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
+              Photos (optional)
+            </h2>
+            <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
+              <svg className="w-7 h-7 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-sm text-muted">
+                {images.length === 0
+                  ? "Upload photos of the terrace"
+                  : `${images.length} file${images.length > 1 ? "s" : ""} selected`}
+              </span>
+              <span className="text-xs text-muted/60">JPG, PNG, WEBP — up to 5 files</span>
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => {
+                  const files = Array.from(e.target.files ?? []).slice(0, 5);
+                  setImages(files);
+                }}
+              />
+            </label>
+            {images.length > 0 && (
+              <ul className="mt-2 space-y-1">
+                {images.map((f, i) => (
+                  <li key={i} className="text-xs text-muted flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M14 8h.01" strokeLinecap="round" strokeLinejoin="round" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {f.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
 
           {/* Contact */}
