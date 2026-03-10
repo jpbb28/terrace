@@ -3016,7 +3016,7 @@ export const terraces: Terrace[] = [
     lat: 45.4080,
     lng: -73.9565,
     neighborhood: "West Island",
-    cuisineType: "Resto-Bar",
+    cuisineType: "Greek",
     covered: false,
     dogFriendly: false,
     heated: false,
