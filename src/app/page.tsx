@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { terraces } from "@/data/terraces";
@@ -36,6 +36,10 @@ export default function Home() {
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
+
+  const savedScrollTop = useRef(0);
+  const desktopListRef = useRef<HTMLDivElement>(null);
+  const mobileListRef = useRef<HTMLDivElement>(null);
 
   const handleSortByDistance = useCallback(() => {
     if (sortByDistance) {
@@ -104,12 +108,22 @@ export default function Home() {
   const mapZoom = selectedTerrace ? 16 : DEFAULT_ZOOM;
 
   const openTerrace = useCallback((id: string) => {
+    savedScrollTop.current = desktopListRef.current?.scrollTop ?? mobileListRef.current?.scrollTop ?? 0;
     setSelectedId(id);
   }, []);
 
   const closeTerrace = useCallback(() => {
     setSelectedId(null);
   }, []);
+
+  useEffect(() => {
+    if (!selectedId) {
+      requestAnimationFrame(() => {
+        if (desktopListRef.current) desktopListRef.current.scrollTop = savedScrollTop.current;
+        if (mobileListRef.current) mobileListRef.current.scrollTop = savedScrollTop.current;
+      });
+    }
+  }, [selectedId]);
 
   const filterBarProps = {
     search, onSearchChange: setSearch,
@@ -170,7 +184,7 @@ export default function Home() {
 
             <div className="mx-5 mt-3 h-px bg-border shrink-0" />
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+            <div ref={desktopListRef} className="flex-1 overflow-y-auto p-4 space-y-2.5">
               {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>
@@ -270,6 +284,7 @@ export default function Home() {
 
             <div className="flex-1 relative overflow-hidden">
               <div
+                ref={mobileListRef}
                 className={`absolute inset-0 overflow-y-auto p-3 space-y-2 transition-opacity duration-200 ${
                   mobileView === "list"
                     ? "opacity-100 z-10"

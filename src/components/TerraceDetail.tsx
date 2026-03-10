@@ -130,9 +130,12 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         <div className="pt-4 border-t border-border">
           <Link
             href={`/submit?edit=${terrace.id}`}
-            className="text-xs text-muted hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
           >
-            Something wrong or missing? Suggest a correction
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path d="M15.232 5.232l3.536 3.536M9 13l6.586-6.586a2 2 0 012.828 2.828L11.828 15.828a2 2 0 01-1.414.586H8v-2a2 2 0 01.586-1.414z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Suggest an edit
           </Link>
         </div>
       </div>
