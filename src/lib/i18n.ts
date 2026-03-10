@@ -96,7 +96,7 @@ export const translations = {
     thanksCorrection: "Thanks for the correction!",
     thanksSubmit: "Thanks for submitting!",
     correctionMsg: "We'll review your suggested changes and update the listing if everything checks out.",
-    submitMsg: "We'll review your terrace and add it to the map. It usually takes 1\u20133 days. We may reach out to you if we need more details.",
+    submitMsg: "We'll review your terrace and add it to the map soon. We may reach out to you if we need more details.",
     backToMapBtn: "Back to the map",
     submitAnother: "Submit another",
     // Terrace type labels for sidewalk/etc in filters
