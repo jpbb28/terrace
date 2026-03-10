@@ -201,7 +201,7 @@ export const translations = {
     thanksCorrection: "Merci pour la correction\u00A0!",
     thanksSubmit: "Merci pour votre soumission\u00A0!",
     correctionMsg: "Nous examinerons vos suggestions et mettrons \u00E0 jour la fiche si tout est correct.",
-    submitMsg: "Nous examinerons votre terrasse et l\u2019ajouterons \u00E0 la carte. Cela prend g\u00E9n\u00E9ralement 1 \u00E0 3 jours. Nous pourrions vous contacter si nous avons besoin de plus d\u2019informations.",
+    submitMsg: "Nous examinerons votre terrasse et l\u2019ajouterons \u00E0 la carte bient\u00F4t. Nous pourrions vous contacter si nous avons besoin de plus d\u2019informations.",
     backToMapBtn: "Retour \u00E0 la carte",
     submitAnother: "Soumettre une autre",
     // Terrace type labels for sidewalk/etc in filters
