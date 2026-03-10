@@ -13,6 +13,18 @@ const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const MONTREAL_CENTER: [number, number] = [45.5152, -73.58];
 const DEFAULT_ZOOM = 13;
 
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 export default function Home() {
   const [search, setSearch] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
@@ -21,9 +33,35 @@ export default function Home() {
   const [covered, setCovered] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<"map" | "list">("list");
+  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [sortByDistance, setSortByDistance] = useState(false);
+  const [locating, setLocating] = useState(false);
 
-  const filtered = useMemo(() => {
-    return terraces.filter((t) => {
+  const handleSortByDistance = useCallback(() => {
+    if (sortByDistance) {
+      setSortByDistance(false);
+      return;
+    }
+    if (userLocation) {
+      setSortByDistance(true);
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setSortByDistance(true);
+        setLocating(false);
+      },
+      () => {
+        setLocating(false);
+      },
+      { timeout: 10000 }
+    );
+  }, [sortByDistance, userLocation]);
+
+  const filteredWithDistance = useMemo(() => {
+    const base = terraces.filter((t) => {
       if (search) {
         const q = search.toLowerCase();
         const match =
@@ -39,7 +77,20 @@ export default function Home() {
       if (covered && !t.covered) return false;
       return true;
     });
-  }, [search, neighborhood, terraceType, dogFriendly, covered]);
+
+    if (sortByDistance && userLocation) {
+      const withDist = base.map((t) => ({
+        t,
+        dist: haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng),
+      }));
+      withDist.sort((a, b) => a.dist - b.dist);
+      return withDist.map(({ t, dist }) => ({ terrace: t, distance: dist }));
+    }
+
+    return base.map((t) => ({ terrace: t, distance: undefined }));
+  }, [search, neighborhood, terraceType, dogFriendly, covered, sortByDistance, userLocation]);
+
+  const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
 
   const selectedTerrace = selectedId
     ? terraces.find((t) => t.id === selectedId) ?? null
@@ -59,6 +110,17 @@ export default function Home() {
   const closeTerrace = useCallback(() => {
     setSelectedId(null);
   }, []);
+
+  const filterBarProps = {
+    search, onSearchChange: setSearch,
+    selectedNeighborhood: neighborhood, onNeighborhoodChange: setNeighborhood,
+    selectedType: terraceType, onTypeChange: setTerraceType,
+    dogFriendly, onDogFriendlyChange: setDogFriendly,
+    covered, onCoveredChange: setCovered,
+    sortByDistance, onSortByDistanceChange: handleSortByDistance,
+    locating,
+    resultCount: filteredWithDistance.length,
+  };
 
   return (
     <div className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
@@ -93,31 +155,19 @@ export default function Home() {
         ) : (
           <>
             <div className="px-5 pb-0 shrink-0">
-              <FilterBar
-                search={search}
-                onSearchChange={setSearch}
-                selectedNeighborhood={neighborhood}
-                onNeighborhoodChange={setNeighborhood}
-                selectedType={terraceType}
-                onTypeChange={setTerraceType}
-                dogFriendly={dogFriendly}
-                onDogFriendlyChange={setDogFriendly}
-                covered={covered}
-                onCoveredChange={setCovered}
-                resultCount={filtered.length}
-              />
+              <FilterBar {...filterBarProps} />
             </div>
 
             <div className="mx-5 mt-3 h-px bg-border shrink-0" />
 
             <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
-              {filtered.length === 0 ? (
+              {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>
                   <p className="text-sm text-muted">No terraces match your filters.</p>
                 </div>
               ) : (
-                filtered.map((t, i) => (
+                filteredWithDistance.map(({ terrace: t, distance }, i) => (
                   <div
                     key={t.id}
                     className="card-enter"
@@ -127,6 +177,7 @@ export default function Home() {
                       terrace={t}
                       selected={selectedId === t.id}
                       onClick={() => openTerrace(t.id)}
+                      distance={distance}
                     />
                   </div>
                 ))
@@ -166,21 +217,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {!selectedTerrace && (
-            <FilterBar
-              search={search}
-              onSearchChange={setSearch}
-              selectedNeighborhood={neighborhood}
-              onNeighborhoodChange={setNeighborhood}
-              selectedType={terraceType}
-              onTypeChange={setTerraceType}
-              dogFriendly={dogFriendly}
-              onDogFriendlyChange={setDogFriendly}
-              covered={covered}
-              onCoveredChange={setCovered}
-              resultCount={filtered.length}
-            />
-          )}
+          {!selectedTerrace && <FilterBar {...filterBarProps} />}
         </div>
 
         {/* Mobile: detail takes over, or show tabs */}
@@ -197,7 +234,7 @@ export default function Home() {
                     : "text-muted"
                 }`}
               >
-                List ({filtered.length})
+                List ({filteredWithDistance.length})
               </button>
               <button
                 onClick={() => setMobileView("map")}
@@ -219,18 +256,19 @@ export default function Home() {
                     : "opacity-0 z-0 pointer-events-none"
                 }`}
               >
-                {filtered.length === 0 ? (
+                {filteredWithDistance.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-3xl mb-2">&#9789;</p>
                     <p className="text-sm text-muted">No terraces match your filters.</p>
                   </div>
                 ) : (
-                  filtered.map((t) => (
+                  filteredWithDistance.map(({ terrace: t, distance }) => (
                     <TerraceCard
                       key={t.id}
                       terrace={t}
                       selected={selectedId === t.id}
                       onClick={() => openTerrace(t.id)}
+                      distance={distance}
                     />
                   ))
                 )}

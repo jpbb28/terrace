@@ -13,9 +13,10 @@ interface TerraceCardProps {
   terrace: Terrace;
   selected: boolean;
   onClick: () => void;
+  distance?: number;
 }
 
-export default function TerraceCard({ terrace, selected, onClick }: TerraceCardProps) {
+export default function TerraceCard({ terrace, selected, onClick, distance }: TerraceCardProps) {
   const typeInfo = terrace.terraceType ? typeConfig[terrace.terraceType] : null;
 
   return (
@@ -38,13 +39,20 @@ export default function TerraceCard({ terrace, selected, onClick }: TerraceCardP
         )}
       </div>
 
-      <p className="text-xs text-muted mb-2 flex items-center gap-1">
-        <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        {terrace.address}
-      </p>
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-xs text-muted flex items-center gap-1">
+          <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {terrace.address}
+        </p>
+        {distance !== undefined && (
+          <span className="text-[10px] font-medium text-accent shrink-0 ml-2">
+            {distance < 1 ? `${Math.round(distance * 1000)} m` : `${distance.toFixed(1)} km`}
+          </span>
+        )}
+      </div>
 
       <p className="text-xs text-foreground/60 mb-3 line-clamp-2 leading-relaxed">
         {terrace.description}

@@ -29,6 +29,9 @@ interface FilterBarProps {
   onDogFriendlyChange: (v: boolean) => void;
   covered: boolean;
   onCoveredChange: (v: boolean) => void;
+  sortByDistance: boolean;
+  onSortByDistanceChange: () => void;
+  locating: boolean;
   resultCount: number;
 }
 
@@ -38,6 +41,8 @@ export default function FilterBar({
   selectedType, onTypeChange,
   dogFriendly, onDogFriendlyChange,
   covered, onCoveredChange,
+  sortByDistance, onSortByDistanceChange,
+  locating,
   resultCount,
 }: FilterBarProps) {
   return (
@@ -108,6 +113,17 @@ export default function FilterBar({
           }`}
         >
           &#9748; Covered
+        </button>
+        <button
+          onClick={onSortByDistanceChange}
+          disabled={locating}
+          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+            sortByDistance
+              ? "active"
+              : "border-border bg-white/40 text-muted hover:text-foreground"
+          } disabled:opacity-50 disabled:cursor-default`}
+        >
+          {locating ? "Locating…" : "📍 Near me"}
         </button>
         <span className="ml-auto text-[11px] font-medium text-muted tabular-nums">
           {resultCount} spots
