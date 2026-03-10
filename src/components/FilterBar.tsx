@@ -9,7 +9,7 @@ const neighborhoods: Neighborhood[] = [
   "Mile-Ex", "NDG", "Old Montreal", "Old Port", "Outremont", "Parc-Extension",
   "Petite-Patrie", "Plateau-Mont-Royal", "Pointe-Saint-Charles",
   "Quartier des Spectacles", "Rosemont", "Saint-Henri", "South Shore",
-  "The Village", "Verdun", "Villeray",
+  "The Village", "Verdun", "Villeray", "West Island",
 ];
 
 interface FilterBarProps {
