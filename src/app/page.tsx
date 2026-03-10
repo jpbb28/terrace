@@ -131,15 +131,15 @@ export default function Home() {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
               <svg className="w-7 h-7 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="5.5" fill="#c45d3e"/>
-                <line x1="16" y1="2" x2="16" y2="7" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="16" y1="25" x2="16" y2="30" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="2" y1="16" x2="7" y2="16" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="25" y1="16" x2="30" y2="16" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="6.1" y1="6.1" x2="9.6" y2="9.6" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="22.4" y1="22.4" x2="25.9" y2="25.9" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="25.9" y1="6.1" x2="22.4" y2="9.6" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="9.6" y1="22.4" x2="6.1" y2="25.9" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
               </svg>
               <div>
                 <h1 className="font-display text-lg font-bold tracking-tight leading-none">
@@ -215,15 +215,15 @@ export default function Home() {
           <div className="flex items-center justify-between mb-2.5">
             <div className="flex items-center gap-2">
               <svg className="w-6 h-6 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="5.5" fill="#c45d3e"/>
-                <line x1="16" y1="2" x2="16" y2="7" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="16" y1="25" x2="16" y2="30" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="2" y1="16" x2="7" y2="16" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="25" y1="16" x2="30" y2="16" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="6.1" y1="6.1" x2="9.6" y2="9.6" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="22.4" y1="22.4" x2="25.9" y2="25.9" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="25.9" y1="6.1" x2="22.4" y2="9.6" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="9.6" y1="22.4" x2="6.1" y2="25.9" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
               </svg>
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
                 Terrace Season
