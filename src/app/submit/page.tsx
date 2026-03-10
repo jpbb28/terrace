@@ -63,7 +63,19 @@ export default function SubmitPage() {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
         <div className="max-w-md text-center">
-          <div className="text-5xl mb-4">☀</div>
+          <div className="mb-4 flex justify-center">
+            <svg className="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+              <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+              <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+              <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+              <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+              <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+              <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+              <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+              <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+            </svg>
+          </div>
           <h2 className="text-2xl font-bold mb-3">Thanks for submitting!</h2>
           <p className="text-muted text-sm mb-6">
             We'll review your terrace and add it to the map. It usually takes
@@ -105,7 +117,17 @@ export default function SubmitPage() {
           &larr; Back to map
         </Link>
         <div className="flex items-center gap-2">
-          <span className="text-xl">☀</span>
+          <svg className="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+            <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+            <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+            <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+            <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+            <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+            <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+            <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+            <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+          </svg>
           <span className="font-bold">Terrace Season</span>
         </div>
       </div>
