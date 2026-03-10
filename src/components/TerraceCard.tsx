@@ -1,13 +1,7 @@
 "use client";
 
 import { Terrace } from "@/lib/types";
-
-const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
-  sidewalk: { label: "Sidewalk", color: "bg-olive-soft text-olive", icon: "\u{1F6B6}" },
-  rooftop: { label: "Rooftop", color: "bg-warm-soft text-warm", icon: "\u{1F307}" },
-  backyard: { label: "Backyard", color: "bg-olive-soft text-olive", icon: "\u{1F333}" },
-  courtyard: { label: "Courtyard", color: "bg-accent-soft text-accent", icon: "\u{1F3DB}" },
-};
+import { useLang } from "@/lib/LanguageContext";
 
 interface TerraceCardProps {
   terrace: Terrace;
@@ -17,6 +11,15 @@ interface TerraceCardProps {
 }
 
 export default function TerraceCard({ terrace, selected, onClick, distance }: TerraceCardProps) {
+  const { t } = useLang();
+
+  const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
+    sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive", icon: "\u{1F6B6}" },
+    rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm", icon: "\u{1F307}" },
+    backyard: { label: t.backyard, color: "bg-olive-soft text-olive", icon: "\u{1F333}" },
+    courtyard: { label: t.courtyard, color: "bg-accent-soft text-accent", icon: "\u{1F3DB}" },
+  };
+
   const typeInfo = terrace.terraceType ? typeConfig[terrace.terraceType] : null;
 
   return (
@@ -64,22 +67,22 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
         </span>
         {terrace.capacity ? (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            ~{terrace.capacity} seats
+            {t.seats(terrace.capacity)}
           </span>
         ) : null}
         {terrace.dogFriendly && (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            &#128054; Dogs OK
+            {t.dogsOk}
           </span>
         )}
         {terrace.covered && (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            &#9748; Covered
+            {t.coveredTag}
           </span>
         )}
         {terrace.heated && (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-warm-soft text-warm">
-            &#128293; Heated
+            {t.heated}
           </span>
         )}
       </div>
