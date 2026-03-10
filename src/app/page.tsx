@@ -130,7 +130,25 @@ export default function Home() {
         <div className="p-5 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
-              <span className="text-2xl leading-none">&#9788;</span>
+              <svg className="w-7 h-7 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Sun rays */}
+                <line x1="16" y1="1.5" x2="16" y2="4.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="23.5" y1="4.5" x2="21.5" y2="6.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="8.5" y1="4.5" x2="10.5" y2="6.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="27" y1="12" x2="24" y2="12" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="5" y1="12" x2="8" y2="12" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                {/* Sun disc */}
+                <circle cx="16" cy="12" r="5" fill="#c45d3e"/>
+                {/* Horizon / table top */}
+                <line x1="6" y1="19" x2="26" y2="19" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
+                {/* Table legs */}
+                <line x1="9" y1="19" x2="8" y2="25" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="23" y1="19" x2="24" y2="25" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                {/* Center pole */}
+                <line x1="16" y1="19" x2="16" y2="25" stroke="#c45d3e" strokeWidth="1.5" strokeLinecap="round"/>
+                {/* Floor */}
+                <line x1="6" y1="25" x2="26" y2="25" stroke="#c45d3e" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+              </svg>
               <div>
                 <h1 className="font-display text-lg font-bold tracking-tight leading-none">
                   Terrace Season
@@ -204,7 +222,19 @@ export default function Home() {
         <div className="shrink-0 px-4 pt-3 pb-2 bg-background border-b border-border">
           <div className="flex items-center justify-between mb-2.5">
             <div className="flex items-center gap-2">
-              <span className="text-xl leading-none">&#9788;</span>
+              <svg className="w-6 h-6 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="16" y1="1.5" x2="16" y2="4.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="23.5" y1="4.5" x2="21.5" y2="6.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="8.5" y1="4.5" x2="10.5" y2="6.5" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="27" y1="12" x2="24" y2="12" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="5" y1="12" x2="8" y2="12" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <circle cx="16" cy="12" r="5" fill="#c45d3e"/>
+                <line x1="6" y1="19" x2="26" y2="19" stroke="#c45d3e" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="9" y1="19" x2="8" y2="25" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="23" y1="19" x2="24" y2="25" stroke="#c45d3e" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="16" y1="19" x2="16" y2="25" stroke="#c45d3e" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="6" y1="25" x2="26" y2="25" stroke="#c45d3e" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+              </svg>
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
                 Terrace Season
               </h1>
