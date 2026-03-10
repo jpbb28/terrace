@@ -22,6 +22,8 @@ export const terraces: Terrace[] = [
     openingHours: "11:30 AM - 11:00 PM",
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
+    descriptionFr:
+      "Bar sur le toit iconique de l'Hôtel Nelligan avec vue sur le Vieux-Montréal et le fleuve Saint-Laurent. Réputé pour ses brunchs aux mimosas. Auvents rétractables disponibles. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
   },
   {
     id: "2",
@@ -40,6 +42,8 @@ export const terraces: Terrace[] = [
     openingHours: "12:00 PM - 11:00 PM",
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
+    descriptionFr:
+      "Toit du cinquième étage de l'Auberge du Vieux-Port avec vue panoramique sur le Vieux-Port et le fleuve Saint-Laurent. Le menu 2025 propose tartare de bison, poulpe grillé, tataki de thon et bols poké. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
   },
   {
     id: "3",
@@ -56,6 +60,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Eighth-floor rooftop of Hotel William Gray with panoramic views of the Old Port, Ferris wheel, and St. Lawrence River. Firepits available. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, OpenTable, Montreal Diaries, Tourisme Montreal, Daily Hive.",
+    descriptionFr:
+      "Toit du huitième étage de l'Hotel William Gray avec vue panoramique sur le Vieux-Port, la grande roue et le fleuve Saint-Laurent. Foyers disponibles. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Time Out, Cult MTL, OpenTable, Montreal Diaries, Tourisme Montreal, Daily Hive.",
   },
   {
     id: "4",
@@ -72,6 +78,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Fourth-floor terrace of Hotel William Gray overlooking Place Jacques-Cartier. West Coast-inspired cuisine, lush decor, mezze plates. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+    descriptionFr:
+      "Terrasse du quatrième étage de l'Hotel William Gray avec vue sur la Place Jacques-Cartier. Cuisine inspirée de la côte Ouest, décor luxuriant, assiettes mezze. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
   {
     id: "5",
@@ -88,6 +96,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Rooftop bar on Hotel Place d'Armes with views of Place d'Armes square and Notre-Dame Basilica. Partially covered for gray days. Brunch, lunch, and dinner. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
+    descriptionFr:
+      "Bar sur le toit de l'Hotel Place d'Armes avec vue sur la Place d'Armes et la Basilique Notre-Dame. Partiellement couvert pour les jours nuageux. Brunch, dîner et souper. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
   },
   {
     id: "6",
@@ -104,6 +114,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Four-storey complex on the waterfront with unobstructed Saint-Lawrence River views. Known for rose and sangria. Weekly events and late-night DJs. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
+    descriptionFr:
+      "Complexe de quatre étages en bord de fleuve avec vue imprenable sur le Saint-Laurent. Réputé pour le rosé et la sangria. Événements hebdomadaires et DJ en soirée. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
   },
   {
     id: "7",
@@ -120,6 +132,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Hidden courtyard with colorful flowers and shrubs set against historic 1812 architecture (National Historical Site). Live jazz performances. Sweet and savory crepes, gourmet salads. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
+    descriptionFr:
+      "Cour cachée avec fleurs colorées et arbustes adossés à l'architecture historique de 1812 (site historique national). Spectacles de jazz en direct. Crêpes sucrées et salées, salades gastronomiques. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
   },
   {
     id: "8",
@@ -136,6 +150,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Hidden garden courtyard with tree canopy, singing birds, and petanque area. Sources: Time Out, Tastet.",
+    descriptionFr:
+      "Cour-jardin cachée avec canopée d'arbres, oiseaux chanteurs et terrain de pétanque. Sources: Time Out, Tastet.",
   },
   {
     id: "9",
@@ -152,6 +168,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Oldest restaurant in the city, first constructed in 1688. Open-air courtyard terrace. Includes Velvet speakeasy bar downstairs. Sources: Time Out.",
+    descriptionFr:
+      "Le plus vieux restaurant de la ville, construit en 1688. Terrasse en cour à ciel ouvert. Comprend le bar speakeasy Velvet au sous-sol. Sources: Time Out.",
   },
   {
     id: "10",
@@ -168,6 +186,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Prime location for people-watching and heritage architecture views. Trattoria-style Italian with housemade pasta, stone oven-braised meats. Italian-style weekend brunch with bellinis. Sources: OpenTable, Eater/Wanderlog.",
+    descriptionFr:
+      "Emplacement de choix pour observer les passants et admirer l'architecture patrimoniale. Cuisine italienne trattoria avec pâtes maison et viandes braisées au four à pierre. Brunch de fin de semaine à l'italienne avec bellinis. Sources: OpenTable, Eater/Wanderlog.",
   },
   {
     id: "11",
@@ -184,6 +204,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Inner courtyard with cobblestones, awnings, flower baskets, hibiscus and oleander plants. Sources: Time Out, Tourisme Montreal.",
+    descriptionFr:
+      "Cour intérieure avec pavés, auvents, paniers de fleurs, hibiscus et lauriers-roses. Sources: Time Out, Tourisme Montreal.",
   },
   {
     id: "12",
@@ -200,6 +222,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Parisian brasserie atmosphere with views over De la Commune Street. French techniques with modern Montreal cuisine. Weekend brunch available. Sources: OpenTable.",
+    descriptionFr:
+      "Ambiance de brasserie parisienne avec vue sur la rue De la Commune. Techniques françaises et cuisine montréalaise moderne. Brunch de fin de semaine disponible. Sources: OpenTable.",
   },
   {
     id: "13",
@@ -216,6 +240,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Sixth-floor rooftop on Hampton Inn with lush jungle vegetation inspired by Vietnam's French colonial architecture. 7,000-square-foot space with tropical decor. Views of Old Montreal. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Toit du sixième étage du Hampton Inn avec une végétation jungle luxuriante inspirée de l'architecture coloniale française du Vietnam. Espace de 650 m² avec décor tropical. Vue sur le Vieux-Montréal. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "14",
@@ -232,6 +258,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Terrace in prime Old Montreal setting. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse idéalement située dans le Vieux-Montréal. Sources: Tastet.",
   },
   {
     id: "15",
@@ -248,6 +276,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Garden courtyard on Saint-Gabriel street surrounded by old buildings. Features flowers, plants, outdoor bar, stone walls, and greenery for a private setting. Sources: experienceoldmontreal.com.",
+    descriptionFr:
+      "Cour-jardin rue Saint-Gabriel entourée de vieux bâtiments. Fleurs, plantes, bar extérieur, murs de pierre et verdure pour une ambiance intimiste. Sources: experienceoldmontreal.com.",
   },
   {
     id: "16",
@@ -264,6 +294,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A 55-seat interior courtyard garden inside a 19th-century building named after two former Montreal mayors. Celebrates Quebec's craft distillery scene with locally farmed ingredients and English-inspired pub food. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
+    descriptionFr:
+      "Un jardin intérieur de 55 places dans un bâtiment du XIXe siècle nommé d'après deux anciens maires de Montréal. Célèbre la scène des distilleries artisanales du Québec avec des ingrédients locaux et une cuisine de pub d'inspiration anglaise. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
   },
   {
     id: "17",
@@ -280,6 +312,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Une terrasse-cour enchanteresse nichée derrière une salle à manger aux murs de pierre sur la rue Saint-Paul. Menu axé sur les fruits de mer : homard, moules, tartare de saumon et calmars. Petite, intime et constamment saluée pour son ambiance calme. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
   },
   {
     id: "18",
@@ -296,6 +330,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "The private courtyard of Hotel Saint-Sulpice, designed to evoke Arizona's desert serenity. Chef Piérard works with smoking, charcoal grilling, and fermentation. One of Old Montreal's most peaceful and hidden outdoor escapes. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
+    descriptionFr:
+      "La cour privée de l'Hotel Saint-Sulpice, conçue pour évoquer la sérénité du désert de l'Arizona. Le chef Piérard travaille avec la fumée, la cuisson au charbon de bois et la fermentation. L'une des escapades extérieures les plus paisibles et cachées du Vieux-Montréal. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
   },
   {
     id: "19",
@@ -312,6 +348,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Italian patio terrace with wood-fired pizza and Italian cocktails. Sources: Montreal Diaries.",
+    descriptionFr:
+      "Terrasse italienne avec pizzas au feu de bois et cocktails italiens. Sources: Montreal Diaries.",
   },
   {
     id: "20",
@@ -328,6 +366,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Charming wine bar on Saint-Paul. Sources: Tastet.",
+    descriptionFr:
+      "Charmant bar à vin sur Saint-Paul. Sources: Tastet.",
   },
   {
     id: "21",
@@ -344,6 +384,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Charming terrace on Saint-Paul Street. Sources: Tastet.",
+    descriptionFr:
+      "Charmante terrasse sur la rue Saint-Paul. Sources: Tastet.",
   },
   {
     id: "22",
@@ -360,6 +402,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "14th floor of Hyatt Centric in Old Montreal with 360-degree views. Sources: The Rooftop Guide.",
+    descriptionFr:
+      "14e étage du Hyatt Centric dans le Vieux-Montréal avec vue à 360 degrés. Sources: The Rooftop Guide.",
   },
 
   // =============================================
@@ -380,6 +424,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Pub tucked off Sainte-Catherine Street with a secret bi-leveled courtyard terrace. Walls covered in creeping vines, heat lamps. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+    descriptionFr:
+      "Pub niché en retrait de la rue Sainte-Catherine avec une terrasse-cour secrète sur deux niveaux. Murs recouverts de vignes grimpantes, lampes chauffantes. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
   {
     id: "24",
@@ -396,6 +442,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Ritz-Carlton garden courtyard with awning-covered wooden deck overlooking a French garden with flagstone paths, artificial brook, and duck pond. Michelin-calibre dining. Sources: Time Out, OpenTable, Tourisme Montreal, MTL Blog, Tastet.",
+    descriptionFr:
+      "Cour-jardin du Ritz-Carlton avec terrasse en bois couverte d'un auvent donnant sur un jardin à la française avec allées dallées, ruisseau artificiel et mare aux canards. Cuisine de niveau Michelin. Sources: Time Out, OpenTable, Tourisme Montreal, MTL Blog, Tastet.",
   },
   {
     id: "25",
@@ -412,6 +460,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Montreal's highest terrace at the 44th floor of Place Ville Marie. Breathtaking sunset views. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "La terrasse la plus haute de Montréal, au 44e étage de la Place Ville Marie. Vue époustouflante sur les couchers de soleil. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "26",
@@ -429,6 +479,8 @@ export const terraces: Terrace[] = [
     openingHours: "12:00 PM - 11:00 PM",
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
+    descriptionFr:
+      "Terrasse du neuvième étage de l'Hotel Humaniti. Slush maison, poulet frit, menu créatif saisonnier. Ouvert tous les jours. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
   },
   {
     id: "27",
@@ -445,6 +497,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Year-round inner garden. Boho-chic, elegant and lush with greenery. One of the most beautiful terrasses for gourmet Japanese cuisine. Sources: Time Out, Tourisme Montreal, MTL Blog, Tastet.",
+    descriptionFr:
+      "Jardin intérieur ouvert à l'année. Boho-chic, élégant et luxuriant de verdure. L'une des plus belles terrasses pour la cuisine japonaise gastronomique. Sources: Time Out, Tourisme Montreal, MTL Blog, Tastet.",
   },
   {
     id: "28",
@@ -461,6 +515,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Inner courtyard at Sofitel hotel. French cuisine with large yellow umbrellas, parasols, and plants. Glass-walled atrium. Live DJ entertainment. Sources: Tastet, OpenTable, Tourisme Montreal.",
+    descriptionFr:
+      "Cour intérieure de l'hôtel Sofitel. Cuisine française avec grands parasols jaunes et plantes. Atrium vitré. Divertissement avec DJ en direct. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
   {
     id: "29",
@@ -477,6 +533,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Third-floor rooftop terrace at Four Seasons Hotel. Chef Marcus Samuelsson. Seafood-focused menu with Japanese influences. Overlooks Leonard Cohen mural. Sources: Tastet, OpenTable, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse sur le toit du troisième étage du Four Seasons Hotel. Chef Marcus Samuelsson. Menu axé sur les fruits de mer avec influences japonaises. Vue sur la murale de Leonard Cohen. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
   {
     id: "30",
@@ -495,6 +553,8 @@ export const terraces: Terrace[] = [
     openingHours: "4:00 PM - 2:00 AM",
     description:
       "Stunning hidden terrace, a peaceful downtown escape. Sources: Tastet, Time Out.",
+    descriptionFr:
+      "Superbe terrasse cachée, une escapade paisible au centre-ville. Sources: Tastet, Time Out.",
   },
   {
     id: "31",
@@ -511,6 +571,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Stylish covered terrace. Portuguese cuisine. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse couverte élégante. Cuisine portugaise. Sources: Tastet.",
   },
   {
     id: "32",
@@ -527,6 +589,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Off-the-beaten-path Mexican restaurant with a hidden patio. Cocktails, ceviche, tacos. Sources: Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Restaurant mexicain hors des sentiers battus avec patio caché. Cocktails, ceviche, tacos. Sources: Tourisme Montreal, Tastet.",
   },
   {
     id: "33",
@@ -543,6 +607,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Hidden terrace on Saint-Alexandre Street. Shared dishes concept. Sources: Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Terrasse cachée sur la rue Saint-Alexandre. Concept de plats à partager. Sources: Tourisme Montreal, Tastet.",
   },
   {
     id: "34",
@@ -559,6 +625,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Perched on the highest level of Place Ville Marie with panoramic 360-degree views. French restaurant with observation deck. Sources: Time Out.",
+    descriptionFr:
+      "Perché au niveau le plus élevé de la Place Ville Marie avec vue panoramique à 360 degrés. Restaurant français avec terrasse d'observation. Sources: Time Out.",
   },
   {
     id: "35",
@@ -575,6 +643,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Panoramic terrace with 180-degree view at DoubleTree by Hilton. Quebec-focused bistro food. Sources: Time Out, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse panoramique avec vue à 180 degrés au DoubleTree by Hilton. Cuisine de bistro axée sur le Québec. Sources: Time Out, Tourisme Montreal.",
   },
   {
     id: "36",
@@ -592,6 +662,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Upscale French restaurant (Thursday-Saturday). 100-person rooftop bar with views of entertainment district. Known for high-end punch bowls. Sources: Time Out.",
+    descriptionFr:
+      "Restaurant français haut de gamme (jeudi-samedi). Bar sur le toit de 100 places avec vue sur le quartier des divertissements. Réputé pour ses punchs élaborés. Sources: Time Out.",
   },
   {
     id: "37",
@@ -608,6 +680,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel. Retractable roof for any weather. Mediterranean cuisine. Sources: Tourisme Montreal, mtl.org.",
+    descriptionFr:
+      "Toit du cinquième étage sur le thème de la jungle au HONEYROSE Hotel. Toit rétractable pour toutes les météos. Cuisine méditerranéenne. Sources: Tourisme Montreal, mtl.org.",
   },
   {
     id: "38",
@@ -625,6 +699,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A 40-seat enclosed and heated terrace tucked beside St-James Church in the shadow of downtown office towers. Playful izakaya menu: karaage, Japadogs, soba salad with bacon, sake, and lychee mojitos. Sources: Tastet, Spotted by Locals.",
+    descriptionFr:
+      "Une terrasse fermée et chauffée de 40 places nichée à côté de l'église St-James à l'ombre des tours de bureaux du centre-ville. Menu izakaya ludique : karaage, Japadogs, salade de soba au bacon, saké et mojitos au litchi. Sources: Tastet, Spotted by Locals.",
   },
   {
     id: "39",
@@ -641,6 +717,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A palm-lined third-floor terrace atop the Fairmont Queen Elizabeth, inspired by the glam rock era of Ziggy Stardust. Seasonal cocktails, gourmet BBQ, and DJs Thursday–Saturday. Open summer only. Sources: Tastet, The Rooftop Guide, Gentologie.",
+    descriptionFr:
+      "Une terrasse du troisième étage bordée de palmiers au sommet du Fairmont Reine Élizabeth, inspirée de l'ère glam rock de Ziggy Stardust. Cocktails saisonniers, BBQ gastronomique et DJ du jeudi au samedi. Ouvert l'été seulement. Sources: Tastet, The Rooftop Guide, Gentologie.",
   },
   {
     id: "40",
@@ -657,6 +735,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Promenade level of Marriott Chateau Champlain with views of the city and Windsor station. Asian-inspired cuisine and signature cocktails. Festive atmosphere. Sources: Tastet, mtl.org.",
+    descriptionFr:
+      "Niveau promenade du Marriott Château Champlain avec vue sur la ville et la gare Windsor. Cuisine d'inspiration asiatique et cocktails signatures. Ambiance festive. Sources: Tastet, mtl.org.",
   },
   {
     id: "41",
@@ -675,6 +755,8 @@ export const terraces: Terrace[] = [
     openingHours: "8:00 AM - 10:00 PM",
     description:
       "Beautiful courtyard cafe. Bright white space with flowers. Sources: Tastet, Time Out.",
+    descriptionFr:
+      "Beau café-cour. Espace blanc lumineux avec fleurs. Sources: Tastet, Time Out.",
   },
   {
     id: "42",
@@ -691,6 +773,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Large rooftop terrace atop the SAT arts space overlooking Saint-Laurent Boulevard. Urban jungle in the Quartier des spectacles. Rotating themes with local/international chefs. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Grande terrasse sur le toit de l'espace artistique SAT avec vue sur le Boulevard Saint-Laurent. Jungle urbaine dans le Quartier des spectacles. Thèmes rotatifs avec chefs locaux et internationaux. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "43",
@@ -707,6 +791,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Grand terrace. Irish/English cuisine. Sources: Tastet.",
+    descriptionFr:
+      "Grande terrasse. Cuisine irlandaise/anglaise. Sources: Tastet.",
   },
   {
     id: "44",
@@ -723,6 +809,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Two terraces; one faces busy Crescent Street for people-watching. Sources: Daily Hive.",
+    descriptionFr:
+      "Deux terrasses ; l'une donne sur la rue Crescent animée pour observer les passants. Sources: Daily Hive.",
   },
 
   // =============================================
@@ -743,6 +831,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Rooftop terrace on 2nd floor. Craft beers, wines, cocktails, fermented nibbles. Spacious terrace with warm service. Sources: Tastet, Tourisme Montreal, Narcity.",
+    descriptionFr:
+      "Terrasse sur le toit au 2e étage. Bières artisanales, vins, cocktails, bouchées fermentées. Terrasse spacieuse avec service chaleureux. Sources: Tastet, Tourisme Montreal, Narcity.",
   },
 
   // =============================================
@@ -765,6 +855,8 @@ export const terraces: Terrace[] = [
     openingHours: "11:30 AM - 11:00 PM",
     description:
       "Terrace extends onto the Main. Popular for oysters and cocktails. Sources: Tastet.",
+    descriptionFr:
+      "La terrasse s'étend sur le Main. Populaire pour les huîtres et les cocktails. Sources: Tastet.",
   },
   {
     id: "47",
@@ -781,6 +873,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Seafood-centric fine-dining with stunning views of Jeanne-Mance Park. Japanese-accented cuisine. Sources: Time Out, OpenTable, Tastet.",
+    descriptionFr:
+      "Gastronomie axée sur les fruits de mer avec vue imprenable sur le Parc Jeanne-Mance. Cuisine aux accents japonais. Sources: Time Out, OpenTable, Tastet.",
   },
   {
     id: "48",
@@ -797,6 +891,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Hidden garden oasis with vibrant colors and a water fountain. Canopied by trees and fenced in. Community-focused cafe since 1976 with vegetarian/vegan-leaning menu. Sources: Time Out, Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Oasis de jardin cachée aux couleurs vives avec une fontaine. Canopée d'arbres et clôturé. Café communautaire depuis 1976 avec menu végétarien/végétalien. Sources: Time Out, Tourisme Montreal, Tastet.",
   },
   {
     id: "49",
@@ -814,6 +910,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Hidden terrace with around fifty seats, decorated with plants and colorful murals. BYOW. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse cachée d'environ cinquante places, décorée de plantes et de murales colorées. Apportez votre vin. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "50",
@@ -830,6 +928,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "On Duluth Avenue since 1979. Montreal's first BYOW restaurant. Lush garden terrace evoking Mediterranean landscapes. Sources: Tastet, OpenTable.",
+    descriptionFr:
+      "Sur l'Avenue Duluth depuis 1979. Premier restaurant APVY de Montréal. Terrasse-jardin luxuriante évoquant les paysages méditerranéens. Sources: Tastet, OpenTable.",
   },
   {
     id: "51",
@@ -846,6 +946,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Craft brewery with bright yellow picnic tables on rooftop. Sources: Tastet.",
+    descriptionFr:
+      "Brasserie artisanale avec tables de pique-nique jaunes vives sur le toit. Sources: Tastet.",
   },
   {
     id: "52",
@@ -864,6 +966,8 @@ export const terraces: Terrace[] = [
     openingHours: "4:00 PM - 1:00 AM",
     description:
       "Summer staple wine bar. Green and yellow decor. Sources: Tastet.",
+    descriptionFr:
+      "Bar à vin incontournable de l'été. Décor vert et jaune. Sources: Tastet.",
   },
   {
     id: "53",
@@ -880,6 +984,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Charming little terrace. Sources: Tastet.",
+    descriptionFr:
+      "Charmante petite terrasse. Sources: Tastet.",
   },
   {
     id: "54",
@@ -896,6 +1002,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Sunny terrace on Saint-Denis Street. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse ensoleillée sur la rue Saint-Denis. Sources: Tastet.",
   },
   {
     id: "55",
@@ -912,6 +1020,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Welcoming terrace with grass carpets. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse accueillante avec tapis de gazon. Sources: Tastet.",
   },
   {
     id: "56",
@@ -928,6 +1038,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Secluded and lush hidden garden. Persian mezze, natural/organic wines. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Jardin caché isolé et luxuriant. Mezze persans, vins naturels/biologiques. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "57",
@@ -945,6 +1057,8 @@ export const terraces: Terrace[] = [
     openingHours: "5:00 PM - 2:00 AM",
     description:
       "Charming little terrace on the Main. Sources: Tastet.",
+    descriptionFr:
+      "Charmante petite terrasse sur le Main. Sources: Tastet.",
   },
   {
     id: "58",
@@ -961,6 +1075,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "One of the most sought-after back terraces on the island, featuring a small pond and heated patio near Parc La Fontaine. Pan-Asian dishes spanning Thailand, Japan, India, and Cambodia, with cocktails fusing Oriental flavours. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
+    descriptionFr:
+      "L'une des terrasses arrière les plus convoitées de l'île, avec un petit étang et un patio chauffé près du Parc La Fontaine. Plats pan-asiatiques couvrant la Thaïlande, le Japon, l'Inde et le Cambodge, avec des cocktails aux saveurs orientales. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
   },
   {
     id: "59",
@@ -977,6 +1093,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A candlelit back terrace with a lush, relaxed vibe on Mont-Royal Avenue. Eclectic ambiance with creative cocktails, charcuterie, and a diverse local crowd. Sources: Yelp, Wanderlog.",
+    descriptionFr:
+      "Une terrasse arrière aux chandelles à l'ambiance luxuriante et détendue sur l'Avenue Mont-Royal. Ambiance éclectique avec cocktails créatifs, charcuteries et clientèle locale diversifiée. Sources: Yelp, Wanderlog.",
   },
   {
     id: "60",
@@ -993,6 +1111,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Legendary indie music venue and café-bar on Saint-Laurent with live music 7 nights a week. Has hosted Arcade Fire and Helena Deland. Vegetarian and vegan menu. Sources: TripAdvisor, Wikipedia.",
+    descriptionFr:
+      "Lieu de musique indie légendaire et café-bar sur Saint-Laurent avec musique en direct 7 soirs par semaine. A accueilli Arcade Fire et Helena Deland. Menu végétarien et végétalien. Sources: TripAdvisor, Wikipedia.",
   },
   {
     id: "61",
@@ -1009,6 +1129,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A flower-and-vine-draped garden terrace on Saint-Denis operating since 1985. Beloved for its homemade sangria and generous French-Mediterranean salads. One of the Plateau's most charming back patios. Sources: TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Une terrasse-jardin drapée de fleurs et de vignes sur Saint-Denis, en activité depuis 1985. Appréciée pour sa sangria maison et ses généreuses salades franco-méditerranéennes. L'une des terrasses arrière les plus charmantes du Plateau. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "62",
@@ -1025,6 +1147,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Near Avenue Mont-Royal. Sources: Tastet.",
+    descriptionFr:
+      "Près de l'Avenue Mont-Royal. Sources: Tastet.",
   },
   {
     id: "63",
@@ -1041,6 +1165,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Winner of Cult MTL Best of MTL 2025 reader poll for best terrasse. Live DJs, craft beer, energetic atmosphere. Sources: Cult MTL, Montreal Diaries.",
+    descriptionFr:
+      "Lauréat du sondage Cult MTL Best of MTL 2025 pour la meilleure terrasse. DJ en direct, bières artisanales, ambiance énergique. Sources: Cult MTL, Montreal Diaries.",
   },
 
   // =============================================
@@ -1063,6 +1189,8 @@ export const terraces: Terrace[] = [
     openingHours: "7:00 AM - 9:00 PM",
     description:
       "Mile End institution since 1970, founded by Italian immigrant Rocco Furfaro. Nearly impossible to find an open spot when the sun comes out. Sources: Tastet, Daily Hive.",
+    descriptionFr:
+      "Institution du Mile End depuis 1970, fondée par l'immigrant italien Rocco Furfaro. Presque impossible de trouver une place libre quand le soleil se pointe. Sources: Tastet, Daily Hive.",
   },
   {
     id: "65",
@@ -1079,6 +1207,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Small, unpretentious terrace. Sources: Tastet.",
+    descriptionFr:
+      "Petite terrasse sans prétention. Sources: Tastet.",
   },
   {
     id: "66",
@@ -1095,6 +1225,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Mile End institution. Lively ambiance. Sources: Tastet.",
+    descriptionFr:
+      "Institution du Mile End. Ambiance animée. Sources: Tastet.",
   },
   {
     id: "67",
@@ -1113,6 +1245,8 @@ export const terraces: Terrace[] = [
     openingHours: "3:00 PM - 1:00 AM",
     description:
       "Leafy canopy terrace. Quebec craft beer institution. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse sous canopée feuillue. Institution de la bière artisanale québécoise. Sources: Tastet, Tourisme Montreal.",
   },
 
   // =============================================
@@ -1133,6 +1267,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Art Deco bar with rooftop terrace and city views. Pizza, beer, cocktails. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Tastet, Cult MTL, Tourisme Montreal.",
+    descriptionFr:
+      "Bar Art déco avec terrasse sur le toit et vue sur la ville. Pizza, bière, cocktails. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Tastet, Cult MTL, Tourisme Montreal.",
   },
   {
     id: "69",
@@ -1149,6 +1285,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Garage-door entrance terrace. Local products, modern cuisine. Some of the best cuisine in the city. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse à entrée de style porte de garage. Produits locaux, cuisine moderne. Parmi les meilleures cuisines de la ville. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "70",
@@ -1165,6 +1303,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Stunning terrace. Venetian-inspired cicchetti. Sources: Tastet.",
+    descriptionFr:
+      "Superbe terrasse. Cicchetti d'inspiration vénitienne. Sources: Tastet.",
   },
   {
     id: "71",
@@ -1181,6 +1321,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Vibrant terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse vibrante. Sources: Tastet.",
   },
   {
     id: "72",
@@ -1197,6 +1339,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Modern microbrewery with large garage door opening. Block parties. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Microbrasserie moderne avec grande ouverture de porte de garage. Fêtes de bloc. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "73",
@@ -1213,6 +1357,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "A 'lan khao gang' — a Thai curry shop and grocery hybrid common in Thailand but rare in North America. Casual outdoor seating, short menu of authentic curries, no reservations. Sources: Tastet, Yelp.",
+    descriptionFr:
+      "Un « lan khao gang » — un hybride de boutique de curry thaïlandais et d'épicerie courant en Thaïlande mais rare en Amérique du Nord. Terrasse décontractée, court menu de currys authentiques, sans réservation. Sources: Tastet, Yelp.",
   },
 
   // =============================================
@@ -1233,6 +1379,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "One of the city's best streetside setups, ringed by trees and planters. Lush and intimate. Refined Syrian cuisine with 10-12 course tasting menu available. Sources: OpenTable, MTL Blog, Time Out, Tastet.",
+    descriptionFr:
+      "L'un des meilleurs aménagements de terrasse en bord de rue de la ville, encerclé d'arbres et de bacs à plantes. Luxuriant et intime. Cuisine syrienne raffinée avec menu dégustation de 10-12 services disponible. Sources: OpenTable, MTL Blog, Time Out, Tastet.",
   },
   {
     id: "75",
@@ -1249,6 +1397,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Charming covered terrace. French brasserie. Sources: Tastet.",
+    descriptionFr:
+      "Charmante terrasse couverte. Brasserie française. Sources: Tastet.",
   },
   {
     id: "76",
@@ -1265,6 +1415,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Art deco interior. Retractable awnings covering tightly-packed cafe tables with hanging plants. Classic French comfort food. Sources: Time Out.",
+    descriptionFr:
+      "Intérieur Art déco. Auvents rétractables couvrant des tables de café serrées avec des plantes suspendues. Cuisine française familiale classique. Sources: Time Out.",
   },
   {
     id: "77",
@@ -1281,6 +1433,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Watch passersby on Bernard Avenue. Sources: Tastet.",
+    descriptionFr:
+      "Observez les passants sur l'Avenue Bernard. Sources: Tastet.",
   },
   {
     id: "78",
@@ -1297,6 +1451,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Large wooden deck patio on leafy Laurier Avenue. Italian classics, pizzas and pasta, casual dining. Sources: OpenTable.",
+    descriptionFr:
+      "Grand patio en bois sur l'Avenue Laurier bordée d'arbres. Classiques italiens, pizzas et pâtes, cuisine décontractée. Sources: OpenTable.",
   },
   {
     id: "79",
@@ -1313,6 +1469,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Shaded terrace. Gourmet sandwiches, seasonal tasting menu. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse ombragée. Sandwichs gastronomiques, menu dégustation saisonnier. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "80",
@@ -1329,6 +1487,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Stunning terrace. Catalan wines. Sources: Tastet.",
+    descriptionFr:
+      "Superbe terrasse. Vins catalans. Sources: Tastet.",
   },
   {
     id: "81",
@@ -1345,6 +1505,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "European-inspired outdoor space. Sources: Tastet.",
+    descriptionFr:
+      "Espace extérieur d'inspiration européenne. Sources: Tastet.",
   },
   {
     id: "82",
@@ -1361,6 +1523,8 @@ export const terraces: Terrace[] = [
     photos: [],
     description:
       "Terrace stretches around the restaurant. Sources: Tastet.",
+    descriptionFr:
+      "La terrasse s'étend tout autour du restaurant. Sources: Tastet.",
   },
 
   // =============================================
