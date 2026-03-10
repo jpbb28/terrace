@@ -26,7 +26,8 @@ export type Neighborhood =
   | "Parc-Extension"
   | "Old Port"
   | "Laval"
-  | "South Shore";
+  | "South Shore"
+  | "West Island";
 
 export interface Terrace {
   id: string;
