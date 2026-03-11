@@ -4929,6 +4929,7 @@ export const terraces: Terrace[] = [
   // =============================================
   {
     id: "180",
+    placeId: "ChIJ7_WQokY4yUwRgcjzOLQslBI",
     name: "Annie's Sur-le-Lac",
     address: "76 Rue Sainte-Anne",
     lat: 45.4082,
@@ -4942,11 +4943,19 @@ export const terraces: Terrace[] = [
     website: "https://annies.ca",
     photos: [],
     openingHours: "11:30 AM - 1:00 AM",
+    openingPeriods: [
+      { day: 2, open: "11:30", close: "21:00" },
+      { day: 3, open: "11:30", close: "21:00" },
+      { day: 4, open: "11:30", close: "21:00" },
+      { day: 5, open: "11:30", close: "22:00" },
+      { day: 6, open: "11:30", close: "22:00" },
+    ],
     description:
       "A Sainte-Anne-de-Bellevue institution since 1986, Annie's features a sprawling waterfront terrace on the boardwalk along the Sainte-Anne Canal and Lac Saint-Louis. Famous for watching boats pass through the locks while enjoying cocktails at sunset. Locally owned and open year-round. Sources: RestoMontreal, The Suburban, Yelp.",
   },
   {
     id: "181",
+    placeId: "ChIJwyv24kY4yUwR6TSu5UcKGCk",
     name: "Olé Tapas",
     address: "132 Rue Sainte-Anne",
     lat: 45.4076,
@@ -4960,11 +4969,17 @@ export const terraces: Terrace[] = [
     website: "https://oletapas.ca",
     photos: [],
     openingHours: "Wed-Fri 5:00 PM - 9:00 PM, Sat-Sun 10:00 AM - 9:00 PM",
+    openingPeriods: [
+      { day: 0, open: "12:00", close: "20:00" },
+      { day: 5, open: "11:00", close: "21:00" },
+      { day: 6, open: "12:00", close: "21:00" },
+    ],
     description:
       "A family-run Spanish restaurant in the heart of Sainte-Anne-de-Bellevue with a canal-side terrace. Iberian and Serrano hams, housemade paellas, and fresh seafood. A favourite warm-weather destination since 2016. Sources: RestoMontreal, OpenTable, Yelp.",
   },
   {
     id: "182",
+    placeId: "ChIJZ-r7gkg4yUwRVMbEbSItPEY",
     name: "Delos Resto-Bar",
     address: "53A Rue Sainte-Anne",
     lat: 45.4080,
@@ -4975,11 +4990,20 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
+    openingPeriods: [
+      { day: 0, open: "17:00", close: "22:00" },
+      { day: 2, open: "17:00", close: "22:00" },
+      { day: 3, open: "17:00", close: "22:00" },
+      { day: 4, open: "17:00", close: "22:00" },
+      { day: 5, open: "17:00", close: "22:00" },
+      { day: 6, open: "17:00", close: "22:00" },
+    ],
     description:
       "Resto-bar occupying a prime spot in Sainte-Anne-de-Bellevue with a terrace overlooking Lac Saint-Louis. Replaced the former Bord'Eaux at the same address. Sources: RestoMontreal (updated July 2025), YellowPages.",
   },
   {
     id: "183",
+    placeId: "ChIJo-fda5o-yUwRgVvDOfyCC_M",
     name: "Ye Olde Orchard Pub & Grill",
     address: "322 Chemin du Bord-du-Lac-Lakeshore",
     lat: 45.4430,
@@ -4993,11 +5017,21 @@ export const terraces: Terrace[] = [
     website: "https://www.yeoldeorchard.com/pointeclaire",
     photos: [],
     openingHours: "Mon-Wed 11:30 AM - 11:00 PM, Thu 11:30 AM - 12:00 AM, Fri 11:30 AM - 1:00 AM, Sat-Sun 9:00 AM - 1:00 AM",
+    openingPeriods: [
+      { day: 0, open: "09:00", close: "23:00" },
+      { day: 1, open: "11:30", close: "23:00" },
+      { day: 2, open: "11:30", close: "23:00" },
+      { day: 3, open: "11:30", close: "23:00" },
+      { day: 4, open: "11:30", close: "00:00" },
+      { day: 5, open: "11:30", close: "01:00" },
+      { day: 6, open: "09:00", close: "01:00" },
+    ],
     description:
       "A West Island staple since 2010, the Pointe-Claire Village location of this beloved pub chain has a large lakefront terrace facing Lac Saint-Louis. British pub comfort food, craft beers on tap, and a cozy fireplace for off-season visits. Sources: TripAdvisor, OpenTable, RestoMontreal.",
   },
   {
     id: "184",
+    placeId: "ChIJYavsxBI_yUwR82KwjX1xt8k",
     name: "Lou's Pointe-Claire",
     address: "309 Chemin du Bord-du-Lac-Lakeshore",
     lat: 45.4428,
@@ -5010,11 +5044,21 @@ export const terraces: Terrace[] = [
     website: "https://www.louspointeclaire.com",
     photos: [],
     openingHours: "5:00 PM - 11:00 PM",
+    openingPeriods: [
+      { day: 0, open: "17:00", close: "23:00" },
+      { day: 1, open: "17:00", close: "23:00" },
+      { day: 2, open: "17:00", close: "23:00" },
+      { day: 3, open: "17:00", close: "23:00" },
+      { day: 4, open: "17:00", close: "23:00" },
+      { day: 5, open: "17:00", close: "23:00" },
+      { day: 6, open: "17:00", close: "23:00" },
+    ],
     description:
       "An upscale neighbourhood diner in the heart of Pointe-Claire Village, steps from Lac Saint-Louis. The umbrella-covered terrace is one of the West Island's most talked-about recent openings (2023). Menu by the team behind Loïc Bar and Name's on the Way. Sources: Tastet, RestoMontreal.",
   },
   {
     id: "185",
+    placeId: "ChIJB4gc8MY9yUwR_fVJ9v7m1rQ",
     name: "Bernies Pizza Martini Bar",
     address: "3627 Boulevard des Sources",
     lat: 45.4975,
@@ -5028,11 +5072,21 @@ export const terraces: Terrace[] = [
     website: "https://www.berniespizzabar.com",
     photos: [],
     openingHours: "Tue-Sat 4:00 PM - 10:30 PM",
+    openingPeriods: [
+      { day: 0, open: "16:00", close: "22:00" },
+      { day: 1, open: "16:00", close: "22:00" },
+      { day: 2, open: "16:00", close: "22:30" },
+      { day: 3, open: "16:00", close: "22:30" },
+      { day: 4, open: "16:00", close: "22:30" },
+      { day: 5, open: "16:00", close: "22:30" },
+      { day: 6, open: "16:00", close: "22:30" },
+    ],
     description:
       "A DDO cult favourite for thin-crust tavern-style pizza (party cut) paired with an extensive martini list. The 80-seat space includes a terrace, ideal for casual family dinners or a fun night out. Sliders, garlic bread, wings, and Caesar salad round out the menu. Sources: Tastet, RestoMontreal, Yelp.",
   },
   {
     id: "186",
+    placeId: "ChIJ17YdWZo-yUwR_q6NUWyCBzc",
     name: "Restaurant Le Gourmand",
     address: "42 Rue Sainte-Anne",
     lat: 45.4450,
@@ -5043,6 +5097,19 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
+    openingPeriods: [
+      { day: 1, open: "11:30", close: "15:00" },
+      { day: 1, open: "17:00", close: "22:00" },
+      { day: 2, open: "11:30", close: "15:00" },
+      { day: 2, open: "17:00", close: "22:00" },
+      { day: 3, open: "11:30", close: "15:00" },
+      { day: 3, open: "17:00", close: "22:00" },
+      { day: 4, open: "11:30", close: "15:00" },
+      { day: 4, open: "17:00", close: "22:00" },
+      { day: 5, open: "11:30", close: "15:00" },
+      { day: 5, open: "17:00", close: "22:00" },
+      { day: 6, open: "17:00", close: "22:00" },
+    ],
     description:
       "An upscale French restaurant in Pointe-Claire Village with a romantic lakefront terrace facing Lac Saint-Louis. White linen tablecloths, refined seasonal cuisine, and an elegant atmosphere make it a perennial favourite for special occasions on the West Island. Sources: TripAdvisor.",
   },
