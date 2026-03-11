@@ -19,8 +19,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://terrassenelligan.com",
-    photos: [],
-    openingHours: "11:30 AM - 11:00 PM",
+    photos: [],
     openingPeriods: [],
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
@@ -41,8 +40,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "12:00 PM - 11:00 PM",
+    photos: [],
     openingPeriods: [],
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
@@ -685,8 +683,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "12:00 PM - 11:00 PM",
+    photos: [],
     openingPeriods: [],
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
@@ -822,8 +819,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "4:00 PM - 2:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 2, open: "15:00", close: "03:00" },
       { day: 3, open: "15:00", close: "03:00" },
@@ -1127,8 +1123,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "8:00 AM - 10:00 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "11:00", close: "23:00" },
@@ -1268,8 +1263,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "11:30 AM - 11:00 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
       { day: 1, open: "16:00", close: "03:00" },
@@ -1432,8 +1426,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "4:00 PM - 1:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 2, open: "16:00", close: "00:30" },
       { day: 3, open: "16:00", close: "00:30" },
@@ -1570,8 +1563,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "5:00 PM - 2:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "10:00", close: "01:00" },
@@ -1771,8 +1763,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "7:00 AM - 9:00 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -1857,8 +1848,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "3:00 PM - 1:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "11:30", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -2425,8 +2415,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
-    openingHours: "12:00 PM - 12:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "12:00", close: "01:00" },
@@ -4938,8 +4927,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://annies.ca",
-    photos: [],
-    openingHours: "11:30 AM - 1:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 2, open: "11:30", close: "21:00" },
       { day: 3, open: "11:30", close: "21:00" },
@@ -4964,8 +4952,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://oletapas.ca",
-    photos: [],
-    openingHours: "Wed-Fri 5:00 PM - 9:00 PM, Sat-Sun 10:00 AM - 9:00 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "12:00", close: "20:00" },
       { day: 5, open: "11:00", close: "21:00" },
@@ -5012,8 +4999,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.yeoldeorchard.com/pointeclaire",
-    photos: [],
-    openingHours: "Mon-Wed 11:30 AM - 11:00 PM, Thu 11:30 AM - 12:00 AM, Fri 11:30 AM - 1:00 AM, Sat-Sun 9:00 AM - 1:00 AM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "09:00", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -5039,8 +5025,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.louspointeclaire.com",
-    photos: [],
-    openingHours: "5:00 PM - 11:00 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -5067,8 +5052,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.berniespizzabar.com",
-    photos: [],
-    openingHours: "Tue-Sat 4:00 PM - 10:30 PM",
+    photos: [],
     openingPeriods: [
       { day: 0, open: "16:00", close: "22:00" },
       { day: 1, open: "16:00", close: "22:00" },
