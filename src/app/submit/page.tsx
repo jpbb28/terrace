@@ -76,6 +76,41 @@ function SubmitPageContent() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  function computeChanges() {
+    if (!editTerrace) return null;
+    const changes: Record<string, { from: unknown; to: unknown }> = {};
+
+    const scalar: [string, unknown, unknown][] = [
+      ["name",          editTerrace.name,                  form.name],
+      ["address",       editTerrace.address,               form.address],
+      ["neighborhood",  editTerrace.neighborhood,          form.neighborhood || null],
+      ["terraceType",   editTerrace.terraceType ?? null,   form.terraceType || null],
+      ["cuisineType",   editTerrace.cuisineType || null,   form.cuisineType || null],
+      ["capacity",      editTerrace.capacity ?? null,      form.capacity ? parseInt(form.capacity) : null],
+      ["covered",       editTerrace.covered,               form.covered],
+      ["dogFriendly",   editTerrace.dogFriendly,           form.dogFriendly],
+      ["heated",        editTerrace.heated,                form.heated],
+      ["website",       editTerrace.website ?? null,       form.website || null],
+      ["instagram",     editTerrace.instagram ?? null,     form.instagram || null],
+      ["phone",         editTerrace.phone ?? null,         form.phone || null],
+      ["seasonalOpen",  editTerrace.seasonalOpen ?? null,  form.seasonalOpen || null],
+      ["seasonalClose", editTerrace.seasonalClose ?? null, form.seasonalClose || null],
+      ["description",   editTerrace.description,           form.description],
+    ];
+
+    for (const [field, from, to] of scalar) {
+      if (from !== to) changes[field] = { from, to };
+    }
+
+    const fromPeriods = editTerrace.openingPeriods ?? [];
+    const toPeriods = toHourPeriods(hours);
+    if (JSON.stringify(fromPeriods) !== JSON.stringify(toPeriods)) {
+      changes["openingPeriods"] = { from: fromPeriods, to: toPeriods };
+    }
+
+    return Object.keys(changes).length > 0 ? changes : null;
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setState("submitting");
@@ -103,7 +138,7 @@ function SubmitPageContent() {
     };
 
     const { error } = isEdit
-      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name })
+      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges() })
       : await supabase.from("submissions").insert(shared);
 
     if (error) {
