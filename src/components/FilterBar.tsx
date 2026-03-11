@@ -154,15 +154,15 @@ export default function FilterBar({
       <div className="flex md:hidden items-center gap-2">
         <button
           onClick={() => setFiltersOpen(!filtersOpen)}
-          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer flex items-center gap-1 ${
+          className={`shrink-0 whitespace-nowrap text-xs font-medium px-4 py-2 rounded-xl border cursor-pointer flex items-center gap-2 transition-colors ${
             activeFilterCount > 0
-              ? "active"
-              : "border-border bg-white/40 text-muted hover:text-foreground"
+              ? "bg-accent text-white border-accent"
+              : "border-border bg-white/60 text-foreground hover:border-border-strong"
           }`}
         >
           &#x25BC; Filters
           {activeFilterCount > 0 && (
-            <span className="ml-0.5 bg-accent text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold leading-none">
+            <span className="bg-white/30 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold leading-none">
               {activeFilterCount}
             </span>
           )}
