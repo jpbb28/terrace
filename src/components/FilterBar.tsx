@@ -1,6 +1,7 @@
 "use client";
 
 import { Neighborhood, TerraceType } from "@/lib/types";
+import { useLang } from "@/lib/LanguageContext";
 
 const neighborhoods: Neighborhood[] = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -8,14 +9,7 @@ const neighborhoods: Neighborhood[] = [
   "Mile-Ex", "NDG", "Old Montreal", "Old Port", "Outremont", "Parc-Extension",
   "Petite-Patrie", "Plateau-Mont-Royal", "Pointe-Saint-Charles",
   "Quartier des Spectacles", "Rosemont", "Saint-Henri", "South Shore",
-  "The Village", "Verdun", "Villeray",
-];
-
-const terraceTypes: { value: TerraceType; label: string; icon: string }[] = [
-  { value: "sidewalk", label: "Sidewalk", icon: "\u{1F6B6}" },
-  { value: "rooftop", label: "Rooftop", icon: "\u{1F307}" },
-  { value: "backyard", label: "Backyard", icon: "\u{1F333}" },
-  { value: "courtyard", label: "Courtyard", icon: "\u{1F3DB}" },
+  "The Village", "Verdun", "Villeray", "West Island",
 ];
 
 interface FilterBarProps {
@@ -48,6 +42,15 @@ export default function FilterBar({
   locating,
   resultCount,
 }: FilterBarProps) {
+  const { t } = useLang();
+
+  const terraceTypes: { value: TerraceType; label: string; icon: string }[] = [
+    { value: "sidewalk", label: t.sidewalk, icon: "\u{1F6B6}" },
+    { value: "rooftop", label: t.rooftop, icon: "\u{1F307}" },
+    { value: "backyard", label: t.backyard, icon: "\u{1F333}" },
+    { value: "courtyard", label: t.courtyard, icon: "\u{1F3DB}" },
+  ];
+
   return (
     <div className="space-y-3">
       {/* Search */}
@@ -64,7 +67,7 @@ export default function FilterBar({
         </svg>
         <input
           type="text"
-          placeholder="Search by name, cuisine, area..."
+          placeholder={t.searchPlaceholder}
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           className="w-full pl-9 pr-3 py-2.5 bg-white/60 border border-border rounded-xl text-sm text-foreground placeholder:text-muted-light focus:outline-none focus:border-accent focus:bg-white/80 focus:shadow-sm transition-all"
@@ -78,7 +81,7 @@ export default function FilterBar({
           onChange={(e) => onNeighborhoodChange(e.target.value)}
           className="flex-1 px-3 py-2 bg-white/60 border border-border rounded-xl text-xs text-foreground focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer"
         >
-          <option value="">All neighborhoods</option>
+          <option value="">{t.allNeighborhoods}</option>
           {neighborhoods.map((n) => (
             <option key={n} value={n}>{n}</option>
           ))}
@@ -88,9 +91,9 @@ export default function FilterBar({
           onChange={(e) => onTypeChange(e.target.value)}
           className="flex-1 px-3 py-2 bg-white/60 border border-border rounded-xl text-xs text-foreground focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer"
         >
-          <option value="">All types</option>
-          {terraceTypes.map((t) => (
-            <option key={t.value} value={t.value}>{t.icon} {t.label}</option>
+          <option value="">{t.allTypes}</option>
+          {terraceTypes.map((tt) => (
+            <option key={tt.value} value={tt.value}>{tt.icon} {tt.label}</option>
           ))}
         </select>
       </div>
@@ -105,7 +108,7 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           }`}
         >
-          &#128054; Dog-friendly
+          &#128054; {t.dogFriendly}
         </button>
         <button
           onClick={() => onCoveredChange(!covered)}
@@ -115,7 +118,7 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           }`}
         >
-          &#9748; Covered
+          &#9748; {t.covered}
         </button>
         <button
           onClick={() => onOpenNowChange(!openNow)}
@@ -136,10 +139,10 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           } disabled:opacity-50 disabled:cursor-default`}
         >
-          {locating ? "Locating…" : "📍 Near me"}
+          {locating ? t.locating : t.nearMe}
         </button>
         <span className="ml-auto text-[11px] font-medium text-muted tabular-nums">
-          {resultCount} spots
+          {t.spots(resultCount)}
         </span>
       </div>
     </div>

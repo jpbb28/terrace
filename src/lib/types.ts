@@ -26,7 +26,8 @@ export type Neighborhood =
   | "Parc-Extension"
   | "Old Port"
   | "Laval"
-  | "South Shore";
+  | "South Shore"
+  | "West Island";
 
 export interface HourPeriod {
   day: number;    // 0 = Sunday, 1 = Monday, … 6 = Saturday
@@ -57,4 +58,5 @@ export interface Terrace {
   openingPeriods?: HourPeriod[]; // structured hours from Google Places
   placeId?: string;            // Google Places ID for future refreshes
   description: string;
+  descriptionFr?: string;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { terraces } from "@/data/terraces";
@@ -8,6 +8,7 @@ import FilterBar from "@/components/FilterBar";
 import { isOpenNow } from "@/lib/utils";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
+import { useLang } from "@/lib/LanguageContext";
 
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
@@ -27,6 +28,7 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
 }
 
 export default function Home() {
+  const { lang, setLang, t } = useLang();
   const [search, setSearch] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [terraceType, setTerraceType] = useState("");
@@ -38,6 +40,10 @@ export default function Home() {
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
+
+  const savedScrollTop = useRef(0);
+  const desktopListRef = useRef<HTMLDivElement>(null);
+  const mobileListRef = useRef<HTMLDivElement>(null);
 
   const handleSortByDistance = useCallback(() => {
     if (sortByDistance) {
@@ -107,12 +113,22 @@ export default function Home() {
   const mapZoom = selectedTerrace ? 16 : DEFAULT_ZOOM;
 
   const openTerrace = useCallback((id: string) => {
+    savedScrollTop.current = desktopListRef.current?.scrollTop ?? mobileListRef.current?.scrollTop ?? 0;
     setSelectedId(id);
   }, []);
 
   const closeTerrace = useCallback(() => {
     setSelectedId(null);
   }, []);
+
+  useEffect(() => {
+    if (!selectedId) {
+      requestAnimationFrame(() => {
+        if (desktopListRef.current) desktopListRef.current.scrollTop = savedScrollTop.current;
+        if (mobileListRef.current) mobileListRef.current.scrollTop = savedScrollTop.current;
+      });
+    }
+  }, [selectedId]);
 
   const filterBarProps = {
     search, onSearchChange: setSearch,
@@ -134,7 +150,17 @@ export default function Home() {
         <div className="p-5 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
-              <span className="text-2xl leading-none">&#9788;</span>
+              <svg className="w-7 h-7 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+              </svg>
               <div>
                 <h1 className="font-display text-lg font-bold tracking-tight leading-none">
                   Terrace Season
@@ -144,12 +170,20 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <Link
-              href="/submit"
-              className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
-            >
-              + Suggest
-            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors font-medium tracking-wide"
+              >
+                {lang === "en" ? "FR" : "EN"}
+              </button>
+              <Link
+                href="/submit"
+                className="text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors"
+              >
+                {t.submit}
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -164,23 +198,23 @@ export default function Home() {
 
             <div className="mx-5 mt-3 h-px bg-border shrink-0" />
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+            <div ref={desktopListRef} className="flex-1 overflow-y-auto p-4 space-y-2.5">
               {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>
-                  <p className="text-sm text-muted">No terraces match your filters.</p>
+                  <p className="text-sm text-muted">{t.noResults}</p>
                 </div>
               ) : (
-                filteredWithDistance.map(({ terrace: t, distance }, i) => (
+                filteredWithDistance.map(({ terrace, distance }, i) => (
                   <div
-                    key={t.id}
+                    key={terrace.id}
                     className="card-enter"
                     style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
                   >
                     <TerraceCard
-                      terrace={t}
-                      selected={selectedId === t.id}
-                      onClick={() => openTerrace(t.id)}
+                      terrace={terrace}
+                      selected={selectedId === terrace.id}
+                      onClick={() => openTerrace(terrace.id)}
                       distance={distance}
                     />
                   </div>
@@ -208,17 +242,35 @@ export default function Home() {
         <div className="shrink-0 px-4 pt-3 pb-2 bg-background border-b border-border">
           <div className="flex items-center justify-between mb-2.5">
             <div className="flex items-center gap-2">
-              <span className="text-xl leading-none">&#9788;</span>
+              <svg className="w-6 h-6 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
+                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
+                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+              </svg>
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
                 Terrace Season
               </h1>
             </div>
-            <Link
-              href="/submit"
-              className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
-            >
-              + Suggest
-            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted font-medium tracking-wide"
+              >
+                {lang === "en" ? "FR" : "EN"}
+              </button>
+              <Link
+                href="/submit"
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
+              >
+                {t.submit}
+              </Link>
+            </div>
           </div>
 
           {!selectedTerrace && <FilterBar {...filterBarProps} />}
@@ -238,7 +290,7 @@ export default function Home() {
                     : "text-muted"
                 }`}
               >
-                List ({filteredWithDistance.length})
+                {t.list} ({filteredWithDistance.length})
               </button>
               <button
                 onClick={() => setMobileView("map")}
@@ -248,12 +300,13 @@ export default function Home() {
                     : "text-muted"
                 }`}
               >
-                Map
+                {t.map}
               </button>
             </div>
 
             <div className="flex-1 relative overflow-hidden">
               <div
+                ref={mobileListRef}
                 className={`absolute inset-0 overflow-y-auto p-3 space-y-2 transition-opacity duration-200 ${
                   mobileView === "list"
                     ? "opacity-100 z-10"
@@ -263,15 +316,15 @@ export default function Home() {
                 {filteredWithDistance.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-3xl mb-2">&#9789;</p>
-                    <p className="text-sm text-muted">No terraces match your filters.</p>
+                    <p className="text-sm text-muted">{t.noResults}</p>
                   </div>
                 ) : (
-                  filteredWithDistance.map(({ terrace: t, distance }) => (
+                  filteredWithDistance.map(({ terrace, distance }) => (
                     <TerraceCard
-                      key={t.id}
-                      terrace={t}
-                      selected={selectedId === t.id}
-                      onClick={() => openTerrace(t.id)}
+                      key={terrace.id}
+                      terrace={terrace}
+                      selected={selectedId === terrace.id}
+                      onClick={() => openTerrace(terrace.id)}
                       distance={distance}
                     />
                   ))

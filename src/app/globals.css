@@ -116,11 +116,11 @@ body {
   color: var(--foreground) !important;
   border-radius: 14px !important;
   box-shadow: 0 8px 32px var(--shadow-deep), 0 0 0 1px var(--border) !important;
-  padding: 0 !important;
+  padding: 14px 16px !important;
 }
 
 .leaflet-popup-content {
-  margin: 14px 16px !important;
+  margin: 0 28px 0 0 !important;
 }
 
 .leaflet-popup-tip {
@@ -129,9 +129,13 @@ body {
 
 .leaflet-popup-close-button {
   color: var(--muted) !important;
-  font-size: 20px !important;
-  top: 6px !important;
-  right: 8px !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  top: 12px !important;
+  right: 12px !important;
+  padding: 0 !important;
 }
 
 /* ── Map Markers ── */
@@ -145,7 +149,6 @@ body {
   background: var(--accent);
   border: 3px solid #fff;
   color: #fff;
-  font-size: 15px;
   box-shadow: 0 3px 12px rgba(196, 93, 62, 0.35), 0 1px 3px rgba(0,0,0,0.1);
   transform: rotate(-45deg);
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);

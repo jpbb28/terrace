@@ -20,12 +20,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassenelligan.com",
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "11:30 AM - 11:00 PM",
     openingPeriods: [],
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
+    descriptionFr:
+      "Bar sur le toit iconique de l'Hôtel Nelligan avec vue sur le Vieux-Montréal et le fleuve Saint-Laurent. Réputé pour ses brunchs aux mimosas. Auvents rétractables disponibles. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
   },
   {
     id: "2",
@@ -42,12 +42,12 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 11:00 PM",
     openingPeriods: [],
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
+    descriptionFr:
+      "Toit du cinquième étage de l'Auberge du Vieux-Port avec vue panoramique sur le Vieux-Port et le fleuve Saint-Laurent. Le menu 2025 propose tartare de bison, poulpe grillé, tataki de thon et bols poké. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
   },
   {
     id: "3",
@@ -63,8 +63,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -76,6 +74,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Eighth-floor rooftop of Hotel William Gray with panoramic views of the Old Port, Ferris wheel, and St. Lawrence River. Firepits available. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, OpenTable, Montreal Diaries, Tourisme Montreal, Daily Hive.",
+    descriptionFr:
+      "Toit du huitième étage de l'Hotel William Gray avec vue panoramique sur le Vieux-Port, la grande roue et le fleuve Saint-Laurent. Foyers disponibles. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Time Out, Cult MTL, OpenTable, Montreal Diaries, Tourisme Montreal, Daily Hive.",
   },
   {
     id: "4",
@@ -91,11 +91,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Fourth-floor terrace of Hotel William Gray overlooking Place Jacques-Cartier. West Coast-inspired cuisine, lush decor, mezze plates. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+    descriptionFr:
+      "Terrasse du quatrième étage de l'Hotel William Gray avec vue sur la Place Jacques-Cartier. Cuisine inspirée de la côte Ouest, décor luxuriant, assiettes mezze. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
   {
     id: "5",
@@ -111,11 +111,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Rooftop bar on Hotel Place d'Armes with views of Place d'Armes square and Notre-Dame Basilica. Partially covered for gray days. Brunch, lunch, and dinner. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
+    descriptionFr:
+      "Bar sur le toit de l'Hotel Place d'Armes avec vue sur la Place d'Armes et la Basilique Notre-Dame. Partiellement couvert pour les jours nuageux. Brunch, dîner et souper. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
   },
   {
     id: "6",
@@ -131,11 +131,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Four-storey complex on the waterfront with unobstructed Saint-Lawrence River views. Known for rose and sangria. Weekly events and late-night DJs. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
+    descriptionFr:
+      "Complexe de quatre étages en bord de fleuve avec vue imprenable sur le Saint-Laurent. Réputé pour le rosé et la sangria. Événements hebdomadaires et DJ en soirée. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
   },
   {
     id: "7",
@@ -151,11 +151,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Hidden courtyard with colorful flowers and shrubs set against historic 1812 architecture (National Historical Site). Live jazz performances. Sweet and savory crepes, gourmet salads. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
+    descriptionFr:
+      "Cour cachée avec fleurs colorées et arbustes adossés à l'architecture historique de 1812 (site historique national). Spectacles de jazz en direct. Crêpes sucrées et salées, salades gastronomiques. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
   },
   {
     id: "8",
@@ -171,8 +171,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:00" },
       { day: 1, open: "17:30", close: "22:00" },
@@ -184,6 +182,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hidden garden courtyard with tree canopy, singing birds, and petanque area. Sources: Time Out, Tastet.",
+    descriptionFr:
+      "Cour-jardin cachée avec canopée d'arbres, oiseaux chanteurs et terrain de pétanque. Sources: Time Out, Tastet.",
   },
   {
     id: "9",
@@ -199,8 +199,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -210,6 +208,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Oldest restaurant in the city, first constructed in 1688. Open-air courtyard terrace. Includes Velvet speakeasy bar downstairs. Sources: Time Out.",
+    descriptionFr:
+      "Le plus vieux restaurant de la ville, construit en 1688. Terrasse en cour à ciel ouvert. Comprend le bar speakeasy Velvet au sous-sol. Sources: Time Out.",
   },
   {
     id: "10",
@@ -225,8 +225,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -238,6 +236,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Prime location for people-watching and heritage architecture views. Trattoria-style Italian with housemade pasta, stone oven-braised meats. Italian-style weekend brunch with bellinis. Sources: OpenTable, Eater/Wanderlog.",
+    descriptionFr:
+      "Emplacement de choix pour observer les passants et admirer l'architecture patrimoniale. Cuisine italienne trattoria avec pâtes maison et viandes braisées au four à pierre. Brunch de fin de semaine à l'italienne avec bellinis. Sources: OpenTable, Eater/Wanderlog.",
   },
   {
     id: "11",
@@ -253,8 +253,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -273,6 +271,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Inner courtyard with cobblestones, awnings, flower baskets, hibiscus and oleander plants. Sources: Time Out, Tourisme Montreal.",
+    descriptionFr:
+      "Cour intérieure avec pavés, auvents, paniers de fleurs, hibiscus et lauriers-roses. Sources: Time Out, Tourisme Montreal.",
   },
   {
     id: "12",
@@ -288,8 +288,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -301,6 +299,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Parisian brasserie atmosphere with views over De la Commune Street. French techniques with modern Montreal cuisine. Weekend brunch available. Sources: OpenTable.",
+    descriptionFr:
+      "Ambiance de brasserie parisienne avec vue sur la rue De la Commune. Techniques françaises et cuisine montréalaise moderne. Brunch de fin de semaine disponible. Sources: OpenTable.",
   },
   {
     id: "13",
@@ -316,11 +316,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Sixth-floor rooftop on Hampton Inn with lush jungle vegetation inspired by Vietnam's French colonial architecture. 7,000-square-foot space with tropical decor. Views of Old Montreal. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Toit du sixième étage du Hampton Inn avec une végétation jungle luxuriante inspirée de l'architecture coloniale française du Vietnam. Espace de 650 m² avec décor tropical. Vue sur le Vieux-Montréal. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "14",
@@ -336,8 +336,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "17:30", close: "22:00" },
       { day: 2, open: "17:30", close: "22:00" },
@@ -348,6 +346,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace in prime Old Montreal setting. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse idéalement située dans le Vieux-Montréal. Sources: Tastet.",
   },
   {
     id: "15",
@@ -363,8 +363,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -376,6 +374,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Garden courtyard on Saint-Gabriel street surrounded by old buildings. Features flowers, plants, outdoor bar, stone walls, and greenery for a private setting. Sources: experienceoldmontreal.com.",
+    descriptionFr:
+      "Cour-jardin rue Saint-Gabriel entourée de vieux bâtiments. Fleurs, plantes, bar extérieur, murs de pierre et verdure pour une ambiance intimiste. Sources: experienceoldmontreal.com.",
   },
   {
     id: "16",
@@ -386,13 +386,11 @@ export const terraces: Terrace[] = [
     lng: -73.5560,
     neighborhood: "Old Montreal",
     cuisineType: "Distillery / Locavore",
-    terraceType: "backyard", // confirmed: "Garden patio"
+    terraceType: "courtyard", // confirmed: "interior courtyard garden"
     covered: false,
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -404,6 +402,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 55-seat interior courtyard garden inside a 19th-century building named after two former Montreal mayors. Celebrates Quebec's craft distillery scene with locally farmed ingredients and English-inspired pub food. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
+    descriptionFr:
+      "Un jardin intérieur de 55 places dans un bâtiment du XIXe siècle nommé d'après deux anciens maires de Montréal. Célèbre la scène des distilleries artisanales du Québec avec des ingrédients locaux et une cuisine de pub d'inspiration anglaise. Sources: Tastet, Tourisme Montreal, SDC Old Montreal.",
   },
   {
     id: "17",
@@ -414,16 +414,16 @@ export const terraces: Terrace[] = [
     lng: -73.5565,
     neighborhood: "Old Montreal",
     cuisineType: "Seafood",
-    terraceType: "backyard", // confirmed: "Back stone patio"
+    terraceType: "courtyard", // confirmed: "courtyard terrace tucked behind stone-walled dining room"
     covered: false,
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Une terrasse-cour enchanteresse nichée derrière une salle à manger aux murs de pierre sur la rue Saint-Paul. Menu axé sur les fruits de mer : homard, moules, tartare de saumon et calmars. Petite, intime et constamment saluée pour son ambiance calme. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
   },
   {
     id: "18",
@@ -439,8 +439,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "14:00" },
       { day: 1, open: "06:30", close: "14:00" },
@@ -455,6 +453,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "The private courtyard of Hotel Saint-Sulpice, designed to evoke Arizona's desert serenity. Chef Piérard works with smoking, charcoal grilling, and fermentation. One of Old Montreal's most peaceful and hidden outdoor escapes. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
+    descriptionFr:
+      "La cour privée de l'Hotel Saint-Sulpice, conçue pour évoquer la sérénité du désert de l'Arizona. Le chef Piérard travaille avec la fumée, la cuisson au charbon de bois et la fermentation. L'une des escapades extérieures les plus paisibles et cachées du Vieux-Montréal. Sources: Cour Arrière, Tourisme Montreal, RestoMontreal.",
   },
   {
     id: "19",
@@ -470,8 +470,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -483,6 +481,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Italian patio terrace with wood-fired pizza and Italian cocktails. Sources: Montreal Diaries.",
+    descriptionFr:
+      "Terrasse italienne avec pizzas au feu de bois et cocktails italiens. Sources: Montreal Diaries.",
   },
   {
     id: "20",
@@ -498,8 +498,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "16:00", close: "22:00" },
@@ -510,6 +508,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming wine bar on Saint-Paul. Sources: Tastet.",
+    descriptionFr:
+      "Charmant bar à vin sur Saint-Paul. Sources: Tastet.",
   },
   {
     id: "21",
@@ -525,8 +525,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "07:00", close: "20:00" },
       { day: 1, open: "07:00", close: "20:00" },
@@ -538,6 +536,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming terrace on Saint-Paul Street. Sources: Tastet.",
+    descriptionFr:
+      "Charmante terrasse sur la rue Saint-Paul. Sources: Tastet.",
   },
   {
     id: "22",
@@ -553,8 +553,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "07:00", close: "14:00" },
       { day: 1, open: "07:00", close: "11:00" },
@@ -576,6 +574,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "14th floor of Hyatt Centric in Old Montreal with 360-degree views. Sources: The Rooftop Guide.",
+    descriptionFr:
+      "14e étage du Hyatt Centric dans le Vieux-Montréal avec vue à 360 degrés. Sources: The Rooftop Guide.",
   },
 
   // =============================================
@@ -595,8 +595,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "16:30", close: "01:00" },
       { day: 2, open: "16:30", close: "02:00" },
@@ -607,6 +605,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Pub tucked off Sainte-Catherine Street with a secret bi-leveled courtyard terrace. Walls covered in creeping vines, heat lamps. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+    descriptionFr:
+      "Pub niché en retrait de la rue Sainte-Catherine avec une terrasse-cour secrète sur deux niveaux. Murs recouverts de vignes grimpantes, lampes chauffantes. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
   },
   {
     id: "24",
@@ -622,8 +622,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "07:00", close: "10:00" },
       { day: 0, open: "12:00", close: "14:00" },
@@ -645,6 +643,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Ritz-Carlton garden courtyard with awning-covered wooden deck overlooking a French garden with flagstone paths, artificial brook, and duck pond. Michelin-calibre dining. Sources: Time Out, OpenTable, Tourisme Montreal, MTL Blog, Tastet.",
+    descriptionFr:
+      "Cour-jardin du Ritz-Carlton avec terrasse en bois couverte d'un auvent donnant sur un jardin à la française avec allées dallées, ruisseau artificiel et mare aux canards. Cuisine de niveau Michelin. Sources: Time Out, OpenTable, Tourisme Montreal, MTL Blog, Tastet.",
   },
   {
     id: "25",
@@ -660,8 +660,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "17:00", close: "23:00" },
       { day: 2, open: "05:00", close: "23:00" },
@@ -672,6 +670,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Montreal's highest terrace at the 44th floor of Place Ville Marie. Breathtaking sunset views. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "La terrasse la plus haute de Montréal, au 44e étage de la Place Ville Marie. Vue époustouflante sur les couchers de soleil. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "26",
@@ -687,12 +687,12 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 11:00 PM",
     openingPeriods: [],
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
+    descriptionFr:
+      "Terrasse du neuvième étage de l'Hotel Humaniti. Slush maison, poulet frit, menu créatif saisonnier. Ouvert tous les jours. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
   },
   {
     id: "27",
@@ -708,8 +708,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     openingPeriods: [
       { day: 1, open: "11:30", close: "13:30" },
       { day: 2, open: "11:30", close: "13:30" },
@@ -724,6 +722,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Year-round inner garden. Boho-chic, elegant and lush with greenery. One of the most beautiful terrasses for gourmet Japanese cuisine. Sources: Time Out, Tourisme Montreal, MTL Blog, Tastet.",
+    descriptionFr:
+      "Jardin intérieur ouvert à l'année. Boho-chic, élégant et luxuriant de verdure. L'une des plus belles terrasses pour la cuisine japonaise gastronomique. Sources: Time Out, Tourisme Montreal, MTL Blog, Tastet.",
   },
   {
     id: "28",
@@ -739,8 +739,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "06:30", close: "10:30" },
       { day: 0, open: "11:30", close: "14:30" },
@@ -766,6 +764,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Inner courtyard at Sofitel hotel. French cuisine with large yellow umbrellas, parasols, and plants. Glass-walled atrium. Live DJ entertainment. Sources: Tastet, OpenTable, Tourisme Montreal.",
+    descriptionFr:
+      "Cour intérieure de l'hôtel Sofitel. Cuisine française avec grands parasols jaunes et plantes. Atrium vitré. Divertissement avec DJ en direct. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
   {
     id: "29",
@@ -781,8 +781,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "07:30", close: "10:30" },
       { day: 0, open: "11:00", close: "14:30" },
@@ -808,6 +806,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Third-floor rooftop terrace at Four Seasons Hotel. Chef Marcus Samuelsson. Seafood-focused menu with Japanese influences. Overlooks Leonard Cohen mural. Sources: Tastet, OpenTable, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse sur le toit du troisième étage du Four Seasons Hotel. Chef Marcus Samuelsson. Menu axé sur les fruits de mer avec influences japonaises. Vue sur la murale de Leonard Cohen. Sources: Tastet, OpenTable, Tourisme Montreal.",
   },
   {
     id: "30",
@@ -824,8 +824,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "4:00 PM - 2:00 AM",
     openingPeriods: [
       { day: 2, open: "15:00", close: "03:00" },
@@ -836,6 +834,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Stunning hidden terrace, a peaceful downtown escape. Sources: Tastet, Time Out.",
+    descriptionFr:
+      "Superbe terrasse cachée, une escapade paisible au centre-ville. Sources: Tastet, Time Out.",
   },
   {
     id: "31",
@@ -851,8 +851,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "11:45", close: "14:00" },
       { day: 1, open: "17:30", close: "21:30" },
@@ -868,6 +866,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Stylish covered terrace. Portuguese cuisine. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse couverte élégante. Cuisine portugaise. Sources: Tastet.",
   },
   {
     id: "32",
@@ -883,8 +883,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "11:30", close: "14:30" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -900,6 +898,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Off-the-beaten-path Mexican restaurant with a hidden patio. Cocktails, ceviche, tacos. Sources: Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Restaurant mexicain hors des sentiers battus avec patio caché. Cocktails, ceviche, tacos. Sources: Tourisme Montreal, Tastet.",
   },
   {
     id: "33",
@@ -915,8 +915,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "23:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -926,6 +924,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hidden terrace on Saint-Alexandre Street. Shared dishes concept. Sources: Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Terrasse cachée sur la rue Saint-Alexandre. Concept de plats à partager. Sources: Tourisme Montreal, Tastet.",
   },
   {
     id: "34",
@@ -941,8 +941,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     openingPeriods: [
       { day: 0, open: "10:00", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -954,6 +952,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Perched on the highest level of Place Ville Marie with panoramic 360-degree views. French restaurant with observation deck. Sources: Time Out.",
+    descriptionFr:
+      "Perché au niveau le plus élevé de la Place Ville Marie avec vue panoramique à 360 degrés. Restaurant français avec terrasse d'observation. Sources: Time Out.",
   },
   {
     id: "35",
@@ -969,8 +969,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -986,6 +984,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Panoramic terrace with 180-degree view at DoubleTree by Hilton. Quebec-focused bistro food. Sources: Time Out, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse panoramique avec vue à 180 degrés au DoubleTree by Hilton. Cuisine de bistro axée sur le Québec. Sources: Time Out, Tourisme Montreal.",
   },
   {
     id: "36",
@@ -1002,8 +1002,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "17:00" },
       { day: 1, open: "10:00", close: "21:00" },
@@ -1015,6 +1013,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Upscale French restaurant (Thursday-Saturday). 100-person rooftop bar with views of entertainment district. Known for high-end punch bowls. Sources: Time Out.",
+    descriptionFr:
+      "Restaurant français haut de gamme (jeudi-samedi). Bar sur le toit de 100 places avec vue sur le quartier des divertissements. Réputé pour ses punchs élaborés. Sources: Time Out.",
   },
   {
     id: "37",
@@ -1030,11 +1030,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel. Retractable roof for any weather. Mediterranean cuisine. Sources: Tourisme Montreal, mtl.org.",
+    descriptionFr:
+      "Toit du cinquième étage sur le thème de la jungle au HONEYROSE Hotel. Toit rétractable pour toutes les météos. Cuisine méditerranéenne. Sources: Tourisme Montreal, mtl.org.",
   },
   {
     id: "38",
@@ -1051,8 +1051,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "11:30", close: "14:30" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -1068,6 +1066,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 40-seat enclosed and heated terrace tucked beside St-James Church in the shadow of downtown office towers. Playful izakaya menu: karaage, Japadogs, soba salad with bacon, sake, and lychee mojitos. Sources: Tastet, Spotted by Locals.",
+    descriptionFr:
+      "Une terrasse fermée et chauffée de 40 places nichée à côté de l'église St-James à l'ombre des tours de bureaux du centre-ville. Menu izakaya ludique : karaage, Japadogs, salade de soba au bacon, saké et mojitos au litchi. Sources: Tastet, Spotted by Locals.",
   },
   {
     id: "39",
@@ -1083,8 +1083,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "16:00", close: "23:00" },
       { day: 3, open: "16:00", close: "00:00" },
@@ -1094,6 +1092,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A palm-lined third-floor terrace atop the Fairmont Queen Elizabeth, inspired by the glam rock era of Ziggy Stardust. Seasonal cocktails, gourmet BBQ, and DJs Thursday–Saturday. Open summer only. Sources: Tastet, The Rooftop Guide, Gentologie.",
+    descriptionFr:
+      "Une terrasse du troisième étage bordée de palmiers au sommet du Fairmont Reine Élizabeth, inspirée de l'ère glam rock de Ziggy Stardust. Cocktails saisonniers, BBQ gastronomique et DJ du jeudi au samedi. Ouvert l'été seulement. Sources: Tastet, The Rooftop Guide, Gentologie.",
   },
   {
     id: "40",
@@ -1109,11 +1109,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Promenade level of Marriott Chateau Champlain with views of the city and Windsor station. Asian-inspired cuisine and signature cocktails. Festive atmosphere. Sources: Tastet, mtl.org.",
+    descriptionFr:
+      "Niveau promenade du Marriott Château Champlain avec vue sur la ville et la gare Windsor. Cuisine d'inspiration asiatique et cocktails signatures. Ambiance festive. Sources: Tastet, mtl.org.",
   },
   {
     id: "41",
@@ -1130,8 +1130,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "8:00 AM - 10:00 PM",
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
@@ -1143,6 +1141,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Beautiful courtyard cafe. Bright white space with flowers. Sources: Tastet, Time Out.",
+    descriptionFr:
+      "Beau café-cour. Espace blanc lumineux avec fleurs. Sources: Tastet, Time Out.",
   },
   {
     id: "42",
@@ -1158,11 +1158,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Large rooftop terrace atop the SAT arts space overlooking Saint-Laurent Boulevard. Urban jungle in the Quartier des spectacles. Rotating themes with local/international chefs. Sources: Time Out, Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Grande terrasse sur le toit de l'espace artistique SAT avec vue sur le Boulevard Saint-Laurent. Jungle urbaine dans le Quartier des spectacles. Thèmes rotatifs avec chefs locaux et internationaux. Sources: Time Out, Tastet, Tourisme Montreal.",
   },
   {
     id: "43",
@@ -1178,8 +1178,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "23:00" },
       { day: 1, open: "07:00", close: "23:00" },
@@ -1191,6 +1189,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Grand terrace. Irish/English cuisine. Sources: Tastet.",
+    descriptionFr:
+      "Grande terrasse. Cuisine irlandaise/anglaise. Sources: Tastet.",
   },
   {
     id: "44",
@@ -1206,8 +1206,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -1219,6 +1217,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Two terraces; one faces busy Crescent Street for people-watching. Sources: Daily Hive.",
+    descriptionFr:
+      "Deux terrasses ; l'une donne sur la rue Crescent animée pour observer les passants. Sources: Daily Hive.",
   },
 
   // =============================================
@@ -1238,8 +1238,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 1, open: "16:00", close: "00:00" },
@@ -1251,6 +1249,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Rooftop terrace on 2nd floor. Craft beers, wines, cocktails, fermented nibbles. Spacious terrace with warm service. Sources: Tastet, Tourisme Montreal, Narcity.",
+    descriptionFr:
+      "Terrasse sur le toit au 2e étage. Bières artisanales, vins, cocktails, bouchées fermentées. Terrasse spacieuse avec service chaleureux. Sources: Tastet, Tourisme Montreal, Narcity.",
   },
 
   // =============================================
@@ -1271,8 +1271,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "11:30 AM - 11:00 PM",
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
@@ -1285,6 +1283,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace extends onto the Main. Popular for oysters and cocktails. Sources: Tastet.",
+    descriptionFr:
+      "La terrasse s'étend sur le Main. Populaire pour les huîtres et les cocktails. Sources: Tastet.",
   },
   {
     id: "47",
@@ -1300,8 +1300,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -1311,6 +1309,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Seafood-centric fine-dining with stunning views of Jeanne-Mance Park. Japanese-accented cuisine. Sources: Time Out, OpenTable, Tastet.",
+    descriptionFr:
+      "Gastronomie axée sur les fruits de mer avec vue imprenable sur le Parc Jeanne-Mance. Cuisine aux accents japonais. Sources: Time Out, OpenTable, Tastet.",
   },
   {
     id: "48",
@@ -1326,8 +1326,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "20:00" },
       { day: 1, open: "11:00", close: "20:00" },
@@ -1336,6 +1334,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hidden garden oasis with vibrant colors and a water fountain. Canopied by trees and fenced in. Community-focused cafe since 1976 with vegetarian/vegan-leaning menu. Sources: Time Out, Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "Oasis de jardin cachée aux couleurs vives avec une fontaine. Canopée d'arbres et clôturé. Café communautaire depuis 1976 avec menu végétarien/végétalien. Sources: Time Out, Tourisme Montreal, Tastet.",
   },
   {
     id: "49",
@@ -1352,8 +1352,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -1365,6 +1363,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hidden terrace with around fifty seats, decorated with plants and colorful murals. BYOW. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse cachée d'environ cinquante places, décorée de plantes et de murales colorées. Apportez votre vin. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "50",
@@ -1380,8 +1380,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "21:30" },
       { day: 2, open: "16:00", close: "21:30" },
@@ -1392,6 +1390,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "On Duluth Avenue since 1979. Montreal's first BYOW restaurant. Lush garden terrace evoking Mediterranean landscapes. Sources: Tastet, OpenTable.",
+    descriptionFr:
+      "Sur l'Avenue Duluth depuis 1979. Premier restaurant APVY de Montréal. Terrasse-jardin luxuriante évoquant les paysages méditerranéens. Sources: Tastet, OpenTable.",
   },
   {
     id: "51",
@@ -1407,8 +1407,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "16:00", close: "00:00" },
       { day: 2, open: "12:00", close: "00:00" },
@@ -1419,6 +1417,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Craft brewery with bright yellow picnic tables on rooftop. Sources: Tastet.",
+    descriptionFr:
+      "Brasserie artisanale avec tables de pique-nique jaunes vives sur le toit. Sources: Tastet.",
   },
   {
     id: "52",
@@ -1435,8 +1435,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "4:00 PM - 1:00 AM",
     openingPeriods: [
       { day: 2, open: "16:00", close: "00:30" },
@@ -1447,6 +1445,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Summer staple wine bar. Green and yellow decor. Sources: Tastet.",
+    descriptionFr:
+      "Bar à vin incontournable de l'été. Décor vert et jaune. Sources: Tastet.",
   },
   {
     id: "53",
@@ -1462,8 +1462,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -1473,6 +1471,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming little terrace. Sources: Tastet.",
+    descriptionFr:
+      "Charmante petite terrasse. Sources: Tastet.",
   },
   {
     id: "54",
@@ -1488,8 +1488,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "14:30" },
       { day: 2, open: "17:30", close: "21:00" },
@@ -1502,6 +1500,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Sunny terrace on Saint-Denis Street. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse ensoleillée sur la rue Saint-Denis. Sources: Tastet.",
   },
   {
     id: "55",
@@ -1517,8 +1517,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "15:00", close: "00:00" },
       { day: 1, open: "15:00", close: "00:00" },
@@ -1530,6 +1528,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Welcoming terrace with grass carpets. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse accueillante avec tapis de gazon. Sources: Tastet.",
   },
   {
     id: "56",
@@ -1545,8 +1545,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "21:00" },
       { day: 1, open: "09:00", close: "17:00" },
@@ -1558,6 +1556,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Secluded and lush hidden garden. Persian mezze, natural/organic wines. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Jardin caché isolé et luxuriant. Mezze persans, vins naturels/biologiques. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "57",
@@ -1573,8 +1573,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "September",
     openingHours: "5:00 PM - 2:00 AM",
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
@@ -1587,6 +1585,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming little terrace on the Main. Sources: Tastet.",
+    descriptionFr:
+      "Charmante petite terrasse sur le Main. Sources: Tastet.",
   },
   {
     id: "58",
@@ -1602,8 +1602,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -1615,6 +1613,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "One of the most sought-after back terraces on the island, featuring a small pond and heated patio near Parc La Fontaine. Pan-Asian dishes spanning Thailand, Japan, India, and Cambodia, with cocktails fusing Oriental flavours. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
+    descriptionFr:
+      "L'une des terrasses arrière les plus convoitées de l'île, avec un petit étang et un patio chauffé près du Parc La Fontaine. Plats pan-asiatiques couvrant la Thaïlande, le Japon, l'Inde et le Cambodge, avec des cocktails aux saveurs orientales. Sources: Tourisme Montreal, RestoMontreal, TripAdvisor.",
   },
   {
     id: "59",
@@ -1630,8 +1630,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "16:00", close: "01:00" },
       { day: 2, open: "16:00", close: "01:00" },
@@ -1642,6 +1640,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A candlelit back terrace with a lush, relaxed vibe on Mont-Royal Avenue. Eclectic ambiance with creative cocktails, charcuterie, and a diverse local crowd. Sources: Yelp, Wanderlog.",
+    descriptionFr:
+      "Une terrasse arrière aux chandelles à l'ambiance luxuriante et détendue sur l'Avenue Mont-Royal. Ambiance éclectique avec cocktails créatifs, charcuteries et clientèle locale diversifiée. Sources: Yelp, Wanderlog.",
   },
   {
     id: "60",
@@ -1657,8 +1657,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "01:00" },
       { day: 1, open: "17:00", close: "01:00" },
@@ -1670,6 +1668,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Legendary indie music venue and café-bar on Saint-Laurent with live music 7 nights a week. Has hosted Arcade Fire and Helena Deland. Vegetarian and vegan menu. Sources: TripAdvisor, Wikipedia.",
+    descriptionFr:
+      "Lieu de musique indie légendaire et café-bar sur Saint-Laurent avec musique en direct 7 soirs par semaine. A accueilli Arcade Fire et Helena Deland. Menu végétarien et végétalien. Sources: TripAdvisor, Wikipedia.",
   },
   {
     id: "61",
@@ -1685,8 +1685,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "23:00" },
       { day: 1, open: "16:00", close: "23:00" },
@@ -1698,6 +1696,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A flower-and-vine-draped garden terrace on Saint-Denis operating since 1985. Beloved for its homemade sangria and generous French-Mediterranean salads. One of the Plateau's most charming back patios. Sources: TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Une terrasse-jardin drapée de fleurs et de vignes sur Saint-Denis, en activité depuis 1985. Appréciée pour sa sangria maison et ses généreuses salades franco-méditerranéennes. L'une des terrasses arrière les plus charmantes du Plateau. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "62",
@@ -1713,8 +1713,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "16:00" },
       { day: 1, open: "10:00", close: "16:00" },
@@ -1726,6 +1724,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Near Avenue Mont-Royal. Sources: Tastet.",
+    descriptionFr:
+      "Près de l'Avenue Mont-Royal. Sources: Tastet.",
   },
   {
     id: "63",
@@ -1741,8 +1741,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "00:00" },
       { day: 1, open: "17:00", close: "00:00" },
@@ -1754,6 +1752,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Winner of Cult MTL Best of MTL 2025 reader poll for best terrasse. Live DJs, craft beer, energetic atmosphere. Sources: Cult MTL, Montreal Diaries.",
+    descriptionFr:
+      "Lauréat du sondage Cult MTL Best of MTL 2025 pour la meilleure terrasse. DJ en direct, bières artisanales, ambiance énergique. Sources: Cult MTL, Montreal Diaries.",
   },
 
   // =============================================
@@ -1774,8 +1774,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "April",
-    seasonalClose: "October",
     openingHours: "7:00 AM - 9:00 PM",
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
@@ -1788,6 +1786,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Mile End institution since 1970, founded by Italian immigrant Rocco Furfaro. Nearly impossible to find an open spot when the sun comes out. Sources: Tastet, Daily Hive.",
+    descriptionFr:
+      "Institution du Mile End depuis 1970, fondée par l'immigrant italien Rocco Furfaro. Presque impossible de trouver une place libre quand le soleil se pointe. Sources: Tastet, Daily Hive.",
   },
   {
     id: "65",
@@ -1803,8 +1803,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -1816,6 +1814,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Small, unpretentious terrace. Sources: Tastet.",
+    descriptionFr:
+      "Petite terrasse sans prétention. Sources: Tastet.",
   },
   {
     id: "66",
@@ -1831,8 +1831,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -1844,6 +1842,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Mile End institution. Lively ambiance. Sources: Tastet.",
+    descriptionFr:
+      "Institution du Mile End. Ambiance animée. Sources: Tastet.",
   },
   {
     id: "67",
@@ -1860,8 +1860,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "September",
     openingHours: "3:00 PM - 1:00 AM",
     openingPeriods: [
       { day: 0, open: "11:30", close: "01:00" },
@@ -1874,6 +1872,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Leafy canopy terrace. Quebec craft beer institution. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse sous canopée feuillue. Institution de la bière artisanale québécoise. Sources: Tastet, Tourisme Montreal.",
   },
 
   // =============================================
@@ -1893,8 +1893,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "01:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -1906,6 +1904,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Art Deco bar with rooftop terrace and city views. Pizza, beer, cocktails. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Tastet, Cult MTL, Tourisme Montreal.",
+    descriptionFr:
+      "Bar Art déco avec terrasse sur le toit et vue sur la ville. Pizza, bière, cocktails. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Tastet, Cult MTL, Tourisme Montreal.",
   },
   {
     id: "69",
@@ -1921,8 +1921,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "17:30", close: "22:30" },
       { day: 4, open: "17:30", close: "22:30" },
@@ -1931,6 +1929,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Garage-door entrance terrace. Local products, modern cuisine. Some of the best cuisine in the city. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse à entrée de style porte de garage. Produits locaux, cuisine moderne. Parmi les meilleures cuisines de la ville. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "70",
@@ -1946,8 +1946,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 1, open: "16:00", close: "23:00" },
@@ -1959,6 +1957,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Stunning terrace. Venetian-inspired cicchetti. Sources: Tastet.",
+    descriptionFr:
+      "Superbe terrasse. Cicchetti d'inspiration vénitienne. Sources: Tastet.",
   },
   {
     id: "71",
@@ -1974,8 +1974,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "16:00" },
       { day: 1, open: "10:00", close: "16:00" },
@@ -1986,6 +1984,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Vibrant terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse vibrante. Sources: Tastet.",
   },
   {
     id: "72",
@@ -2001,8 +2001,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 2, open: "16:00", close: "23:00" },
@@ -2013,6 +2011,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Modern microbrewery with large garage door opening. Block parties. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Microbrasserie moderne avec grande ouverture de porte de garage. Fêtes de bloc. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "73",
@@ -2028,8 +2028,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:30" },
       { day: 0, open: "16:30", close: "21:00" },
@@ -2048,6 +2046,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 'lan khao gang' — a Thai curry shop and grocery hybrid common in Thailand but rare in North America. Casual outdoor seating, short menu of authentic curries, no reservations. Sources: Tastet, Yelp.",
+    descriptionFr:
+      "Un « lan khao gang » — un hybride de boutique de curry thaïlandais et d'épicerie courant en Thaïlande mais rare en Amérique du Nord. Terrasse décontractée, court menu de currys authentiques, sans réservation. Sources: Tastet, Yelp.",
   },
 
   // =============================================
@@ -2067,8 +2067,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "14:30" },
       { day: 0, open: "17:30", close: "22:00" },
@@ -2082,6 +2080,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "One of the city's best streetside setups, ringed by trees and planters. Lush and intimate. Refined Syrian cuisine with 10-12 course tasting menu available. Sources: OpenTable, MTL Blog, Time Out, Tastet.",
+    descriptionFr:
+      "L'un des meilleurs aménagements de terrasse en bord de rue de la ville, encerclé d'arbres et de bacs à plantes. Luxuriant et intime. Cuisine syrienne raffinée avec menu dégustation de 10-12 services disponible. Sources: OpenTable, MTL Blog, Time Out, Tastet.",
   },
   {
     id: "75",
@@ -2097,8 +2097,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 0, open: "17:00", close: "23:00" },
@@ -2117,6 +2115,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming covered terrace. French brasserie. Sources: Tastet.",
+    descriptionFr:
+      "Charmante terrasse couverte. Brasserie française. Sources: Tastet.",
   },
   {
     id: "76",
@@ -2132,8 +2132,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "23:00" },
       { day: 1, open: "08:00", close: "23:00" },
@@ -2145,6 +2143,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Art deco interior. Retractable awnings covering tightly-packed cafe tables with hanging plants. Classic French comfort food. Sources: Time Out.",
+    descriptionFr:
+      "Intérieur Art déco. Auvents rétractables couvrant des tables de café serrées avec des plantes suspendues. Cuisine française familiale classique. Sources: Time Out.",
   },
   {
     id: "77",
@@ -2160,8 +2160,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -2173,6 +2171,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Watch passersby on Bernard Avenue. Sources: Tastet.",
+    descriptionFr:
+      "Observez les passants sur l'Avenue Bernard. Sources: Tastet.",
   },
   {
     id: "78",
@@ -2188,11 +2188,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Large wooden deck patio on leafy Laurier Avenue. Italian classics, pizzas and pasta, casual dining. Sources: OpenTable.",
+    descriptionFr:
+      "Grand patio en bois sur l'Avenue Laurier bordée d'arbres. Classiques italiens, pizzas et pâtes, cuisine décontractée. Sources: OpenTable.",
   },
   {
     id: "79",
@@ -2208,8 +2208,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "22:00" },
       { day: 1, open: "11:00", close: "22:00" },
@@ -2221,6 +2219,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Shaded terrace. Gourmet sandwiches, seasonal tasting menu. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse ombragée. Sandwichs gastronomiques, menu dégustation saisonnier. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "80",
@@ -2236,8 +2236,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "18:00", close: "23:00" },
       { day: 4, open: "18:00", close: "23:00" },
@@ -2246,6 +2244,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Stunning terrace. Catalan wines. Sources: Tastet.",
+    descriptionFr:
+      "Superbe terrasse. Vins catalans. Sources: Tastet.",
   },
   {
     id: "81",
@@ -2261,8 +2261,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
       { day: 1, open: "16:00", close: "03:00" },
@@ -2274,6 +2272,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "European-inspired outdoor space. Sources: Tastet.",
+    descriptionFr:
+      "Espace extérieur d'inspiration européenne. Sources: Tastet.",
   },
   {
     id: "82",
@@ -2289,8 +2289,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "21:30" },
       { day: 2, open: "17:00", close: "21:30" },
@@ -2301,6 +2299,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace stretches around the restaurant. Sources: Tastet.",
+    descriptionFr:
+      "La terrasse s'étend tout autour du restaurant. Sources: Tastet.",
   },
 
   // =============================================
@@ -2320,8 +2320,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "17:00", close: "22:30" },
       { day: 4, open: "11:30", close: "22:30" },
@@ -2330,6 +2328,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street-side terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse en bord de rue. Sources: Tastet.",
   },
   {
     id: "84",
@@ -2345,8 +2345,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:00", close: "22:30" },
@@ -2358,6 +2356,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace becomes a lively gathering spot. Sources: Tastet.",
+    descriptionFr:
+      "La terrasse devient un lieu de rassemblement animé. Sources: Tastet.",
   },
 
   // =============================================
@@ -2377,8 +2377,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "17:00", close: "22:00" },
       { day: 4, open: "17:00", close: "22:00" },
@@ -2387,6 +2385,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Housed in a former garage. Cozy terrace beside the restaurant. One of the best Italian restaurants in Montreal. Sources: Tastet, Milesopedia.",
+    descriptionFr:
+      "Logé dans un ancien garage. Terrasse confortable à côté du restaurant. L'un des meilleurs restaurants italiens de Montréal. Sources: Tastet, Milesopedia.",
   },
   {
     id: "86",
@@ -2402,8 +2402,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:30" },
       { day: 3, open: "17:00", close: "22:30" },
@@ -2413,6 +2411,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace on Saint-Zotique street. Natural wines, seasonal small plates. Sources: Tastet, Montreal Diaries.",
+    descriptionFr:
+      "Terrasse sur la rue Saint-Zotique. Vins naturels, petites assiettes saisonnières. Sources: Tastet, Montreal Diaries.",
   },
   {
     id: "87",
@@ -2429,8 +2429,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingHours: "12:00 PM - 12:00 AM",
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
@@ -2443,6 +2441,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Cozy indoor and street terraces on Beaubien. Craft beer destination. Sources: Tastet.",
+    descriptionFr:
+      "Terrasses intérieures et en bord de rue confortables sur Beaubien. Destination de bière artisanale. Sources: Tastet.",
   },
   {
     id: "88",
@@ -2458,8 +2458,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "15:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -2471,6 +2469,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charmingly simple street-side terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse en bord de rue charmante et simple. Sources: Tastet.",
   },
   {
     id: "89",
@@ -2486,8 +2486,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "01:00" },
       { day: 1, open: "17:00", close: "01:00" },
@@ -2499,6 +2497,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A hidden tiki bar tucked inside Bar Idole on Plaza Saint-Hubert, open since 2017. Tropical cocktails served in sculpted pineapple glasses, immersive kitschy decor. Open daily until 3am. Sources: Yelp, RestoMontreal, The Main.",
+    descriptionFr:
+      "Un bar tiki caché niché dans le Bar Idole sur le Plaza Saint-Hubert, ouvert depuis 2017. Cocktails tropicaux servis dans des verres en forme d'ananas sculptés, décor kitsch immersif. Ouvert tous les jours jusqu'à 3 h. Sources: Yelp, RestoMontreal, The Main.",
   },
   {
     id: "90",
@@ -2514,8 +2514,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:30" },
       { day: 1, open: "17:00", close: "22:30" },
@@ -2527,6 +2525,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A covered rooftop on Plaza Saint-Hubert styled as a 1960s Italian-American sports bar. Crispy hybrid pizzas (New York/New Haven/NJ styles), natural wines, and Rat Pack-era aesthetics. Sources: Cult MTL, The Main.",
+    descriptionFr:
+      "Un toit couvert sur le Plaza Saint-Hubert aménagé comme un bar sportif italo-américain des années 1960. Pizzas croustillantes de style hybride (New York/New Haven/NJ), vins naturels et esthétique de l'ère Rat Pack. Sources: Cult MTL, The Main.",
   },
 
   // =============================================
@@ -2546,11 +2546,11 @@ export const terraces: Terrace[] = [
     dogFriendly: true,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Canal-side terrace attached to McAuslan Brewery. Picnic tables, string lights, lush greenery. Wood-fired pizza Thursday-Sunday. Dogs welcomed. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, Daily Hive, Montreal Diaries.",
+    descriptionFr:
+      "Terrasse au bord du canal rattachée à la Brasserie McAuslan. Tables de pique-nique, guirlandes lumineuses, verdure luxuriante. Pizza au feu de bois du jeudi au dimanche. Chiens bienvenus. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Time Out, Cult MTL, Daily Hive, Montreal Diaries.",
   },
   {
     id: "92",
@@ -2566,8 +2566,6 @@ export const terraces: Terrace[] = [
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs with open arms"
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "23:00" },
       { day: 1, open: "12:00", close: "23:00" },
@@ -2579,6 +2577,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "One of the city's largest terraces along the Lachine Canal. Industrial-chic brewery. Rotating craft beers, food trucks. Known for creamy IPAs and popular lagers. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Cult MTL, Narcity, Montreal Diaries, Tourisme Montreal, Tastet.",
+    descriptionFr:
+      "L'une des plus grandes terrasses de la ville le long du Canal de Lachine. Brasserie de style industriel chic. Bières artisanales rotatives, camions de cuisine. Réputée pour ses IPA crémeuses et ses lagers populaires. Lauréat du sondage Cult MTL Best of MTL 2025. Sources: Cult MTL, Narcity, Montreal Diaries, Tourisme Montreal, Tastet.",
   },
   {
     id: "93",
@@ -2594,8 +2594,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:30" },
       { day: 3, open: "17:00", close: "22:30" },
@@ -2605,6 +2603,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming back terraces. Acclaimed restaurant. Sources: Tastet, Daily Hive.",
+    descriptionFr:
+      "Charmantes terrasses arrière. Restaurant acclamé. Sources: Tastet, Daily Hive.",
   },
   {
     id: "94",
@@ -2620,8 +2620,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:30" },
       { day: 3, open: "17:00", close: "22:30" },
@@ -2631,6 +2629,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Secluded charming back terrace. Vegetables and organic/natural wines. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Charmante terrasse arrière isolée. Légumes et vins biologiques/naturels. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "95",
@@ -2646,8 +2646,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -2658,6 +2656,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Two beautiful wooden terraces. Market-driven menu with daily-changing dishes. Heated and covered tables. Hyper-seasonal ingredients. Sources: Tastet, OpenTable.",
+    descriptionFr:
+      "Deux belles terrasses en bois. Menu du marché avec plats changeant quotidiennement. Tables chauffées et couvertes. Ingrédients ultra-saisonniers. Sources: Tastet, OpenTable.",
   },
   {
     id: "96",
@@ -2673,11 +2673,11 @@ export const terraces: Terrace[] = [
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs"
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Large green patio facing Lachine Canal. Colorful benches, green wall, picnic tables. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Grand patio vert face au Canal de Lachine. Bancs colorés, mur végétal, tables de pique-nique. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "97",
@@ -2693,8 +2693,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "16:00" },
       { day: 1, open: "09:00", close: "15:00" },
@@ -2706,6 +2704,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Pink-and-green terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse rose et verte. Sources: Tastet.",
   },
   {
     id: "98",
@@ -2721,8 +2721,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "01:00" },
       { day: 1, open: "08:00", close: "01:00" },
@@ -2734,6 +2732,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Long, spacious terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse longue et spacieuse. Sources: Tastet.",
   },
   {
     id: "99",
@@ -2749,8 +2749,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "23:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -2760,6 +2758,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Simple and welcoming terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse simple et accueillante. Sources: Tastet.",
   },
   {
     id: "100",
@@ -2776,8 +2776,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -2787,6 +2785,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Secret terrace with 35 seats in an old presbytery. 100% local menu. Prix-fixe seasonal. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse secrète de 35 places dans un ancien presbytère. Menu 100 % local. Prix fixe saisonnier. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "101",
@@ -2802,8 +2802,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "14:30" },
       { day: 2, open: "11:30", close: "14:00" },
@@ -2818,6 +2816,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Charming terrace lined with plants. Sources: Tastet.",
+    descriptionFr:
+      "Charmante terrasse bordée de plantes. Sources: Tastet.",
   },
   {
     id: "102",
@@ -2833,8 +2833,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "23:00" },
       { day: 1, open: "11:00", close: "23:00" },
@@ -2846,6 +2844,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Spacious terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse spacieuse. Sources: Tastet.",
   },
   {
     id: "103",
@@ -2861,8 +2861,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 0, open: "18:00", close: "22:00" },
@@ -2876,6 +2874,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Inviting terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse accueillante. Sources: Tastet.",
   },
   {
     id: "104",
@@ -2891,8 +2891,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -2902,6 +2900,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hedge-ringed off-street terrace with garden party atmosphere. Creative dishes with international flair. Sources: OpenTable.",
+    descriptionFr:
+      "Terrasse hors rue entourée de haies avec ambiance de garden party. Plats créatifs aux accents internationaux. Sources: OpenTable.",
   },
   {
     id: "105",
@@ -2917,8 +2917,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 4, open: "17:00", close: "00:00" },
       { day: 5, open: "17:00", close: "01:00" },
@@ -2926,6 +2924,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A sun-drenched Mediterranean courtyard set inside the historic New City Gas site, framed by stone walls and curated art installations. Mezze, charcoal-grilled dishes, and private-import wines in a space evoking Mykonos, Tulum, and Ibiza. Sources: Time Out Montreal, MTL Blog, Tourisme Montreal.",
+    descriptionFr:
+      "Une cour méditerranéenne baignée de soleil installée dans le site historique New City Gas, encadrée de murs de pierre et d'installations artistiques. Mezze, plats grillés au charbon de bois et vins d'importation privée dans un espace évoquant Mykonos, Tulum et Ibiza. Sources: Time Out Montreal, MTL Blog, Tourisme Montreal.",
   },
   {
     id: "106",
@@ -2941,8 +2941,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "11:30", close: "14:30" },
       { day: 3, open: "11:30", close: "14:30" },
@@ -2955,6 +2953,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 90-seat terrace with a retractable roof inside a lovingly restored 1889 industrial loft with iron beams and brick walls. Northern Italian cuisine using local organic ingredients from Piedmont, Lombardy, and Emilia-Romagna. Sources: RestoMontreal, TripAdvisor.",
+    descriptionFr:
+      "Une terrasse de 90 places avec toit rétractable dans un loft industriel de 1889 magnifiquement restauré avec poutres en fer et murs de briques. Cuisine du nord de l'Italie utilisant des ingrédients biologiques locaux du Piémont, de la Lombardie et de l'Émilie-Romagne. Sources: RestoMontreal, TripAdvisor.",
   },
   {
     id: "107",
@@ -2970,11 +2970,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Patio situated directly on the water near Atwater Market. Sources: Daily Hive.",
+    descriptionFr:
+      "Patio situé directement au bord de l'eau près du Marché Atwater. Sources: Daily Hive.",
   },
   {
     id: "108",
@@ -2990,8 +2990,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:30" },
       { day: 1, open: "17:30", close: "22:30" },
@@ -3007,6 +3005,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Spacious courtyard terrace with fire pit in converted industrial building. Quebec's bounty showcased. Tasting menu available. Fresh housemade pasta. Sources: OpenTable.",
+    descriptionFr:
+      "Terrasse-cour spacieuse avec foyer dans un bâtiment industriel converti. Les richesses du Québec à l'honneur. Menu dégustation disponible. Pâtes fraîches maison. Sources: OpenTable.",
   },
 
   // =============================================
@@ -3026,8 +3026,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -3037,6 +3035,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Covered and heated terrace. Buvette with shade for hot days. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse couverte et chauffée. Buvette avec ombrage pour les journées chaudes. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "110",
@@ -3052,11 +3052,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Back terrace with scattered tables, rattan chairs, hanging vines. Craft cocktails and microbrews. Sources: Time Out.",
+    descriptionFr:
+      "Terrasse arrière avec tables éparpillées, chaises en rotin, vignes suspendues. Cocktails artisanaux et microbrasseries. Sources: Time Out.",
   },
 
   // =============================================
@@ -3076,8 +3076,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:30", close: "22:00" },
       { day: 3, open: "17:30", close: "22:00" },
@@ -3087,6 +3085,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Retro design with small garden area. Market-priced food. Sources: Daily Hive.",
+    descriptionFr:
+      "Design rétro avec petit espace jardin. Cuisine à prix du marché. Sources: Daily Hive.",
   },
 
   // =============================================
@@ -3106,8 +3106,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "18:00", close: "22:00" },
       { day: 4, open: "18:00", close: "22:00" },
@@ -3116,6 +3114,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Lush terrace. Local products focus. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse luxuriante. Accent sur les produits locaux. Sources: Tastet.",
   },
 
   // =============================================
@@ -3135,8 +3135,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "00:00" },
       { day: 3, open: "17:00", close: "00:00" },
@@ -3146,6 +3144,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Welcoming terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse accueillante. Sources: Tastet.",
   },
 
   // =============================================
@@ -3165,8 +3165,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "16:00" },
       { day: 2, open: "11:00", close: "15:00" },
@@ -3177,6 +3175,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace set up on Saint-Laurent Boulevard. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse installée sur le Boulevard Saint-Laurent. Sources: Tastet.",
   },
   {
     id: "115",
@@ -3192,8 +3192,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "17:00", close: "21:00" },
       { day: 3, open: "17:00", close: "21:00" },
@@ -3203,6 +3201,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Take-out counter with terrace. Sources: Tastet.",
+    descriptionFr:
+      "Comptoir à emporter avec terrasse. Sources: Tastet.",
   },
 
   // =============================================
@@ -3222,8 +3222,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:00" },
       { day: 3, open: "11:30", close: "14:00" },
@@ -3236,6 +3234,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Large terrace at corner. Sources: Tastet.",
+    descriptionFr:
+      "Grande terrasse en coin. Sources: Tastet.",
   },
 
   // =============================================
@@ -3256,11 +3256,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "A massive backyard terrace at this New Orleans-inspired bar from the team behind Midway and Marion. Perfectly frothy Ramos Gin Fizzes, stiff Sazeracs, baked oysters, and gumbo laced with cheese curds. Sources: MTL Blog, The Main, RestoMontreal.",
+    descriptionFr:
+      "Une immense terrasse arrière dans ce bar d'inspiration Nouvelle-Orléans de l'équipe derrière Midway et Marion. Ramos Gin Fizz parfaitement mousseux, Sazeracs robustes, huîtres gratinées et gombo parsemé de fromage en grains. Sources: MTL Blog, The Main, RestoMontreal.",
   },
   {
     id: "118",
@@ -3276,8 +3276,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "15:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -3289,6 +3287,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Wooden terrace with charming lights. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse en bois avec lumières charmantes. Sources: Tastet.",
   },
 
   // =============================================
@@ -3308,8 +3308,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "Year-round",
-    seasonalClose: "Year-round",
     openingPeriods: [
       { day: 2, open: "17:30", close: "23:00" },
       { day: 3, open: "17:30", close: "23:00" },
@@ -3319,6 +3317,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Cozy, colorful, and heated terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse confortable, colorée et chauffée. Sources: Tastet.",
   },
 
   // =============================================
@@ -3340,11 +3340,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Plant-lined terrace under green canopy on the waterfront. DJ Thursdays, seasonal menu. Capacity ~400 guests. Sources: Tourisme Montreal, RestoMontreal.",
+    descriptionFr:
+      "Terrasse bordée de plantes sous canopée verte en bord de fleuve. DJ le jeudi, menu saisonnier. Capacité d'environ 400 personnes. Sources: Tourisme Montreal, RestoMontreal.",
   },
   {
     id: "121",
@@ -3360,8 +3360,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "00:00" },
       { day: 1, open: "11:30", close: "00:00" },
@@ -3373,6 +3371,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street-facing terrace with house-brewed beers. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasse face à la rue avec bières brassées maison. Sources: RestoMontreal.",
   },
   {
     id: "122",
@@ -3387,11 +3387,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Mediterranean-style terrace. Tapas and paella. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasse de style méditerranéen. Tapas et paella. Sources: RestoMontreal.",
   },
   {
     id: "123",
@@ -3406,8 +3406,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "07:30", close: "22:00" },
       { day: 1, open: "07:30", close: "22:00" },
@@ -3419,6 +3417,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Covered patio on Place Jacques-Cartier. Sources: RestoMontreal.",
+    descriptionFr:
+      "Patio couvert sur la Place Jacques-Cartier. Sources: RestoMontreal.",
   },
   {
     id: "124",
@@ -3434,8 +3434,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "22:00" },
       { day: 1, open: "08:00", close: "22:00" },
@@ -3447,6 +3445,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street-side terrace. Lobster-focused menu. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasse en bord de rue. Menu axé sur le homard. Sources: RestoMontreal.",
   },
   {
     id: "125",
@@ -3462,11 +3462,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Front and back courtyard terraces. Live DJs Wed-Sat. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasses-cours avant et arrière. DJ en direct mer-sam. Sources: RestoMontreal.",
   },
   {
     id: "126",
@@ -3481,8 +3481,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -3494,6 +3492,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Terrace with live music. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasse avec musique en direct. Sources: RestoMontreal.",
   },
   {
     id: "127",
@@ -3509,8 +3509,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -3522,6 +3520,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street patio. Japanese cuisine. Sources: RestoMontreal.",
+    descriptionFr:
+      "Patio de rue. Cuisine japonaise. Sources: RestoMontreal.",
   },
   {
     id: "128",
@@ -3536,8 +3536,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 4, open: "12:00", close: "00:00" },
       { day: 5, open: "12:00", close: "03:00" },
@@ -3545,6 +3543,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "South Beach aesthetic, 2nd-floor lounge. Sources: Noovomoi, Tourisme Montreal.",
+    descriptionFr:
+      "Esthétique South Beach, salon au 2e étage. Sources: Noovomoi, Tourisme Montreal.",
   },
   {
     id: "129",
@@ -3560,8 +3560,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "17:00" },
       { day: 2, open: "12:00", close: "17:00" },
@@ -3572,6 +3570,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street terrace. DJ on some nights. Sources: RestoMontreal.",
+    descriptionFr:
+      "Terrasse de rue. DJ certains soirs. Sources: RestoMontreal.",
   },
 
   // DOWNTOWN / QUARTIER DES SPECTACLES
@@ -3589,11 +3589,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "A two-story half-covered rooftop with a compact urban pool atop the Renaissance Montreal Hotel, steps from Place Ville-Marie. Asian fusion cuisine and signature cocktails with downtown skyline views. Open May–September. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
+    descriptionFr:
+      "Un toit de deux étages semi-couvert avec une petite piscine urbaine au sommet du Renaissance Montreal Hotel, à deux pas de la Place Ville-Marie. Cuisine de fusion asiatique et cocktails signatures avec vue sur les toits du centre-ville. Ouvert de mai à septembre. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
   },
   {
     id: "131",
@@ -3609,11 +3609,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "3,500 sq ft rooftop with four-season pergola. Private salon available. Sources: Noovomoi, Tourisme Montreal.",
+    descriptionFr:
+      "Toit de 325 m² avec pergola quatre saisons. Salon privé disponible. Sources: Noovomoi, Tourisme Montreal.",
   },
   {
     id: "132",
@@ -3629,11 +3629,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Tulum-inspired sidewalk terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse de trottoir inspirée de Tulum. Esthétique macramé, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
   },
   {
     id: "133",
@@ -3648,8 +3648,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:30", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -3667,6 +3665,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "French brasserie with weekend brunch. Sources: RestoMontreal, Tourisme Montreal.",
+    descriptionFr:
+      "Brasserie française avec brunch de fin de semaine. Sources: RestoMontreal, Tourisme Montreal.",
   },
   {
     id: "134",
@@ -3682,8 +3682,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "18:00" },
       { day: 1, open: "08:00", close: "18:00" },
@@ -3695,6 +3693,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Back garden with picnic tables (2 terraces). Japanese café. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Jardin arrière avec tables de pique-nique (2 terrasses). Café japonais. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "135",
@@ -3710,11 +3710,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Street-side terrace. Japanese cuisine. Sources: Daily Hive.",
+    descriptionFr:
+      "Terrasse en bord de rue. Cuisine japonaise. Sources: Daily Hive.",
   },
   {
     id: "136",
@@ -3730,8 +3730,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "18:00", close: "23:00" },
       { day: 3, open: "18:00", close: "23:00" },
@@ -3741,6 +3739,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A covered, heated rooftop terrace facing St-James Church in the Quartier des Spectacles. Mediterranean cuisine, live jazz Wednesday–Thursday, DJs Friday–Saturday. Sources: Tourisme Montreal, OpenTable.",
+    descriptionFr:
+      "Une terrasse sur le toit couverte et chauffée face à l'église St-James dans le Quartier des spectacles. Cuisine méditerranéenne, jazz en direct mercredi-jeudi, DJ vendredi-samedi. Sources: Tourisme Montreal, OpenTable.",
   },
 
   // LATIN QUARTER
@@ -3758,8 +3758,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "00:00" },
       { day: 1, open: "11:00", close: "00:00" },
@@ -3771,6 +3769,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Craft microbrewery in the heart of the Latin Quarter serving exclusive beers from their Saint-Hyacinthe brewery. Two terraces including a back patio. Duck confit mac & cheese, smoked brisket poutine. Sources: RestoMontreal, Tourisme Montreal.",
+    descriptionFr:
+      "Microbrasserie artisanale au cœur du Quartier latin servant des bières exclusives de leur brasserie de Saint-Hyacinthe. Deux terrasses dont un patio arrière. Mac & cheese au confit de canard, poutine à la poitrine fumée. Sources: RestoMontreal, Tourisme Montreal.",
   },
   {
     id: "138",
@@ -3785,8 +3785,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "15:00", close: "00:00" },
       { day: 4, open: "15:00", close: "02:00" },
@@ -3795,6 +3793,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A bustling brewpub on Saint-Denis with one of Canada's largest beer selections: 44 taps, 550 bottles, and a 700+ beer bible. Large vibrant terrace, pub food, and retro arcade games. Sources: RestoMontreal, BeerAdvocate.",
+    descriptionFr:
+      "Un brewpub animé sur Saint-Denis avec l'une des plus grandes sélections de bières au Canada : 44 pressions, 550 bouteilles et une bible de plus de 700 bières. Grande terrasse vibrante, cuisine pub et jeux d'arcade rétro. Sources: RestoMontreal, BeerAdvocate.",
   },
 
   // PLATEAU-MONT-ROYAL
@@ -3812,8 +3812,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -3825,6 +3823,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Backyard terrace with red lanterns. Modern Chinese cuisine. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse arrière avec lanternes rouges. Cuisine chinoise moderne. Sources: Tastet, Tourisme Montreal.",
   },
   {
     id: "140",
@@ -3839,8 +3839,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -3852,6 +3850,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Covered terrace. Italian, fresh pasta. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse couverte. Cuisine italienne, pâtes fraîches. Sources: Tastet.",
   },
   {
     id: "141",
@@ -3866,8 +3866,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:00" },
       { day: 1, open: "17:30", close: "22:00" },
@@ -3879,6 +3877,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "French-inspired. BYOW. Sources: Tastet.",
+    descriptionFr:
+      "D'inspiration française. Apportez votre vin. Sources: Tastet.",
   },
   {
     id: "142",
@@ -3893,8 +3893,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 2, open: "17:00", close: "23:00" },
@@ -3905,6 +3903,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A hidden back terrace surrounded by vines — one of the Plateau's best-kept secrets. Serving traditional Berber and Algerian couscous since 1985. BYOW. Sources: TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Une terrasse arrière cachée entourée de vignes — l'un des secrets les mieux gardés du Plateau. Couscous berbère et algérien traditionnel depuis 1985. Apportez votre vin. Sources: TripAdvisor, RestoMontreal.",
   },
   {
     id: "143",
@@ -3919,11 +3919,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "A waffle café on Avenue Duluth with two terraces — a front sidewalk terrace and a charming back courtyard full of ivy, greenery, and a winding staircase. Gaufre brunch boards, vegan and gluten-free options. Sources: TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Un café à gaufres sur l'avenue Duluth avec deux terrasses — une terrasse trottoir à l'avant et une charmante cour arrière pleine de lierre, verdure et un escalier en colimaçon. Plateaux brunch gaufre, options véganes et sans gluten. Sources : TripAdvisor, RestoMontreal.",
   },
   {
     id: "144",
@@ -3939,8 +3939,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "16:00", close: "03:00" },
       { day: 3, open: "16:00", close: "03:00" },
@@ -3950,6 +3948,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A festive lush back terrace at this legendary Plateau rum bar, open since 2003. Over 200 rums from 20+ countries, Latin tapas, themed nights including karaoke and musical quiz. Sources: TripAdvisor, The Main, Barraca.",
+    descriptionFr:
+      "Une terrasse arrière verdoyante et festive dans ce légendaire bar à rhum du Plateau, ouvert depuis 2003. Plus de 200 rhums de plus de 20 pays, tapas latinos, soirées thématiques dont karaoké et quiz musical. Sources : TripAdvisor, The Main, Barraca.",
   },
   {
     id: "145",
@@ -3965,8 +3965,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 3, open: "16:00", close: "23:00" },
       { day: 4, open: "16:00", close: "23:00" },
@@ -3975,6 +3973,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Biergarten-style terrace. Grilled dishes, exclusive beers. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse style biergarten. Plats grillés, bières exclusives. Sources : Tastet, Tourisme Montréal.",
   },
 
   // MILE END
@@ -3991,8 +3991,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:30", close: "18:00" },
       { day: 1, open: "07:00", close: "18:00" },
@@ -4004,6 +4002,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A stylish sidewalk terrace on Saint-Viateur in the heart of Mile End. Handcrafted pastries and specialty coffee. Sources: Tourisme Montreal.",
+    descriptionFr:
+      "Une élégante terrasse trottoir sur Saint-Viateur au cœur du Mile End. Pâtisseries artisanales et café de spécialité. Sources : Tourisme Montréal.",
   },
 
   // PETITE-PATRIE / ROSEMONT
@@ -4021,8 +4021,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -4033,6 +4031,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Small sidewalk terrace. Natural wines, charcuterie. Sources: Tastet.",
+    descriptionFr:
+      "Petite terrasse trottoir. Vins nature, charcuterie. Sources : Tastet.",
   },
   {
     id: "148",
@@ -4047,8 +4047,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "22:00" },
       { day: 1, open: "11:00", close: "22:00" },
@@ -4060,6 +4058,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Greenery-filled terrace. Sharing platters. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse verdoyante. Plateaux à partager. Sources : Tastet.",
   },
   {
     id: "149",
@@ -4075,11 +4075,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [],
     description:
       "Back terrace. Creative ice cream flavors, vegan options. Sources: Tourisme Montreal, Milesopedia.",
+    descriptionFr:
+      "Terrasse arrière. Saveurs de crème glacée créatives, options véganes. Sources : Tourisme Montréal, Milesopedia.",
   },
   {
     id: "150",
@@ -4095,8 +4095,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "17:00", close: "01:00" },
       { day: 2, open: "17:00", close: "01:00" },
@@ -4107,6 +4105,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A sidewalk patio on Plaza Saint-Hubert specializing in Quebec microbrewery beers — 16 taps and 45 bottles. Pub food, quiz nights Mondays, karaoke Thursdays. Sources: Tourisme Montreal, Yelp.",
+    descriptionFr:
+      "Un patio trottoir sur la Plaza Saint-Hubert spécialisé dans les bières de microbrasseries québécoises — 16 robinets et 45 bouteilles. Cuisine de pub, soirées quiz le lundi, karaoké le jeudi. Sources : Tourisme Montréal, Yelp.",
   },
   {
     id: "151",
@@ -4121,8 +4121,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "21:00" },
       { day: 1, open: "08:00", close: "21:00" },
@@ -4134,6 +4132,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Mezzanine and summer terrace. Eco-friendly café. Sources: Tastet.",
+    descriptionFr:
+      "Mezzanine et terrasse estivale. Café écoresponsable. Sources : Tastet.",
   },
   {
     id: "152",
@@ -4148,8 +4148,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "18:00" },
       { day: 1, open: "07:30", close: "17:00" },
@@ -4161,6 +4159,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Corner terrace. Artisanal roasting. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse en coin. Torréfaction artisanale. Sources : Tastet.",
   },
   {
     id: "153",
@@ -4175,8 +4175,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "17:00" },
       { day: 1, open: "08:00", close: "17:00" },
@@ -4188,6 +4186,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Small terrace. Micro-café-caviste. Sources: Tastet.",
+    descriptionFr:
+      "Petite terrasse. Micro-café-caviste. Sources : Tastet.",
   },
   {
     id: "154",
@@ -4202,8 +4202,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 2, open: "16:00", close: "00:00" },
@@ -4214,6 +4212,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Canada's first cocktail bar dedicated to the art of aperitivo, with a 60-seat terrace on Saint-Laurent. Extensive amaro and vermouth collection, negroni vending machine, and Italo disco vinyl. Opened 2023. Sources: Tastet, NUVO, Tourisme Montreal.",
+    descriptionFr:
+      "Premier bar à cocktails au Canada dédié à l'art de l'apéritivo, avec une terrasse de 60 places sur Saint-Laurent. Vaste collection d'amari et de vermouths, distributeur automatique de negroni, et vinyles Italo disco. Ouvert en 2023. Sources : Tastet, NUVO, Tourisme Montréal.",
   },
   {
     id: "155",
@@ -4229,8 +4229,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "08:00", close: "18:00" },
       { day: 1, open: "07:30", close: "19:30" },
@@ -4242,6 +4240,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Street terrace. Italian pastries, gelato. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse sur rue. Pâtisseries italiennes, gelato. Sources : Tastet.",
   },
   {
     id: "156",
@@ -4256,8 +4256,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "15:00", close: "00:00" },
       { day: 1, open: "15:00", close: "00:00" },
@@ -4269,6 +4267,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Boréale brewery's taproom in Mile-Ex with a sidewalk terrace extending to the street. Exclusive and seasonal beers, pizzas and snacks, with furniture crafted by local artisans. Sources: Boréale, Tourisme Montreal.",
+    descriptionFr:
+      "Le salon de dégustation de la brasserie Boréale à Mile-Ex avec une terrasse trottoir s'ouvrant sur la rue. Bières exclusives et saisonnières, pizzas et collations, mobilier fabriqué par des artisans locaux. Sources : Boréale, Tourisme Montréal.",
   },
 
   // VILLERAY
@@ -4285,8 +4285,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "14:30" },
       { day: 3, open: "10:00", close: "14:30" },
@@ -4296,6 +4294,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Vibrant terrace. Café-bar with Asian influences. Sources: Tastet, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse animée. Café-bar aux influences asiatiques. Sources : Tastet, Tourisme Montréal.",
   },
   {
     id: "158",
@@ -4310,8 +4310,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 1, open: "16:00", close: "00:00" },
@@ -4323,6 +4321,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A neighbourhood Iberian wine bar with a casual terrace, channeling the spirit of small Spanish counters. Natural and biodynamic wines (mostly private imports), patatas bravas, chorizo in cider, and a free bowl of olives on arrival. Sources: Tastet, Tourisme Montreal, The Main.",
+    descriptionFr:
+      "Un bar à vins ibérique de quartier avec une terrasse décontractée, dans l'esprit des petits comptoirs espagnols. Vins nature et biodynamiques (surtout importations privées), patatas bravas, chorizo au cidre, et un bol d'olives offert à l'arrivée. Sources : Tastet, Tourisme Montréal, The Main.",
   },
   {
     id: "159",
@@ -4337,8 +4337,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -4348,6 +4346,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A gourmet pub with one of the best oyster bars in town, plus wagyu steak, truffle fries, lobster mac and cheese, and creative cocktails. Stylish decor with DJs some evenings. Sources: Tourisme Montreal, RestoMontreal.",
+    descriptionFr:
+      "Un pub gastronomique avec l'un des meilleurs bars à huîtres en ville, plus steak wagyu, frites à la truffe, mac and cheese au homard, et cocktails créatifs. Décor élégant avec DJ certains soirs. Sources : Tourisme Montréal, RestoMontreal.",
   },
 
   // HOCHELAGA
@@ -4364,8 +4364,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:00", close: "16:00" },
       { day: 3, open: "09:00", close: "16:00" },
@@ -4379,6 +4377,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Cozy terrace. Natural wine, Vietnamese heritage. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse cosy. Vin nature, héritage vietnamien. Sources : Tastet.",
   },
   {
     id: "161",
@@ -4393,8 +4393,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -4410,6 +4408,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "An urban brasserie inside a converted fire station in the Angus Shops area. Inventive Franco-Québécois cuisine, soaring ceilings, brick walls, a spiral staircase, and a charming terrace. Sources: RestoMontreal, TripAdvisor, Tourisme Montreal.",
+    descriptionFr:
+      "Une brasserie urbaine installée dans une ancienne caserne de pompiers dans le secteur des Shops Angus. Cuisine franco-québécoise inventive, hauts plafonds, murs de briques, escalier en colimaçon et terrasse charmante. Sources : RestoMontreal, TripAdvisor, Tourisme Montréal.",
   },
 
   // LITTLE BURGUNDY / SAINT-HENRI / GRIFFINTOWN
@@ -4427,8 +4427,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -4440,6 +4438,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Leafy back terrace. Steakhouse. Sources: Noovomoi, Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse arrière verdoyante. Steakhouse. Sources : Noovomoi, Tourisme Montréal.",
   },
   {
     id: "163",
@@ -4455,8 +4455,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:30", close: "22:00" },
@@ -4468,6 +4466,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Hidden backyard patio behind Elena restaurant. 'Ruelle à Pizza,' picnic tables, no reservation needed. Sources: Noovomoi, Tourisme Montreal.",
+    descriptionFr:
+      "Patio arrière caché derrière le restaurant Elena. « Ruelle à Pizza », tables de pique-nique, sans réservation. Sources : Noovomoi, Tourisme Montréal.",
   },
   {
     id: "164",
@@ -4482,8 +4482,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 2, open: "16:00", close: "22:30" },
@@ -4494,6 +4492,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Spacious patio. Craft beers, microbrewery since 2008. Sources: RestoMontreal, Tourisme Montreal.",
+    descriptionFr:
+      "Patio spacieux. Bières artisanales, microbrasserie depuis 2008. Sources : RestoMontreal, Tourisme Montréal.",
   },
   {
     id: "165",
@@ -4508,8 +4508,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "15:00" },
       { day: 1, open: "08:00", close: "15:00" },
@@ -4521,6 +4519,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Wooden benches terrace. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse avec bancs en bois. Sources : Tastet.",
   },
   {
     id: "166",
@@ -4535,8 +4535,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "15:00", close: "23:00" },
       { day: 2, open: "15:00", close: "23:00" },
@@ -4547,6 +4545,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 100-seat terrace along the Lachine Canal with views of the waterway and bike path. Craft beers brewed on site (including barrel-aged specialties), organic wines, and ping-pong and arcade games inside. Sources: Memento, Tourisme Montreal, The Main.",
+    descriptionFr:
+      "Une terrasse de 100 places le long du canal de Lachine avec vue sur la voie d'eau et la piste cyclable. Bières artisanales brassées sur place (dont des spécialités vieillie en fût), vins biologiques, ping-pong et jeux d'arcade à l'intérieur. Sources : Memento, Tourisme Montréal, The Main.",
   },
 
   // VERDUN
@@ -4564,8 +4564,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "14:00", close: "03:00" },
       { day: 1, open: "15:00", close: "03:00" },
@@ -4577,6 +4575,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A 180-seat partly covered and heated beer garden in a historic former bank on Wellington Street — one of the prettiest patios in the city. 18 craft beers on tap, open until 3am. First bar to open in Verdun after its 80-year dry period. Sources: TripAdvisor, RestoMontreal.",
+    descriptionFr:
+      "Un jardin de bière de 180 places, partiellement couvert et chauffé, dans une ancienne banque historique de la rue Wellington — l'un des plus beaux patios de la ville. 18 bières artisanales à la pression, ouvert jusqu'à 3h. Premier bar à ouvrir à Verdun après sa période sèche de 80 ans. Sources : TripAdvisor, RestoMontreal.",
   },
   {
     id: "168",
@@ -4592,8 +4592,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "10:00", close: "18:00" },
       { day: 1, open: "11:00", close: "18:00" },
@@ -4605,6 +4603,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A tranquil back patio at this beloved Verdun tea house open since 2003. Over 100 loose teas including Vietnam Oolong and Feu de l'Arctique, scones, and light desserts. Sources: RestoMontreal, Bonjour Québec.",
+    descriptionFr:
+      "Un patio arrière tranquille dans cette maison de thé verdunoise chérie, ouverte depuis 2003. Plus de 100 thés en vrac dont Vietnam Oolong et Feu de l'Arctique, scones et desserts légers. Sources : RestoMontreal, Bonjour Québec.",
   },
 
   // OUTREMONT
@@ -4622,8 +4622,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "18:00", close: "22:30" },
       { day: 2, open: "18:00", close: "22:30" },
@@ -4634,6 +4632,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Sidewalk terrace. Japanese-Peruvian fusion. Sources: Noovomoi.",
+    descriptionFr:
+      "Terrasse trottoir. Fusion japonaise-péruvienne. Sources : Noovomoi.",
   },
 
   // THE VILLAGE
@@ -4650,8 +4650,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "09:00", close: "18:00" },
       { day: 1, open: "08:00", close: "19:00" },
@@ -4663,6 +4661,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Sunlit terrace. Italian pastries. Sources: Tastet.",
+    descriptionFr:
+      "Terrasse ensoleillée. Pâtisseries italiennes. Sources : Tastet.",
   },
 
   // =============================================
@@ -4682,8 +4682,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     website: "https://rossocielo.com/en/",
     openingPeriods: [
       { day: 0, open: "07:00", close: "22:00" },
@@ -4696,6 +4694,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Laval's only 10th-floor rooftop terrace atop the Courtyard by Marriott, steps from Montmorency metro. Panoramic views of both Laval and Montreal skylines. Italian cuisine on the ground floor, rooftop cocktails above. Sources: Tourisme Laval, RestoMontreal.",
+    descriptionFr:
+      "La seule terrasse sur toit au 10e étage de Laval, au sommet du Courtyard by Marriott, à quelques pas du métro Montmorency. Vue panoramique sur les toits de Laval et Montréal. Cuisine italienne au rez-de-chaussée, cocktails en terrasse en hauteur. Sources : Tourisme Laval, RestoMontreal.",
   },
   {
     id: "172",
@@ -4711,8 +4711,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 2, open: "17:00", close: "23:00" },
@@ -4723,6 +4721,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A reimagined 19th-century nautical clubhouse on the Rivière-des-Mille-Îles in Vieux Sainte-Rose. Terrace overlooking the river, DJs on weekends, weekly-changing menu, and karaoke upstairs. Sources: Tourisme Laval, RestoMontreal.",
+    descriptionFr:
+      "Un club nautique du XIXe siècle réinventé sur la Rivière-des-Mille-Îles dans le Vieux Sainte-Rose. Terrasse avec vue sur la rivière, DJ les fins de semaine, menu changeant chaque semaine et karaoké à l'étage. Sources : Tourisme Laval, RestoMontreal.",
   },
   {
     id: "173",
@@ -4738,8 +4738,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 2, open: "11:30", close: "14:00" },
       { day: 2, open: "17:30", close: "21:00" },
@@ -4753,6 +4751,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A refined Italian garden terrace in a century-old house in Sainte-Rose. Colorful flowers, mature trees, housemade desserts, and a Wine Spectator-recognized wine list. Sources: RestoMontreal, Tourisme Laval.",
+    descriptionFr:
+      "Une terrasse-jardin italienne raffinée dans une maison centenaire à Sainte-Rose. Fleurs colorées, arbres matures, desserts maison et carte des vins reconnue par Wine Spectator. Sources : RestoMontreal, Tourisme Laval.",
   },
   {
     id: "174",
@@ -4767,8 +4767,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "15:00", close: "22:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -4780,6 +4778,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Laval craft brewery with 24 beers on tap and a terrace. Bistro menu with local ingredients, highlighted as one of the island's best terrace experiences. Sources: Tourisme Laval, RestoMontreal.",
+    descriptionFr:
+      "Microbrasserie de Laval avec 24 bières à la pression et une terrasse. Menu bistro aux ingrédients locaux, citée comme l'une des meilleures expériences de terrasse de l'île. Sources : Tourisme Laval, RestoMontreal.",
   },
   {
     id: "175",
@@ -4794,8 +4794,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:00" },
       { day: 2, open: "18:00", close: "21:00" },
@@ -4806,6 +4804,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "One of Quebec's top-rated restaurants, housed in an elegant ancestral home in Vieux Sainte-Dorothée. Quaint terrace facing the village square. French gastronomic cuisine. Sources: Tourisme Laval, TripAdvisor, The Suburban.",
+    descriptionFr:
+      "L'un des restaurants les mieux cotés du Québec, installé dans une élégante maison ancestrale dans le Vieux Sainte-Dorothée. Charmante terrasse face à la place du village. Cuisine française gastronomique. Sources : Tourisme Laval, TripAdvisor, The Suburban.",
   },
 
   // =============================================
@@ -4824,8 +4824,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 1, open: "15:00", close: "21:00" },
       { day: 2, open: "11:00", close: "22:00" },
@@ -4836,6 +4834,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "Two terraces — one covered, one open — seating 100 people total in the heart of Old Longueuil. Known for mussels, fries, and grilled meats with a wide selection of imported beers. Sources: RestoMontreal, Yelp.",
+    descriptionFr:
+      "Deux terrasses — une couverte, une ouverte — pouvant accueillir 100 personnes au total dans le cœur du Vieux-Longueuil. Reconnu pour les moules, les frites et les viandes grillées avec une large sélection de bières importées. Sources : RestoMontreal, Yelp.",
   },
   {
     id: "177",
@@ -4851,8 +4851,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 2, open: "11:30", close: "15:00" },
@@ -4867,6 +4865,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A leafy back terrace offering a welcome escape in Longueuil. Housemade pasta and wood-fired pizza in a refined yet warm setting. Sources: RestoMontreal, RestoMontreal article.",
+    descriptionFr:
+      "Une terrasse arrière verdoyante offrant une belle échappée à Longueuil. Pâtes maison et pizza au four à bois dans un cadre raffiné et chaleureux. Sources : RestoMontreal.",
   },
   {
     id: "178",
@@ -4881,8 +4881,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "11:30", close: "03:00" },
       { day: 1, open: "11:30", close: "03:00" },
@@ -4894,6 +4892,8 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A festive terrace at Quartier Dix30 with bold neon lights, retro arcade games, and a food-truck-style ordering window. Tacos, burritos, and mezcal cocktails until 3am. Sources: RestoMontreal, Dirty D.",
+    descriptionFr:
+      "Une terrasse festive au Quartier Dix30 avec néons audacieux, jeux d'arcade rétro et guichet de commande style food truck. Tacos, burritos et cocktails au mezcal jusqu'à 3h. Sources : RestoMontreal, Dirty D.",
   },
   {
     id: "179",
@@ -4909,8 +4909,6 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     photos: [],
-    seasonalOpen: "May",
-    seasonalClose: "October",
     openingPeriods: [
       { day: 0, open: "12:00", close: "21:00" },
       { day: 1, open: "11:30", close: "21:00" },
@@ -4922,5 +4920,130 @@ export const terraces: Terrace[] = [
     ],
     description:
       "A rooftop terrace overlooking the famous Dix30 fountain and square — ideal for Thai dishes and cocktails after a day of shopping. Thai Select Premium certified. Sources: Siam, Bonjour Québec.",
+    descriptionFr:
+      "Une terrasse sur toit avec vue sur la célèbre fontaine et place du Dix30 — idéale pour des plats thaïlandais et cocktails après une journée de magasinage. Certifiée Thai Select Premium. Sources : Siam, Bonjour Québec.",
+  },
+
+  // =============================================
+  // WEST ISLAND
+  // =============================================
+  {
+    id: "180",
+    name: "Annie's Sur-le-Lac",
+    address: "76 Rue Sainte-Anne",
+    lat: 45.4082,
+    lng: -73.9580,
+    neighborhood: "West Island",
+    cuisineType: "Canadian / Pub",
+    terraceType: "sidewalk",
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://annies.ca",
+    photos: [],
+    openingHours: "11:30 AM - 1:00 AM",
+    description:
+      "A Sainte-Anne-de-Bellevue institution since 1986, Annie's features a sprawling waterfront terrace on the boardwalk along the Sainte-Anne Canal and Lac Saint-Louis. Famous for watching boats pass through the locks while enjoying cocktails at sunset. Locally owned and open year-round. Sources: RestoMontreal, The Suburban, Yelp.",
+  },
+  {
+    id: "181",
+    name: "Olé Tapas",
+    address: "132 Rue Sainte-Anne",
+    lat: 45.4076,
+    lng: -73.9630,
+    neighborhood: "West Island",
+    cuisineType: "Spanish / Tapas",
+    terraceType: "sidewalk",
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://oletapas.ca",
+    photos: [],
+    openingHours: "Wed-Fri 5:00 PM - 9:00 PM, Sat-Sun 10:00 AM - 9:00 PM",
+    description:
+      "A family-run Spanish restaurant in the heart of Sainte-Anne-de-Bellevue with a canal-side terrace. Iberian and Serrano hams, housemade paellas, and fresh seafood. A favourite warm-weather destination since 2016. Sources: RestoMontreal, OpenTable, Yelp.",
+  },
+  {
+    id: "182",
+    name: "Delos Resto-Bar",
+    address: "53A Rue Sainte-Anne",
+    lat: 45.4080,
+    lng: -73.9565,
+    neighborhood: "West Island",
+    cuisineType: "Greek",
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    photos: [],
+    description:
+      "Resto-bar occupying a prime spot in Sainte-Anne-de-Bellevue with a terrace overlooking Lac Saint-Louis. Replaced the former Bord'Eaux at the same address. Sources: RestoMontreal (updated July 2025), YellowPages.",
+  },
+  {
+    id: "183",
+    name: "Ye Olde Orchard Pub & Grill",
+    address: "322 Chemin du Bord-du-Lac-Lakeshore",
+    lat: 45.4430,
+    lng: -73.8290,
+    neighborhood: "West Island",
+    cuisineType: "Pub / Grill",
+    terraceType: "sidewalk",
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://www.yeoldeorchard.com/pointeclaire",
+    photos: [],
+    openingHours: "Mon-Wed 11:30 AM - 11:00 PM, Thu 11:30 AM - 12:00 AM, Fri 11:30 AM - 1:00 AM, Sat-Sun 9:00 AM - 1:00 AM",
+    description:
+      "A West Island staple since 2010, the Pointe-Claire Village location of this beloved pub chain has a large lakefront terrace facing Lac Saint-Louis. British pub comfort food, craft beers on tap, and a cozy fireplace for off-season visits. Sources: TripAdvisor, OpenTable, RestoMontreal.",
+  },
+  {
+    id: "184",
+    name: "Lou's Pointe-Claire",
+    address: "309 Chemin du Bord-du-Lac-Lakeshore",
+    lat: 45.4428,
+    lng: -73.8285,
+    neighborhood: "West Island",
+    cuisineType: "New American",
+    covered: true, // confirmed: "umbrella coverage on terrace"
+    dogFriendly: false,
+    heated: false,
+    website: "https://www.louspointeclaire.com",
+    photos: [],
+    openingHours: "5:00 PM - 11:00 PM",
+    description:
+      "An upscale neighbourhood diner in the heart of Pointe-Claire Village, steps from Lac Saint-Louis. The umbrella-covered terrace is one of the West Island's most talked-about recent openings (2023). Menu by the team behind Loïc Bar and Name's on the Way. Sources: Tastet, RestoMontreal.",
+  },
+  {
+    id: "185",
+    name: "Bernies Pizza Martini Bar",
+    address: "3627 Boulevard des Sources",
+    lat: 45.4975,
+    lng: -73.8210,
+    neighborhood: "West Island",
+    cuisineType: "Pizza / Bar",
+    capacity: 80,
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://www.berniespizzabar.com",
+    photos: [],
+    openingHours: "Tue-Sat 4:00 PM - 10:30 PM",
+    description:
+      "A DDO cult favourite for thin-crust tavern-style pizza (party cut) paired with an extensive martini list. The 80-seat space includes a terrace, ideal for casual family dinners or a fun night out. Sliders, garlic bread, wings, and Caesar salad round out the menu. Sources: Tastet, RestoMontreal, Yelp.",
+  },
+  {
+    id: "186",
+    name: "Restaurant Le Gourmand",
+    address: "42 Rue Sainte-Anne",
+    lat: 45.4450,
+    lng: -73.8305,
+    neighborhood: "West Island",
+    cuisineType: "Contemporary French",
+    covered: true,
+    dogFriendly: false,
+    heated: false,
+    photos: [],
+    description:
+      "An upscale French restaurant in Pointe-Claire Village with a romantic lakefront terrace facing Lac Saint-Louis. White linen tablecloths, refined seasonal cuisine, and an elegant atmosphere make it a perennial favourite for special occasions on the West Island. Sources: TripAdvisor.",
   },
 ];
