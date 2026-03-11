@@ -13,10 +13,10 @@ if (!selectionFile) {
 
 const raw = JSON.parse(fs.readFileSync(selectionFile, "utf-8"));
 
-// Support both old format (id -> []) and new format (id -> { main, photos: [] })
+// Support old format (id -> [paths]) and new format (id -> { main, photos: [{path, base64?}|string] })
 const selected = {};
 for (const [id, val] of Object.entries(raw)) {
-  selected[id] = Array.isArray(val) ? val : val.photos || [];
+  selected[id] = Array.isArray(val) ? val.map(p => ({ path: p })) : (val.photos || []).map(p => typeof p === 'string' ? { path: p } : p);
 }
 const terracesPath = path.join(ROOT, "src", "data", "terraces.ts");
 let src = fs.readFileSync(terracesPath, "utf-8");
@@ -52,7 +52,7 @@ if (fs.existsSync(resultsFile)) {
   const allResults = JSON.parse(fs.readFileSync(resultsFile, "utf-8"));
   let deleted = 0;
   for (const [id, data] of Object.entries(allResults)) {
-    const kept = selected[id] || [];
+    const kept = (selected[id] || []).map(p => p.path);
     for (const photo of data.photos) {
       if (!kept.includes(photo.path)) {
         const fullPath = path.join(ROOT, "public", photo.path);
@@ -72,9 +72,26 @@ if (fs.existsSync(resultsFile)) {
 
 // Update terraces.ts — replace empty photos arrays with selected paths
 let updated = 0;
-for (const [id, paths] of Object.entries(selected)) {
-  if (paths.length === 0) continue;
-  const resolved = paths.map(p => resolvePhotoPath(p, id)).filter(Boolean);
+for (const [id, entries] of Object.entries(selected)) {
+  if (entries.length === 0) continue;
+
+  // Write custom base64 images to disk
+  let customIndex = 0;
+  for (const entry of entries) {
+    if (entry.path.startsWith('__custom__') && entry.base64) {
+      const dir = path.join(ROOT, "public", "photos", id);
+      fs.mkdirSync(dir, { recursive: true });
+      const filename = `custom${customIndex++}.jpg`;
+      const base64Data = entry.base64.replace(/^data:image\/\w+;base64,/, '');
+      fs.writeFileSync(path.join(dir, filename), Buffer.from(base64Data, 'base64'));
+      entry.resolvedPath = `/photos/${id}/${filename}`;
+    }
+  }
+
+  const resolved = entries.map(e => {
+    if (e.resolvedPath) return e.resolvedPath;
+    return resolvePhotoPath(e.path, id);
+  }).filter(Boolean);
   if (resolved.length === 0) continue;
   const photosStr = resolved.map((p) => `"${p}"`).join(", ");
 

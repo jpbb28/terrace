@@ -145,7 +145,7 @@ export default function Home() {
   return (
     <div className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
       {/* ── Desktop sidebar ── */}
-      <div className="hidden md:flex w-fit shrink-0 flex-col h-full border-r border-border-strong bg-background">
+      <div className="hidden md:flex w-[500px] shrink-0 flex-col h-full border-r border-border-strong bg-background">
         {/* Header — always visible */}
         <div className="p-5 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">

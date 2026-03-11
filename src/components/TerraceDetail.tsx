@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
@@ -15,8 +16,10 @@ interface TerraceDetailProps {
 
 export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) {
   const { t, lang } = useLang();
+  const [activePhoto, setActivePhoto] = useState(0);
 
   useEffect(() => {
+    setActivePhoto(0);
     trackEvent(terrace.id, "view");
   }, [terrace.id]);
 
@@ -32,7 +35,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
       {/* Header accent bar */}
       <div className="h-1 shrink-0 bg-gradient-to-r from-accent via-warm to-olive" />
 
-      <div className="flex-1 overflow-y-auto p-5">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden p-5">
         {/* Close */}
         <button
           onClick={onClose}
@@ -43,6 +46,37 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           </svg>
           {t.backToList}
         </button>
+
+        {/* Photo gallery */}
+        {terrace.photos.length > 0 && (
+          <div className="mb-5">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+              <Image
+                src={terrace.photos[activePhoto]}
+                alt={terrace.name}
+                fill
+                className="object-cover"
+                sizes="380px"
+                priority
+              />
+            </div>
+            {terrace.photos.length > 1 && (
+              <div className="flex gap-1.5 pt-2 overflow-x-auto">
+                {terrace.photos.map((photo, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActivePhoto(i)}
+                    className={`relative shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                      i === activePhoto ? "border-accent" : "border-transparent opacity-60 hover:opacity-90"
+                    }`}
+                  >
+                    <Image src={photo} alt="" fill className="object-cover" sizes="56px" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Name + neighborhood */}
         <div className="mb-1">

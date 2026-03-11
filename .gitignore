@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# photo pipeline (contain API keys or are regeneratable)
+scripts/review.html
+scripts/photo-results.json
+scripts/sv-headings.json
+scripts/hires-progress.json
+
+# photos (hosted on Supabase Storage)
+/public/photos/
+
+# other apps
+/wheel_src

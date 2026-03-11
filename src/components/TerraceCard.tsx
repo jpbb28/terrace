@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
@@ -26,12 +27,28 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left p-4 rounded-xl border transition-all duration-200 cursor-pointer group ${
+      className={`w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
         selected
           ? "border-accent bg-white/90 shadow-md shadow-accent/10"
           : "border-transparent bg-white/50 hover:bg-white/80 hover:border-border hover:shadow-sm"
       }`}
     >
+      {terrace.photos.length > 0 ? (
+        <div className="relative w-full h-36 overflow-hidden">
+          <Image
+            src={terrace.photos[0]}
+            alt={terrace.name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            sizes="500px"
+          />
+        </div>
+      ) : (
+        <div className="w-full h-36 bg-gradient-to-br from-warm-soft via-accent-soft to-olive-soft flex items-center justify-center">
+          <span className="text-xs text-accent/40 font-medium">No photo yet</span>
+        </div>
+      )}
+      <div className="p-4">
       <div className="flex items-start justify-between gap-2 mb-1.5">
         <h3 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
           {terrace.name}
@@ -86,6 +103,7 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
             {t.heated}
           </span>
         )}
+      </div>
       </div>
     </button>
   );

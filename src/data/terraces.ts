@@ -19,7 +19,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://terrassenelligan.com",
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/8.jpg"],
     openingPeriods: [],
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
@@ -40,7 +40,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/9.jpg"],
     openingPeriods: [],
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
@@ -60,7 +60,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/3/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/3/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/3/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/3/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/3/9.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -88,7 +88,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/4/9.jpg"],
     openingPeriods: [],
     description:
       "Fourth-floor terrace of Hotel William Gray overlooking Place Jacques-Cartier. West Coast-inspired cuisine, lush decor, mezze plates. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
@@ -108,7 +108,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/5/8.jpg"],
     openingPeriods: [],
     description:
       "Rooftop bar on Hotel Place d'Armes with views of Place d'Armes square and Notre-Dame Basilica. Partially covered for gray days. Brunch, lunch, and dinner. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
@@ -128,7 +128,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/9.jpg"],
     openingPeriods: [],
     description:
       "Four-storey complex on the waterfront with unobstructed Saint-Lawrence River views. Known for rose and sangria. Weekly events and late-night DJs. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
@@ -148,7 +148,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/7/9.jpg"],
     openingPeriods: [],
     description:
       "Hidden courtyard with colorful flowers and shrubs set against historic 1812 architecture (National Historical Site). Live jazz performances. Sweet and savory crepes, gourmet salads. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
@@ -168,7 +168,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/8/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/8/1.jpg"],
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:00" },
       { day: 1, open: "17:30", close: "22:00" },
@@ -196,7 +196,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/9/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/9/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/9/2.jpg", "/api/streetview/9"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -222,7 +222,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/10/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/10/6.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -250,7 +250,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/11/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/11/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/11/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/11/8.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -285,7 +285,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/12/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/12/8.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -313,7 +313,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/13/9.jpg"],
     openingPeriods: [],
     description:
       "Sixth-floor rooftop on Hampton Inn with lush jungle vegetation inspired by Vietnam's French colonial architecture. 7,000-square-foot space with tropical decor. Views of Old Montreal. Sources: Time Out, Tastet, Tourisme Montreal.",
@@ -333,7 +333,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/14/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/14/1.jpg"],
     openingPeriods: [
       { day: 1, open: "17:30", close: "22:00" },
       { day: 2, open: "17:30", close: "22:00" },
@@ -360,7 +360,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/15/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/15/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/15/3.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -388,7 +388,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/16/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/16/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/16/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/16/9.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -416,7 +416,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/17/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/17/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/17/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/17/7.jpg"],
     openingPeriods: [],
     description:
       "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
@@ -436,7 +436,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/18/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/18/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/18/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/18/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/18/6.jpg"],
     openingPeriods: [
       { day: 0, open: "08:00", close: "14:00" },
       { day: 1, open: "06:30", close: "14:00" },
@@ -467,7 +467,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/19/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/19/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/19/7.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -495,7 +495,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/20/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/20/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/20/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/20/8.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "16:00", close: "22:00" },
@@ -522,7 +522,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/21/9.jpg"],
     openingPeriods: [
       { day: 0, open: "07:00", close: "20:00" },
       { day: 1, open: "07:00", close: "20:00" },
@@ -591,7 +591,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/23/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/23/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/23/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/23/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/23/9.jpg"],
     openingPeriods: [
       { day: 1, open: "16:30", close: "01:00" },
       { day: 2, open: "16:30", close: "02:00" },
@@ -618,7 +618,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/24/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/24/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/24/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/24/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/24/9.jpg"],
     openingPeriods: [
       { day: 0, open: "07:00", close: "10:00" },
       { day: 0, open: "12:00", close: "14:00" },
@@ -656,7 +656,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/25/8.jpg"],
     openingPeriods: [
       { day: 1, open: "17:00", close: "23:00" },
       { day: 2, open: "05:00", close: "23:00" },
@@ -683,7 +683,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/9.jpg"],
     openingPeriods: [],
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
@@ -703,7 +703,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/27/8.jpg"],
     openingPeriods: [
       { day: 1, open: "11:30", close: "13:30" },
       { day: 2, open: "11:30", close: "13:30" },
@@ -734,7 +734,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/28/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/28/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/28/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/28/6.jpg"],
     openingPeriods: [
       { day: 0, open: "06:30", close: "10:30" },
       { day: 0, open: "11:30", close: "14:30" },
@@ -776,7 +776,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/29/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/29/0.jpg"],
     openingPeriods: [
       { day: 0, open: "07:30", close: "10:30" },
       { day: 0, open: "11:00", close: "14:30" },
@@ -819,7 +819,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/9.jpg"],
     openingPeriods: [
       { day: 2, open: "15:00", close: "03:00" },
       { day: 3, open: "15:00", close: "03:00" },
@@ -845,7 +845,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/31/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/31/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/31/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/31/custom1.jpg"],
     openingPeriods: [
       { day: 1, open: "11:45", close: "14:00" },
       { day: 1, open: "17:30", close: "21:30" },
@@ -877,7 +877,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/32/3.jpg"],
     openingPeriods: [
       { day: 1, open: "11:30", close: "14:30" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -909,7 +909,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/33/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/33/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/33/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/33/8.jpg"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "23:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -935,7 +935,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/34/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/34/1.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },
@@ -963,7 +963,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/35/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/35/8.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -1023,7 +1023,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/37/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/37/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/37/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/37/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/37/5.jpg"],
     openingPeriods: [],
     description:
       "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel. Retractable roof for any weather. Mediterranean cuisine. Sources: Tourisme Montreal, mtl.org.",
@@ -1044,7 +1044,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/38/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/38/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/38/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/38/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/38/8.jpg"],
     openingPeriods: [
       { day: 1, open: "11:30", close: "14:30" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -1076,7 +1076,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/39/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/39/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/39/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/39/5.jpg"],
     openingPeriods: [
       { day: 2, open: "16:00", close: "23:00" },
       { day: 3, open: "16:00", close: "00:00" },
@@ -1102,7 +1102,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/40/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/40/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/40/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/40/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/40/8.jpg"],
     openingPeriods: [],
     description:
       "Promenade level of Marriott Chateau Champlain with views of the city and Windsor station. Asian-inspired cuisine and signature cocktails. Festive atmosphere. Sources: Tastet, mtl.org.",
@@ -1123,7 +1123,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/9.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "11:00", close: "23:00" },
@@ -1150,7 +1150,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/42/9.jpg"],
     openingPeriods: [],
     description:
       "Large rooftop terrace atop the SAT arts space overlooking Saint-Laurent Boulevard. Urban jungle in the Quartier des spectacles. Rotating themes with local/international chefs. Sources: Time Out, Tastet, Tourisme Montreal.",
@@ -1170,7 +1170,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/43/6.jpg"],
     openingPeriods: [
       { day: 0, open: "08:00", close: "23:00" },
       { day: 1, open: "07:00", close: "23:00" },
@@ -1198,7 +1198,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/44/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/44/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/44/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/44/5.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -1230,7 +1230,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/45/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/45/9.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 1, open: "16:00", close: "00:00" },
@@ -1263,7 +1263,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/9.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
       { day: 1, open: "16:00", close: "03:00" },
@@ -1291,7 +1291,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/47/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/47/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/47/7.jpg"],
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -1317,7 +1317,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/48/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/48/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/48/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/48/8.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "20:00" },
       { day: 1, open: "11:00", close: "20:00" },
@@ -1343,7 +1343,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/49/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/49/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/49/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/49/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/49/8.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -1371,7 +1371,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/50/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/50/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/50/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/50/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/50/6.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "21:30" },
       { day: 2, open: "16:00", close: "21:30" },
@@ -1398,7 +1398,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/51/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/51/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/51/4.jpg"],
     openingPeriods: [
       { day: 1, open: "16:00", close: "00:00" },
       { day: 2, open: "12:00", close: "00:00" },
@@ -1426,7 +1426,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/9.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/2.jpg"],
     openingPeriods: [
       { day: 2, open: "16:00", close: "00:30" },
       { day: 3, open: "16:00", close: "00:30" },
@@ -1452,7 +1452,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/53/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/53/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/53/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/53/9.jpg"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -1507,7 +1507,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/3.jpg"],
     openingPeriods: [
       { day: 0, open: "15:00", close: "00:00" },
       { day: 1, open: "15:00", close: "00:00" },
@@ -1535,7 +1535,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/56/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/56/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/56/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/56/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/56/8.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "21:00" },
       { day: 1, open: "09:00", close: "17:00" },
@@ -1591,7 +1591,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/58/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/58/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/58/7.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -1619,7 +1619,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/59/5.jpg"],
     openingPeriods: [
       { day: 1, open: "16:00", close: "01:00" },
       { day: 2, open: "16:00", close: "01:00" },
@@ -1674,7 +1674,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/61/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/61/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/61/5.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "23:00" },
       { day: 1, open: "16:00", close: "23:00" },
@@ -1702,7 +1702,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/62/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/62/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/62/5.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "16:00" },
       { day: 1, open: "10:00", close: "16:00" },
@@ -1730,7 +1730,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/63/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/63/5.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "00:00" },
       { day: 1, open: "17:00", close: "00:00" },
@@ -1763,7 +1763,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/5.jpg"],
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -1819,7 +1819,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/66/9.jpg"],
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -1848,7 +1848,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/67/2.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -1880,7 +1880,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/68/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/68/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/68/3.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "01:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -1908,7 +1908,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/69/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/69/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/69/4.jpg"],
     openingPeriods: [
       { day: 3, open: "17:30", close: "22:30" },
       { day: 4, open: "17:30", close: "22:30" },
@@ -1933,7 +1933,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/70/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/70/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/70/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/70/9.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 1, open: "16:00", close: "23:00" },
@@ -1961,7 +1961,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/71/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/71/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/71/5.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "16:00" },
       { day: 1, open: "10:00", close: "16:00" },
@@ -1988,7 +1988,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/72/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/72/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/72/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/72/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/72/7.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 2, open: "16:00", close: "23:00" },
@@ -2015,7 +2015,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/73/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/73/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/73/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/73/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/73/7.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:30" },
       { day: 0, open: "16:30", close: "21:00" },
@@ -2054,7 +2054,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/74/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/74/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/74/3.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "14:30" },
       { day: 0, open: "17:30", close: "22:00" },
@@ -2084,7 +2084,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/75/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/75/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/75/9.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 0, open: "17:00", close: "23:00" },
@@ -2119,7 +2119,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/76/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/76/9.jpg"],
     openingPeriods: [
       { day: 0, open: "08:00", close: "23:00" },
       { day: 1, open: "08:00", close: "23:00" },
@@ -2174,7 +2174,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/78/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/78/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/78/2.jpg"],
     openingPeriods: [],
     description:
       "Large wooden deck patio on leafy Laurier Avenue. Italian classics, pizzas and pasta, casual dining. Sources: OpenTable.",
@@ -2194,7 +2194,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/79/6.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "22:00" },
       { day: 1, open: "11:00", close: "22:00" },
@@ -2247,7 +2247,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/81/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/81/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/81/9.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
       { day: 1, open: "16:00", close: "03:00" },
@@ -2275,7 +2275,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/82/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/82/9.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "21:30" },
       { day: 2, open: "17:00", close: "21:30" },
@@ -2306,7 +2306,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/83/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/83/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/83/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/83/6.jpg"],
     openingPeriods: [
       { day: 3, open: "17:00", close: "22:30" },
       { day: 4, open: "11:30", close: "22:30" },
@@ -2331,7 +2331,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/84/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/84/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/84/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/84/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/84/8.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:00", close: "22:30" },
@@ -2531,7 +2531,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: true,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/91/9.jpg"],
     openingPeriods: [],
     description:
       "Canal-side terrace attached to McAuslan Brewery. Picnic tables, string lights, lush greenery. Wood-fired pizza Thursday-Sunday. Dogs welcomed. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, Daily Hive, Montreal Diaries.",
@@ -2551,7 +2551,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs with open arms"
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/92/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/92/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/92/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/92/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/92/6.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "23:00" },
       { day: 1, open: "12:00", close: "23:00" },
@@ -2579,7 +2579,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/93/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/93/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/93/9.jpg"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:30" },
       { day: 3, open: "17:00", close: "22:30" },
@@ -2605,7 +2605,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/94/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/94/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/94/3.jpg"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:30" },
       { day: 3, open: "17:00", close: "22:30" },
@@ -2658,7 +2658,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs"
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/96/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/96/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/96/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/96/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/96/9.jpg"],
     openingPeriods: [],
     description:
       "Large green patio facing Lachine Canal. Colorful benches, green wall, picnic tables. Sources: Tastet, Tourisme Montreal.",
@@ -2678,7 +2678,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/97/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/97/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/97/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/97/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/97/8.jpg"],
     openingPeriods: [
       { day: 0, open: "09:00", close: "16:00" },
       { day: 1, open: "09:00", close: "15:00" },
@@ -2706,7 +2706,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/98/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/98/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/98/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/98/9.jpg"],
     openingPeriods: [
       { day: 0, open: "08:00", close: "01:00" },
       { day: 1, open: "08:00", close: "01:00" },
@@ -2734,7 +2734,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/99/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/99/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/99/2.jpg"],
     openingPeriods: [
       { day: 2, open: "17:00", close: "23:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -2818,7 +2818,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/102/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/102/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/102/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/102/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/102/8.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "23:00" },
       { day: 1, open: "11:00", close: "23:00" },
@@ -2846,7 +2846,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/103/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/103/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/103/6.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 0, open: "18:00", close: "22:00" },
@@ -2902,7 +2902,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/105/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/105/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/105/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/105/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/105/7.jpg"],
     openingPeriods: [
       { day: 4, open: "17:00", close: "00:00" },
       { day: 5, open: "17:00", close: "01:00" },
@@ -2955,7 +2955,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/107/8.jpg"],
     openingPeriods: [],
     description:
       "Patio situated directly on the water near Atwater Market. Sources: Daily Hive.",
@@ -3011,7 +3011,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/109/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/109/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/109/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/109/6.jpg"],
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -3037,7 +3037,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/110/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/110/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/110/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/110/9.jpg"],
     openingPeriods: [],
     description:
       "Back terrace with scattered tables, rattan chairs, hanging vines. Craft cocktails and microbrews. Sources: Time Out.",
@@ -3061,7 +3061,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/111/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/111/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/111/9.jpg"],
     openingPeriods: [
       { day: 2, open: "17:30", close: "22:00" },
       { day: 3, open: "17:30", close: "22:00" },
@@ -3207,7 +3207,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/116/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/116/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/116/6.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:00" },
       { day: 3, open: "11:30", close: "14:00" },
@@ -3241,7 +3241,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/117/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/117/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/117/5.jpg"],
     openingPeriods: [],
     description:
       "A massive backyard terrace at this New Orleans-inspired bar from the team behind Midway and Marion. Perfectly frothy Ramos Gin Fizzes, stiff Sazeracs, baked oysters, and gumbo laced with cheese curds. Sources: MTL Blog, The Main, RestoMontreal.",
@@ -3261,7 +3261,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/118/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/118/3.jpg"],
     openingPeriods: [
       { day: 0, open: "15:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -3293,7 +3293,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/119/8.jpg"],
     openingPeriods: [
       { day: 2, open: "17:30", close: "23:00" },
       { day: 3, open: "17:30", close: "23:00" },
@@ -3325,7 +3325,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/120/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/120/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/120/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/120/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/120/9.jpg"],
     openingPeriods: [],
     description:
       "Plant-lined terrace under green canopy on the waterfront. DJ Thursdays, seasonal menu. Capacity ~400 guests. Sources: Tourisme Montreal, RestoMontreal.",
@@ -3345,7 +3345,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/121/custom0.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "00:00" },
       { day: 1, open: "11:30", close: "00:00" },
@@ -3372,7 +3372,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/122/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/122/3.jpg"],
     openingPeriods: [],
     description:
       "Mediterranean-style terrace. Tapas and paella. Sources: RestoMontreal.",
@@ -3391,7 +3391,7 @@ export const terraces: Terrace[] = [
     covered: true, // confirmed: "Covered patio"
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/123/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/123/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/123/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/123/7.jpg"],
     openingPeriods: [
       { day: 0, open: "07:30", close: "22:00" },
       { day: 1, open: "07:30", close: "22:00" },
@@ -3521,7 +3521,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/128/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/128/1.jpg"],
     openingPeriods: [
       { day: 4, open: "12:00", close: "00:00" },
       { day: 5, open: "12:00", close: "03:00" },
@@ -3574,7 +3574,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/130/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/130/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/130/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/130/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/130/6.jpg"],
     openingPeriods: [],
     description:
       "A two-story half-covered rooftop with a compact urban pool atop the Renaissance Montreal Hotel, steps from Place Ville-Marie. Asian fusion cuisine and signature cocktails with downtown skyline views. Open May–September. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
@@ -3594,7 +3594,7 @@ export const terraces: Terrace[] = [
     covered: true, // confirmed: "four-season pergola"
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/131/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/131/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/131/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/131/8.jpg"],
     openingPeriods: [],
     description:
       "3,500 sq ft rooftop with four-season pergola. Private salon available. Sources: Noovomoi, Tourisme Montreal.",
@@ -3614,7 +3614,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/8.jpg"],
     openingPeriods: [],
     description:
       "Tulum-inspired sidewalk terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
@@ -3633,7 +3633,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/133/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/133/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/133/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/133/6.jpg"],
     openingPeriods: [
       { day: 0, open: "10:30", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -3770,7 +3770,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/138/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/138/5.jpg"],
     openingPeriods: [
       { day: 3, open: "15:00", close: "00:00" },
       { day: 4, open: "15:00", close: "02:00" },
@@ -3824,7 +3824,7 @@ export const terraces: Terrace[] = [
     covered: true, // confirmed: "Covered"
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/140/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/140/8.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -3851,7 +3851,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/141/9.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/141/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/141/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/141/8.jpg"],
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:00" },
       { day: 1, open: "17:30", close: "22:00" },
@@ -3878,7 +3878,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/142/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/142/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/142/4.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 2, open: "17:00", close: "23:00" },
@@ -3904,7 +3904,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/143/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/143/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/143/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/143/5.jpg"],
     openingPeriods: [],
     description:
       "A waffle café on Avenue Duluth with two terraces — a front sidewalk terrace and a charming back courtyard full of ivy, greenery, and a winding staircase. Gaufre brunch boards, vegan and gluten-free options. Sources: TripAdvisor, RestoMontreal.",
@@ -3950,7 +3950,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/145/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/145/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/145/3.jpg"],
     openingPeriods: [
       { day: 3, open: "16:00", close: "23:00" },
       { day: 4, open: "16:00", close: "23:00" },
@@ -4006,7 +4006,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/147/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/147/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/147/2.jpg"],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -4032,7 +4032,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/148/8.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "22:00" },
       { day: 1, open: "11:00", close: "22:00" },
@@ -4080,7 +4080,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/150/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/150/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/150/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/150/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/150/9.jpg"],
     openingPeriods: [
       { day: 1, open: "17:00", close: "01:00" },
       { day: 2, open: "17:00", close: "01:00" },
@@ -4106,7 +4106,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/151/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/151/4.jpg"],
     openingPeriods: [
       { day: 0, open: "09:00", close: "21:00" },
       { day: 1, open: "08:00", close: "21:00" },
@@ -4160,7 +4160,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/153/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/153/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/153/7.jpg"],
     openingPeriods: [
       { day: 0, open: "09:00", close: "17:00" },
       { day: 1, open: "08:00", close: "17:00" },
@@ -4187,7 +4187,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/154/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/154/8.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 2, open: "16:00", close: "00:00" },
@@ -4440,7 +4440,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/163/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/163/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/163/6.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:30", close: "22:00" },
@@ -4467,7 +4467,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/164/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/164/9.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 2, open: "16:00", close: "22:30" },
@@ -4549,7 +4549,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/167/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/167/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/167/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/167/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/167/9.jpg"],
     openingPeriods: [
       { day: 0, open: "14:00", close: "03:00" },
       { day: 1, open: "15:00", close: "03:00" },
@@ -4779,7 +4779,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/175/8.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:00" },
       { day: 2, open: "18:00", close: "21:00" },
@@ -4866,7 +4866,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/178/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/178/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/178/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/178/7.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "03:00" },
       { day: 1, open: "11:30", close: "03:00" },

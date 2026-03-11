@@ -107,11 +107,12 @@ const terraceCards = Object.entries(results)
         <div class="terrace-header">
           <h3>[${id}] ${data.name}</h3>
           <div class="bulk-actions">
+            <button class="btn-bulk btn-paste" onclick="activatePaste('${id}', this)">📋 Paste photo</button>
             <button class="btn-bulk btn-keep-all" onclick="setAllKept('${id}', true)">✓ Keep all</button>
             <button class="btn-bulk btn-discard-all" onclick="setAllKept('${id}', false)">✕ Discard all</button>
           </div>
         </div>
-        <div class="photos">
+        <div class="photos" id="photos-${id}">
           ${svSlot || '<p class="no-photos">No photos found</p>'}
         </div>
       </div>`;
@@ -142,11 +143,12 @@ const terraceCards = Object.entries(results)
       <div class="terrace-header">
         <h3>[${id}] ${data.name}</h3>
         <div class="bulk-actions">
+          <button class="btn-bulk btn-paste" onclick="activatePaste('${id}', this)">📋 Paste photo</button>
           <button class="btn-bulk btn-keep-all" onclick="setAllKept('${id}', true)">✓ Keep all</button>
           <button class="btn-bulk btn-discard-all" onclick="setAllKept('${id}', false)">✕ Discard all</button>
         </div>
       </div>
-      <div class="photos">${photoItems}${svSlot}</div>
+      <div class="photos" id="photos-${id}">${photoItems}${svSlot}</div>
     </div>`;
   })
   .join("");
@@ -167,6 +169,9 @@ const html = `<!DOCTYPE html>
   .terrace h3 { font-size: 16px; color: #c45d3e; }
   .bulk-actions { display: flex; gap: 6px; }
   .btn-bulk { border: none; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; }
+  .btn-paste { background: #1e3a5f; color: #7dd3fc; }
+  .btn-paste:hover { background: #1e40af; }
+  .btn-paste.active { background: #1d4ed8; color: white; outline: 2px solid #7dd3fc; }
   .btn-keep-all { background: #14532d; color: #4ade80; }
   .btn-keep-all:hover { background: #166534; }
   .btn-discard-all { background: #450a0a; color: #f87171; }
@@ -215,6 +220,10 @@ const html = `<!DOCTYPE html>
 
   .attr { display: block; background: rgba(0,0,0,0.7); color: #888; font-size: 10px; padding: 3px 6px; }
   .sv-badge { color: #38bdf8; }
+  .custom-badge { color: #c084fc; }
+  .custom-item { border-style: dashed; }
+  .custom-item.is-kept:not(.is-main) { border-color: #c084fc; border-style: solid; }
+  .custom-item.is-main { border-color: #facc15; border-style: solid; }
 
   .fixed-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1e1e1e; border-top: 1px solid #333; display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 14px 24px; }
   .progress-label { color: #888; font-size: 13px; margin-right: auto; }
@@ -330,6 +339,87 @@ function setAllKept(terraceId, keep) {
   updateProgress();
 }
 
+// --- Custom paste ---
+let pasteTargetId = null;
+let pasteTargetBtn = null;
+
+function activatePaste(id, btn) {
+  if (pasteTargetBtn) pasteTargetBtn.classList.remove('active');
+  if (pasteTargetId === id) { pasteTargetId = null; pasteTargetBtn = null; return; } // toggle off
+  pasteTargetId = id;
+  pasteTargetBtn = btn;
+  btn.classList.add('active');
+  btn.textContent = '📋 Ready — Ctrl+V';
+  showToast('Ctrl+V to paste a photo for ' + btn.closest('.terrace').querySelector('h3').textContent.replace(/^\[\d+\] /, ''));
+}
+
+document.addEventListener('paste', e => {
+  if (!pasteTargetId) return;
+  const items = [...(e.clipboardData?.items || [])];
+  const imageItem = items.find(i => i.type.startsWith('image/'));
+  if (!imageItem) { showToast('No image in clipboard'); return; }
+
+  const blob = imageItem.getAsFile();
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const base64 = ev.target.result;
+    const path = '__custom__' + pasteTargetId + '__' + Date.now();
+    addCustomPhoto(pasteTargetId, path, base64);
+
+    // Reset paste button
+    if (pasteTargetBtn) {
+      pasteTargetBtn.classList.remove('active');
+      pasteTargetBtn.textContent = '📋 Paste photo';
+    }
+    pasteTargetId = null;
+    pasteTargetBtn = null;
+    showToast('Photo added!');
+  };
+  reader.readAsDataURL(blob);
+  e.preventDefault();
+});
+
+function addCustomPhoto(id, path, base64, keepChecked = true, mainChecked = false) {
+  const container = document.getElementById('photos-' + id);
+  if (!container) return;
+
+  // Remove "no photos" message if present
+  const noPhotos = container.querySelector('.no-photos');
+  if (noPhotos) noPhotos.remove();
+
+  const div = document.createElement('div');
+  div.className = 'photo-item custom-item';
+  div.dataset.terrace = id;
+  div.dataset.path = path;
+  div.dataset.base64 = base64;
+  div.innerHTML = \`
+    <img src="\${base64}" alt="Custom photo" onclick="toggleKeep(this)" style="width:200px;height:150px;object-fit:cover;display:block;cursor:pointer" />
+    <div class="photo-controls">
+      <label class="keep-label">
+        <input type="checkbox" class="keep-cb" \${keepChecked ? 'checked' : ''} data-terrace="\${id}" data-path="\${path}" onchange="syncMain(this)" />
+        Keep
+      </label>
+      <label class="main-label">
+        <input type="radio" class="main-rb" name="main-\${id}" data-terrace="\${id}" data-path="\${path}" \${mainChecked ? 'checked' : ''} />
+        ★ Main
+      </label>
+    </div>
+    <span class="attr custom-badge">✏️ Custom</span>
+  \`;
+
+  // Wire up main radio listener
+  div.querySelector('.main-rb').addEventListener('change', () => {
+    const cb = div.querySelector('.keep-cb');
+    if (!cb.checked) cb.checked = true;
+    div.closest('.terrace').querySelectorAll('.photo-item').forEach(updateState);
+    updateProgress();
+  });
+
+  container.appendChild(div);
+  updateState(div);
+  updateProgress();
+}
+
 function updateProgress() {
   const total = document.querySelectorAll('.terrace').length;
   let reviewed = 0;
@@ -357,12 +447,29 @@ function getState() {
     const id = cb.dataset.terrace;
     const p = cb.dataset.path;
     if (!state[id]) state[id] = {};
-    state[id][p] = { kept: cb.checked, main: rb ? rb.checked : false };
+    const entry = { kept: cb.checked, main: rb ? rb.checked : false };
+    // Save base64 for custom photos so they survive reload
+    if (p.startsWith('__custom__') && item.dataset.base64) {
+      entry.base64 = item.dataset.base64;
+    }
+    state[id][p] = entry;
   });
   return state;
 }
 
 function applyState(state) {
+  // First restore custom photos (they need to be created dynamically)
+  for (const [id, photos] of Object.entries(state)) {
+    for (const [path, s] of Object.entries(photos)) {
+      if (path.startsWith('__custom__') && s.base64) {
+        // Only add if not already in DOM
+        if (!document.querySelector(\`[data-path="\${path}"]\`)) {
+          addCustomPhoto(id, path, s.base64, s.kept, s.main);
+        }
+      }
+    }
+  }
+  // Then restore all states
   document.querySelectorAll('.photo-item').forEach(item => {
     const cb = item.querySelector('.keep-cb');
     const rb = item.querySelector('.main-rb');
@@ -419,11 +526,15 @@ function exportSelection() {
     const id = cb.dataset.terrace;
     const p = cb.dataset.path;
     if (!selected[id]) selected[id] = { main: null, photos: [] };
+    const entry = { path: p };
+    if (p.startsWith('__custom__') && item.dataset.base64) {
+      entry.base64 = item.dataset.base64;
+    }
     if (rb && rb.checked) {
       selected[id].main = p;
-      selected[id].photos.unshift(p);
+      selected[id].photos.unshift(entry);
     } else {
-      selected[id].photos.push(p);
+      selected[id].photos.push(entry);
     }
   });
 
