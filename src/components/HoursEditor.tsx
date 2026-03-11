@@ -28,6 +28,21 @@ export function toHourPeriods(days: DayHours[]) {
   });
 }
 
+// 30-minute increments, 12-hour display
+const TIME_OPTIONS: { value: string; label: string }[] = [];
+for (let h = 0; h < 24; h++) {
+  for (let m = 0; m < 60; m += 30) {
+    const value = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+    const ampm = h < 12 ? "AM" : "PM";
+    const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+    const label = `${h12}:${String(m).padStart(2, "0")} ${ampm}`;
+    TIME_OPTIONS.push({ value, label });
+  }
+}
+
+const selectClass =
+  "text-sm bg-card border border-border rounded-lg px-2 py-1.5 focus:outline-none focus:border-accent transition-colors cursor-pointer";
+
 interface Props {
   value: DayHours[];
   onChange: (v: DayHours[]) => void;
@@ -48,71 +63,79 @@ export default function HoursEditor({ value, onChange }: Props) {
       {DAYS.map((day, i) => {
         const d = value[i];
         return (
-          <div
-            key={day}
-            className={`flex items-center gap-3 px-4 py-3 ${i > 0 ? "border-t border-border" : ""}`}
-          >
-            {/* Day name */}
-            <span className="w-24 text-sm shrink-0 font-medium">{day}</span>
+          <div key={day} className={`px-4 py-3 ${i > 0 ? "border-t border-border" : ""}`}>
+            {/* Row 1: day name + toggle (+ "Closed" label if closed) */}
+            <div className="flex items-center gap-3">
+              <span className="w-24 shrink-0 text-sm font-medium">{day}</span>
 
-            {/* Open/closed toggle */}
-            <button
-              type="button"
-              onClick={() => update(i, { open: !d.open })}
-              className={`relative w-9 h-5 rounded-full transition-colors shrink-0 cursor-pointer ${
-                d.open ? "bg-accent" : "bg-foreground/20"
-              }`}
-            >
-              <span
-                className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${
-                  d.open ? "translate-x-4" : "translate-x-0.5"
+              {/* Toggle */}
+              <button
+                type="button"
+                role="switch"
+                aria-checked={d.open}
+                onClick={() => update(i, { open: !d.open })}
+                className={`relative shrink-0 w-10 h-6 rounded-full transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  d.open ? "bg-accent" : "bg-foreground/20"
                 }`}
-              />
-            </button>
+              >
+                <span
+                  className={`pointer-events-none absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${
+                    d.open ? "translate-x-5" : "translate-x-1"
+                  }`}
+                />
+              </button>
 
-            {d.open ? (
-              <>
+              {!d.open && <span className="text-sm text-muted">Closed</span>}
+            </div>
+
+            {/* Row 2: times + actions (only when open) */}
+            {d.open && (
+              <div className="mt-2.5 flex flex-wrap items-center gap-2 pl-[calc(6rem+0.75rem)]">
                 {d.is24h ? (
-                  <span className="text-sm text-muted flex-1">Open 24 hours</span>
+                  <span className="text-sm text-muted">Open 24 hours</span>
                 ) : (
-                  <div className="flex items-center gap-2 flex-1">
-                    <input
-                      type="time"
+                  <>
+                    <select
                       value={d.openTime}
                       onChange={(e) => update(i, { openTime: e.target.value })}
-                      className="text-sm bg-card border border-border rounded-lg px-2 py-1.5 focus:outline-none focus:border-accent transition-colors"
-                    />
-                    <span className="text-muted text-xs shrink-0">—</span>
-                    <input
-                      type="time"
+                      className={selectClass}
+                    >
+                      {TIME_OPTIONS.map((o) => (
+                        <option key={o.value} value={o.value}>{o.label}</option>
+                      ))}
+                    </select>
+                    <span className="text-muted text-xs">—</span>
+                    <select
                       value={d.closeTime}
                       onChange={(e) => update(i, { closeTime: e.target.value })}
-                      className="text-sm bg-card border border-border rounded-lg px-2 py-1.5 focus:outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
+                      className={selectClass}
+                    >
+                      {TIME_OPTIONS.map((o) => (
+                        <option key={o.value} value={o.value}>{o.label}</option>
+                      ))}
+                    </select>
+                  </>
                 )}
 
-                <div className="flex items-center gap-3 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => update(i, { is24h: !d.is24h })}
-                    className="text-xs text-muted hover:text-accent transition-colors"
-                    title="Toggle 24 hours"
-                  >
-                    24h
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => copyToAll(i)}
-                    className="text-xs text-muted hover:text-accent transition-colors"
-                    title="Copy to all days"
-                  >
-                    Copy all
-                  </button>
-                </div>
-              </>
-            ) : (
-              <span className="text-sm text-muted flex-1">Closed</span>
+                <button
+                  type="button"
+                  onClick={() => update(i, { is24h: !d.is24h })}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors cursor-pointer ${
+                    d.is24h
+                      ? "bg-accent text-white border-accent"
+                      : "border-border text-muted hover:border-accent hover:text-accent"
+                  }`}
+                >
+                  24h
+                </button>
+                <button
+                  type="button"
+                  onClick={() => copyToAll(i)}
+                  className="px-2.5 py-1 rounded-lg text-xs font-medium border border-border text-muted hover:border-accent hover:text-accent transition-colors cursor-pointer"
+                >
+                  Copy to all
+                </button>
+              </div>
             )}
           </div>
         );
