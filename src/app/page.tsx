@@ -145,7 +145,7 @@ export default function Home() {
   return (
     <div className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
       {/* ── Desktop sidebar ── */}
-      <div className="hidden md:flex w-[380px] lg:w-[420px] shrink-0 flex-col h-full border-r border-border-strong bg-background">
+      <div className="hidden md:flex w-fit shrink-0 flex-col h-full border-r border-border-strong bg-background">
         {/* Header — always visible */}
         <div className="p-5 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">
@@ -198,7 +198,7 @@ export default function Home() {
 
             <div className="mx-5 mt-3 h-px bg-border shrink-0" />
 
-            <div ref={desktopListRef} className="flex-1 overflow-y-auto p-4 space-y-2.5">
+            <div ref={desktopListRef} className="flex-1 overflow-y-auto overflow-x-hidden w-0 min-w-full p-4 space-y-2.5">
               {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>

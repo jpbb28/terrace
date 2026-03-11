@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Neighborhood, TerraceType } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -43,6 +44,9 @@ export default function FilterBar({
   resultCount,
 }: FilterBarProps) {
   const { t } = useLang();
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  const activeFilterCount = [dogFriendly, covered, openNow, sortByDistance].filter(Boolean).length;
 
   const terraceTypes: { value: TerraceType; label: string; icon: string }[] = [
     { value: "sidewalk", label: t.sidewalk, icon: "\u{1F6B6}" },
@@ -98,11 +102,11 @@ export default function FilterBar({
         </select>
       </div>
 
-      {/* Toggle pills */}
-      <div className="flex items-center gap-2">
+      {/* Desktop: Toggle pills — hidden on mobile */}
+      <div className="hidden md:flex items-center gap-2">
         <button
           onClick={() => onDogFriendlyChange(!dogFriendly)}
-          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
             dogFriendly
               ? "active"
               : "border-border bg-white/40 text-muted hover:text-foreground"
@@ -112,7 +116,7 @@ export default function FilterBar({
         </button>
         <button
           onClick={() => onCoveredChange(!covered)}
-          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
             covered
               ? "active"
               : "border-border bg-white/40 text-muted hover:text-foreground"
@@ -122,7 +126,7 @@ export default function FilterBar({
         </button>
         <button
           onClick={() => onOpenNowChange(!openNow)}
-          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
             openNow
               ? "active"
               : "border-border bg-white/40 text-muted hover:text-foreground"
@@ -133,7 +137,7 @@ export default function FilterBar({
         <button
           onClick={onSortByDistanceChange}
           disabled={locating}
-          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
             sortByDistance
               ? "active"
               : "border-border bg-white/40 text-muted hover:text-foreground"
@@ -141,10 +145,57 @@ export default function FilterBar({
         >
           {locating ? t.locating : t.nearMe}
         </button>
-        <span className="ml-auto text-[11px] font-medium text-muted tabular-nums">
+        <span className="ml-auto text-[11px] font-medium text-muted tabular-nums shrink-0">
           {t.spots(resultCount)}
         </span>
       </div>
+
+      {/* Mobile: Filters dropdown toggle */}
+      <div className="flex md:hidden items-center gap-2">
+        <button
+          onClick={() => setFiltersOpen(!filtersOpen)}
+          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer flex items-center gap-1 ${
+            activeFilterCount > 0
+              ? "active"
+              : "border-border bg-white/40 text-muted hover:text-foreground"
+          }`}
+        >
+          &#x25BC; Filters
+          {activeFilterCount > 0 && (
+            <span className="ml-0.5 bg-accent text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold leading-none">
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
+        <span className="ml-auto text-[11px] font-medium text-muted tabular-nums shrink-0">
+          {t.spots(resultCount)}
+        </span>
+      </div>
+
+      {/* Mobile: Filters dropdown panel */}
+      {filtersOpen && (
+        <div className="flex md:hidden flex-col gap-0 rounded-xl border border-border bg-white/80 overflow-hidden">
+          {[
+            { label: `🐕 ${t.dogFriendly}`, checked: dogFriendly, onChange: () => onDogFriendlyChange(!dogFriendly) },
+            { label: `⛅ ${t.covered}`, checked: covered, onChange: () => onCoveredChange(!covered) },
+            { label: "🟢 Open now", checked: openNow, onChange: () => onOpenNowChange(!openNow) },
+            { label: locating ? t.locating : t.nearMe, checked: sortByDistance, onChange: onSortByDistanceChange },
+          ].map(({ label, checked, onChange }, i) => (
+            <label
+              key={i}
+              className="flex items-center gap-3 px-4 py-2.5 cursor-pointer hover:bg-white/60 transition-colors border-b border-border last:border-b-0"
+            >
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={onChange}
+                className="accent-[#c45d3e] w-4 h-4 shrink-0"
+              />
+              <span className="text-[13px] text-foreground">{label}</span>
+            </label>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
