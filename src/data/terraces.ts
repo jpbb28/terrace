@@ -116,26 +116,6 @@ export const terraces: Terrace[] = [
       "Bar sur le toit de l'Hotel Place d'Armes avec vue sur la Place d'Armes et la Basilique Notre-Dame. Partiellement couvert pour les jours nuageux. Brunch, dîner et souper. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
   },
   {
-    id: "6",
-    placeId: "ChIJYyKjRv8ayUwRKFjeHxTmkq4",
-    name: "Terrasses Bonsecours",
-    address: "364 Rue de la Commune E",
-    lat: 45.5070,
-    lng: -73.5505,
-    neighborhood: "Old Montreal",
-    cuisineType: "Bar / Lounge",
-    terraceType: "rooftop", // confirmed: "Four-storey complex on the waterfront"
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/6/9.jpg"],
-    openingPeriods: [],
-    description:
-      "Four-storey complex on the waterfront with unobstructed Saint-Lawrence River views. Known for rose and sangria. Weekly events and late-night DJs. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
-    descriptionFr:
-      "Complexe de quatre étages en bord de fleuve avec vue imprenable sur le Saint-Laurent. Réputé pour le rosé et la sangria. Événements hebdomadaires et DJ en soirée. Sources: Time Out, Daily Hive, Eater/Wanderlog.",
-  },
-  {
     id: "7",
     placeId: "ChIJpVn8h1YayUwR7qA4GYdAphM",
     name: "Jardin Nelson",
@@ -931,7 +911,7 @@ export const terraces: Terrace[] = [
     lng: -73.5695,
     neighborhood: "Downtown",
     cuisineType: "French",
-    terraceType: "rooftop", // confirmed: "Perched on the highest level of Place Ville Marie"
+    terraceType: "sidewalk",
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -945,10 +925,6 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "22:00" },
       { day: 6, open: "10:00", close: "22:00" },
     ],
-    description:
-      "Perched on the highest level of Place Ville Marie with panoramic 360-degree views. French restaurant with observation deck. Sources: Time Out.",
-    descriptionFr:
-      "Perché au niveau le plus élevé de la Place Ville Marie avec vue panoramique à 360 degrés. Restaurant français avec terrasse d'observation. Sources: Time Out.",
   },
   {
     id: "35",
@@ -3610,16 +3586,16 @@ export const terraces: Terrace[] = [
     lng: -73.5785,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Mexican / Cocktails",
-    terraceType: "sidewalk", // confirmed: "Sidewalk"
+    terraceType: "rooftop",
     covered: false,
     dogFriendly: false,
     heated: false,
     photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/132/8.jpg"],
     openingPeriods: [],
     description:
-      "Tulum-inspired sidewalk terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
+      "Tulum-inspired rooftop terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
     descriptionFr:
-      "Terrasse de trottoir inspirée de Tulum. Esthétique macramé, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
+      "Terrasse sur le toit inspirée de Tulum. Esthétique macramé, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
   },
   {
     id: "133",
