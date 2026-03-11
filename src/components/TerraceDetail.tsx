@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
-import { isOpenNow, formatHours } from "@/lib/utils";
+import { getHoursStatus, getDaysSchedule } from "@/lib/utils";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -170,32 +171,66 @@ function Tag({ label }: { label: string }) {
 }
 
 function HoursItem({ terrace }: { terrace: Terrace }) {
-  const { t } = useLang();
-  const open = isOpenNow(terrace);
-  const lines = formatHours(terrace.openingPeriods);
+  const [expanded, setExpanded] = useState(false);
+  const status = getHoursStatus(terrace);
+  const schedule = getDaysSchedule(terrace.openingPeriods);
+
+  if (!status) return null;
+
   return (
-    <div className="col-span-2 p-3 rounded-xl bg-foreground/[0.03] border border-border">
-      <div className="flex items-center gap-2 mb-2">
-        <p className="text-[10px] uppercase tracking-wider text-muted font-medium">{t.hours}</p>
-        {open !== null && (
-          <span
-            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-              open
-                ? "bg-green-100 text-green-700"
-                : "bg-foreground/5 text-muted"
-            }`}
-          >
-            {open ? "Open now" : "Closed now"}
-          </span>
+    <div className="col-span-2 rounded-xl bg-foreground/[0.03] border border-border overflow-hidden">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full flex items-center gap-2 px-3 py-2.5 text-left hover:bg-foreground/[0.03] transition-colors cursor-pointer"
+      >
+        <span
+          className={`w-2 h-2 rounded-full shrink-0 ${
+            status.open ? "bg-green-500" : "bg-foreground/25"
+          }`}
+        />
+        <span
+          className={`text-sm font-semibold ${
+            status.open ? "text-green-700" : "text-foreground"
+          }`}
+        >
+          {status.open ? "Open" : "Closed"}
+        </span>
+        {status.qualifier && (
+          <>
+            <span className="text-foreground/25 text-sm">·</span>
+            <span className="text-sm text-foreground/60">{status.qualifier}</span>
+          </>
         )}
-      </div>
-      <div className="space-y-0.5">
-        {lines.map((line) => (
-          <p key={line} className="text-xs font-medium leading-snug">
-            {line}
-          </p>
-        ))}
-      </div>
+        <svg
+          className={`w-4 h-4 text-muted ml-auto shrink-0 transition-transform duration-200 ${
+            expanded ? "rotate-180" : ""
+          }`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {expanded && (
+        <div className="px-3 pb-3 border-t border-border space-y-1.5 pt-2.5">
+          {schedule.map(({ dayName, hours, isToday }) => (
+            <div
+              key={dayName}
+              className={`flex justify-between gap-4 text-xs ${
+                isToday ? "font-semibold text-foreground" : "text-foreground/55"
+              }`}
+            >
+              <span className="shrink-0">{dayName}</span>
+              <span className={`text-right ${hours === "Closed" ? "text-muted" : ""}`}>
+                {hours}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
