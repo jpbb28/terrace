@@ -28,6 +28,13 @@ export type Neighborhood =
   | "Laval"
   | "South Shore";
 
+export interface HourPeriod {
+  day: number;    // 0 = Sunday, 1 = Monday, … 6 = Saturday
+  open: string;   // "HH:MM" 24-hour
+  close: string;  // "HH:MM" 24-hour (if < open, period runs overnight)
+  is24h?: boolean; // true = open 24 hours (open/close times are irrelevant)
+}
+
 export interface Terrace {
   id: string;
   name: string;
@@ -46,6 +53,8 @@ export interface Terrace {
   photos: string[];
   seasonalOpen?: string;
   seasonalClose?: string;
-  openingHours?: string;
+  openingHours?: string;       // legacy display string
+  openingPeriods?: HourPeriod[]; // structured hours from Google Places
+  placeId?: string;            // Google Places ID for future refreshes
   description: string;
 }

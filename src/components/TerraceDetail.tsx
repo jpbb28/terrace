@@ -1,6 +1,7 @@
 "use client";
 
 import { Terrace } from "@/lib/types";
+import { isOpenNow, formatHours } from "@/lib/utils";
 
 const typeLabels: Record<string, string> = {
   sidewalk: "Sidewalk",
@@ -66,9 +67,11 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           {terrace.capacity ? (
             <InfoItem label="Capacity" value={`~${terrace.capacity} seats`} />
           ) : null}
-          {terrace.openingHours && (
+          {terrace.openingPeriods?.length ? (
+            <HoursItem terrace={terrace} />
+          ) : terrace.openingHours ? (
             <InfoItem label="Hours" value={terrace.openingHours} />
-          )}
+          ) : null}
           {terrace.seasonalOpen && terrace.seasonalClose && (
             <InfoItem
               label="Season"
@@ -133,5 +136,35 @@ function Tag({ label }: { label: string }) {
     <span className="text-xs px-3 py-1.5 rounded-full bg-accent-soft text-accent font-medium border border-accent/15">
       {label}
     </span>
+  );
+}
+
+function HoursItem({ terrace }: { terrace: Terrace }) {
+  const open = isOpenNow(terrace);
+  const lines = formatHours(terrace.openingPeriods);
+  return (
+    <div className="col-span-2 p-3 rounded-xl bg-foreground/[0.03] border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <p className="text-[10px] uppercase tracking-wider text-muted font-medium">Hours</p>
+        {open !== null && (
+          <span
+            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+              open
+                ? "bg-green-100 text-green-700"
+                : "bg-foreground/5 text-muted"
+            }`}
+          >
+            {open ? "Open now" : "Closed now"}
+          </span>
+        )}
+      </div>
+      <div className="space-y-0.5">
+        {lines.map((line) => (
+          <p key={line} className="text-xs font-medium leading-snug">
+            {line}
+          </p>
+        ))}
+      </div>
+    </div>
   );
 }

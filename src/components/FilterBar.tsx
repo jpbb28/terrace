@@ -29,6 +29,8 @@ interface FilterBarProps {
   onDogFriendlyChange: (v: boolean) => void;
   covered: boolean;
   onCoveredChange: (v: boolean) => void;
+  openNow: boolean;
+  onOpenNowChange: (v: boolean) => void;
   sortByDistance: boolean;
   onSortByDistanceChange: () => void;
   locating: boolean;
@@ -41,6 +43,7 @@ export default function FilterBar({
   selectedType, onTypeChange,
   dogFriendly, onDogFriendlyChange,
   covered, onCoveredChange,
+  openNow, onOpenNowChange,
   sortByDistance, onSortByDistanceChange,
   locating,
   resultCount,
@@ -113,6 +116,16 @@ export default function FilterBar({
           }`}
         >
           &#9748; Covered
+        </button>
+        <button
+          onClick={() => onOpenNowChange(!openNow)}
+          className={`filter-pill text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
+            openNow
+              ? "active"
+              : "border-border bg-white/40 text-muted hover:text-foreground"
+          }`}
+        >
+          &#128994; Open now
         </button>
         <button
           onClick={onSortByDistanceChange}

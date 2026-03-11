@@ -24,9 +24,10 @@ src/
 │   ├── TerraceDetail.tsx   # Detail overlay panel
 │   └── FilterBar.tsx       # Search + filters (24 neighborhoods)
 ├── data/
-│   └── terraces.ts         # Seed data (170 Montreal terraces, sourced from 12+ publications)
+│   └── terraces.ts         # Seed data (179 Montreal terraces, sourced from 12+ publications)
 └── lib/
-    └── types.ts            # TypeScript types (24 neighborhoods, 4 terrace types)
+    ├── types.ts            # TypeScript types (HourPeriod, Terrace, neighborhoods, terrace types)
+    └── utils.ts            # isOpenNow(), formatHours() — Montreal timezone aware
 ```
 
 ## Commands
@@ -49,6 +50,22 @@ src/
 - `capacity` only set when source provides a number
 - Neighborhoods: 24 types covering core Montreal areas
 - No pop-ups, ephemeral spots, or locations outside Montreal proper
+- `openingPeriods` — structured hours from Google Places API (`{day, open, close}[]`); populated via `node scripts/fetch-hours.js` then `node scripts/apply-hours.js`. Re-run seasonally (winter/summer hours differ). `placeId` stored per terrace to enable cheap future refreshes.
+- `openingHours` — legacy display string, kept for terraces not yet in Places data
+
+## ⚠️ SECURITY — READ BEFORE WORKING ON PHOTOS OR DEPLOYMENT
+
+### Google API Key
+- The key lives ONLY in `.env.local` — this file is gitignored, never commit it
+- **`terraces.ts` must never contain the raw API key** — Street View entries are stored as `/api/streetview/{id}` paths, served via a Next.js API route that reads `GOOGLE_PLACES_API_KEY` server-side
+- `scripts/review.html` temporarily embeds the key in Street View `<img>` src URLs for local review only — **delete `review.html` and `photo-results.json` when the review is complete**, or at minimum never share/deploy them
+- Run `node scripts/apply-photos.js` to apply selections — it stores safe paths, not raw URLs
+
+### TODO before going live
+1. **Build `/api/streetview/[id]` route** — proxies Street View requests server-side so the key is never exposed to the browser
+2. **Add your production domain to the Google API key whitelist** in Google Cloud Console → APIs & Services → Credentials → restrict the key to your domain (e.g. `terrace.yourdomain.com`)
+3. **Also restrict the key by API** — only enable: Places API (New) + Street View Static API
+4. Set `GOOGLE_PLACES_API_KEY` as an environment variable in your hosting platform (Netlify/Vercel)
 
 ## Planned V2 Features
 - Supabase backend with PostGIS for geo queries
