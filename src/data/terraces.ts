@@ -541,7 +541,6 @@ export const terraces: Terrace[] = [
   },
   {
     id: "22",
-    placeId: "ChIJvd-0HoIPyUwRK0NJjMBH1Cg",
     name: "Horizon Rooftop",
     address: "360 Rue Saint-Antoine O",
     lat: 45.5050,
@@ -989,7 +988,6 @@ export const terraces: Terrace[] = [
   },
   {
     id: "36",
-    placeId: "ChIJU_ni7uYbyUwRTuvSS0g1v1U",
     name: "Pandore",
     address: "1 Place des Arts",
     lat: 45.5085,
@@ -2176,7 +2174,6 @@ export const terraces: Terrace[] = [
   },
   {
     id: "78",
-    placeId: "ChIJUdfRCIAZyUwRYzge8o6_J4Y",
     name: "Fiorellino Laurier",
     address: "1244 Avenue Laurier O",
     lat: 45.5215,
