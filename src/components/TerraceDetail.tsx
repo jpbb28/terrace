@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
+import { cuisineTypeFR } from "@/lib/i18n";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -10,7 +11,7 @@ interface TerraceDetailProps {
 }
 
 export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const typeLabels: Record<string, string> = {
     sidewalk: t.sidewalk,
@@ -56,7 +57,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
 
         {/* Description */}
         <p className="text-sm text-foreground/75 mb-6 leading-relaxed">
-          {terrace.description}
+          {lang === "fr" && terrace.descriptionFr ? terrace.descriptionFr : terrace.description}
         </p>
 
         {/* Info grid */}
@@ -65,7 +66,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             <InfoItem label={t.type} value={typeLabels[terrace.terraceType]} />
           )}
           {terrace.cuisineType && (
-            <InfoItem label={t.cuisine} value={terrace.cuisineType} />
+            <InfoItem label={t.cuisine} value={lang === "fr" ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType) : terrace.cuisineType} />
           )}
           {terrace.capacity ? (
             <InfoItem label={t.capacity} value={t.seatsDetail(terrace.capacity)} />
