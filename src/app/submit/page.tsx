@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
+import HoursEditor, { DayHours, defaultHours, fromHourPeriods, toHourPeriods } from "@/components/HoursEditor";
 
 const neighborhoods = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -18,7 +19,7 @@ const neighborhoods = [
 const emptyForm = {
   name: "", address: "", neighborhood: "", terraceType: "",
   cuisineType: "", capacity: "", covered: false, dogFriendly: false,
-  heated: false, website: "", instagram: "", phone: "", openingHours: "",
+  heated: false, website: "", instagram: "", phone: "",
   seasonalOpen: "", seasonalClose: "", description: "",
   submitterName: "", submitterEmail: "", submitterRole: "",
 };
@@ -42,6 +43,7 @@ function SubmitPageContent() {
 
   const [state, setState] = useState<FormState>("idle");
   const [form, setForm] = useState({ ...emptyForm });
+  const [hours, setHours] = useState<DayHours[]>(defaultHours());
   const [images, setImages] = useState<File[]>([]);
 
   useEffect(() => {
@@ -59,12 +61,14 @@ function SubmitPageContent() {
         website: editTerrace.website ?? "",
         instagram: editTerrace.instagram ?? "",
         phone: editTerrace.phone ?? "",
-        openingHours: editTerrace.openingHours ?? "",
         seasonalOpen: editTerrace.seasonalOpen ?? "",
         seasonalClose: editTerrace.seasonalClose ?? "",
         description: editTerrace.description,
         submitterName: "", submitterEmail: "", submitterRole: "",
       });
+      if (editTerrace.openingPeriods?.length) {
+        setHours(fromHourPeriods(editTerrace.openingPeriods));
+      }
     }
   }, [editTerrace]);
 
@@ -89,7 +93,7 @@ function SubmitPageContent() {
       website: form.website || null,
       instagram: form.instagram || null,
       phone: form.phone || null,
-      opening_hours: form.openingHours || null,
+      opening_periods: toHourPeriods(hours).length ? toHourPeriods(hours) : null,
       seasonal_open: form.seasonalOpen || null,
       seasonal_close: form.seasonalClose || null,
       description: form.description || null,
@@ -159,7 +163,7 @@ function SubmitPageContent() {
             </Link>
             {!isEdit && (
               <button
-                onClick={() => { setState("idle"); setForm({ ...emptyForm }); setImages([]); }}
+                onClick={() => { setState("idle"); setForm({ ...emptyForm }); setHours(defaultHours()); setImages([]); }}
                 className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
               >
                 {t.submitAnother}
@@ -330,15 +334,7 @@ function SubmitPageContent() {
               {t.hoursSection}
             </h2>
             <div className="space-y-4">
-              <Field label={t.openingHoursLabel}>
-                <input
-                  type="text"
-                  value={form.openingHours}
-                  onChange={(e) => update("openingHours", e.target.value)}
-                  placeholder={t.openingHoursPlaceholder}
-                  className={inputClass}
-                />
-              </Field>
+              <HoursEditor value={hours} onChange={setHours} />
               <div className="grid grid-cols-2 gap-4">
                 <Field label={t.opensForSeason}>
                   <input
