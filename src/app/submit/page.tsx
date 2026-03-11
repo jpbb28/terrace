@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
+import { supabase } from "@/lib/supabase";
 
 const neighborhoods = [
   "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
@@ -17,7 +18,7 @@ const neighborhoods = [
 const emptyForm = {
   name: "", address: "", neighborhood: "", terraceType: "",
   cuisineType: "", capacity: "", covered: false, dogFriendly: false,
-  heated: false, website: "", phone: "", openingHours: "",
+  heated: false, website: "", instagram: "", phone: "", openingHours: "",
   seasonalOpen: "", seasonalClose: "", description: "",
   submitterName: "", submitterEmail: "", submitterRole: "",
 };
@@ -56,6 +57,7 @@ function SubmitPageContent() {
         dogFriendly: editTerrace.dogFriendly,
         heated: editTerrace.heated,
         website: editTerrace.website ?? "",
+        instagram: editTerrace.instagram ?? "",
         phone: editTerrace.phone ?? "",
         openingHours: editTerrace.openingHours ?? "",
         seasonalOpen: editTerrace.seasonalOpen ?? "",
@@ -74,12 +76,55 @@ function SubmitPageContent() {
     e.preventDefault();
     setState("submitting");
 
-    // For now, log to console — wire up to email/database in v2
-    const payload = isEdit ? { type: "correction", editId, ...form } : { type: "new", ...form };
-    console.log("Terrace submission:", payload, "images:", images);
+    const shared = {
+      name: form.name,
+      address: form.address,
+      neighborhood: form.neighborhood || null,
+      terrace_type: form.terraceType || null,
+      cuisine_type: form.cuisineType || null,
+      capacity: form.capacity ? parseInt(form.capacity) : null,
+      covered: form.covered,
+      dog_friendly: form.dogFriendly,
+      heated: form.heated,
+      website: form.website || null,
+      instagram: form.instagram || null,
+      phone: form.phone || null,
+      opening_hours: form.openingHours || null,
+      seasonal_open: form.seasonalOpen || null,
+      seasonal_close: form.seasonalClose || null,
+      description: form.description || null,
+      submitter_name: form.submitterName || null,
+      submitter_email: form.submitterEmail || null,
+      submitter_role: form.submitterRole || null,
+    };
 
-    await new Promise((r) => setTimeout(r, 800));
+    const { error } = isEdit
+      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name })
+      : await supabase.from("submissions").insert(shared);
+
+    if (error) {
+      console.error("Submission error:", error);
+      setState("error");
+      return;
+    }
+
     setState("success");
+  }
+
+  if (state === "error") {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-md text-center">
+          <p className="text-sm text-red-500 mb-4">Something went wrong. Please try again.</p>
+          <button
+            onClick={() => setState("idle")}
+            className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (state === "success") {
@@ -385,6 +430,15 @@ function SubmitPageContent() {
                   />
                 </Field>
               </div>
+              <Field label={t.instagramLabel}>
+                <input
+                  type="text"
+                  value={form.instagram}
+                  onChange={(e) => update("instagram", e.target.value)}
+                  placeholder="@terraceseason"
+                  className={inputClass}
+                />
+              </Field>
             </div>
           </section>
 

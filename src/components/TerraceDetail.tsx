@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
 import { getHoursStatus, getDaysSchedule } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -14,6 +15,10 @@ interface TerraceDetailProps {
 
 export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) {
   const { t, lang } = useLang();
+
+  useEffect(() => {
+    trackEvent(terrace.id, "view");
+  }, [terrace.id]);
 
   const typeLabels: Record<string, string> = {
     sidewalk: t.sidewalk,
@@ -99,6 +104,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${terrace.name} ${terrace.address}`)}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent(terrace.id, "directions")}
             className="inline-flex items-center gap-2 px-4 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -112,6 +118,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               href={terrace.website}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent(terrace.id, "website_click")}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-accent-hover transition-colors shadow-sm hover:shadow-md"
             >
               {t.visitWebsite}
@@ -124,6 +131,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           {terrace.phone && (
             <a
               href={`tel:${terrace.phone}`}
+              onClick={() => trackEvent(terrace.id, "phone_click")}
               className="inline-flex items-center gap-2 px-4 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

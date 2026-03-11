@@ -50,6 +50,7 @@ export interface Terrace {
   dogFriendly: boolean;
   heated: boolean;
   website?: string;
+  instagram?: string;
   phone?: string;
   photos: string[];
   seasonalOpen?: string;
