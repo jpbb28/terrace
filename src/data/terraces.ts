@@ -925,6 +925,10 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "22:00" },
       { day: 6, open: "10:00", close: "22:00" },
     ],
+    description:
+      "Terrasse de Les Enfants Terribles au Place Ville Marie, dans le centre-ville. Cuisine française décontractée. Sources: Tourisme Montreal.",
+    descriptionFr:
+      "Terrasse de Les Enfants Terribles au Place Ville Marie, dans le centre-ville. Cuisine française décontractée. Sources: Tourisme Montreal.",
   },
   {
     id: "35",
