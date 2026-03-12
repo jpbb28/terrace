@@ -36,12 +36,12 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
       }`}
     >
       {terrace.photos.length > 0 ? (
-        <div className="relative w-full h-36 overflow-hidden">
+        <div className="relative w-full h-44 overflow-hidden">
           <Image
             src={terrace.photos[0]}
             alt={terrace.name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
             sizes="500px"
           />
         </div>
