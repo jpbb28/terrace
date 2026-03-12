@@ -30,8 +30,8 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
 export default function Home() {
   const { lang, setLang, t } = useLang();
   const [search, setSearch] = useState("");
-  const [neighborhood, setNeighborhood] = useState("");
-  const [terraceType, setTerraceType] = useState("");
+  const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
+  const [terraceTypes, setTerraceTypes] = useState<string[]>([]);
   const [dogFriendly, setDogFriendly] = useState(false);
   const [covered, setCovered] = useState(false);
   const [openNow, setOpenNow] = useState(false);
@@ -79,8 +79,8 @@ export default function Home() {
           t.neighborhood.toLowerCase().includes(q);
         if (!match) return false;
       }
-      if (neighborhood && t.neighborhood !== neighborhood) return false;
-      if (terraceType && t.terraceType !== terraceType) return false;
+      if (neighborhoods.length > 0 && !neighborhoods.includes(t.neighborhood)) return false;
+      if (terraceTypes.length > 0 && (!t.terraceType || !t.terraceType.some((tt) => terraceTypes.includes(tt)))) return false;
       if (dogFriendly && !t.dogFriendly) return false;
       if (covered && !t.covered) return false;
       if (openNow && isOpenNow(t) !== true) return false;
@@ -97,7 +97,7 @@ export default function Home() {
     }
 
     return base.map((t) => ({ terrace: t, distance: undefined }));
-  }, [search, neighborhood, terraceType, dogFriendly, covered, openNow, sortByDistance, userLocation]);
+  }, [search, neighborhoods, terraceTypes, dogFriendly, covered, openNow, sortByDistance, userLocation]);
 
   const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
 
@@ -132,8 +132,8 @@ export default function Home() {
 
   const filterBarProps = {
     search, onSearchChange: setSearch,
-    selectedNeighborhood: neighborhood, onNeighborhoodChange: setNeighborhood,
-    selectedType: terraceType, onTypeChange: setTerraceType,
+    selectedNeighborhoods: neighborhoods, onNeighborhoodsChange: setNeighborhoods,
+    selectedTypes: terraceTypes, onTypesChange: setTerraceTypes,
     dogFriendly, onDogFriendlyChange: setDogFriendly,
     covered, onCoveredChange: setCovered,
     openNow, onOpenNowChange: setOpenNow,

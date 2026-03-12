@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Neighborhood, TerraceType } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -16,10 +16,10 @@ const neighborhoods: Neighborhood[] = [
 interface FilterBarProps {
   search: string;
   onSearchChange: (v: string) => void;
-  selectedNeighborhood: string;
-  onNeighborhoodChange: (v: string) => void;
-  selectedType: string;
-  onTypeChange: (v: string) => void;
+  selectedNeighborhoods: string[];
+  onNeighborhoodsChange: (v: string[]) => void;
+  selectedTypes: string[];
+  onTypesChange: (v: string[]) => void;
   dogFriendly: boolean;
   onDogFriendlyChange: (v: boolean) => void;
   covered: boolean;
@@ -34,8 +34,8 @@ interface FilterBarProps {
 
 export default function FilterBar({
   search, onSearchChange,
-  selectedNeighborhood, onNeighborhoodChange,
-  selectedType, onTypeChange,
+  selectedNeighborhoods, onNeighborhoodsChange,
+  selectedTypes, onTypesChange,
   dogFriendly, onDogFriendlyChange,
   covered, onCoveredChange,
   openNow, onOpenNowChange,
@@ -45,17 +45,50 @@ export default function FilterBar({
 }: FilterBarProps) {
   const { t } = useLang();
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
+  const neighborhoodRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (neighborhoodRef.current && !neighborhoodRef.current.contains(e.target as Node)) {
+        setNeighborhoodOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleNeighborhood = (n: string) => {
+    onNeighborhoodsChange(
+      selectedNeighborhoods.includes(n)
+        ? selectedNeighborhoods.filter((x) => x !== n)
+        : [...selectedNeighborhoods, n]
+    );
+  };
+
+  const toggleType = (v: string) => {
+    onTypesChange(
+      selectedTypes.includes(v)
+        ? selectedTypes.filter((x) => x !== v)
+        : [...selectedTypes, v]
+    );
+  };
+
+  const terraceTypes: { value: TerraceType; label: string }[] = [
+    { value: "sidewalk", label: t.sidewalk },
+    { value: "rooftop", label: t.rooftop },
+    { value: "backyard", label: t.backyard },
+    { value: "courtyard", label: t.courtyard },
+    { value: "balcony", label: t.balcony },
+    { value: "garden", label: t.garden },
+  ];
+
+  const neighborhoodLabel =
+    selectedNeighborhoods.length === 0
+      ? t.allNeighborhoods
+      : selectedNeighborhoods.join(", ");
 
   const activeFilterCount = [dogFriendly, covered, openNow, sortByDistance].filter(Boolean).length;
-
-  const terraceTypes: { value: TerraceType; label: string; icon: string }[] = [
-    { value: "sidewalk", label: t.sidewalk, icon: "\u{1F6B6}" },
-    { value: "rooftop", label: t.rooftop, icon: "\u{1F307}" },
-    { value: "backyard", label: t.backyard, icon: "\u{1F333}" },
-    { value: "courtyard", label: t.courtyard, icon: "\u{1F3DB}" },
-    { value: "balcony", label: t.balcony, icon: "\u{1FA9F}" },
-    { value: "garden", label: t.garden, icon: "\u{1F33F}" },
-  ];
 
   return (
     <div className="space-y-3">
@@ -80,28 +113,69 @@ export default function FilterBar({
         />
       </div>
 
-      {/* Dropdowns */}
-      <div className="flex gap-2">
-        <select
-          value={selectedNeighborhood}
-          onChange={(e) => onNeighborhoodChange(e.target.value)}
-          className="flex-1 px-3 py-2 bg-white/60 border border-border rounded-xl text-xs text-foreground focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer"
+      {/* Neighborhood multi-select */}
+      <div className="relative" ref={neighborhoodRef}>
+        <button
+          onClick={() => setNeighborhoodOpen(!neighborhoodOpen)}
+          className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
+            selectedNeighborhoods.length > 0
+              ? "border-accent text-foreground font-medium"
+              : "border-border text-muted hover:border-border-strong"
+          }`}
         >
-          <option value="">{t.allNeighborhoods}</option>
-          {neighborhoods.map((n) => (
-            <option key={n} value={n}>{n}</option>
-          ))}
-        </select>
-        <select
-          value={selectedType}
-          onChange={(e) => onTypeChange(e.target.value)}
-          className="flex-1 px-3 py-2 bg-white/60 border border-border rounded-xl text-xs text-foreground focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer"
-        >
-          <option value="">{t.allTypes}</option>
-          {terraceTypes.map((tt) => (
-            <option key={tt.value} value={tt.value}>{tt.icon} {tt.label}</option>
-          ))}
-        </select>
+          <span className={`truncate ${selectedNeighborhoods.length > 0 ? "text-foreground" : ""}`}>
+            {neighborhoodLabel}
+          </span>
+          <svg className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${neighborhoodOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        {neighborhoodOpen && (
+          <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg max-h-52 overflow-y-auto">
+            {selectedNeighborhoods.length > 0 && (
+              <div className="px-3 py-2 border-b border-border">
+                <button
+                  onClick={() => onNeighborhoodsChange([])}
+                  className="text-[11px] text-accent hover:underline cursor-pointer"
+                >
+                  Clear all
+                </button>
+              </div>
+            )}
+            {neighborhoods.map((n) => (
+              <label
+                key={n}
+                className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors"
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedNeighborhoods.includes(n)}
+                  onChange={() => toggleNeighborhood(n)}
+                  className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
+                />
+                <span className="text-xs text-foreground">{n}</span>
+              </label>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Type toggle pills */}
+      <div className="flex flex-wrap gap-1.5">
+        {terraceTypes.map((tt) => (
+          <button
+            key={tt.value}
+            onClick={() => toggleType(tt.value)}
+            className={`text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
+              selectedTypes.includes(tt.value)
+                ? "bg-accent text-white border-accent"
+                : "border-border bg-white/40 text-muted hover:text-foreground hover:border-border-strong"
+            }`}
+          >
+            {tt.label}
+          </button>
+        ))}
       </div>
 
       {/* Desktop: Toggle pills — hidden on mobile */}
@@ -114,7 +188,7 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           }`}
         >
-          &#128054; {t.dogFriendly}
+          {t.dogFriendly}
         </button>
         <button
           onClick={() => onCoveredChange(!covered)}
@@ -124,7 +198,7 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           }`}
         >
-          &#9748; {t.covered}
+          {t.covered}
         </button>
         <button
           onClick={() => onOpenNowChange(!openNow)}
@@ -134,7 +208,7 @@ export default function FilterBar({
               : "border-border bg-white/40 text-muted hover:text-foreground"
           }`}
         >
-          &#128994; Open now
+          Open now
         </button>
         <button
           onClick={onSortByDistanceChange}
@@ -178,9 +252,9 @@ export default function FilterBar({
       {filtersOpen && (
         <div className="flex md:hidden flex-col gap-0 rounded-xl border border-border bg-white/80 overflow-hidden">
           {[
-            { label: `🐕 ${t.dogFriendly}`, checked: dogFriendly, onChange: () => onDogFriendlyChange(!dogFriendly) },
-            { label: `⛅ ${t.covered}`, checked: covered, onChange: () => onCoveredChange(!covered) },
-            { label: "🟢 Open now", checked: openNow, onChange: () => onOpenNowChange(!openNow) },
+            { label: t.dogFriendly, checked: dogFriendly, onChange: () => onDogFriendlyChange(!dogFriendly) },
+            { label: t.covered, checked: covered, onChange: () => onCoveredChange(!covered) },
+            { label: "Open now", checked: openNow, onChange: () => onOpenNowChange(!openNow) },
             { label: locating ? t.locating : t.nearMe, checked: sortByDistance, onChange: onSortByDistanceChange },
           ].map(({ label, checked, onChange }, i) => (
             <label

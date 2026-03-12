@@ -13,13 +13,13 @@ export const terraces: Terrace[] = [
     lng: -73.5558,
     neighborhood: "Old Montreal",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "rooftop bar on Hotel Nelligan"
+    terraceType: ["rooftop"], // confirmed: "rooftop bar on Hotel Nelligan"
     capacity: 80,
     covered: false,
     dogFriendly: false,
     heated: false,
     website: "https://terrassenelligan.com",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/8.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/1/8.jpg"],
     openingPeriods: [],
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
@@ -35,12 +35,12 @@ export const terraces: Terrace[] = [
     lng: -73.5505,
     neighborhood: "Old Montreal",
     cuisineType: "Contemporary French",
-    terraceType: "rooftop", // confirmed: "Fifth-floor rooftop of Auberge du Vieux-Port"
+    terraceType: ["rooftop"], // confirmed: "Fifth-floor rooftop of Auberge du Vieux-Port"
     capacity: 60,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/9.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/2/9.jpg"],
     openingPeriods: [],
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
@@ -56,7 +56,7 @@ export const terraces: Terrace[] = [
     lng: -73.5527,
     neighborhood: "Old Montreal",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "Eighth-floor rooftop of Hotel William Gray"
+    terraceType: ["rooftop"], // confirmed: "Eighth-floor rooftop of Hotel William Gray"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -84,7 +84,7 @@ export const terraces: Terrace[] = [
     lng: -73.5530,
     neighborhood: "Old Montreal",
     cuisineType: "Californian / Mediterranean",
-    terraceType: "rooftop", // confirmed: "Fourth-floor terrace of Hotel William Gray"
+    terraceType: ["rooftop"], // confirmed: "Fourth-floor terrace of Hotel William Gray"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -104,7 +104,7 @@ export const terraces: Terrace[] = [
     lng: -73.5576,
     neighborhood: "Old Montreal",
     cuisineType: "Bistro / Bar",
-    terraceType: "rooftop", // confirmed: "Rooftop bar on Hotel Place d'Armes"
+    terraceType: ["rooftop"], // confirmed: "Rooftop bar on Hotel Place d'Armes"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -124,7 +124,7 @@ export const terraces: Terrace[] = [
     lng: -73.5525,
     neighborhood: "Old Montreal",
     cuisineType: "Bistro / Creperie",
-    terraceType: "courtyard", // confirmed: "Hidden courtyard with colorful flowers"
+    terraceType: ["courtyard"], // confirmed: "Hidden courtyard with colorful flowers"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -144,7 +144,7 @@ export const terraces: Terrace[] = [
     lng: -73.5560,
     neighborhood: "Old Montreal",
     cuisineType: "American Bistro",
-    terraceType: "courtyard", // confirmed: "Hidden garden courtyard with tree canopy"
+    terraceType: ["courtyard"], // confirmed: "Hidden garden courtyard with tree canopy"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -172,7 +172,7 @@ export const terraces: Terrace[] = [
     lng: -73.5555,
     neighborhood: "Old Montreal",
     cuisineType: "French / Contemporary",
-    terraceType: "courtyard", // confirmed: "Open-air courtyard terrace"
+    terraceType: ["courtyard"], // confirmed: "Open-air courtyard terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -226,7 +226,7 @@ export const terraces: Terrace[] = [
     lng: -73.5580,
     neighborhood: "Old Montreal",
     cuisineType: "Italian",
-    terraceType: "courtyard", // confirmed: "Inner courtyard with cobblestones, awnings"
+    terraceType: ["courtyard"], // confirmed: "Inner courtyard with cobblestones, awnings"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -289,7 +289,7 @@ export const terraces: Terrace[] = [
     lng: -73.5590,
     neighborhood: "Old Montreal",
     cuisineType: "French-Vietnamese",
-    terraceType: "rooftop", // confirmed: "Sixth-floor rooftop on Hampton Inn"
+    terraceType: ["rooftop"], // confirmed: "Sixth-floor rooftop on Hampton Inn"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -309,7 +309,7 @@ export const terraces: Terrace[] = [
     lng: -73.5565,
     neighborhood: "Old Montreal",
     cuisineType: "Crudo & Charcoal",
-    // type unknown — no structural description in sources
+    terraceType: ["sidewalk"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -336,7 +336,7 @@ export const terraces: Terrace[] = [
     lng: -73.5550,
     neighborhood: "Old Montreal",
     cuisineType: "Steakhouse",
-    terraceType: "courtyard", // confirmed: "Garden courtyard on Saint-Gabriel street"
+    terraceType: ["courtyard"], // confirmed: "Garden courtyard on Saint-Gabriel street"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -364,7 +364,7 @@ export const terraces: Terrace[] = [
     lng: -73.5560,
     neighborhood: "Old Montreal",
     cuisineType: "Distillery / Locavore",
-    terraceType: "courtyard", // confirmed: "interior courtyard garden"
+    terraceType: ["courtyard"], // confirmed: "interior courtyard garden"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -392,7 +392,7 @@ export const terraces: Terrace[] = [
     lng: -73.5565,
     neighborhood: "Old Montreal",
     cuisineType: "Seafood",
-    terraceType: "courtyard", // confirmed: "courtyard terrace tucked behind stone-walled dining room"
+    terraceType: ["courtyard"], // confirmed: "courtyard terrace tucked behind stone-walled dining room"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -412,7 +412,7 @@ export const terraces: Terrace[] = [
     lng: -73.5555,
     neighborhood: "Old Montreal",
     cuisineType: "Smoked / Charcoal",
-    terraceType: "courtyard", // confirmed: "Desert-themed courtyard"
+    terraceType: ["courtyard"], // confirmed: "Desert-themed courtyard"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -525,7 +525,7 @@ export const terraces: Terrace[] = [
     lng: -73.5580,
     neighborhood: "Old Montreal",
     cuisineType: "Bar / Lounge",
-    terraceType: "rooftop", // confirmed: "14th floor of Hyatt Centric"
+    terraceType: ["rooftop"], // confirmed: "14th floor of Hyatt Centric"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -567,7 +567,7 @@ export const terraces: Terrace[] = [
     lng: -73.5605,
     neighborhood: "Downtown",
     cuisineType: "Pub",
-    terraceType: "courtyard", // confirmed: "secret bi-leveled courtyard terrace"
+    terraceType: ["courtyard"], // confirmed: "secret bi-leveled courtyard terrace"
     covered: false,
     dogFriendly: false,
     heated: true,
@@ -594,7 +594,7 @@ export const terraces: Terrace[] = [
     lng: -73.5760,
     neighborhood: "Downtown",
     cuisineType: "French Fine Dining",
-    terraceType: "courtyard", // confirmed: "Ritz-Carlton garden courtyard"
+    terraceType: ["courtyard"], // confirmed: "Ritz-Carlton garden courtyard"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -632,7 +632,7 @@ export const terraces: Terrace[] = [
     lng: -73.5690,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "44th floor of Place Ville Marie"
+    terraceType: ["rooftop"], // confirmed: "44th floor of Place Ville Marie"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -659,11 +659,11 @@ export const terraces: Terrace[] = [
     lng: -73.5650,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "Ninth-floor terrace at Hotel Humaniti"
+    terraceType: ["rooftop"], // confirmed: "Ninth-floor terrace at Hotel Humaniti"
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/9.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/26/9.jpg"],
     openingPeriods: [],
     description:
       "Ninth-floor terrace at Hotel Humaniti. Homemade slush, fried chicken, seasonal creative menu. Open daily. Sources: Time Out, Tastet, Tourisme Montreal, Narcity.",
@@ -679,7 +679,7 @@ export const terraces: Terrace[] = [
     lng: -73.5680,
     neighborhood: "Downtown",
     cuisineType: "Japanese",
-    terraceType: "courtyard", // confirmed: "inner garden. Boho-chic"
+    terraceType: ["courtyard"], // confirmed: "inner garden. Boho-chic"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -710,7 +710,7 @@ export const terraces: Terrace[] = [
     lng: -73.5740,
     neighborhood: "Downtown",
     cuisineType: "French",
-    terraceType: "courtyard", // confirmed: "Inner courtyard at Sofitel hotel"
+    terraceType: ["courtyard"], // confirmed: "Inner courtyard at Sofitel hotel"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -752,7 +752,7 @@ export const terraces: Terrace[] = [
     lng: -73.5740,
     neighborhood: "Downtown",
     cuisineType: "Contemporary / Seafood",
-    terraceType: "balcony", // third-floor balcony terrace at Four Seasons Hotel
+    terraceType: ["balcony"], // third-floor balcony terrace at Four Seasons Hotel
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -794,12 +794,12 @@ export const terraces: Terrace[] = [
     lng: -73.5685,
     neighborhood: "Downtown",
     cuisineType: "Wine Bar / Restaurant",
-    terraceType: "sidewalk", // user confirmed sidewalk, not courtyard
+    terraceType: ["sidewalk"], // user confirmed sidewalk, not courtyard
     capacity: 50,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/9.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/custom0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/30/9.jpg"],
     openingPeriods: [
       { day: 2, open: "15:00", close: "03:00" },
       { day: 3, open: "15:00", close: "03:00" },
@@ -821,7 +821,7 @@ export const terraces: Terrace[] = [
     lng: -73.5735,
     neighborhood: "Downtown",
     cuisineType: "Portuguese",
-    // type unknown — "stylish covered terrace" not structural enough
+    terraceType: ["sidewalk"], // confirmed by user
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -853,7 +853,7 @@ export const terraces: Terrace[] = [
     lng: -73.5670,
     neighborhood: "Downtown",
     cuisineType: "Mexican",
-    terraceType: "backyard", // confirmed: "hidden patio"
+    terraceType: ["backyard"], // confirmed: "hidden patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -911,7 +911,7 @@ export const terraces: Terrace[] = [
     lng: -73.5695,
     neighborhood: "Downtown",
     cuisineType: "French",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -939,7 +939,7 @@ export const terraces: Terrace[] = [
     lng: -73.5660,
     neighborhood: "Downtown",
     cuisineType: "Quebec Bistro",
-    terraceType: "rooftop", // confirmed: "Panoramic terrace with 180-degree view at DoubleTree by Hilton"
+    terraceType: ["rooftop"], // confirmed: "Panoramic terrace with 180-degree view at DoubleTree by Hilton"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -971,7 +971,7 @@ export const terraces: Terrace[] = [
     lng: -73.5700,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean / Californian",
-    terraceType: "rooftop", // confirmed: "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel"
+    terraceType: ["rooftop"], // confirmed: "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -991,7 +991,7 @@ export const terraces: Terrace[] = [
     lng: -73.5700,
     neighborhood: "Downtown",
     cuisineType: "Japanese Izakaya",
-    terraceType: "backyard", // confirmed: "40-seat hidden patio"
+    terraceType: ["backyard"], // confirmed: "40-seat hidden patio"
     capacity: 40,
     covered: true,
     dogFriendly: false,
@@ -1024,7 +1024,7 @@ export const terraces: Terrace[] = [
     lng: -73.5690,
     neighborhood: "Downtown",
     cuisineType: "Cocktail Bar",
-    terraceType: "rooftop", // confirmed: "Third-floor patio at Fairmont le Reine Elizabeth"
+    terraceType: ["rooftop"], // confirmed: "Third-floor patio at Fairmont le Reine Elizabeth"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1050,7 +1050,7 @@ export const terraces: Terrace[] = [
     lng: -73.5680,
     neighborhood: "Downtown",
     cuisineType: "Asian-inspired",
-    // type unknown — "Promenade level" is ambiguous
+    terraceType: ["rooftop"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1070,12 +1070,12 @@ export const terraces: Terrace[] = [
     lng: -73.5682,
     neighborhood: "Downtown",
     cuisineType: "Café / Bistro",
-    terraceType: "courtyard", // confirmed: "Beautiful courtyard cafe"
+    terraceType: ["courtyard"], // confirmed: "Beautiful courtyard cafe"
     capacity: 35,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/9.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/41/9.jpg"],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "11:00", close: "23:00" },
@@ -1098,7 +1098,7 @@ export const terraces: Terrace[] = [
     lng: -73.5630,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "Large rooftop terrace atop the SAT arts space"
+    terraceType: ["rooftop"], // confirmed: "Large rooftop terrace atop the SAT arts space"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1118,7 +1118,7 @@ export const terraces: Terrace[] = [
     lng: -73.5750,
     neighborhood: "Downtown",
     cuisineType: "Irish / English",
-    // type unknown — "Grand terrace" is not specific
+    terraceType: ["balcony"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1146,7 +1146,7 @@ export const terraces: Terrace[] = [
     lng: -73.5760,
     neighborhood: "Downtown",
     cuisineType: "Pub",
-    terraceType: "balcony", // elevated balcony overlooking Crescent Street
+    terraceType: ["balcony"], // elevated balcony overlooking Crescent Street
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1178,7 +1178,7 @@ export const terraces: Terrace[] = [
     lng: -73.5610,
     neighborhood: "Chinatown",
     cuisineType: "Brewery / Bar",
-    terraceType: "rooftop", // confirmed: "Rooftop terrace on 2nd floor"
+    terraceType: ["rooftop"], // confirmed: "Rooftop terrace on 2nd floor"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1210,12 +1210,12 @@ export const terraces: Terrace[] = [
     lng: -73.5795,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Oyster / Cocktail Bar",
-    terraceType: "sidewalk", // confirmed: "Terrace extends onto the Main"
+    terraceType: ["sidewalk"], // confirmed: "Terrace extends onto the Main"
     capacity: 60, // Tastet says "seating for around sixty"
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/9.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/6.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/46/9.jpg"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "03:00" },
       { day: 1, open: "16:00", close: "03:00" },
@@ -1265,7 +1265,7 @@ export const terraces: Terrace[] = [
     lng: -73.5790,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Café / Vegetarian",
-    terraceType: "backyard", // confirmed: "Hidden garden oasis... Canopied by trees and fenced in"
+    terraceType: ["backyard"], // confirmed: "Hidden garden oasis... Canopied by trees and fenced in"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1290,7 +1290,7 @@ export const terraces: Terrace[] = [
     lng: -73.5740,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Afghan",
-    terraceType: "backyard", // confirmed: "Hidden terrace... decorated with plants and colorful murals"
+    terraceType: ["backyard"], // confirmed: "Hidden terrace... decorated with plants and colorful murals"
     capacity: 50,
     covered: false,
     dogFriendly: false,
@@ -1319,7 +1319,7 @@ export const terraces: Terrace[] = [
     lng: -73.5735,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Greek / Mediterranean",
-    terraceType: "backyard", // confirmed: "Lush garden terrace evoking Mediterranean landscapes"
+    terraceType: ["backyard"], // confirmed: "Lush garden terrace evoking Mediterranean landscapes"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1346,7 +1346,7 @@ export const terraces: Terrace[] = [
     lng: -73.5770,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Brewery",
-    terraceType: "rooftop", // confirmed: "bright yellow picnic tables on rooftop"
+    terraceType: ["rooftop"], // confirmed: "bright yellow picnic tables on rooftop"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1373,12 +1373,12 @@ export const terraces: Terrace[] = [
     lng: -73.6055,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Wine Bar",
-    terraceType: "sidewalk", // confirmed: classic street-side wine bar
+    terraceType: ["sidewalk"], // confirmed: classic street-side wine bar
     capacity: 35,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/9.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/2.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/9.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/52/2.jpg"],
     openingPeriods: [
       { day: 2, open: "16:00", close: "00:30" },
       { day: 3, open: "16:00", close: "00:30" },
@@ -1426,7 +1426,7 @@ export const terraces: Terrace[] = [
     lng: -73.5730,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Comfort Food",
-    terraceType: "sidewalk", // confirmed: "Sunny terrace on Saint-Denis Street"
+    terraceType: ["sidewalk"], // confirmed: "Sunny terrace on Saint-Denis Street"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1455,7 +1455,7 @@ export const terraces: Terrace[] = [
     lng: -73.5730,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Wine Bar",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1483,7 +1483,7 @@ export const terraces: Terrace[] = [
     lng: -73.5730,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Iranian / Persian",
-    terraceType: "backyard", // confirmed: "Secluded and lush hidden garden"
+    terraceType: ["backyard"], // confirmed: "Secluded and lush hidden garden"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1511,11 +1511,11 @@ export const terraces: Terrace[] = [
     lng: -73.5808,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Cocktail Bar",
-    terraceType: "sidewalk", // confirmed by user
+    terraceType: ["sidewalk"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "10:00", close: "01:00" },
@@ -1539,7 +1539,7 @@ export const terraces: Terrace[] = [
     lng: -73.5600,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Asian (Thai/Japanese/Vietnamese)",
-    terraceType: "backyard", // confirmed: "Luxury backyard patio with a pond"
+    terraceType: ["backyard"], // confirmed: "Luxury backyard patio with a pond"
     covered: false,
     dogFriendly: false,
     heated: true,
@@ -1567,7 +1567,7 @@ export const terraces: Terrace[] = [
     lng: -73.5770,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bar",
-    terraceType: "backyard", // confirmed: "Lush back patio"
+    terraceType: ["backyard"], // confirmed: "Lush back patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1594,7 +1594,7 @@ export const terraces: Terrace[] = [
     lng: -73.5870,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bar / Music Venue",
-    terraceType: "backyard", // confirmed: "Back courtyard patio"
+    terraceType: ["backyard"], // confirmed: "Back courtyard patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1622,7 +1622,7 @@ export const terraces: Terrace[] = [
     lng: -73.5720,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bistro",
-    terraceType: "backyard", // confirmed: "Verdant back terrace"
+    terraceType: ["backyard"], // confirmed: "Verdant back terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1710,12 +1710,12 @@ export const terraces: Terrace[] = [
     lng: -73.6005,
     neighborhood: "Mile End",
     cuisineType: "Café",
-    terraceType: "sidewalk", // confirmed: "Mile End institution" on Saint-Viateur
+    terraceType: ["sidewalk"], // confirmed: "Mile End institution" on Saint-Viateur
     capacity: 20,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/5.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/5.jpg"],
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -1795,12 +1795,12 @@ export const terraces: Terrace[] = [
     lng: -73.6005,
     neighborhood: "Mile End",
     cuisineType: "Brewery / Pub",
-    terraceType: "sidewalk", // confirmed: "Leafy canopy terrace" on Saint-Laurent
+    terraceType: ["sidewalk"], // confirmed: "Leafy canopy terrace" on Saint-Laurent
     capacity: 35,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/67/2.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/67/2.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -1828,7 +1828,7 @@ export const terraces: Terrace[] = [
     lng: -73.6045,
     neighborhood: "Mile-Ex",
     cuisineType: "Pizza / Bar",
-    terraceType: "rooftop", // confirmed: "Art Deco bar with rooftop terrace and city views"
+    terraceType: ["rooftop"], // confirmed: "Art Deco bar with rooftop terrace and city views"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1963,7 +1963,7 @@ export const terraces: Terrace[] = [
     lng: -73.5985,
     neighborhood: "Petite-Patrie",
     cuisineType: "Thai",
-    terraceType: "backyard", // confirmed: "Back patio"
+    terraceType: ["backyard"], // confirmed: "Back patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2002,7 +2002,7 @@ export const terraces: Terrace[] = [
     lng: -73.6110,
     neighborhood: "Outremont",
     cuisineType: "Syrian",
-    terraceType: "sidewalk", // confirmed: "one of the city's best streetside setups, ringed by trees and planters"
+    terraceType: ["sidewalk"], // confirmed: "one of the city's best streetside setups, ringed by trees and planters"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2067,7 +2067,7 @@ export const terraces: Terrace[] = [
     lng: -73.6065,
     neighborhood: "Outremont",
     cuisineType: "French Café",
-    terraceType: "sidewalk", // confirmed: "Retractable awnings covering tightly-packed cafe tables"
+    terraceType: ["sidewalk"], // confirmed: "Retractable awnings covering tightly-packed cafe tables"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -2095,7 +2095,7 @@ export const terraces: Terrace[] = [
     lng: -73.6090,
     neighborhood: "Outremont",
     cuisineType: "French-inspired",
-    terraceType: "sidewalk", // confirmed: "Watch passersby on Bernard Avenue"
+    terraceType: ["sidewalk"], // confirmed: "Watch passersby on Bernard Avenue"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2122,7 +2122,7 @@ export const terraces: Terrace[] = [
     lng: -73.6120,
     neighborhood: "Outremont",
     cuisineType: "Italian",
-    terraceType: "sidewalk", // confirmed: "Large wooden deck patio on leafy Laurier Avenue"
+    terraceType: ["sidewalk"], // confirmed: "Large wooden deck patio on leafy Laurier Avenue"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2195,7 +2195,7 @@ export const terraces: Terrace[] = [
     lng: -73.6095,
     neighborhood: "Outremont",
     cuisineType: "Cocktail Bar",
-    // type unknown — "European-inspired outdoor space" not specific
+    terraceType: ["sidewalk"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2254,7 +2254,7 @@ export const terraces: Terrace[] = [
     lng: -73.6015,
     neighborhood: "Little Italy",
     cuisineType: "Syrian / Armenian",
-    terraceType: "sidewalk", // confirmed: "Street-side terrace"
+    terraceType: ["sidewalk"], // confirmed: "Street-side terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2336,7 +2336,7 @@ export const terraces: Terrace[] = [
     lng: -73.5950,
     neighborhood: "Petite-Patrie",
     cuisineType: "Wine Bar",
-    terraceType: "sidewalk", // confirmed: "Terrace on Saint-Zotique street"
+    terraceType: ["sidewalk"], // confirmed: "Terrace on Saint-Zotique street"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2362,12 +2362,12 @@ export const terraces: Terrace[] = [
     lng: -73.5895,
     neighborhood: "Petite-Patrie",
     cuisineType: "Brewery",
-    terraceType: "sidewalk", // confirmed: "street terraces on Beaubien"
+    terraceType: ["sidewalk"], // confirmed: "street terraces on Beaubien"
     capacity: 40,
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "12:00", close: "01:00" },
@@ -2391,7 +2391,7 @@ export const terraces: Terrace[] = [
     lng: -73.5885,
     neighborhood: "Petite-Patrie",
     cuisineType: "Nordic Wine Bar",
-    terraceType: "sidewalk", // confirmed: "street-side terrace"
+    terraceType: ["sidewalk"], // confirmed: "street-side terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2419,7 +2419,7 @@ export const terraces: Terrace[] = [
     lng: -73.5930,
     neighborhood: "Petite-Patrie",
     cuisineType: "Tiki Bar",
-    terraceType: "rooftop", // confirmed: "Hidden rooftop terrace on Plaza Saint-Hubert"
+    terraceType: ["rooftop"], // confirmed: "Hidden rooftop terrace on Plaza Saint-Hubert"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2447,7 +2447,7 @@ export const terraces: Terrace[] = [
     lng: -73.5935,
     neighborhood: "Petite-Patrie",
     cuisineType: "Pizza / Wine Bar",
-    terraceType: "rooftop", // confirmed: "Rooftop patio"
+    terraceType: ["rooftop"], // confirmed: "Rooftop patio"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -2479,7 +2479,7 @@ export const terraces: Terrace[] = [
     lng: -73.5830,
     neighborhood: "Saint-Henri",
     cuisineType: "Brewery / BBQ",
-    terraceType: "garden", // canal-side garden with picnic tables and string lights
+    terraceType: ["garden"], // canal-side garden with picnic tables and string lights
     covered: false,
     dogFriendly: true,
     heated: false,
@@ -2499,7 +2499,7 @@ export const terraces: Terrace[] = [
     lng: -73.5820,
     neighborhood: "Saint-Henri",
     cuisineType: "Microbrewery",
-    terraceType: "garden", // large canal-side garden, one of the city's largest terraces
+    terraceType: ["garden"], // large canal-side garden, one of the city's largest terraces
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs with open arms"
     heated: false,
@@ -2527,7 +2527,7 @@ export const terraces: Terrace[] = [
     lng: -73.5850,
     neighborhood: "Little Burgundy",
     cuisineType: "French / Contemporary",
-    terraceType: "backyard", // confirmed: "Charming back terraces"
+    terraceType: ["backyard"], // confirmed: "Charming back terraces"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2553,7 +2553,7 @@ export const terraces: Terrace[] = [
     lng: -73.5855,
     neighborhood: "Little Burgundy",
     cuisineType: "Wine Bar / Vegetables",
-    terraceType: "backyard", // confirmed: "Secluded charming back terrace"
+    terraceType: ["backyard"], // confirmed: "Secluded charming back terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2579,7 +2579,7 @@ export const terraces: Terrace[] = [
     lng: -73.5920,
     neighborhood: "Saint-Henri",
     cuisineType: "Contemporary",
-    terraceType: "sidewalk", // confirmed: "Two beautiful wooden terraces"
+    terraceType: ["sidewalk"], // confirmed: "Two beautiful wooden terraces"
     covered: true,
     dogFriendly: false,
     heated: true,
@@ -2606,7 +2606,7 @@ export const terraces: Terrace[] = [
     lng: -73.5835,
     neighborhood: "Saint-Henri",
     cuisineType: "Seasonal Bar",
-    terraceType: "garden", // large green patio facing Lachine Canal
+    terraceType: ["garden"], // large green patio facing Lachine Canal
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs"
     heated: false,
@@ -2626,7 +2626,7 @@ export const terraces: Terrace[] = [
     lng: -73.5915,
     neighborhood: "Saint-Henri",
     cuisineType: "Jewish / Brunch",
-    // type unknown
+    terraceType: ["sidewalk"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2682,7 +2682,7 @@ export const terraces: Terrace[] = [
     lng: -73.5845,
     neighborhood: "Little Burgundy",
     cuisineType: "Wine / Cocktails",
-    // type unknown
+    terraceType: ["sidewalk"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2708,7 +2708,7 @@ export const terraces: Terrace[] = [
     lng: -73.5790,
     neighborhood: "Little Burgundy",
     cuisineType: "Contemporary / Local",
-    terraceType: "backyard", // confirmed: "Secret terrace... in an old presbytery"
+    terraceType: ["backyard"], // confirmed: "Secret terrace... in an old presbytery"
     capacity: 35,
     covered: false,
     dogFriendly: false,
@@ -2824,7 +2824,7 @@ export const terraces: Terrace[] = [
     lng: -73.5660,
     neighborhood: "Griffintown",
     cuisineType: "Upscale Bistro",
-    terraceType: "courtyard", // confirmed: "Hedge-ringed off-street terrace with garden party atmosphere"
+    terraceType: ["courtyard"], // confirmed: "Hedge-ringed off-street terrace with garden party atmosphere"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2850,7 +2850,7 @@ export const terraces: Terrace[] = [
     lng: -73.5625,
     neighborhood: "Griffintown",
     cuisineType: "Mediterranean",
-    terraceType: "courtyard", // confirmed: "Bohemian-chic courtyard"
+    terraceType: ["courtyard"], // confirmed: "Bohemian-chic courtyard"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2874,7 +2874,7 @@ export const terraces: Terrace[] = [
     lng: -73.5650,
     neighborhood: "Griffintown",
     cuisineType: "Italian",
-    terraceType: "backyard",
+    terraceType: ["backyard"],
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -2903,7 +2903,7 @@ export const terraces: Terrace[] = [
     lng: -73.5795,
     neighborhood: "Griffintown",
     cuisineType: "Bar / Lounge",
-    terraceType: "sidewalk", // confirmed: "Patio situated directly on the water near Atwater Market"
+    terraceType: ["sidewalk"], // confirmed: "Patio situated directly on the water near Atwater Market"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2923,7 +2923,7 @@ export const terraces: Terrace[] = [
     lng: -73.5780,
     neighborhood: "Rosemont",
     cuisineType: "Contemporary Quebec",
-    terraceType: "courtyard", // confirmed: "Spacious courtyard terrace with fire pit"
+    terraceType: ["courtyard"], // confirmed: "Spacious courtyard terrace with fire pit"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -2985,7 +2985,7 @@ export const terraces: Terrace[] = [
     lng: -73.5675,
     neighborhood: "Verdun",
     cuisineType: "Cocktail Lounge",
-    terraceType: "backyard", // confirmed: "Back terrace with scattered tables, rattan chairs, hanging vines"
+    terraceType: ["backyard"], // confirmed: "Back terrace with scattered tables, rattan chairs, hanging vines"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3009,7 +3009,7 @@ export const terraces: Terrace[] = [
     lng: -73.6200,
     neighborhood: "NDG",
     cuisineType: "Gastropub",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3039,7 +3039,7 @@ export const terraces: Terrace[] = [
     lng: -73.5535,
     neighborhood: "Hochelaga",
     cuisineType: "Local Products",
-    terraceType: "backyard", // confirmed: "Lush terrace" — described as garden-style
+    terraceType: ["backyard"], // confirmed: "Lush terrace" — described as garden-style
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3098,7 +3098,7 @@ export const terraces: Terrace[] = [
     lng: -73.6020,
     neighborhood: "Villeray",
     cuisineType: "Café-Restaurant",
-    terraceType: "sidewalk", // confirmed: "Terrace set up on Saint-Laurent Boulevard"
+    terraceType: ["sidewalk"], // confirmed: "Terrace set up on Saint-Laurent Boulevard"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3188,7 +3188,7 @@ export const terraces: Terrace[] = [
     lng: -73.5620,
     neighborhood: "The Village",
     cuisineType: "Cocktail Bar",
-    terraceType: "backyard", // confirmed: "60-seat hidden terrace"
+    terraceType: ["backyard"], // confirmed: "60-seat hidden terrace"
     capacity: 60,
     covered: false,
     dogFriendly: false,
@@ -3293,7 +3293,7 @@ export const terraces: Terrace[] = [
     lng: -73.5510,
     neighborhood: "Old Montreal",
     cuisineType: "Brewery / Pub",
-    terraceType: "sidewalk", // confirmed: "Street-facing"
+    terraceType: ["sidewalk"], // confirmed: "Street-facing"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3340,6 +3340,7 @@ export const terraces: Terrace[] = [
     lng: -73.5523,
     neighborhood: "Old Montreal",
     cuisineType: "Steakhouse",
+    terraceType: ["sidewalk"], // confirmed by user
     covered: true, // confirmed: "Covered patio"
     dogFriendly: false,
     heated: false,
@@ -3367,7 +3368,7 @@ export const terraces: Terrace[] = [
     lng: -73.5520,
     neighborhood: "Old Montreal",
     cuisineType: "Seafood / Lobster",
-    terraceType: "sidewalk", // confirmed: "Street-side"
+    terraceType: ["sidewalk"], // confirmed: "Street-side"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3395,7 +3396,7 @@ export const terraces: Terrace[] = [
     lng: -73.5515,
     neighborhood: "Old Montreal",
     cuisineType: "Bar / Lounge",
-    terraceType: "courtyard", // confirmed: "Front & back courtyard"
+    terraceType: ["courtyard"], // confirmed: "Front & back courtyard"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3442,7 +3443,7 @@ export const terraces: Terrace[] = [
     lng: -73.5570,
     neighborhood: "Old Montreal",
     cuisineType: "Japanese",
-    terraceType: "sidewalk", // confirmed: "Street patio"
+    terraceType: ["sidewalk"], // confirmed: "Street patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3493,7 +3494,7 @@ export const terraces: Terrace[] = [
     lng: -73.5535,
     neighborhood: "Old Montreal",
     cuisineType: "Mexican",
-    terraceType: "sidewalk", // confirmed: "Street terrace"
+    terraceType: ["sidewalk"], // confirmed: "Street terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3522,7 +3523,7 @@ export const terraces: Terrace[] = [
     lng: -73.5680,
     neighborhood: "Downtown",
     cuisineType: "Fusion / Asian",
-    terraceType: "rooftop", // confirmed: "Renaissance Montreal hotel rooftop"
+    terraceType: ["rooftop"], // confirmed: "Renaissance Montreal hotel rooftop"
     covered: true,
     dogFriendly: false,
     heated: false,
@@ -3542,7 +3543,7 @@ export const terraces: Terrace[] = [
     lng: -73.5630,
     neighborhood: "Quartier des Spectacles",
     cuisineType: "Contemporary",
-    terraceType: "rooftop", // confirmed: "5th floor, four-season pergola"
+    terraceType: ["rooftop"], // confirmed: "5th floor, four-season pergola"
     covered: true, // confirmed: "four-season pergola"
     dogFriendly: false,
     heated: false,
@@ -3562,7 +3563,7 @@ export const terraces: Terrace[] = [
     lng: -73.5785,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Mexican / Cocktails",
-    terraceType: "rooftop",
+    terraceType: ["rooftop"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3615,7 +3616,7 @@ export const terraces: Terrace[] = [
     lng: -73.5695,
     neighborhood: "Downtown",
     cuisineType: "Japanese Café",
-    terraceType: "backyard", // confirmed: "Back garden with picnic tables"
+    terraceType: ["backyard"], // confirmed: "Back garden with picnic tables"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3643,7 +3644,7 @@ export const terraces: Terrace[] = [
     lng: -73.5670,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean",
-    terraceType: "rooftop", // confirmed: "Rooftop"
+    terraceType: ["rooftop"], // confirmed: "Rooftop"
     covered: true,
     dogFriendly: false,
     heated: true,
@@ -3671,7 +3672,7 @@ export const terraces: Terrace[] = [
     lng: -73.5640,
     neighborhood: "Latin Quarter",
     cuisineType: "Brewery",
-    terraceType: "backyard", // confirmed: "Back terrace (two terraces)"
+    terraceType: ["backyard"], // confirmed: "Back terrace (two terraces)"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3725,7 +3726,7 @@ export const terraces: Terrace[] = [
     lng: -73.5935,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Modern Chinese",
-    terraceType: "backyard", // confirmed: "Backyard" with red lanterns
+    terraceType: ["backyard"], // confirmed: "Backyard" with red lanterns
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3852,7 +3853,7 @@ export const terraces: Terrace[] = [
     lng: -73.5745,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Tiki / Rum Bar",
-    terraceType: "backyard", // confirmed: "Hidden tiki-bar terrace"
+    terraceType: ["backyard", "sidewalk"], // confirmed: back terrace + front sidewalk terrace
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3878,7 +3879,7 @@ export const terraces: Terrace[] = [
     lng: -73.5840,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Brewery / Biergarten",
-    terraceType: "courtyard", // confirmed: "Biergarten"
+    terraceType: ["courtyard"], // confirmed: "Biergarten"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3934,7 +3935,7 @@ export const terraces: Terrace[] = [
     lng: -73.5895,
     neighborhood: "Petite-Patrie",
     cuisineType: "Wine Bar",
-    terraceType: "sidewalk", // confirmed: "Small sidewalk terrace"
+    terraceType: ["sidewalk"], // confirmed: "Small sidewalk terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3988,7 +3989,7 @@ export const terraces: Terrace[] = [
     lng: -73.5932,
     neighborhood: "Petite-Patrie",
     cuisineType: "Bar / Pub",
-    terraceType: "backyard", // confirmed: "Back terrace"
+    terraceType: ["backyard"], // confirmed: "Back terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4122,7 +4123,7 @@ export const terraces: Terrace[] = [
     lng: -73.5985,
     neighborhood: "Little Italy",
     cuisineType: "Italian Café",
-    terraceType: "sidewalk", // confirmed: "Street terrace"
+    terraceType: ["sidewalk"], // confirmed: "Street terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4320,7 +4321,7 @@ export const terraces: Terrace[] = [
     lng: -73.5858,
     neighborhood: "Little Burgundy",
     cuisineType: "Steakhouse",
-    terraceType: "backyard", // confirmed: "leafy back terrace"
+    terraceType: ["backyard"], // confirmed: "leafy back terrace"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4348,7 +4349,7 @@ export const terraces: Terrace[] = [
     lng: -73.5935,
     neighborhood: "Saint-Henri",
     cuisineType: "Pizza",
-    terraceType: "backyard", // confirmed: "Hidden backyard patio"
+    terraceType: ["backyard"], // confirmed: "Hidden backyard patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4402,6 +4403,7 @@ export const terraces: Terrace[] = [
     lng: -73.5848,
     neighborhood: "Little Burgundy",
     cuisineType: "Café",
+    terraceType: ["sidewalk", "backyard"], // confirmed by user
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4419,6 +4421,35 @@ export const terraces: Terrace[] = [
       "Wooden benches terrace. Sources: Tastet.",
     descriptionFr:
       "Terrasse avec bancs en bois. Sources : Tastet.",
+  },
+  {
+    id: "187",
+    placeId: "ChIJOUgkIXoayUwR4268bxFC6rM",
+    name: "Pub Burgundy Lion",
+    address: "2496 Rue Notre-Dame O",
+    lat: 45.482791,
+    lng: -73.575258,
+    neighborhood: "Little Burgundy",
+    cuisineType: "British Pub",
+    terraceType: ["sidewalk", "courtyard"], // confirmed: front sidewalk patio + back courtyard
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://burgundylion.com",
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/187/main.webp", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/187/2.jpg"],
+    openingPeriods: [
+      { day: 0, open: "10:00", close: "01:00" },
+      { day: 1, open: "11:30", close: "01:00" },
+      { day: 2, open: "11:30", close: "01:00" },
+      { day: 3, open: "11:30", close: "01:00" },
+      { day: 4, open: "11:30", close: "03:00" },
+      { day: 5, open: "11:30", close: "03:00" },
+      { day: 6, open: "10:00", close: "03:00" },
+    ],
+    description:
+      "Montreal's beloved British pub on Notre-Dame Street West, open since 2007. Two terraces: a front sidewalk patio facing the street and a back courtyard. 200+ whisky selections, classic pub fare, weekly quiz nights and live sports. Sources: Burgundy Lion, TripAdvisor.",
+    descriptionFr:
+      "Le pub britannique bien-aimé de Montréal sur la rue Notre-Dame Ouest, ouvert depuis 2007. Deux terrasses : une terrasse trottoir à l'avant et une cour intérieure à l'arrière. Plus de 200 whiskys, cuisine pub classique, soirées quiz et sports en direct. Sources : Burgundy Lion, TripAdvisor.",
   },
   {
     id: "166",
@@ -4457,7 +4488,7 @@ export const terraces: Terrace[] = [
     lng: -73.5685,
     neighborhood: "Verdun",
     cuisineType: "Brewery",
-    terraceType: "backyard", // confirmed: "Garden patio"
+    terraceType: ["backyard"], // confirmed: "Garden patio"
     covered: true,
     dogFriendly: false,
     heated: true,
@@ -4485,7 +4516,7 @@ export const terraces: Terrace[] = [
     lng: -73.5678,
     neighborhood: "Verdun",
     cuisineType: "Tea House",
-    terraceType: "backyard", // confirmed: "Back patio"
+    terraceType: ["backyard"], // confirmed: "Back patio"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4515,7 +4546,7 @@ export const terraces: Terrace[] = [
     lng: -73.6108,
     neighborhood: "Outremont",
     cuisineType: "Japanese-Peruvian",
-    terraceType: "sidewalk", // confirmed: "Sidewalk"
+    terraceType: ["sidewalk"], // confirmed: "Sidewalk"
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4575,7 +4606,7 @@ export const terraces: Terrace[] = [
     lng: -73.7155,
     neighborhood: "Laval",
     cuisineType: "Italian",
-    terraceType: "rooftop",
+    terraceType: ["rooftop"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4604,7 +4635,7 @@ export const terraces: Terrace[] = [
     lng: -73.7485,
     neighborhood: "Laval",
     cuisineType: "Bistro",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4631,7 +4662,7 @@ export const terraces: Terrace[] = [
     lng: -73.7345,
     neighborhood: "Laval",
     cuisineType: "Italian",
-    terraceType: "backyard",
+    terraceType: ["backyard"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4744,7 +4775,7 @@ export const terraces: Terrace[] = [
     lng: -73.4650,
     neighborhood: "South Shore",
     cuisineType: "Italian",
-    terraceType: "backyard",
+    terraceType: ["backyard"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4802,7 +4833,7 @@ export const terraces: Terrace[] = [
     lng: -73.4625,
     neighborhood: "South Shore",
     cuisineType: "Thai",
-    terraceType: "rooftop",
+    terraceType: ["rooftop"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4834,12 +4865,12 @@ export const terraces: Terrace[] = [
     lng: -73.9580,
     neighborhood: "West Island",
     cuisineType: "Canadian / Pub",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
     website: "https://annies.ca",
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 2, open: "11:30", close: "21:00" },
       { day: 3, open: "11:30", close: "21:00" },
@@ -4859,12 +4890,12 @@ export const terraces: Terrace[] = [
     lng: -73.9630,
     neighborhood: "West Island",
     cuisineType: "Spanish / Tapas",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
     website: "https://oletapas.ca",
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "12:00", close: "20:00" },
       { day: 5, open: "11:00", close: "21:00" },
@@ -4906,12 +4937,12 @@ export const terraces: Terrace[] = [
     lng: -73.8290,
     neighborhood: "West Island",
     cuisineType: "Pub / Grill",
-    terraceType: "sidewalk",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,
     website: "https://www.yeoldeorchard.com/pointeclaire",
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "09:00", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -4937,7 +4968,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.louspointeclaire.com",
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -4964,7 +4995,7 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.berniespizzabar.com",
-    photos: [],
+    photos: [],
     openingPeriods: [
       { day: 0, open: "16:00", close: "22:00" },
       { day: 1, open: "16:00", close: "22:00" },

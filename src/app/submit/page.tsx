@@ -17,7 +17,7 @@ const neighborhoods = [
 ];
 
 const emptyForm = {
-  name: "", address: "", neighborhood: "", terraceType: "",
+  name: "", address: "", neighborhood: "", terraceTypes: [] as string[],
   cuisineType: "", capacity: "", covered: false, dogFriendly: false,
   heated: false, website: "", instagram: "", phone: "",
   seasonalOpen: "", seasonalClose: "", description: "",
@@ -52,7 +52,7 @@ function SubmitPageContent() {
         name: editTerrace.name,
         address: editTerrace.address,
         neighborhood: editTerrace.neighborhood,
-        terraceType: editTerrace.terraceType ?? "",
+        terraceTypes: editTerrace.terraceType ?? [],
         cuisineType: editTerrace.cuisineType,
         capacity: editTerrace.capacity ? String(editTerrace.capacity) : "",
         covered: editTerrace.covered,
@@ -76,6 +76,15 @@ function SubmitPageContent() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  function toggleTerraceType(value: string) {
+    setForm((prev) => ({
+      ...prev,
+      terraceTypes: prev.terraceTypes.includes(value)
+        ? prev.terraceTypes.filter((v) => v !== value)
+        : [...prev.terraceTypes, value],
+    }));
+  }
+
   function computeChanges() {
     if (!editTerrace) return null;
     const changes: Record<string, { from: unknown; to: unknown }> = {};
@@ -84,7 +93,7 @@ function SubmitPageContent() {
       ["name",          editTerrace.name,                  form.name],
       ["address",       editTerrace.address,               form.address],
       ["neighborhood",  editTerrace.neighborhood,          form.neighborhood || null],
-      ["terraceType",   editTerrace.terraceType ?? null,   form.terraceType || null],
+      ["terraceType",   editTerrace.terraceType ?? null,   form.terraceTypes.length ? form.terraceTypes : null],
       ["cuisineType",   editTerrace.cuisineType || null,   form.cuisineType || null],
       ["capacity",      editTerrace.capacity ?? null,      form.capacity ? parseInt(form.capacity) : null],
       ["covered",       editTerrace.covered,               form.covered],
@@ -119,7 +128,7 @@ function SubmitPageContent() {
       name: form.name,
       address: form.address,
       neighborhood: form.neighborhood || null,
-      terrace_type: form.terraceType || null,
+      terrace_type: form.terraceTypes.length ? form.terraceTypes : null,
       cuisine_type: form.cuisineType || null,
       capacity: form.capacity ? parseInt(form.capacity) : null,
       covered: form.covered,
@@ -289,18 +298,20 @@ function SubmitPageContent() {
                   </select>
                 </Field>
 
-                <Field label={t.terraceTypeLabel} required>
-                  <select
-                    required
-                    value={form.terraceType}
-                    onChange={(e) => update("terraceType", e.target.value)}
-                    className={inputClass}
-                  >
-                    <option value="">{t.selectPlaceholder}</option>
+                <Field label={t.terraceTypeLabel}>
+                  <div className="flex flex-col gap-2 pt-1">
                     {terraceTypes.map((tt) => (
-                      <option key={tt.value} value={tt.value}>{tt.label}</option>
+                      <label key={tt.value} className="flex items-center gap-2 text-sm cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={form.terraceTypes.includes(tt.value)}
+                          onChange={() => toggleTerraceType(tt.value)}
+                          className="rounded accent-accent w-4 h-4"
+                        />
+                        {tt.label}
+                      </label>
                     ))}
-                  </select>
+                  </div>
                 </Field>
               </div>
 

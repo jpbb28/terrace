@@ -44,7 +44,7 @@ export interface Terrace {
   lng: number;
   neighborhood: Neighborhood;
   cuisineType: string;
-  terraceType?: TerraceType;
+  terraceType?: TerraceType[];
   capacity?: number;
   covered: boolean;
   dogFriendly: boolean;

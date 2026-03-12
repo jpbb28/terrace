@@ -105,9 +105,9 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
 
         {/* Info grid */}
         <div className="grid grid-cols-2 gap-3 mb-6">
-          {terrace.terraceType && (
-            <InfoItem label={t.type} value={typeLabels[terrace.terraceType]} />
-          )}
+          {terrace.terraceType?.length ? (
+            <InfoItem label={t.type} value={terrace.terraceType.map((tt) => typeLabels[tt]).join(", ")} />
+          ) : null}
           {terrace.cuisineType && (
             <InfoItem label={t.cuisine} value={lang === "fr" ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType) : terrace.cuisineType} />
           )}

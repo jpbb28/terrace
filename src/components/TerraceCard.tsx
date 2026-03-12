@@ -15,16 +15,16 @@ interface TerraceCardProps {
 export default function TerraceCard({ terrace, selected, onClick, distance }: TerraceCardProps) {
   const { t, lang } = useLang();
 
-  const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
-    sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive", icon: "\u{1F6B6}" },
-    rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm", icon: "\u{1F307}" },
-    backyard: { label: t.backyard, color: "bg-olive-soft text-olive", icon: "\u{1F333}" },
-    courtyard: { label: t.courtyard, color: "bg-accent-soft text-accent", icon: "\u{1F3DB}" },
-    balcony: { label: t.balcony, color: "bg-warm-soft text-warm", icon: "\u{1FA9F}" },
-    garden: { label: t.garden, color: "bg-olive-soft text-olive", icon: "\u{1F33F}" },
+  const typeConfig: Record<string, { label: string; color: string }> = {
+    sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive" },
+    rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm" },
+    backyard: { label: t.backyard, color: "bg-olive-soft text-olive" },
+    courtyard: { label: t.courtyard, color: "bg-accent-soft text-accent" },
+    balcony: { label: t.balcony, color: "bg-warm-soft text-warm" },
+    garden: { label: t.garden, color: "bg-olive-soft text-olive" },
   };
 
-  const typeInfo = terrace.terraceType ? typeConfig[terrace.terraceType] : null;
+  const typeInfos = terrace.terraceType?.map((tt) => typeConfig[tt]).filter(Boolean) ?? [];
 
   return (
     <button
@@ -55,10 +55,14 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
         <h3 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
           {terrace.name}
         </h3>
-        {typeInfo && (
-          <span className={`shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full ${typeInfo.color}`}>
-            {typeInfo.icon} {typeInfo.label}
-          </span>
+        {typeInfos.length > 0 && (
+          <div className="flex gap-1 shrink-0 flex-wrap justify-end">
+            {typeInfos.map((info) => (
+              <span key={info.label} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${info.color}`}>
+                {info.label}
+              </span>
+            ))}
+          </div>
         )}
       </div>
 

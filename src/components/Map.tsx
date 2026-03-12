@@ -96,14 +96,14 @@ export default function Map({ terraces, selectedId, onSelect, center, zoom }: Ma
                 {t.name}
               </p>
               <p className="text-xs mb-1.5" style={{ color: "#9c8b78" }}>{t.address}</p>
-              {t.terraceType && (
+              {t.terraceType?.length ? (
                 <span
                   className="inline-block text-[10px] font-medium px-2 py-0.5 rounded-full"
                   style={{ background: "rgba(196, 93, 62, 0.12)", color: "#c45d3e" }}
                 >
-                  {terraceTypeLabel[t.terraceType]}
+                  {t.terraceType.map((tt) => terraceTypeLabel[tt]).join(", ")}
                 </span>
-              )}
+              ) : null}
             </div>
           </Popup>
         </Marker>
