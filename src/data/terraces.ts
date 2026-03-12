@@ -752,7 +752,7 @@ export const terraces: Terrace[] = [
     lng: -73.5740,
     neighborhood: "Downtown",
     cuisineType: "Contemporary / Seafood",
-    terraceType: "rooftop", // confirmed: "Third-floor rooftop terrace at Four Seasons Hotel"
+    terraceType: "balcony", // third-floor balcony terrace at Four Seasons Hotel
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -959,34 +959,6 @@ export const terraces: Terrace[] = [
       "Terrasse panoramique avec vue à 180 degrés au DoubleTree by Hilton. Cuisine de bistro axée sur le Québec. Sources: Time Out, Tourisme Montreal.",
   },
   {
-    id: "36",
-    name: "Pandore",
-    address: "1 Place des Arts",
-    lat: 45.5085,
-    lng: -73.5665,
-    neighborhood: "Quartier des Spectacles",
-    cuisineType: "French",
-    terraceType: "rooftop", // confirmed: "100-person rooftop bar"
-    capacity: 100,
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    photos: [],
-    openingPeriods: [
-      { day: 0, open: "11:00", close: "17:00" },
-      { day: 1, open: "10:00", close: "21:00" },
-      { day: 2, open: "10:00", close: "21:00" },
-      { day: 3, open: "10:00", close: "21:00" },
-      { day: 4, open: "10:00", close: "21:00" },
-      { day: 5, open: "10:00", close: "21:00" },
-      { day: 6, open: "10:00", close: "19:00" },
-    ],
-    description:
-      "Upscale French restaurant (Thursday-Saturday). 100-person rooftop bar with views of entertainment district. Known for high-end punch bowls. Sources: Time Out.",
-    descriptionFr:
-      "Restaurant français haut de gamme (jeudi-samedi). Bar sur le toit de 100 places avec vue sur le quartier des divertissements. Réputé pour ses punchs élaborés. Sources: Time Out.",
-  },
-  {
     id: "37",
     placeId: "ChIJ4U7ESU8ayUwRhM7vKs6qieA",
     name: "Muze Lounge & Terrasse",
@@ -1170,7 +1142,7 @@ export const terraces: Terrace[] = [
     lng: -73.5760,
     neighborhood: "Downtown",
     cuisineType: "Pub",
-    terraceType: "sidewalk", // confirmed: "faces busy Crescent Street"
+    terraceType: "balcony", // elevated balcony overlooking Crescent Street
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1479,11 +1451,11 @@ export const terraces: Terrace[] = [
     lng: -73.5730,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Wine Bar",
-    // type unknown — "Welcoming terrace with grass carpets" not specific enough
+    terraceType: "sidewalk",
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/3.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/rougegorgepatio.webp", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/55/3.jpg"],
     openingPeriods: [
       { day: 0, open: "15:00", close: "00:00" },
       { day: 1, open: "15:00", close: "00:00" },
@@ -2503,7 +2475,7 @@ export const terraces: Terrace[] = [
     lng: -73.5830,
     neighborhood: "Saint-Henri",
     cuisineType: "Brewery / BBQ",
-    terraceType: "sidewalk", // confirmed: "Canal-side terrace... Picnic tables, string lights"
+    terraceType: "garden", // canal-side garden with picnic tables and string lights
     covered: false,
     dogFriendly: true,
     heated: false,
@@ -2523,7 +2495,7 @@ export const terraces: Terrace[] = [
     lng: -73.5820,
     neighborhood: "Saint-Henri",
     cuisineType: "Microbrewery",
-    terraceType: "sidewalk", // confirmed: "one of the city's largest terraces along the Lachine Canal"
+    terraceType: "garden", // large canal-side garden, one of the city's largest terraces
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs with open arms"
     heated: false,
@@ -2630,7 +2602,7 @@ export const terraces: Terrace[] = [
     lng: -73.5835,
     neighborhood: "Saint-Henri",
     cuisineType: "Seasonal Bar",
-    // type unknown — "Large green patio facing Lachine Canal" could be sidewalk-adjacent
+    terraceType: "garden", // large green patio facing Lachine Canal
     covered: false,
     dogFriendly: true, // confirmed: Tourisme Montreal "welcomes children and dogs"
     heated: false,
@@ -3033,7 +3005,7 @@ export const terraces: Terrace[] = [
     lng: -73.6200,
     neighborhood: "NDG",
     cuisineType: "Gastropub",
-    // type unknown — "small garden area" not specific enough
+    terraceType: "sidewalk",
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -3659,26 +3631,6 @@ export const terraces: Terrace[] = [
       "Jardin arrière avec tables de pique-nique (2 terrasses). Café japonais. Sources: Tastet, Tourisme Montreal.",
   },
   {
-    id: "135",
-    placeId: "ChIJja8kwWsayUwRJ2zKnUMY174",
-    name: "Kampai Garden",
-    address: "1616 Rue Sainte-Catherine O",
-    lat: 45.4972,
-    lng: -73.5770,
-    neighborhood: "Downtown",
-    cuisineType: "Japanese",
-    terraceType: "sidewalk", // confirmed: "Street-side"
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    photos: [],
-    openingPeriods: [],
-    description:
-      "Street-side terrace. Japanese cuisine. Sources: Daily Hive.",
-    descriptionFr:
-      "Terrasse en bord de rue. Cuisine japonaise. Sources: Daily Hive.",
-  },
-  {
     id: "136",
     placeId: "ChIJY2pGPFQayUwRcnYZJSlewd0",
     name: "Le Balcon",
@@ -3691,7 +3643,7 @@ export const terraces: Terrace[] = [
     covered: true,
     dogFriendly: false,
     heated: true,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/136/lebalcon.webp", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/136/lebalcon2.jpg"],
     openingPeriods: [
       { day: 2, open: "18:00", close: "23:00" },
       { day: 3, open: "18:00", close: "23:00" },
@@ -3900,7 +3852,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: [],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/144/barraca.jpg"],
     openingPeriods: [
       { day: 2, open: "16:00", close: "03:00" },
       { day: 3, open: "16:00", close: "03:00" },
@@ -3909,9 +3861,9 @@ export const terraces: Terrace[] = [
       { day: 6, open: "16:00", close: "03:00" },
     ],
     description:
-      "A festive lush back terrace at this legendary Plateau rum bar, open since 2003. Over 200 rums from 20+ countries, Latin tapas, themed nights including karaoke and musical quiz. Sources: TripAdvisor, The Main, Barraca.",
+      "A festive lush back terrace as well as a front sidewalk terrace at this legendary Plateau rum bar, open since 2003. Over 200 rums from 20+ countries, Latin tapas, themed nights including karaoke and musical quiz. Sources: TripAdvisor, The Main, Barraca.",
     descriptionFr:
-      "Une terrasse arrière verdoyante et festive dans ce légendaire bar à rhum du Plateau, ouvert depuis 2003. Plus de 200 rhums de plus de 20 pays, tapas latinos, soirées thématiques dont karaoké et quiz musical. Sources : TripAdvisor, The Main, Barraca.",
+      "Une terrasse arrière verdoyante et festive ainsi qu'une terrasse avant sur le trottoir dans ce légendaire bar à rhum du Plateau, ouvert depuis 2003. Plus de 200 rhums de plus de 20 pays, tapas latinos, soirées thématiques dont karaoké et quiz musical. Sources : TripAdvisor, The Main, Barraca.",
   },
   {
     id: "145",
@@ -4022,26 +3974,6 @@ export const terraces: Terrace[] = [
       "Greenery-filled terrace. Sharing platters. Sources: Tastet.",
     descriptionFr:
       "Terrasse verdoyante. Plateaux à partager. Sources : Tastet.",
-  },
-  {
-    id: "149",
-    placeId: "ChIJsdugHcQZyUwRtB5_uQ7ZDF8",
-    name: "Iconoglace",
-    address: "1320 Rue Bélanger",
-    lat: 45.5350,
-    lng: -73.5910,
-    neighborhood: "Petite-Patrie",
-    cuisineType: "Ice Cream",
-    terraceType: "backyard", // confirmed: "Back terrace"
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    photos: [],
-    openingPeriods: [],
-    description:
-      "Back terrace. Creative ice cream flavors, vegan options. Sources: Tourisme Montreal, Milesopedia.",
-    descriptionFr:
-      "Terrasse arrière. Saveurs de crème glacée créatives, options véganes. Sources : Tourisme Montréal, Milesopedia.",
   },
   {
     id: "150",

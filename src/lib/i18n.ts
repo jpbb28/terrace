@@ -22,6 +22,8 @@ export const translations = {
     rooftop: "Rooftop",
     backyard: "Backyard",
     courtyard: "Courtyard",
+    balcony: "Balcony",
+    garden: "Garden",
     // TerraceCard
     seats: (n: number) => `~${n} seats`,
     dogsOk: "\uD83D\uDC36 Dogs OK",
@@ -128,6 +130,8 @@ export const translations = {
     rooftop: "Rooftop",
     backyard: "Arri\u00E8re-cour",
     courtyard: "Cour int\u00E9rieure",
+    balcony: "Balcon",
+    garden: "Jardin",
     // TerraceCard
     seats: (n: number) => `~${n} places`,
     dogsOk: "\uD83D\uDC36 Chiens OK",

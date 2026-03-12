@@ -1,4 +1,4 @@
-export type TerraceType = "sidewalk" | "rooftop" | "backyard" | "courtyard";
+export type TerraceType = "sidewalk" | "rooftop" | "backyard" | "courtyard" | "balcony" | "garden";
 
 export type Neighborhood =
   | "Plateau-Mont-Royal"

@@ -59,6 +59,8 @@ const terraceTypeLabel: Record<string, string> = {
   rooftop: "Rooftop",
   backyard: "Backyard",
   courtyard: "Courtyard",
+  balcony: "Balcony",
+  garden: "Garden",
 };
 
 interface MapProps {

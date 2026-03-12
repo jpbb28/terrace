@@ -20,6 +20,8 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
     rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm", icon: "\u{1F307}" },
     backyard: { label: t.backyard, color: "bg-olive-soft text-olive", icon: "\u{1F333}" },
     courtyard: { label: t.courtyard, color: "bg-accent-soft text-accent", icon: "\u{1F3DB}" },
+    balcony: { label: t.balcony, color: "bg-warm-soft text-warm", icon: "\u{1FA9F}" },
+    garden: { label: t.garden, color: "bg-olive-soft text-olive", icon: "\u{1F33F}" },
   };
 
   const typeInfo = terrace.terraceType ? typeConfig[terrace.terraceType] : null;

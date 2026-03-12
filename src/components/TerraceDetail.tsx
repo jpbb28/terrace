@@ -28,6 +28,8 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
     rooftop: t.rooftop,
     backyard: t.backyard,
     courtyard: t.courtyard,
+    balcony: t.balcony,
+    garden: t.garden,
   };
 
   return (

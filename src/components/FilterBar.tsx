@@ -53,6 +53,8 @@ export default function FilterBar({
     { value: "rooftop", label: t.rooftop, icon: "\u{1F307}" },
     { value: "backyard", label: t.backyard, icon: "\u{1F333}" },
     { value: "courtyard", label: t.courtyard, icon: "\u{1F3DB}" },
+    { value: "balcony", label: t.balcony, icon: "\u{1FA9F}" },
+    { value: "garden", label: t.garden, icon: "\u{1F33F}" },
   ];
 
   return (
