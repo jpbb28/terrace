@@ -5037,4 +5037,36 @@ export const terraces: Terrace[] = [
     description:
       "An upscale French restaurant in Pointe-Claire Village with a romantic lakefront terrace facing Lac Saint-Louis. White linen tablecloths, refined seasonal cuisine, and an elegant atmosphere make it a perennial favourite for special occasions on the West Island. Sources: TripAdvisor.",
   },
+  {
+    id: "188",
+    placeId: "ChIJweXSJt8byUwRFFJUwE6RWGk",
+    name: "SeaSalt & Ceviche Bar",
+    address: "351 Place Royale",
+    lat: 45.5034877,
+    lng: -73.5541186,
+    neighborhood: "Old Montreal",
+    cuisineType: "Seafood / Ceviche",
+    terraceType: ["sidewalk"], // confirmed by user
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://seasaltmtl.com",
+    phone: "438-533-0954",
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/188/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/188/2.jpg"],
+    seasonalOpen: "Spring",
+    seasonalClose: "Fall",
+    openingPeriods: [
+      { day: 0, open: "11:30", close: "22:00" },
+      { day: 1, open: "11:30", close: "22:00" },
+      { day: 2, open: "11:30", close: "22:00" },
+      { day: 3, open: "11:30", close: "22:00" },
+      { day: 4, open: "11:30", close: "22:00" },
+      { day: 5, open: "11:30", close: "23:00" },
+      { day: 6, open: "11:30", close: "23:00" },
+    ],
+    description:
+      "Ceviche-focused seafood restaurant on Place Royale in Old Montreal with a sidewalk terrace open seasonally. Mediterranean and South American influences, fresh fish and shellfish preparations. Sources: seasaltmtl.com, Tourisme Montréal.",
+    descriptionFr:
+      "Restaurant de fruits de mer axé sur le ceviche sur la Place Royale dans le Vieux-Montréal, avec une terrasse trottoir ouverte de façon saisonnière. Influences méditerranéennes et sud-américaines, préparations de poissons et fruits de mer frais. Sources : seasaltmtl.com, Tourisme Montréal.",
+  },
 ];

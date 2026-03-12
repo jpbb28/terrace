@@ -110,8 +110,9 @@ export default function FilterBar({
         />
       </div>
 
-      {/* Neighborhood multi-select */}
-      <div className="relative" ref={neighborhoodRef}>
+      {/* Neighborhood multi-select + result count */}
+      <div className="flex items-center gap-2">
+      <div className="relative flex-1" ref={neighborhoodRef}>
         <button
           onClick={() => setNeighborhoodOpen(!neighborhoodOpen)}
           className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
@@ -157,6 +158,10 @@ export default function FilterBar({
           </div>
         )}
       </div>
+      <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
+        {t.spots(resultCount)}
+      </span>
+      </div>
 
       {/* Type toggle pills */}
       <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
@@ -175,9 +180,8 @@ export default function FilterBar({
         ))}
       </div>
 
-      {/* Attribute filter pills + result count */}
-      <div className="flex items-center gap-2">
-        <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5 flex-1">
+      {/* Attribute filter pills */}
+      <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
           {[
             { label: t.dogFriendly, active: dogFriendly, onClick: () => onDogFriendlyChange(!dogFriendly), disabled: false },
             { label: t.covered, active: covered, onClick: () => onCoveredChange(!covered), disabled: false },
@@ -195,10 +199,6 @@ export default function FilterBar({
               {label}
             </button>
           ))}
-        </div>
-        <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
-          {t.spots(resultCount)}
-        </span>
       </div>
     </div>
   );
