@@ -5040,7 +5040,7 @@ export const terraces: Terrace[] = [
   {
     id: "188",
     placeId: "ChIJweXSJt8byUwRFFJUwE6RWGk",
-    name: "SeaSalt & Ceviche Bar",
+    name: "Seasalt",
     address: "351 Place Royale",
     lat: 45.5034877,
     lng: -73.5541186,
