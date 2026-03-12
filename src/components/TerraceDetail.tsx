@@ -119,12 +119,6 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           ) : terrace.openingHours ? (
             <InfoItem label={t.hours} value={terrace.openingHours} />
           ) : null}
-          {terrace.seasonalOpen && terrace.seasonalClose && (
-            <InfoItem
-              label={t.season}
-              value={`${terrace.seasonalOpen} \u2013 ${terrace.seasonalClose}`}
-            />
-          )}
         </div>
 
         {/* Tags */}
