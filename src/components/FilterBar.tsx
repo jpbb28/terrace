@@ -44,7 +44,6 @@ export default function FilterBar({
   resultCount,
 }: FilterBarProps) {
   const { t } = useLang();
-  const [filtersOpen, setFiltersOpen] = useState(false);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
   const neighborhoodRef = useRef<HTMLDivElement>(null);
 
@@ -87,8 +86,6 @@ export default function FilterBar({
     selectedNeighborhoods.length === 0
       ? t.allNeighborhoods
       : selectedNeighborhoods.join(", ");
-
-  const activeFilterCount = [dogFriendly, covered, openNow, sortByDistance].filter(Boolean).length;
 
   return (
     <div className="space-y-3">
@@ -162,12 +159,12 @@ export default function FilterBar({
       </div>
 
       {/* Type toggle pills */}
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
         {terraceTypes.map((tt) => (
           <button
             key={tt.value}
             onClick={() => toggleType(tt.value)}
-            className={`text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
+            className={`shrink-0 text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
               selectedTypes.includes(tt.value)
                 ? "bg-accent text-white border-accent"
                 : "border-border bg-white/40 text-muted hover:text-foreground hover:border-border-strong"
@@ -178,100 +175,31 @@ export default function FilterBar({
         ))}
       </div>
 
-      {/* Desktop: Toggle pills — hidden on mobile */}
-      <div className="hidden md:flex items-center gap-2">
-        <button
-          onClick={() => onDogFriendlyChange(!dogFriendly)}
-          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
-            dogFriendly
-              ? "active"
-              : "border-border bg-white/40 text-muted hover:text-foreground"
-          }`}
-        >
-          {t.dogFriendly}
-        </button>
-        <button
-          onClick={() => onCoveredChange(!covered)}
-          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
-            covered
-              ? "active"
-              : "border-border bg-white/40 text-muted hover:text-foreground"
-          }`}
-        >
-          {t.covered}
-        </button>
-        <button
-          onClick={() => onOpenNowChange(!openNow)}
-          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
-            openNow
-              ? "active"
-              : "border-border bg-white/40 text-muted hover:text-foreground"
-          }`}
-        >
-          Open now
-        </button>
-        <button
-          onClick={onSortByDistanceChange}
-          disabled={locating}
-          className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-3 py-1.5 rounded-full border cursor-pointer ${
-            sortByDistance
-              ? "active"
-              : "border-border bg-white/40 text-muted hover:text-foreground"
-          } disabled:opacity-50 disabled:cursor-default`}
-        >
-          {locating ? t.locating : t.nearMe}
-        </button>
-        <span className="ml-auto text-[11px] font-medium text-muted tabular-nums shrink-0">
-          {t.spots(resultCount)}
-        </span>
-      </div>
-
-      {/* Mobile: Filters dropdown toggle */}
-      <div className="flex md:hidden items-center gap-2">
-        <button
-          onClick={() => setFiltersOpen(!filtersOpen)}
-          className={`shrink-0 whitespace-nowrap text-xs font-medium px-4 py-2 rounded-xl border cursor-pointer flex items-center gap-2 transition-colors ${
-            activeFilterCount > 0
-              ? "bg-accent text-white border-accent"
-              : "border-border bg-white/60 text-foreground hover:border-border-strong"
-          }`}
-        >
-          &#x25BC; Filters
-          {activeFilterCount > 0 && (
-            <span className="bg-white/30 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold leading-none">
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
-        <span className="ml-auto text-[11px] font-medium text-muted tabular-nums shrink-0">
-          {t.spots(resultCount)}
-        </span>
-      </div>
-
-      {/* Mobile: Filters dropdown panel */}
-      {filtersOpen && (
-        <div className="flex md:hidden flex-col gap-0 rounded-xl border border-border bg-white/80 overflow-hidden">
+      {/* Attribute filter pills + result count */}
+      <div className="flex items-center gap-2">
+        <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5 flex-1">
           {[
-            { label: t.dogFriendly, checked: dogFriendly, onChange: () => onDogFriendlyChange(!dogFriendly) },
-            { label: t.covered, checked: covered, onChange: () => onCoveredChange(!covered) },
-            { label: "Open now", checked: openNow, onChange: () => onOpenNowChange(!openNow) },
-            { label: locating ? t.locating : t.nearMe, checked: sortByDistance, onChange: onSortByDistanceChange },
-          ].map(({ label, checked, onChange }, i) => (
-            <label
-              key={i}
-              className="flex items-center gap-3 px-4 py-2.5 cursor-pointer hover:bg-white/60 transition-colors border-b border-border last:border-b-0"
+            { label: t.dogFriendly, active: dogFriendly, onClick: () => onDogFriendlyChange(!dogFriendly), disabled: false },
+            { label: t.covered, active: covered, onClick: () => onCoveredChange(!covered), disabled: false },
+            { label: "Open now", active: openNow, onClick: () => onOpenNowChange(!openNow), disabled: false },
+            { label: locating ? t.locating : t.nearMe, active: sortByDistance, onClick: onSortByDistanceChange, disabled: locating },
+          ].map(({ label, active, onClick, disabled }) => (
+            <button
+              key={label}
+              onClick={onClick}
+              disabled={disabled}
+              className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
+                active ? "active" : "border-border bg-white/40 text-muted hover:text-foreground hover:border-border-strong"
+              } disabled:opacity-50 disabled:cursor-default`}
             >
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={onChange}
-                className="accent-[#c45d3e] w-4 h-4 shrink-0"
-              />
-              <span className="text-[13px] text-foreground">{label}</span>
-            </label>
+              {label}
+            </button>
           ))}
         </div>
-      )}
+        <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
+          {t.spots(resultCount)}
+        </span>
+      </div>
     </div>
   );
 }
