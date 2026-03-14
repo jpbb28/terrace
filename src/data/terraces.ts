@@ -7,6 +7,8 @@ export const terraces: Terrace[] = [
   {
     id: "1",
     placeId: "ChIJw4lBglcayUwRDRjGxITxpgc",
+    googleRating: 4.2,
+    googleReviewCount: 2193,
     name: "Terrasse Nelligan",
     address: "106 Rue Saint-Paul O",
     lat: 45.5035,
@@ -29,6 +31,8 @@ export const terraces: Terrace[] = [
   {
     id: "2",
     placeId: "ChIJlejpUlYayUwRUiml8Uony3I",
+    googleRating: 4.4,
+    googleReviewCount: 1177,
     name: "Terrasse sur l'Auberge",
     address: "97 Rue de la Commune E",
     lat: 45.5045,
@@ -50,6 +54,8 @@ export const terraces: Terrace[] = [
   {
     id: "3",
     placeId: "ChIJQcQy81YayUwRGiY5FbKWdSY",
+    googleRating: 4.5,
+    googleReviewCount: 2392,
     name: "Terrasse William Gray",
     address: "421 Rue Saint-Vincent",
     lat: 45.5082,
@@ -78,6 +84,8 @@ export const terraces: Terrace[] = [
   {
     id: "4",
     placeId: "ChIJ2Rtti1YayUwRhgdfCln5q84",
+    googleRating: 4.6,
+    googleReviewCount: 2481,
     name: "Perché",
     address: "153 Rue Saint-Amable",
     lat: 45.5078,
@@ -98,6 +106,8 @@ export const terraces: Terrace[] = [
   {
     id: "5",
     placeId: "ChIJtbvqtFAayUwRQBmpOFt4dxs",
+    googleRating: 4.2,
+    googleReviewCount: 1045,
     name: "Terrasse Place d'Armes",
     address: "59 Rue Saint-Jacques",
     lat: 45.5044,
@@ -118,6 +128,8 @@ export const terraces: Terrace[] = [
   {
     id: "7",
     placeId: "ChIJpVn8h1YayUwR7qA4GYdAphM",
+    googleRating: 4.4,
+    googleReviewCount: 3802,
     name: "Jardin Nelson",
     address: "407 Place Jacques-Cartier",
     lat: 45.5080,
@@ -138,6 +150,8 @@ export const terraces: Terrace[] = [
   {
     id: "8",
     placeId: "ChIJwzJ_5XQbyUwR4s74FlLfomk",
+    googleRating: 4.3,
+    googleReviewCount: 387,
     name: "Romies",
     address: "465 Rue McGill",
     lat: 45.5020,
@@ -166,6 +180,8 @@ export const terraces: Terrace[] = [
   {
     id: "9",
     placeId: "ChIJ7d6Q_FYayUwR067bgZty6kk",
+    googleRating: 4.4,
+    googleReviewCount: 1041,
     name: "L'Auberge Saint-Gabriel",
     address: "426 Rue Saint-Gabriel",
     lat: 45.5045,
@@ -192,6 +208,8 @@ export const terraces: Terrace[] = [
   {
     id: "10",
     placeId: "ChIJE-RxvFYbyUwRW-mDsHvl9vc",
+    googleRating: 4.5,
+    googleReviewCount: 4169,
     name: "Jacopo",
     address: "410 Rue Saint-Vincent",
     lat: 45.5078,
@@ -220,6 +238,8 @@ export const terraces: Terrace[] = [
   {
     id: "11",
     placeId: "ChIJ6X0VoGoayUwRLJopiVNT21E",
+    googleRating: 4.2,
+    googleReviewCount: 618,
     name: "Café Il Cortile",
     address: "1442 Rue Sherbrooke O",
     lat: 45.5020,
@@ -255,6 +275,8 @@ export const terraces: Terrace[] = [
   {
     id: "12",
     placeId: "ChIJCdLMUlYayUwRcvW39j2wAb0",
+    googleRating: 4.5,
+    googleReviewCount: 3893,
     name: "Gaspar French Brasserie",
     address: "87 Rue de la Commune E",
     lat: 45.5045,
@@ -283,6 +305,8 @@ export const terraces: Terrace[] = [
   {
     id: "13",
     placeId: "ChIJCQm8C1EayUwRH2STD6p_jdE",
+    googleRating: 3.9,
+    googleReviewCount: 831,
     name: "Terrasse Carla",
     address: "985 Boulevard Saint-Laurent",
     lat: 45.5050,
@@ -303,6 +327,8 @@ export const terraces: Terrace[] = [
   {
     id: "14",
     placeId: "ChIJN2soRU8byUwRHm6dgVCxlBw",
+    googleRating: 4.7,
+    googleReviewCount: 414,
     name: "Pubjelly",
     address: "600 Rue Marguerite-D'Youville",
     lat: 45.49905,
@@ -331,6 +357,8 @@ export const terraces: Terrace[] = [
   {
     id: "15",
     placeId: "ChIJlWh3_1YayUwRT2BYbzgdHVk",
+    googleRating: 4.5,
+    googleReviewCount: 9759,
     name: "Vieux-Port Steakhouse",
     address: "39 Rue Saint-Gabriel",
     lat: 45.5040,
@@ -359,6 +387,8 @@ export const terraces: Terrace[] = [
   {
     id: "16",
     placeId: "ChIJQ5FDbfsbyUwR7KC5OLT_6m4",
+    googleRating: 4.6,
+    googleReviewCount: 2696,
     name: "Wolf & Workman",
     address: "139 Rue Saint-Paul O",
     lat: 45.5030,
@@ -387,6 +417,8 @@ export const terraces: Terrace[] = [
   {
     id: "17",
     placeId: "ChIJOTYSM1gayUwR0mZ1w47lfoE",
+    googleRating: 4.4,
+    googleReviewCount: 348,
     name: "Le Polisson",
     address: "171 Rue Saint-Paul O",
     lat: 45.5032,
@@ -407,6 +439,8 @@ export const terraces: Terrace[] = [
   {
     id: "18",
     placeId: "ChIJT3DF9xEbyUwREVYXCv9pZL8",
+    googleRating: 4.4,
+    googleReviewCount: 87,
     name: "Cour Arrière",
     address: "414 Rue Saint-Sulpice",
     lat: 45.5060,
@@ -438,6 +472,8 @@ export const terraces: Terrace[] = [
   {
     id: "19",
     placeId: "ChIJW8fv8lYayUwRLx7pfbQVuhE",
+    googleRating: 4.4,
+    googleReviewCount: 3724,
     name: "Bevo Bar + Pizzeria",
     address: "410 Rue Saint-Vincent",
     lat: 45.5078,
@@ -466,6 +502,8 @@ export const terraces: Terrace[] = [
   {
     id: "20",
     placeId: "ChIJvYQOtTgbyUwR62UCD2rplqg",
+    googleRating: 4.5,
+    googleReviewCount: 411,
     name: "Buvette Pastek",
     address: "209 Rue Saint-Paul O",
     lat: 45.5030,
@@ -493,6 +531,8 @@ export const terraces: Terrace[] = [
   {
     id: "21",
     placeId: "ChIJJYd8aVYbyUwRWEOeInIxA9g",
+    googleRating: 4.5,
+    googleReviewCount: 1193,
     name: "La Cave à Manger",
     address: "386 Rue Saint-Paul E",
     lat: 45.5065,
@@ -562,6 +602,8 @@ export const terraces: Terrace[] = [
   {
     id: "23",
     placeId: "ChIJD9mWCU0ayUwR_cRwhTUnfos",
+    googleRating: 4.2,
+    googleReviewCount: 2299,
     name: "Le Sainte-Élisabeth",
     address: "1412 Rue Sainte-Élisabeth",
     lat: 45.5120,
@@ -589,6 +631,8 @@ export const terraces: Terrace[] = [
   {
     id: "24",
     placeId: "ChIJIQzw90AayUwRnVSjzezllKc",
+    googleRating: 4.5,
+    googleReviewCount: 1336,
     name: "Maison Boulud",
     address: "1228 Rue Sherbrooke O",
     lat: 45.4990,
@@ -627,6 +671,8 @@ export const terraces: Terrace[] = [
   {
     id: "25",
     placeId: "ChIJP-pK8fgbyUwR1gmry43_1og",
+    googleRating: 3.2,
+    googleReviewCount: 198,
     name: "Rose Orange",
     address: "1 Place Ville-Marie, 44th floor",
     lat: 45.5010,
@@ -654,6 +700,8 @@ export const terraces: Terrace[] = [
   {
     id: "26",
     placeId: "ChIJ6xeE7GgbyUwRKx__kgSrmdE",
+    googleRating: 4.2,
+    googleReviewCount: 570,
     name: "Terrasse Alizé",
     address: "340 Rue De la Gauchetière O",
     lat: 45.5020,
@@ -674,6 +722,8 @@ export const terraces: Terrace[] = [
   {
     id: "27",
     placeId: "ChIJu_tAA0UayUwRPbxhaQYT3ms",
+    googleRating: 4.6,
+    googleReviewCount: 1791,
     name: "Jatoba",
     address: "1184 Rue du Square-Phillips",
     lat: 45.5050,
@@ -705,6 +755,8 @@ export const terraces: Terrace[] = [
   {
     id: "28",
     placeId: "ChIJbSKD3kAayUwR7XiyriJvz2M",
+    googleRating: 4.4,
+    googleReviewCount: 688,
     name: "Renoir",
     address: "1155 Rue Sherbrooke O",
     lat: 45.4995,
@@ -747,6 +799,8 @@ export const terraces: Terrace[] = [
   {
     id: "29",
     placeId: "ChIJUfYhiN8byUwRM3uPfKkHwUc",
+    googleRating: 3.9,
+    googleReviewCount: 1508,
     name: "MARCUS Restaurant + Lounge",
     address: "1440 Rue de la Montagne",
     lat: 45.4985,
@@ -789,6 +843,8 @@ export const terraces: Terrace[] = [
   {
     id: "30",
     placeId: "ChIJ5d7980UayUwRfBIVAf6UFe0",
+    googleRating: 4.1,
+    googleReviewCount: 1390,
     name: "Bar Furco",
     address: "425 Rue Mayor",
     lat: 45.5055,
@@ -816,6 +872,8 @@ export const terraces: Terrace[] = [
   {
     id: "31",
     placeId: "ChIJdyXKZkEayUwR2qeViS0Kndk",
+    googleRating: 4.6,
+    googleReviewCount: 2200,
     name: "Ferreira Café",
     address: "1446 Rue Peel",
     lat: 45.4990,
@@ -848,6 +906,8 @@ export const terraces: Terrace[] = [
   {
     id: "32",
     placeId: "ChIJw1a65EQayUwRGw0brnBCmJk",
+    googleRating: 4.5,
+    googleReviewCount: 3453,
     name: "Escondite",
     address: "1206 Rue Union",
     lat: 45.5050,
@@ -880,6 +940,8 @@ export const terraces: Terrace[] = [
   {
     id: "33",
     placeId: "ChIJ73SuS70byUwRmhRxZO8RxK0",
+    googleRating: 4.7,
+    googleReviewCount: 432,
     name: "Papito",
     address: "1425 Rue Saint-Alexandre",
     lat: 45.5060,
@@ -906,6 +968,8 @@ export const terraces: Terrace[] = [
   {
     id: "34",
     placeId: "ChIJiygGYkQayUwRX_y9m-SawgA",
+    googleRating: 4.2,
+    googleReviewCount: 6922,
     name: "Les Enfants Terribles (Place Ville Marie)",
     address: "1 Place Ville-Marie",
     lat: 45.5010,
@@ -934,6 +998,8 @@ export const terraces: Terrace[] = [
   {
     id: "35",
     placeId: "ChIJHWyDNugbyUwR7j5h5U11LGE",
+    googleRating: 4.4,
+    googleReviewCount: 1027,
     name: "Bivouac",
     address: "1255 Rue Jeanne-Mance",
     lat: 45.5080,
@@ -966,6 +1032,8 @@ export const terraces: Terrace[] = [
   {
     id: "37",
     placeId: "ChIJ4U7ESU8ayUwRhM7vKs6qieA",
+    googleRating: 3.8,
+    googleReviewCount: 352,
     name: "Muze Lounge & Terrasse",
     address: "355 Boulevard de Maisonneuve O, 5th floor",
     lat: 45.5050,
@@ -986,6 +1054,8 @@ export const terraces: Terrace[] = [
   {
     id: "38",
     placeId: "ChIJwbQbl0UayUwRsViu0c9uvqQ",
+    googleRating: 4.5,
+    googleReviewCount: 2316,
     name: "Biiru",
     address: "1433 Rue City Councillors",
     lat: 45.5020,
@@ -1019,6 +1089,8 @@ export const terraces: Terrace[] = [
   {
     id: "39",
     placeId: "ChIJ-84iWkMayUwRUaWawznHGHs",
+    googleRating: 4.3,
+    googleReviewCount: 702,
     name: "Nacarat",
     address: "900 Boulevard René-Lévesque O",
     lat: 45.5005,
@@ -1045,6 +1117,8 @@ export const terraces: Terrace[] = [
   {
     id: "40",
     placeId: "ChIJ5zat-eUbyUwRr841D1REK2E",
+    googleRating: 4,
+    googleReviewCount: 661,
     name: "Belvu",
     address: "1010 Rue De la Gauchetière O",
     lat: 45.4985,
@@ -1065,6 +1139,8 @@ export const terraces: Terrace[] = [
   {
     id: "41",
     placeId: "ChIJu1OQ9kUayUwRY8HESTqnl5E",
+    googleRating: 4.4,
+    googleReviewCount: 2889,
     name: "Café Parvis",
     address: "433 Rue Mayor",
     lat: 45.5058,
@@ -1093,6 +1169,8 @@ export const terraces: Terrace[] = [
   {
     id: "42",
     placeId: "ChIJJ2t7RZMbyUwR3eterW8M9WU",
+    googleRating: 4.5,
+    googleReviewCount: 100,
     name: "Pavillon Social Club (SAT)",
     address: "1201 Boulevard Saint-Laurent",
     lat: 45.5085,
@@ -1113,6 +1191,8 @@ export const terraces: Terrace[] = [
   {
     id: "43",
     placeId: "ChIJQ3lcl0EayUwRpXqRythab9M",
+    googleRating: 4.5,
+    googleReviewCount: 4387,
     name: "Bar George",
     address: "1440 Rue Drummond",
     lat: 45.4990,
@@ -1141,6 +1221,8 @@ export const terraces: Terrace[] = [
   {
     id: "44",
     placeId: "ChIJz1on3UEayUwRfPsiQVDBUC8",
+    googleRating: 4,
+    googleReviewCount: 2628,
     name: "Sir Winston Churchill Pub",
     address: "1459 Rue Crescent",
     lat: 45.4980,
@@ -1173,6 +1255,8 @@ export const terraces: Terrace[] = [
   {
     id: "45",
     placeId: "ChIJk0hRm-gbyUwRtb1VeDYLCjY",
+    googleRating: 4.5,
+    googleReviewCount: 988,
     name: "Poincaré Chinatown",
     address: "1071 Boulevard Saint-Laurent",
     lat: 45.5060,
@@ -1205,6 +1289,8 @@ export const terraces: Terrace[] = [
   {
     id: "46",
     placeId: "ChIJKz2aKs0byUwRBPsetIbRk90",
+    googleRating: 4.5,
+    googleReviewCount: 1540,
     name: "Le Majestique",
     address: "4105 Boulevard Saint-Laurent",
     lat: 45.5205,
@@ -1234,6 +1320,8 @@ export const terraces: Terrace[] = [
   {
     id: "47",
     placeId: "ChIJY-TutywayUwRY4X-wJtFlAw",
+    googleRating: 4.7,
+    googleReviewCount: 812,
     name: "Le Filet",
     address: "219 Avenue du Mont-Royal O",
     lat: 45.5185,
@@ -1260,6 +1348,8 @@ export const terraces: Terrace[] = [
   {
     id: "48",
     placeId: "ChIJ1_CaEDMayUwRcCe0drIg8Ig",
+    googleRating: 4.4,
+    googleReviewCount: 2149,
     name: "Café Santropol",
     address: "3990 Rue Saint-Urbain",
     lat: 45.5150,
@@ -1285,6 +1375,8 @@ export const terraces: Terrace[] = [
   {
     id: "49",
     placeId: "ChIJaYtxrM4byUwRGwtw_AhjoWk",
+    googleRating: 4.6,
+    googleReviewCount: 2025,
     name: "Khyber Pass",
     address: "506 Avenue Duluth E",
     lat: 45.5170,
@@ -1314,6 +1406,8 @@ export const terraces: Terrace[] = [
   {
     id: "50",
     placeId: "ChIJJ6T_sc4byUwRDS00PeoIGn8",
+    googleRating: 4.3,
+    googleReviewCount: 2701,
     name: "Le Jardin de Panos",
     address: "521 Avenue Duluth E",
     lat: 45.5172,
@@ -1341,6 +1435,8 @@ export const terraces: Terrace[] = [
   {
     id: "51",
     placeId: "ChIJt1iSMzMayUwRXDqFy_11h8c",
+    googleRating: 4.5,
+    googleReviewCount: 1881,
     name: "Réservoir",
     address: "9 Avenue Duluth E",
     lat: 45.5165,
@@ -1368,6 +1464,8 @@ export const terraces: Terrace[] = [
   {
     id: "52",
     placeId: "ChIJm1mG0CoayUwReBaPkTO00xM",
+    googleRating: 4.6,
+    googleReviewCount: 990,
     name: "La Buvette Chez Simone",
     address: "4869 Avenue du Parc",
     lat: 45.5185,
@@ -1395,6 +1493,8 @@ export const terraces: Terrace[] = [
   {
     id: "53",
     placeId: "ChIJFyqcxTQayUwRvDR6nzFlDgQ",
+    googleRating: 4.4,
+    googleReviewCount: 1007,
     name: "Icehouse",
     address: "51 Rue Roy E",
     lat: 45.5160,
@@ -1421,6 +1521,8 @@ export const terraces: Terrace[] = [
   {
     id: "54",
     placeId: "ChIJeVtMebUbyUwRElVz5WRkGTM",
+    googleRating: 4.6,
+    googleReviewCount: 1671,
     name: "Bistrot La Fabrique",
     address: "3619 Rue Saint-Denis",
     lat: 45.5168,
@@ -1450,6 +1552,8 @@ export const terraces: Terrace[] = [
   {
     id: "55",
     placeId: "ChIJBTIkIdsbyUwRJCy5mg5jD64",
+    googleRating: 4.5,
+    googleReviewCount: 1222,
     name: "Le Rouge Gorge",
     address: "1234 Avenue du Mont-Royal E",
     lat: 45.5250,
@@ -1478,6 +1582,8 @@ export const terraces: Terrace[] = [
   {
     id: "56",
     placeId: "ChIJ9Xajc1YbyUwR6yTqKvvfonA",
+    googleRating: 4.6,
+    googleReviewCount: 243,
     name: "Azalea",
     address: "4306 Rue Saint-Denis",
     lat: 45.5218,
@@ -1506,6 +1612,8 @@ export const terraces: Terrace[] = [
   {
     id: "57",
     placeId: "ChIJqdsWvNIbyUwRUIsV_AIKQiU",
+    googleRating: 4.5,
+    googleReviewCount: 3301,
     name: "Le Bar Darling",
     address: "4328 Boulevard Saint-Laurent",
     lat: 45.5218,
@@ -1534,6 +1642,8 @@ export const terraces: Terrace[] = [
   {
     id: "58",
     placeId: "ChIJgX-J7bkbyUwRNQe86KTzx9I",
+    googleRating: 4.2,
+    googleReviewCount: 1492,
     name: "Grenade",
     address: "1603 Rue Ontario E",
     lat: 45.5245,
@@ -1562,6 +1672,8 @@ export const terraces: Terrace[] = [
   {
     id: "59",
     placeId: "ChIJNV7JgtEbyUwRMHXWlu-k3kI",
+    googleRating: 4.3,
+    googleReviewCount: 647,
     name: "Plan B",
     address: "327 Avenue du Mont-Royal E",
     lat: 45.5245,
@@ -1589,6 +1701,8 @@ export const terraces: Terrace[] = [
   {
     id: "60",
     placeId: "ChIJ4w0kTNQbyUwRhGmeVBPK1ug",
+    googleRating: 4.4,
+    googleReviewCount: 887,
     name: "Casa Del Popolo",
     address: "4873 Boulevard Saint-Laurent",
     lat: 45.5225,
@@ -1617,6 +1731,8 @@ export const terraces: Terrace[] = [
   {
     id: "61",
     placeId: "ChIJFSWIucsbyUwRb7lOHz5QmpQ",
+    googleRating: 4.5,
+    googleReviewCount: 592,
     name: "Bistro Auprès de ma blonde",
     address: "3845 Rue Saint-Denis",
     lat: 45.5185,
@@ -1645,6 +1761,8 @@ export const terraces: Terrace[] = [
   {
     id: "62",
     placeId: "ChIJDf_1gNMbyUwRcqql2jZQ72Y",
+    googleRating: 4.3,
+    googleReviewCount: 433,
     name: "Café Melbourne",
     address: "4615 Boulevard Saint-Laurent",
     lat: 45.5230,
@@ -1673,6 +1791,8 @@ export const terraces: Terrace[] = [
   {
     id: "63",
     placeId: "ChIJS2FqGW8byUwRcAiNOjkbglk",
+    googleRating: 4.7,
+    googleReviewCount: 998,
     name: "Turbo Haüs",
     address: "2040 Rue Saint-Denis",
     lat: 45.5115,
@@ -1705,6 +1825,8 @@ export const terraces: Terrace[] = [
   {
     id: "64",
     placeId: "ChIJZ1CISXkZyUwRcCfuPM5b-Lo",
+    googleRating: 4.6,
+    googleReviewCount: 4201,
     name: "Café Olimpico",
     address: "124 Rue Saint-Viateur O",
     lat: 45.5244,
@@ -1734,6 +1856,8 @@ export const terraces: Terrace[] = [
   {
     id: "65",
     placeId: "ChIJt6kg_3sZyUwRPlVRCgGG3_w",
+    googleRating: 4.5,
+    googleReviewCount: 1807,
     name: "Pub Bishop & Bagg",
     address: "52 Rue Saint-Viateur O",
     lat: 45.5240,
@@ -1762,6 +1886,8 @@ export const terraces: Terrace[] = [
   {
     id: "66",
     placeId: "ChIJicz8MHkZyUwRRumbrPmlpWM",
+    googleRating: 4.6,
+    googleReviewCount: 424,
     name: "Café Club Social",
     address: "180 Rue Saint-Viateur O",
     lat: 45.5246,
@@ -1790,6 +1916,8 @@ export const terraces: Terrace[] = [
   {
     id: "67",
     placeId: "ChIJvTQmWMkyVUARlw-M1y4sjVc",
+    googleRating: 4.5,
+    googleReviewCount: 3182,
     name: "Vices & Versa",
     address: "6631 Boulevard Saint-Laurent",
     lat: 45.5275,
@@ -1823,6 +1951,8 @@ export const terraces: Terrace[] = [
   {
     id: "68",
     placeId: "ChIJ2yxMLpIZyUwR7tgRHqU7QDE",
+    googleRating: 4.6,
+    googleReviewCount: 1038,
     name: "Taverne Atlantic",
     address: "6512 Avenue du Parc",
     lat: 45.5280,
@@ -1851,6 +1981,8 @@ export const terraces: Terrace[] = [
   {
     id: "69",
     placeId: "ChIJxzfAOXMZyUwRIhk6YUw3y7c",
+    googleRating: 4.7,
+    googleReviewCount: 216,
     name: "Anemone",
     address: "271 Rue Saint-Zotique O",
     lat: 45.5305,
@@ -1876,6 +2008,8 @@ export const terraces: Terrace[] = [
   {
     id: "70",
     placeId: "ChIJUTwROHMZyUwRpSbkahmsP2k",
+    googleRating: 4.5,
+    googleReviewCount: 438,
     name: "Bar Cicchetti",
     address: "6703 Avenue du Parc",
     lat: 45.5290,
@@ -1904,6 +2038,8 @@ export const terraces: Terrace[] = [
   {
     id: "71",
     placeId: "ChIJm3pqbw0ZyUwRXtuiSuFuihs",
+    googleRating: 4.7,
+    googleReviewCount: 706,
     name: "Dépanneur Le Pick Up",
     address: "7032 Rue Waverly",
     lat: 45.5295,
@@ -1931,6 +2067,8 @@ export const terraces: Terrace[] = [
   {
     id: "72",
     placeId: "ChIJOUZMv3IZyUwREfBRgGb1oPg",
+    googleRating: 4.5,
+    googleReviewCount: 127,
     name: "WILLS",
     address: "6729 Avenue de l'Esplanade",
     lat: 45.5290,
@@ -1958,6 +2096,8 @@ export const terraces: Terrace[] = [
   {
     id: "73",
     placeId: "ChIJL7yPoW0ZyUwRTLrGqZUZCcg",
+    googleRating: 4.5,
+    googleReviewCount: 1213,
     name: "Pumpui",
     address: "83 Rue Saint-Zotique E",
     lat: 45.5305,
@@ -1997,6 +2137,8 @@ export const terraces: Terrace[] = [
   {
     id: "74",
     placeId: "ChIJNVw9hX8ZyUwRbsz0S4Rg6eY",
+    googleRating: 4.7,
+    googleReviewCount: 4034,
     name: "Damas",
     address: "1209 Avenue Van Horne",
     lat: 45.5205,
@@ -2027,6 +2169,8 @@ export const terraces: Terrace[] = [
   {
     id: "75",
     placeId: "ChIJm_plcYAZyUwRqtzJFLqPyEM",
+    googleRating: 4.5,
+    googleReviewCount: 2670,
     name: "Leméac",
     address: "1045 Avenue Laurier O",
     lat: 45.5210,
@@ -2062,6 +2206,8 @@ export const terraces: Terrace[] = [
   {
     id: "76",
     placeId: "ChIJP5zXL4AZyUwRdK-XEC0X_9k",
+    googleRating: 4.2,
+    googleReviewCount: 1410,
     name: "La Croissanterie Figaro",
     address: "5200 Rue Hutchison",
     lat: 45.5215,
@@ -2090,6 +2236,8 @@ export const terraces: Terrace[] = [
   {
     id: "77",
     placeId: "ChIJg0ahNJ0ZyUwRpv0slKVfjXY",
+    googleRating: 4.5,
+    googleReviewCount: 1205,
     name: "Brasserie Bernard",
     address: "1249 Avenue Bernard",
     lat: 45.5220,
@@ -2137,6 +2285,8 @@ export const terraces: Terrace[] = [
   {
     id: "79",
     placeId: "ChIJE9BCanYZyUwROrTeFhErxEs",
+    googleRating: 4.5,
+    googleReviewCount: 397,
     name: "Provisions Bar à Vin",
     address: "1142 Avenue Van Horne",
     lat: 45.5205,
@@ -2165,6 +2315,8 @@ export const terraces: Terrace[] = [
   {
     id: "80",
     placeId: "ChIJ7epUbp0ZyUwRe-GTZF741jw",
+    googleRating: 4.4,
+    googleReviewCount: 466,
     name: "ALMA",
     address: "1231 Avenue Lajoie",
     lat: 45.5215,
@@ -2190,6 +2342,8 @@ export const terraces: Terrace[] = [
   {
     id: "81",
     placeId: "ChIJRWsZf9UbyUwRwQvQ6UdBSWM",
+    googleRating: 4.5,
+    googleReviewCount: 1360,
     name: "Bar Henrietta",
     address: "115 Avenue Laurier O",
     lat: 45.5210,
@@ -2218,6 +2372,8 @@ export const terraces: Terrace[] = [
   {
     id: "82",
     placeId: "ChIJ40IgO4AZyUwR1ROWv-zayOI",
+    googleRating: 4.2,
+    googleReviewCount: 1171,
     name: "Rumi",
     address: "5198 Rue Hutchison",
     lat: 45.5215,
@@ -2249,6 +2405,8 @@ export const terraces: Terrace[] = [
   {
     id: "83",
     placeId: "ChIJB76LnBMZyUwRxfaR2QfHZWk",
+    googleRating: 4.6,
+    googleReviewCount: 1507,
     name: "Le Petit Alep Bistro",
     address: "191 Rue Jean-Talon E",
     lat: 45.5335,
@@ -2274,6 +2432,8 @@ export const terraces: Terrace[] = [
   {
     id: "84",
     placeId: "ChIJ6wfm3mwZyUwR_OiovAdITds",
+    googleRating: 4,
+    googleReviewCount: 4099,
     name: "Pizzeria Napoletana",
     address: "189 Rue Dante",
     lat: 45.5340,
@@ -2306,6 +2466,8 @@ export const terraces: Terrace[] = [
   {
     id: "85",
     placeId: "ChIJQ0b2_kEZyUwR7ZMpIaWkSzg",
+    googleRating: 4.7,
+    googleReviewCount: 576,
     name: "Luciano Trattoria",
     address: "1212 Rue Saint-Zotique E",
     lat: 45.5315,
@@ -2331,6 +2493,8 @@ export const terraces: Terrace[] = [
   {
     id: "86",
     placeId: "ChIJEZybpW0ZyUwRUNE3vXSjTLU",
+    googleRating: 4.5,
+    googleReviewCount: 1325,
     name: "Mon Lapin",
     address: "150 Rue Saint-Zotique E",
     lat: 45.5305,
@@ -2357,6 +2521,8 @@ export const terraces: Terrace[] = [
   {
     id: "87",
     placeId: "ChIJQecLVWgZyUwRlyyxBRbaG9g",
+    googleRating: 4.6,
+    googleReviewCount: 2970,
     name: "Isle de Garde",
     address: "1039 Rue Beaubien E",
     lat: 45.5365,
@@ -2386,6 +2552,8 @@ export const terraces: Terrace[] = [
   {
     id: "88",
     placeId: "ChIJXVHk-c4ZyUwR5ovsu_TnFos",
+    googleRating: 4.7,
+    googleReviewCount: 535,
     name: "vinvinvin",
     address: "1290 Rue Beaubien E",
     lat: 45.5365,
@@ -2414,6 +2582,8 @@ export const terraces: Terrace[] = [
   {
     id: "89",
     placeId: "ChIJH2rlfG0ZyUwRM79aUBB0Vaw",
+    googleRating: 4.3,
+    googleReviewCount: 1047,
     name: "Snowbird Tiki Bar",
     address: "6388 Rue Saint-Hubert",
     lat: 45.5340,
@@ -2442,6 +2612,8 @@ export const terraces: Terrace[] = [
   {
     id: "90",
     placeId: "ChIJS_MqBAAZyUwRodCEerf1fCk",
+    googleRating: 4.6,
+    googleReviewCount: 462,
     name: "Marci",
     address: "6600 Rue Saint-Hubert",
     lat: 45.5345,
@@ -2474,6 +2646,8 @@ export const terraces: Terrace[] = [
   {
     id: "91",
     placeId: "ChIJZQsoEJEQyUwRgZqXrb-nilM",
+    googleRating: 4.6,
+    googleReviewCount: 2528,
     name: "Terrasse Saint-Ambroise",
     address: "5080 Rue Saint-Ambroise",
     lat: 45.4710,
@@ -2494,6 +2668,8 @@ export const terraces: Terrace[] = [
   {
     id: "92",
     placeId: "ChIJBZTB3yMRyUwR9qKTRYpDl2M",
+    googleRating: 4.8,
+    googleReviewCount: 2253,
     name: "Messorem Bracitorium",
     address: "2233 Rue Pitt",
     lat: 45.4720,
@@ -2522,6 +2698,8 @@ export const terraces: Terrace[] = [
   {
     id: "93",
     placeId: "ChIJYQneI3oayUwR2jPdwbZE2k0",
+    googleRating: 4.5,
+    googleReviewCount: 3147,
     name: "Joe Beef",
     address: "2491 Rue Notre-Dame O",
     lat: 45.4800,
@@ -2548,6 +2726,8 @@ export const terraces: Terrace[] = [
   {
     id: "94",
     placeId: "ChIJbVV8IHoayUwRkwaSUmwt6KA",
+    googleRating: 4.6,
+    googleReviewCount: 1126,
     name: "Le Vin Papillon",
     address: "2519 Rue Notre-Dame O",
     lat: 45.4802,
@@ -2574,6 +2754,8 @@ export const terraces: Terrace[] = [
   {
     id: "95",
     placeId: "ChIJmbEpM5oQyUwRT5Ew1a7RsoU",
+    googleRating: 4.6,
+    googleReviewCount: 932,
     name: "Tuck Shop",
     address: "4662 Rue Notre-Dame O",
     lat: 45.4785,
@@ -2601,6 +2783,8 @@ export const terraces: Terrace[] = [
   {
     id: "96",
     placeId: "ChIJM5vDYJAQyUwR4ASSqJJyb_Q",
+    googleRating: 4.3,
+    googleReviewCount: 1090,
     name: "Riverside Saint-Henri",
     address: "5020 Rue Saint-Ambroise",
     lat: 45.4710,
@@ -2621,6 +2805,8 @@ export const terraces: Terrace[] = [
   {
     id: "97",
     placeId: "ChIJ40xVwZsQyUwRI4DWxWOKybc",
+    googleRating: 4.5,
+    googleReviewCount: 3504,
     name: "Arthurs Nosh Bar",
     address: "4621 Rue Notre-Dame O",
     lat: 45.4788,
@@ -2649,6 +2835,8 @@ export const terraces: Terrace[] = [
   {
     id: "98",
     placeId: "ChIJAzWC-oIRyUwRispJ1ONPp70",
+    googleRating: 4.4,
+    googleReviewCount: 1581,
     name: "BarBara",
     address: "4450 Rue Notre-Dame O",
     lat: 45.4790,
@@ -2677,6 +2865,8 @@ export const terraces: Terrace[] = [
   {
     id: "99",
     placeId: "ChIJV4H4yBcbyUwRwwJk9z6EPH4",
+    googleRating: 4.6,
+    googleReviewCount: 346,
     name: "Stem Bar",
     address: "2475 Rue Notre-Dame O",
     lat: 45.4800,
@@ -2703,6 +2893,8 @@ export const terraces: Terrace[] = [
   {
     id: "100",
     placeId: "ChIJi4oyWGQayUwRPAmT4-4U-jo",
+    googleRating: 4.7,
+    googleReviewCount: 742,
     name: "Candide",
     address: "551 Rue Saint-Martin",
     lat: 45.4850,
@@ -2730,6 +2922,8 @@ export const terraces: Terrace[] = [
   {
     id: "101",
     placeId: "ChIJFwGmIV8ayUwRsiaVqvgx_Vc",
+    googleRating: 4.6,
+    googleReviewCount: 1331,
     name: "Restaurant Mélisse",
     address: "719 Rue William",
     lat: 45.4950,
@@ -2761,6 +2955,8 @@ export const terraces: Terrace[] = [
   {
     id: "102",
     placeId: "ChIJJ1C4gdQbyUwRg_V28-gfyfA",
+    googleRating: 4.5,
+    googleReviewCount: 1876,
     name: "Mano Cornuto",
     address: "988 Rue Ottawa",
     lat: 45.4945,
@@ -2789,6 +2985,8 @@ export const terraces: Terrace[] = [
   {
     id: "103",
     placeId: "ChIJhVcpFrgbyUwRo11A48ntBDs",
+    googleRating: 4.6,
+    googleReviewCount: 2132,
     name: "SHAY",
     address: "1414 Rue Notre-Dame O",
     lat: 45.4880,
@@ -2819,6 +3017,8 @@ export const terraces: Terrace[] = [
   {
     id: "104",
     placeId: "ChIJ-Ze7RGMayUwRbIjoAWrGwTc",
+    googleRating: 4.5,
+    googleReviewCount: 889,
     name: "Mauvais Garçons",
     address: "1275 Rue Guy",
     lat: 45.4940,
@@ -2845,6 +3045,8 @@ export const terraces: Terrace[] = [
   {
     id: "105",
     placeId: "ChIJz6XfS_UbyUwRg_1-bl_BcAY",
+    googleRating: 4,
+    googleReviewCount: 626,
     name: "Bazart",
     address: "950 Rue Ottawa",
     lat: 45.4945,
@@ -2869,6 +3071,8 @@ export const terraces: Terrace[] = [
   {
     id: "106",
     placeId: "ChIJj6preGMayUwRjqnHfz3Juxo",
+    googleRating: 4.1,
+    googleReviewCount: 1209,
     name: "Le Richmond",
     address: "377 Rue Richmond",
     lat: 45.4940,
@@ -2898,6 +3102,8 @@ export const terraces: Terrace[] = [
   {
     id: "107",
     placeId: "ChIJeUBoPngayUwRoLPuQxdeW6k",
+    googleRating: 4.6,
+    googleReviewCount: 503,
     name: "Canal Lounge",
     address: "22 Avenue Atwater",
     lat: 45.4735,
@@ -2918,6 +3124,8 @@ export const terraces: Terrace[] = [
   {
     id: "108",
     placeId: "ChIJLWsVh-4byUwR8JlDKIYRZvY",
+    googleRating: 4.6,
+    googleReviewCount: 1268,
     name: "Hoogan & Beaufort",
     address: "4095 Rue Molson",
     lat: 45.5325,
@@ -2954,6 +3162,8 @@ export const terraces: Terrace[] = [
   {
     id: "109",
     placeId: "ChIJV7MNUTMRyUwRG6jEhrd1Tr4",
+    googleRating: 4.5,
+    googleReviewCount: 450,
     name: "Verdun Beach",
     address: "4816 Rue Wellington",
     lat: 45.4580,
@@ -2980,6 +3190,8 @@ export const terraces: Terrace[] = [
   {
     id: "110",
     placeId: "ChIJpyO9a2QQyUwRvcCoMuseF50",
+    googleRating: 4.3,
+    googleReviewCount: 1425,
     name: "Palco",
     address: "4600 Rue Wellington",
     lat: 45.4585,
@@ -3004,6 +3216,8 @@ export const terraces: Terrace[] = [
   {
     id: "111",
     placeId: "ChIJv8EVuFIXyUwRPUZwguOMrIE",
+    googleRating: 4.3,
+    googleReviewCount: 342,
     name: "Monkland Taverne",
     address: "5555 Avenue Monkland",
     lat: 45.4735,
@@ -3034,6 +3248,8 @@ export const terraces: Terrace[] = [
   {
     id: "112",
     placeId: "ChIJ2VLiVLwbyUwR6jGvrd8ln5M",
+    googleRating: 4.9,
+    googleReviewCount: 177,
     name: "Terroirs Restaurant",
     address: "2600 Rue William-Tremblay",
     lat: 45.5335,
@@ -3063,6 +3279,8 @@ export const terraces: Terrace[] = [
   {
     id: "113",
     placeId: "ChIJgfqNp5YbyUwR-k6VqFxJ4qw",
+    googleRating: 4.5,
+    googleReviewCount: 265,
     name: "June Buvette",
     address: "1900 Rue Centre",
     lat: 45.4800,
@@ -3093,6 +3311,8 @@ export const terraces: Terrace[] = [
   {
     id: "114",
     placeId: "ChIJp-R4Z3oZyUwRJG0oXbwmge0",
+    googleRating: 4.6,
+    googleReviewCount: 916,
     name: "Le Butterblume",
     address: "5836 Boulevard Saint-Laurent",
     lat: 45.5380,
@@ -3120,6 +3340,8 @@ export const terraces: Terrace[] = [
   {
     id: "115",
     placeId: "ChIJHe6iJxkZyUwRh_08-_i7xDQ",
+    googleRating: 4.7,
+    googleReviewCount: 270,
     name: "Moccione Pizza",
     address: "380 Rue Villeray",
     lat: 45.5395,
@@ -3150,6 +3372,8 @@ export const terraces: Terrace[] = [
   {
     id: "116",
     placeId: "ChIJG_3XF5QYyUwRAnvyv7vcCIE",
+    googleRating: 4.5,
+    googleReviewCount: 1053,
     name: "Les Cavistes",
     address: "196 Rue Fleury O",
     lat: 45.5530,
@@ -3183,6 +3407,8 @@ export const terraces: Terrace[] = [
   {
     id: "117",
     placeId: "ChIJo6WdpFYbyUwRZ42jRQhjApA",
+    googleRating: 4.7,
+    googleReviewCount: 194,
     name: "Moqueur",
     address: "1844 Rue Atateken",
     lat: 45.5150,
@@ -3204,6 +3430,8 @@ export const terraces: Terrace[] = [
   {
     id: "118",
     placeId: "ChIJnaLrBK4byUwRlf9GDGLaHWw",
+    googleRating: 4.2,
+    googleReviewCount: 1165,
     name: "Bar Renard",
     address: "1272 Rue Sainte-Catherine E",
     lat: 45.5150,
@@ -3236,6 +3464,8 @@ export const terraces: Terrace[] = [
   {
     id: "119",
     placeId: "ChIJm_wiugwZyUwRQNz3mNBer4Y",
+    googleRating: 4.7,
+    googleReviewCount: 367,
     name: "Denise",
     address: "386 Avenue Beaumont",
     lat: 45.5270,
@@ -3268,6 +3498,8 @@ export const terraces: Terrace[] = [
   {
     id: "120",
     placeId: "ChIJ4cOO1_UayUwRId7fTpGRbi0",
+    googleRating: 3.9,
+    googleReviewCount: 1366,
     name: "Marché des Éclusiers",
     address: "400 Rue de la Commune O",
     lat: 45.4975,
@@ -3288,6 +3520,8 @@ export const terraces: Terrace[] = [
   {
     id: "121",
     placeId: "ChIJJaoitVUayUwR-HuAiVhF5qU",
+    googleRating: 4.5,
+    googleReviewCount: 3962,
     name: "Pub BreWskey",
     address: "380 Rue Saint-Paul E",
     lat: 45.5065,
@@ -3316,6 +3550,8 @@ export const terraces: Terrace[] = [
   {
     id: "122",
     placeId: "ChIJh7JQ9LsbyUwReHpE6qsnBlg",
+    googleRating: 4.3,
+    googleReviewCount: 434,
     name: "Boqueria",
     address: "121 Rue de la Commune O",
     lat: 45.4985,
@@ -3335,6 +3571,8 @@ export const terraces: Terrace[] = [
   {
     id: "123",
     placeId: "ChIJl8LPjlYayUwReIJnVvoVhHQ",
+    googleRating: 4.3,
+    googleReviewCount: 4087,
     name: "Maggie Oakes",
     address: "426 Place Jacques-Cartier",
     lat: 45.5080,
@@ -3363,6 +3601,8 @@ export const terraces: Terrace[] = [
   {
     id: "124",
     placeId: "ChIJJQSKgS0byUwRXQ0Q63QpizY",
+    googleRating: 4.4,
+    googleReviewCount: 1604,
     name: "Pincette",
     address: "94 Rue Saint-Paul E",
     lat: 45.5060,
@@ -3391,6 +3631,8 @@ export const terraces: Terrace[] = [
   {
     id: "125",
     placeId: "ChIJa1TsNFQayUwRsyZ2zcTixkQ",
+    googleRating: 4.1,
+    googleReviewCount: 1255,
     name: "Maison Saint-Paul",
     address: "343 Rue Saint-Paul E",
     lat: 45.5068,
@@ -3411,6 +3653,8 @@ export const terraces: Terrace[] = [
   {
     id: "126",
     placeId: "ChIJF47_p1cayUwR1uC4VBovwI0",
+    googleRating: 4.5,
+    googleReviewCount: 7655,
     name: "Modavie",
     address: "1 Rue Saint-Paul O",
     lat: 45.5035,
@@ -3438,6 +3682,8 @@ export const terraces: Terrace[] = [
   {
     id: "127",
     placeId: "ChIJ9wsUtlAayUwR-gBi75WVTlw",
+    googleRating: 4.5,
+    googleReviewCount: 3793,
     name: "Kyo Bar Japonais",
     address: "711 Côte de la Place d'Armes",
     lat: 45.5045,
@@ -3466,6 +3712,8 @@ export const terraces: Terrace[] = [
   {
     id: "128",
     placeId: "ChIJW6T5-yMbyUwRLWIrtNTBSaw",
+    googleRating: 4.3,
+    googleReviewCount: 2660,
     name: "Pangea",
     address: "104 Rue Saint-Paul E",
     lat: 45.5060,
@@ -3489,6 +3737,8 @@ export const terraces: Terrace[] = [
   {
     id: "129",
     placeId: "ChIJbfJE4FobyUwRywyRy0pwzZE",
+    googleRating: 4.1,
+    googleReviewCount: 1412,
     name: "La Catrina",
     address: "117 Rue de la Commune O",
     lat: 45.4985,
@@ -3518,6 +3768,8 @@ export const terraces: Terrace[] = [
   {
     id: "130",
     placeId: "ChIJxSn5W0QayUwRj8W-oHLpVyM",
+    googleRating: 4.2,
+    googleReviewCount: 661,
     name: "Terrasse R",
     address: "1250 Boulevard Robert-Bourassa",
     lat: 45.5005,
@@ -3538,6 +3790,8 @@ export const terraces: Terrace[] = [
   {
     id: "131",
     placeId: "ChIJL_JS420byUwRLfUpTrQ-uEA",
+    googleRating: 4,
+    googleReviewCount: 272,
     name: "Emmanuelle",
     address: "2 Rue Sainte-Catherine E, 5th floor",
     lat: 45.5085,
@@ -3558,6 +3812,8 @@ export const terraces: Terrace[] = [
   {
     id: "132",
     placeId: "ChIJH_eC1s0byUwRX44ohrIT63c",
+    googleRating: 4.2,
+    googleReviewCount: 479,
     name: "Ciel Rose",
     address: "3709 Boulevard Saint-Laurent",
     lat: 45.5165,
@@ -3578,6 +3834,8 @@ export const terraces: Terrace[] = [
   {
     id: "133",
     placeId: "ChIJqZ0wokEayUwRFyroNjgCPNI",
+    googleRating: 4.5,
+    googleReviewCount: 2004,
     name: "Le Pois Penché",
     address: "1230 Boulevard de Maisonneuve O",
     lat: 45.4985,
@@ -3611,6 +3869,8 @@ export const terraces: Terrace[] = [
   {
     id: "134",
     placeId: "ChIJ8RAbfVkayUwRHxAv6SgGENQ",
+    googleRating: 4.5,
+    googleReviewCount: 2433,
     name: "OSMO x MARUSAN",
     address: "51 Rue Sherbrooke O",
     lat: 45.5090,
@@ -3639,6 +3899,8 @@ export const terraces: Terrace[] = [
   {
     id: "136",
     placeId: "ChIJY2pGPFQayUwRcnYZJSlewd0",
+    googleRating: 4.7,
+    googleReviewCount: 1905,
     name: "Le Balcon",
     address: "463 Rue Sainte-Catherine",
     lat: 45.5070,
@@ -3667,6 +3929,8 @@ export const terraces: Terrace[] = [
   {
     id: "137",
     placeId: "ChIJ0wlQK7MbyUwRZ7g3CMX46aI",
+    googleRating: 4.6,
+    googleReviewCount: 6359,
     name: "Brasseurs du Monde",
     address: "1567 Rue Saint-Denis",
     lat: 45.5135,
@@ -3695,6 +3959,8 @@ export const terraces: Terrace[] = [
   {
     id: "138",
     placeId: "ChIJ0zgIp7QbyUwRz9ilNqPjQis",
+    googleRating: 4.3,
+    googleReviewCount: 4606,
     name: "Le Saint-Bock",
     address: "1749 Rue Saint-Denis",
     lat: 45.5150,
@@ -3721,6 +3987,8 @@ export const terraces: Terrace[] = [
   {
     id: "139",
     placeId: "ChIJJXkEP6AbyUwRV_mi3BrJrhU",
+    googleRating: 4.4,
+    googleReviewCount: 350,
     name: "Oncle Lee",
     address: "222 Avenue Laurier O",
     lat: 45.5210,
@@ -3749,6 +4017,8 @@ export const terraces: Terrace[] = [
   {
     id: "140",
     placeId: "ChIJh3t5WPEbyUwRVS_Y0-AuV7g",
+    googleRating: 4.5,
+    googleReviewCount: 953,
     name: "Café Miracolo",
     address: "3891 Boulevard Saint-Laurent",
     lat: 45.5195,
@@ -3776,6 +4046,8 @@ export const terraces: Terrace[] = [
   {
     id: "141",
     placeId: "ChIJWaRLbMwbyUwRMWiHV1eaAE4",
+    googleRating: 4.2,
+    googleReviewCount: 1051,
     name: "La Prunelle",
     address: "327 Avenue Duluth E",
     lat: 45.5170,
@@ -3803,6 +4075,8 @@ export const terraces: Terrace[] = [
   {
     id: "142",
     placeId: "ChIJM4CcBNQbyUwRmaFbmTef0rM",
+    googleRating: 3.4,
+    googleReviewCount: 95,
     name: "Les Rites Berbères",
     address: "4697 Rue de Bullion",
     lat: 45.5230,
@@ -3829,6 +4103,8 @@ export const terraces: Terrace[] = [
   {
     id: "143",
     placeId: "ChIJFezozu8byUwR_k0lestW8Gw",
+    googleRating: 4.4,
+    googleReviewCount: 375,
     name: "La Maison Oflore",
     address: "511 Avenue Duluth E",
     lat: 45.5172,
@@ -3848,6 +4124,8 @@ export const terraces: Terrace[] = [
   {
     id: "144",
     placeId: "ChIJzVNNwtobyUwRIq-i7O7LbYk",
+    googleRating: 4.2,
+    googleReviewCount: 1118,
     name: "Rhumerie Barraca",
     address: "1134 Avenue du Mont-Royal",
     lat: 45.5245,
@@ -3874,6 +4152,8 @@ export const terraces: Terrace[] = [
   {
     id: "145",
     placeId: "ChIJzbEFgGEZyUwRal50wkQeM2A",
+    googleRating: 4.3,
+    googleReviewCount: 329,
     name: "Aux Quartiers Belle Gueule",
     address: "5579 Avenue Christophe-Colomb",
     lat: 45.5260,
@@ -3901,6 +4181,8 @@ export const terraces: Terrace[] = [
   {
     id: "146",
     placeId: "ChIJX_pHqIsZyUwRguEkhgK6m4s",
+    googleRating: 4.6,
+    googleReviewCount: 312,
     name: "Café In Gamba (Saint-Viateur)",
     address: "71 Rue Saint-Viateur E",
     lat: 45.5242,
@@ -3930,6 +4212,8 @@ export const terraces: Terrace[] = [
   {
     id: "147",
     placeId: "ChIJe_40HgIZyUwRTPrHQXJQtZI",
+    googleRating: 4.6,
+    googleReviewCount: 677,
     name: "Bar Mamie",
     address: "328 Rue Beaubien E",
     lat: 45.5360,
@@ -3957,6 +4241,8 @@ export const terraces: Terrace[] = [
   {
     id: "148",
     placeId: "ChIJtUI0JM0ZyUwRzHcX7MbOeiw",
+    googleRating: 4.7,
+    googleReviewCount: 417,
     name: "Buvette Beaubien",
     address: "211 Rue Beaubien E",
     lat: 45.5358,
@@ -3984,6 +4270,8 @@ export const terraces: Terrace[] = [
   {
     id: "150",
     placeId: "ChIJ4wJ8YmkZyUwREndiLFQBbPw",
+    googleRating: 4.4,
+    googleReviewCount: 629,
     name: "Bar le Vestiaire",
     address: "6634 Rue Saint-Hubert",
     lat: 45.5342,
@@ -4011,6 +4299,8 @@ export const terraces: Terrace[] = [
   {
     id: "151",
     placeId: "ChIJoaMGmvwZyUwRuC3avUFLWQ0",
+    googleRating: 4.7,
+    googleReviewCount: 508,
     name: "Café des Habitudes",
     address: "1104 Rue Saint-Zotique E",
     lat: 45.5310,
@@ -4038,6 +4328,8 @@ export const terraces: Terrace[] = [
   {
     id: "152",
     placeId: "ChIJU1y3VkkbyUwRFGnSjdIR3KA",
+    googleRating: 4.4,
+    googleReviewCount: 299,
     name: "Café Pista",
     address: "2650 Rue Masson",
     lat: 45.5380,
@@ -4065,6 +4357,8 @@ export const terraces: Terrace[] = [
   {
     id: "153",
     placeId: "ChIJMT-hlt4ZyUwRbA2MiCJEU9E",
+    googleRating: 4.9,
+    googleReviewCount: 177,
     name: "Fleurimont Café & Vin",
     address: "907 Boulevard Rosemont",
     lat: 45.5355,
@@ -4092,6 +4386,8 @@ export const terraces: Terrace[] = [
   {
     id: "154",
     placeId: "ChIJoTnCRdgZyUwRiRvDG1noNR8",
+    googleRating: 4.7,
+    googleReviewCount: 210,
     name: "Bar Bello",
     address: "6740 Boulevard Saint-Laurent",
     lat: 45.5295,
@@ -4118,6 +4414,8 @@ export const terraces: Terrace[] = [
   {
     id: "155",
     placeId: "ChIJ07floW0ZyUwRZuoV2k9fGqI",
+    googleRating: 4.7,
+    googleReviewCount: 1682,
     name: "Café San Gennaro",
     address: "69 Rue Saint-Zotique E",
     lat: 45.5308,
@@ -4146,6 +4444,8 @@ export const terraces: Terrace[] = [
   {
     id: "156",
     placeId: "ChIJBQuDVE4ZyUwRx3BDK5jKMCA",
+    googleRating: 4.6,
+    googleReviewCount: 293,
     name: "Le Relais Boréale",
     address: "159 Rue Jean-Talon O",
     lat: 45.5328,
@@ -4175,6 +4475,8 @@ export const terraces: Terrace[] = [
   {
     id: "157",
     placeId: "ChIJLTIyP1wZyUwRhbDqyWTm7Zs",
+    googleRating: 4.6,
+    googleReviewCount: 114,
     name: "SAE LOW",
     address: "426 Rue Faillon E",
     lat: 45.5350,
@@ -4200,6 +4502,8 @@ export const terraces: Terrace[] = [
   {
     id: "158",
     placeId: "ChIJASK4j0kZyUwRCmsPZ0Dv4dc",
+    googleRating: 4.5,
+    googleReviewCount: 262,
     name: "Buvette Pompette",
     address: "414 Rue Saint-Zotique E",
     lat: 45.5310,
@@ -4227,6 +4531,8 @@ export const terraces: Terrace[] = [
   {
     id: "159",
     placeId: "ChIJzXO5mOUZyUwRL_srZr4VrjY",
+    googleRating: 4.5,
+    googleReviewCount: 271,
     name: "Pub Arya",
     address: "434 Rue Saint-Zotique E",
     lat: 45.5310,
@@ -4254,6 +4560,8 @@ export const terraces: Terrace[] = [
   {
     id: "160",
     placeId: "ChIJ8RGTevkdyUwRa0Z125h9Ros",
+    googleRating: 4.6,
+    googleReviewCount: 195,
     name: "SUPERNAT",
     address: "4316 Rue Sainte-Catherine E",
     lat: 45.5340,
@@ -4283,6 +4591,8 @@ export const terraces: Terrace[] = [
   {
     id: "161",
     placeId: "ChIJLWfyi_EbyUwRc8m78JHDcWk",
+    googleRating: 4.2,
+    googleReviewCount: 1164,
     name: "Labarake",
     address: "3165 Rue Rachel E",
     lat: 45.5300,
@@ -4316,6 +4626,8 @@ export const terraces: Terrace[] = [
   {
     id: "162",
     placeId: "ChIJYQNK8dUbyUwRQW2G_pIyjhg",
+    googleRating: 4.3,
+    googleReviewCount: 395,
     name: "Mignon",
     address: "2523 Rue Notre-Dame O",
     lat: 45.4800,
@@ -4344,6 +4656,8 @@ export const terraces: Terrace[] = [
   {
     id: "163",
     placeId: "ChIJPZfPEsERyUwRUAwzJYePpLQ",
+    googleRating: 4.7,
+    googleReviewCount: 86,
     name: "Club Social P.S. / Elena Pizza",
     address: "5090A Rue Notre-Dame O",
     lat: 45.4775,
@@ -4372,6 +4686,8 @@ export const terraces: Terrace[] = [
   {
     id: "164",
     placeId: "ChIJ-50kv2MayUwRIyr0diOu024",
+    googleRating: 4.2,
+    googleReviewCount: 872,
     name: "Brasseur de Montréal",
     address: "1485 Rue Ottawa",
     lat: 45.4942,
@@ -4426,6 +4742,8 @@ export const terraces: Terrace[] = [
   {
     id: "187",
     placeId: "ChIJOUgkIXoayUwR4268bxFC6rM",
+    googleRating: 4.4,
+    googleReviewCount: 4539,
     name: "Pub Burgundy Lion",
     address: "2496 Rue Notre-Dame O",
     lat: 45.482791,
@@ -4483,6 +4801,8 @@ export const terraces: Terrace[] = [
   {
     id: "167",
     placeId: "ChIJj8lLQGQQyUwRBnDP-9qh2PQ",
+    googleRating: 4.3,
+    googleReviewCount: 936,
     name: "BENELUX (Verdun)",
     address: "4026 Rue Wellington",
     lat: 45.4590,
@@ -4511,6 +4831,8 @@ export const terraces: Terrace[] = [
   {
     id: "168",
     placeId: "ChIJAw4jjmcQyUwRBd-RN9m0uaE",
+    googleRating: 4.7,
+    googleReviewCount: 574,
     name: "Maison de thé Cha Noir",
     address: "4611 Rue Wellington",
     lat: 45.4585,
@@ -4541,6 +4863,8 @@ export const terraces: Terrace[] = [
   {
     id: "169",
     placeId: "ChIJUdE5_FgbyUwR-6ci6tiuzNw",
+    googleRating: 4.6,
+    googleReviewCount: 2062,
     name: "Nikkei",
     address: "1108 Avenue Laurier O",
     lat: 45.5212,
@@ -4570,6 +4894,8 @@ export const terraces: Terrace[] = [
   {
     id: "170",
     placeId: "ChIJoyls17YbyUwRDfgxkHcplaU",
+    googleRating: 4.5,
+    googleReviewCount: 408,
     name: "Arte & Farina",
     address: "1550 Rue Sainte-Catherine E",
     lat: 45.5145,
@@ -4601,6 +4927,8 @@ export const terraces: Terrace[] = [
   {
     id: "171",
     placeId: "ChIJA0deIAAjyUwRXFB4Kw9lWu4",
+    googleRating: 4.3,
+    googleReviewCount: 641,
     name: "Rosso Cielo / Cielo Terrace",
     address: "500 Rue Lucien Paiement",
     lat: 45.5567,
@@ -4630,6 +4958,8 @@ export const terraces: Terrace[] = [
   {
     id: "172",
     placeId: "ChIJ6S7VnO4myUwRLNl58icsbaI",
+    googleRating: 4.3,
+    googleReviewCount: 1375,
     name: "Le Boating Club",
     address: "30 Boulevard Curé-Labelle",
     lat: 45.5460,
@@ -4657,6 +4987,8 @@ export const terraces: Terrace[] = [
   {
     id: "173",
     placeId: "ChIJSyYGg-gmyUwRvTdnpZ8G47I",
+    googleRating: 4.6,
+    googleReviewCount: 394,
     name: "Amato",
     address: "192 Boulevard Sainte-Rose",
     lat: 45.5445,
@@ -4687,6 +5019,8 @@ export const terraces: Terrace[] = [
   {
     id: "174",
     placeId: "ChIJRy-wnpQhyUwRSVET2jG5iBA",
+    googleRating: 4.7,
+    googleReviewCount: 1988,
     name: "Les Insulaires Microbrasseurs",
     address: "275 Boulevard de la Concorde E",
     lat: 45.5630,
@@ -4714,6 +5048,8 @@ export const terraces: Terrace[] = [
   {
     id: "175",
     placeId: "ChIJT0lSiLwkyUwRmn77aaRxfY8",
+    googleRating: 4.7,
+    googleReviewCount: 433,
     name: "Le Mitoyen",
     address: "652 Rue de la Place-Publique",
     lat: 45.4955,
@@ -4744,6 +5080,8 @@ export const terraces: Terrace[] = [
   {
     id: "176",
     placeId: "ChIJK-qy0GcbyUwREA7U2h1u5kY",
+    googleRating: 4.3,
+    googleReviewCount: 1322,
     name: "Chez Vincent",
     address: "327 Rue Saint-Laurent O",
     lat: 45.5308,
@@ -4770,6 +5108,8 @@ export const terraces: Terrace[] = [
   {
     id: "177",
     placeId: "ChIJ4Wf91y8DyUwRkOayQGdLrJg",
+    googleRating: 4.5,
+    googleReviewCount: 1083,
     name: "Bravi",
     address: "2794 Boulevard Jacques-Cartier E",
     lat: 45.5185,
@@ -4801,6 +5141,8 @@ export const terraces: Terrace[] = [
   {
     id: "178",
     placeId: "ChIJj64d_k4PyUwRHzFtuhlN7mY",
+    googleRating: 4.2,
+    googleReviewCount: 1299,
     name: "Dirty D",
     address: "9330 Boulevard Leduc",
     lat: 45.4510,
@@ -4828,6 +5170,8 @@ export const terraces: Terrace[] = [
   {
     id: "179",
     placeId: "ChIJ469JcE8PyUwRKwfZLtK9rUU",
+    googleRating: 4.4,
+    googleReviewCount: 2372,
     name: "Siam Dix30",
     address: "9130 Boulevard Leduc, Suite 210",
     lat: 45.4515,
@@ -4860,6 +5204,8 @@ export const terraces: Terrace[] = [
   {
     id: "180",
     placeId: "ChIJ7_WQokY4yUwRgcjzOLQslBI",
+    googleRating: 4.2,
+    googleReviewCount: 1326,
     name: "Annie's Sur-le-Lac",
     address: "76 Rue Sainte-Anne",
     lat: 45.4082,
@@ -4885,6 +5231,8 @@ export const terraces: Terrace[] = [
   {
     id: "181",
     placeId: "ChIJwyv24kY4yUwR6TSu5UcKGCk",
+    googleRating: 4.5,
+    googleReviewCount: 1198,
     name: "Olé Tapas",
     address: "132 Rue Sainte-Anne",
     lat: 45.4076,
@@ -4908,6 +5256,8 @@ export const terraces: Terrace[] = [
   {
     id: "182",
     placeId: "ChIJZ-r7gkg4yUwRVMbEbSItPEY",
+    googleRating: 4.5,
+    googleReviewCount: 271,
     name: "Delos Resto-Bar",
     address: "53A Rue Sainte-Anne",
     lat: 45.4080,
@@ -4932,6 +5282,8 @@ export const terraces: Terrace[] = [
   {
     id: "183",
     placeId: "ChIJo-fda5o-yUwRgVvDOfyCC_M",
+    googleRating: 4.5,
+    googleReviewCount: 1624,
     name: "Ye Olde Orchard Pub & Grill",
     address: "322 Chemin du Bord-du-Lac-Lakeshore",
     lat: 45.4430,
@@ -4959,6 +5311,8 @@ export const terraces: Terrace[] = [
   {
     id: "184",
     placeId: "ChIJYavsxBI_yUwR82KwjX1xt8k",
+    googleRating: 4.4,
+    googleReviewCount: 390,
     name: "Lou's Pointe-Claire",
     address: "309 Chemin du Bord-du-Lac-Lakeshore",
     lat: 45.4428,
@@ -4985,6 +5339,8 @@ export const terraces: Terrace[] = [
   {
     id: "185",
     placeId: "ChIJB4gc8MY9yUwR_fVJ9v7m1rQ",
+    googleRating: 4.5,
+    googleReviewCount: 455,
     name: "Bernies Pizza Martini Bar",
     address: "3627 Boulevard des Sources",
     lat: 45.4975,
@@ -5012,6 +5368,8 @@ export const terraces: Terrace[] = [
   {
     id: "186",
     placeId: "ChIJ17YdWZo-yUwR_q6NUWyCBzc",
+    googleRating: 4.6,
+    googleReviewCount: 643,
     name: "Restaurant Le Gourmand",
     address: "42 Rue Sainte-Anne",
     lat: 45.4450,
@@ -5041,6 +5399,8 @@ export const terraces: Terrace[] = [
   {
     id: "188",
     placeId: "ChIJweXSJt8byUwRFFJUwE6RWGk",
+    googleRating: 4,
+    googleReviewCount: 1647,
     name: "Seasalt",
     address: "351 Place Royale",
     lat: 45.5034877,
@@ -5077,6 +5437,8 @@ export const terraces: Terrace[] = [
   {
     id: "189",
     placeId: "ChIJrcPCcEQayUwRivSrEKVIF2E",
+    googleRating: 4.2,
+    googleReviewCount: 3044,
     name: "Enoteca Monza Pizzeria Moderna – Downtown",
     address: "1251 Avenue McGill College",
     lat: 45.5017873,
@@ -5107,6 +5469,8 @@ export const terraces: Terrace[] = [
   {
     id: "190",
     placeId: "ChIJTSFADuQdyUwRbjeXO8KYVJo",
+    googleRating: 4.4,
+    googleReviewCount: 1155,
     name: "Enoteca Monza Pizzeria Moderna – Sherbrooke Est",
     address: "5660 Rue Sherbrooke E",
     lat: 45.5724150,
@@ -5138,6 +5502,8 @@ export const terraces: Terrace[] = [
   {
     id: "191",
     placeId: "ChIJ5ZlUX54PyUwRQMawxGdGQSQ",
+    googleRating: 4.6,
+    googleReviewCount: 1972,
     name: "Enoteca Monza Pizzeria Moderna – Brossard",
     address: "1505 Avenue des Lumières #10",
     lat: 45.4447605,
@@ -5168,6 +5534,8 @@ export const terraces: Terrace[] = [
   {
     id: "192",
     placeId: "ChIJsYSiVV8ayUwRJFuJs0XmXNI",
+    googleRating: 4.5,
+    googleReviewCount: 1239,
     name: "Jellyfish",
     address: "626 Rue Marguerite-d'Youville",
     lat: 45.5020,

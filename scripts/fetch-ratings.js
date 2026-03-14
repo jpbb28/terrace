@@ -6,14 +6,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 
 // Support GitHub Actions env var or local .env.local
-let API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+let API_KEY = process.env.GOOGLE_PLACES_API_KEY_UNRESTRICTED;
 if (!API_KEY) {
   const envPath = path.join(ROOT, ".env.local");
   if (fs.existsSync(envPath)) {
     const envFile = fs.readFileSync(envPath, "utf-8");
     API_KEY = envFile
       .split("\n")
-      .find((l) => l.startsWith("GOOGLE_PLACES_API_KEY="))
+      .find((l) => l.startsWith("GOOGLE_PLACES_API_KEY_UNRESTRICTED="))
       ?.split("=")[1]
       ?.trim();
   }
