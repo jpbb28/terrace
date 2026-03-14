@@ -85,7 +85,7 @@ function SubmitPageContent() {
     }));
   }
 
-  function computeChanges() {
+  function computeChanges(newPhotos: string[] = []) {
     if (!editTerrace) return null;
     const changes: Record<string, { from: unknown; to: unknown }> = {};
 
@@ -115,6 +115,10 @@ function SubmitPageContent() {
     const toPeriods = toHourPeriods(hours);
     if (JSON.stringify(fromPeriods) !== JSON.stringify(toPeriods)) {
       changes["openingPeriods"] = { from: fromPeriods, to: toPeriods };
+    }
+
+    if (newPhotos.length > 0) {
+      changes["photos"] = { from: editTerrace.photos ?? [], to: newPhotos };
     }
 
     return Object.keys(changes).length > 0 ? changes : null;
@@ -163,7 +167,7 @@ function SubmitPageContent() {
     };
 
     const { error } = isEdit
-      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges(), photos: uploadedUrls })
+      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges(uploadedUrls), photos: uploadedUrls })
       : await supabase.from("submissions").insert({ ...shared, photos: uploadedUrls });
 
     if (error) {
