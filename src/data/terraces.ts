@@ -5178,7 +5178,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/192/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/192/1.jpg"],
+    photos: [],
     openingPeriods: [
       { day: 1, open: "17:30", close: "22:00" },
       { day: 2, open: "17:30", close: "22:00" },
