@@ -69,16 +69,21 @@ export default function Home() {
   }, [sortByDistance, userLocation]);
 
   const filteredWithDistance = useMemo(() => {
-    const base = terraces.filter((t) => {
+    const q = search.toLowerCase();
+
+    const scored = terraces.flatMap((t) => {
       if (search) {
-        const q = search.toLowerCase();
+        const nameLower = t.name.toLowerCase();
         const match =
-          t.name.toLowerCase().includes(q) ||
+          nameLower.includes(q) ||
           t.address.toLowerCase().includes(q) ||
-          t.cuisineType.toLowerCase().includes(q) ||
-          t.neighborhood.toLowerCase().includes(q);
-        if (!match) return false;
+          t.cuisineType.toLowerCase().includes(q);
+        if (!match) return [];
+        const score = nameLower.startsWith(q) ? 0 : nameLower.includes(q) ? 1 : 2;
+        return [{ terrace: t, score }];
       }
+      return [{ terrace: t, score: 0 }];
+    }).filter(({ terrace: t }) => {
       if (neighborhoods.length > 0 && !neighborhoods.includes(t.neighborhood)) return false;
       if (terraceTypes.length > 0 && (!t.terraceType || !t.terraceType.some((tt) => terraceTypes.includes(tt)))) return false;
       if (dogFriendly && !t.dogFriendly) return false;
@@ -88,7 +93,7 @@ export default function Home() {
     });
 
     if (sortByDistance && userLocation) {
-      const withDist = base.map((t) => ({
+      const withDist = scored.map(({ terrace: t }) => ({
         t,
         dist: haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng),
       }));
@@ -96,7 +101,11 @@ export default function Home() {
       return withDist.map(({ t, dist }) => ({ terrace: t, distance: dist }));
     }
 
-    return base.map((t) => ({ terrace: t, distance: undefined }));
+    if (search) {
+      scored.sort((a, b) => a.score - b.score);
+    }
+
+    return scored.map(({ terrace: t }) => ({ terrace: t, distance: undefined }));
   }, [search, neighborhoods, terraceTypes, dogFriendly, covered, openNow, sortByDistance, userLocation]);
 
   const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
