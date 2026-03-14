@@ -22,7 +22,7 @@ jobs:
 
       - name: Fetch ratings and hours from Google Places API
         env:
-          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACES_API_KEY_UNRESTRICTED: ${{ secrets.GOOGLE_PLACES_API_KEY_UNRESTRICTED }}
         run: |
           node scripts/fetch-ratings.js
           node scripts/refresh-hours.js
