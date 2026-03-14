@@ -121,7 +121,6 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
       localStorage.setItem(lsKey, "1");
       setAlreadyReviewed(true);
       setSubmitted(true);
-      // Refresh counts
       fetch(`/api/reviews/${terraceId}`)
         .then((r) => r.json())
         .then((d) => {
@@ -142,109 +141,114 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
   }
 
   return (
-    <div className="pt-5 border-t border-border">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-display text-base font-semibold">
-          {lang === "fr" ? "Avis sur la terrasse" : "Terrace reviews"}
-        </h3>
-        {avg !== null && count > 0 && (
-          <div className="flex items-center gap-2">
-            <Stars value={Math.round(avg)} />
-            <span className="text-xs text-muted">
-              {avg.toFixed(1)} ({count})
+    <div className="pt-5 border-t border-border space-y-5">
+
+      {/* Google rating block */}
+      {placeId && googleRating && (
+        <div>
+          <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-2">
+            {lang === "fr" ? "Sur Google" : "On Google"}
+          </p>
+          <a
+            href={`https://search.google.com/local/reviews?placeid=${placeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 group"
+          >
+            <svg className="w-3.5 h-3.5 text-[#4285F4] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/>
+            </svg>
+            <span className="text-sm font-semibold group-hover:text-accent transition-colors">
+              {googleRating.toFixed(1)}
             </span>
+            <Stars value={Math.round(googleRating)} />
+            {googleReviewCount && (
+              <span className="text-xs text-muted group-hover:text-accent transition-colors">
+                ({googleReviewCount.toLocaleString()})
+              </span>
+            )}
+          </a>
+        </div>
+      )}
+
+      {/* Terrace Season reviews block */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-muted">
+            {lang === "fr" ? "Avis visiteurs" : "Visitor reviews"}
+          </p>
+          {avg !== null && count > 0 && (
+            <div className="flex items-center gap-2">
+              <Stars value={Math.round(avg)} />
+              <span className="text-xs text-muted">{avg.toFixed(1)} ({count})</span>
+            </div>
+          )}
+        </div>
+
+        {/* Submission form */}
+        {submitted ? (
+          <p className="text-sm text-green-700 font-medium mb-4">
+            {lang === "fr" ? "Merci pour votre avis !" : "Thanks for your review!"}
+          </p>
+        ) : alreadyReviewed ? (
+          <p className="text-xs text-muted mb-4">
+            {lang === "fr" ? "Vous avez déjà évalué cette terrasse." : "You've already reviewed this terrace."}
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} className="mb-4">
+            <div className="flex items-center gap-3 mb-3">
+              <Stars value={rating} interactive onChange={setRating} />
+              {rating > 0 && (
+                <span className="text-xs text-muted">
+                  {["", lang === "fr" ? "Décevant" : "Poor", lang === "fr" ? "Passable" : "Fair", lang === "fr" ? "Bien" : "Good", lang === "fr" ? "Très bien" : "Very good", lang === "fr" ? "Excellent" : "Excellent"][rating]}
+                </span>
+              )}
+            </div>
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder={lang === "fr" ? "Votre avis (optionnel)" : "Your thoughts (optional)"}
+              rows={2}
+              maxLength={500}
+              className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-foreground/[0.02] resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
+            />
+            {error && <p className="text-xs text-red-500 mb-2">{error}</p>}
+            <button
+              type="submit"
+              disabled={rating === 0 || submitting}
+              className="px-4 py-2 text-sm font-medium bg-accent text-white rounded-xl hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {submitting
+                ? lang === "fr" ? "En cours..." : "Submitting..."
+                : lang === "fr" ? "Soumettre" : "Submit"}
+            </button>
+          </form>
+        )}
+
+        {/* Reviews list */}
+        {loading ? (
+          <p className="text-xs text-muted">{lang === "fr" ? "Chargement..." : "Loading..."}</p>
+        ) : reviews.length === 0 ? (
+          <p className="text-xs text-muted">
+            {lang === "fr" ? "Aucun avis pour l'instant. Soyez le premier !" : "No reviews yet. Be the first!"}
+          </p>
+        ) : (
+          <div className="space-y-3">
+            {reviews.map((r) => (
+              <div key={r.id} className="rounded-xl bg-foreground/[0.03] border border-border p-3">
+                <div className="flex items-center justify-between mb-1">
+                  <Stars value={r.rating} />
+                  <span className="text-[10px] text-muted">{timeAgo(r.created_at, lang)}</span>
+                </div>
+                {r.text && (
+                  <p className="text-sm text-foreground/75 leading-relaxed">{r.text}</p>
+                )}
+              </div>
+            ))}
           </div>
         )}
       </div>
 
-      {/* Google rating */}
-      {placeId && googleRating && (
-        <a
-          href={`https://search.google.com/local/reviews?placeid=${placeId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 mb-4 group w-fit"
-        >
-          <svg className="w-3.5 h-3.5 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/>
-          </svg>
-          <span className="text-sm font-medium group-hover:text-accent transition-colors">
-            {googleRating.toFixed(1)}
-          </span>
-          <Stars value={Math.round(googleRating)} />
-          {googleReviewCount && (
-            <span className="text-xs text-muted group-hover:text-accent transition-colors">
-              ({googleReviewCount.toLocaleString()} {lang === "fr" ? "avis Google" : "Google reviews"})
-            </span>
-          )}
-        </a>
-      )}
-
-      {/* Submission form */}
-      {submitted ? (
-        <div className="text-sm text-green-700 font-medium mb-4">
-          {lang === "fr" ? "Merci pour votre avis !" : "Thanks for your review!"}
-        </div>
-      ) : alreadyReviewed ? (
-        <p className="text-xs text-muted mb-4">
-          {lang === "fr" ? "Vous avez déjà évalué cette terrasse." : "You've already reviewed this terrace."}
-        </p>
-      ) : (
-        <form onSubmit={handleSubmit} className="mb-5">
-          <p className="text-xs text-muted mb-2">
-            {lang === "fr" ? "Évaluer cette terrasse" : "Rate this terrace"}
-          </p>
-          <div className="flex items-center gap-3 mb-3">
-            <Stars value={rating} interactive onChange={setRating} />
-            {rating > 0 && (
-              <span className="text-xs text-muted">
-                {["", lang === "fr" ? "Décevant" : "Poor", lang === "fr" ? "Passable" : "Fair", lang === "fr" ? "Bien" : "Good", lang === "fr" ? "Très bien" : "Very good", lang === "fr" ? "Excellent" : "Excellent"][rating]}
-              </span>
-            )}
-          </div>
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder={lang === "fr" ? "Votre avis (optionnel)" : "Your thoughts (optional)"}
-            rows={2}
-            maxLength={500}
-            className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-foreground/[0.02] resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
-          />
-          {error && <p className="text-xs text-red-500 mb-2">{error}</p>}
-          <button
-            type="submit"
-            disabled={rating === 0 || submitting}
-            className="px-4 py-2 text-sm font-medium bg-accent text-white rounded-xl hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            {submitting
-              ? lang === "fr" ? "En cours..." : "Submitting..."
-              : lang === "fr" ? "Soumettre" : "Submit"}
-          </button>
-        </form>
-      )}
-
-      {/* Reviews list */}
-      {loading ? (
-        <p className="text-xs text-muted">{lang === "fr" ? "Chargement..." : "Loading..."}</p>
-      ) : reviews.length === 0 ? (
-        <p className="text-xs text-muted">
-          {lang === "fr" ? "Aucun avis pour l'instant. Soyez le premier !" : "No reviews yet. Be the first!"}
-        </p>
-      ) : (
-        <div className="space-y-3">
-          {reviews.map((r) => (
-            <div key={r.id} className="rounded-xl bg-foreground/[0.03] border border-border p-3">
-              <div className="flex items-center justify-between mb-1">
-                <Stars value={r.rating} />
-                <span className="text-[10px] text-muted">{timeAgo(r.created_at, lang)}</span>
-              </div>
-              {r.text && (
-                <p className="text-sm text-foreground/75 leading-relaxed">{r.text}</p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
