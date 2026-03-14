@@ -175,7 +175,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
       <div>
         <div className="flex items-center justify-between mb-3">
           <p className="text-[11px] font-medium uppercase tracking-wide text-muted">
-            {lang === "fr" ? "Avis visiteurs" : "Visitor reviews"}
+            {lang === "fr" ? "Avis sur la terrasse" : "Terrace reviews"}
           </p>
           {avg !== null && count > 0 && (
             <div className="flex items-center gap-2">
@@ -207,7 +207,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder={lang === "fr" ? "Votre avis (optionnel)" : "Your thoughts (optional)"}
+              placeholder={lang === "fr" ? "L'ambiance, le confort, la vue... (optionnel)" : "Vibe, comfort, view, shade... (optional)"}
               rows={2}
               maxLength={500}
               className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-foreground/[0.02] resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
