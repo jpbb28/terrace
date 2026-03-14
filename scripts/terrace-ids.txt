@@ -1,0 +1,187 @@
+1	Terrasse Nelligan
+2	Terrasse sur l'Auberge
+3	Terrasse William Gray
+4	Perché
+5	Terrasse Place d'Armes
+7	Jardin Nelson
+8	Romies
+9	L'Auberge Saint-Gabriel
+10	Jacopo
+11	Café Il Cortile
+12	Gaspar French Brasserie
+13	Terrasse Carla
+14	Jellyfish
+15	Vieux-Port Steakhouse
+16	Wolf & Workman
+17	Le Polisson
+18	Cour Arrière
+19	Bevo Bar + Pizzeria
+20	Buvette Pastek
+21	La Cave à Manger
+22	Horizon Rooftop
+23	Le Sainte-Élisabeth
+24	Maison Boulud
+25	Rose Orange
+26	Terrasse Alizé
+27	Jatoba
+28	Renoir
+29	MARCUS Restaurant + Lounge
+30	Bar Furco
+31	Ferreira Café
+32	Escondite
+33	Papito
+34	Les Enfants Terribles (Place Ville Marie)
+35	Bivouac
+37	Muze Lounge & Terrasse
+38	Biiru
+39	Nacarat
+40	Belvu
+41	Café Parvis
+42	Pavillon Social Club (SAT)
+43	Bar George
+44	Sir Winston Churchill Pub
+45	Poincaré Chinatown
+46	Le Majestique
+47	Le Filet
+48	Café Santropol
+49	Khyber Pass
+50	Le Jardin de Panos
+51	Réservoir
+52	La Buvette Chez Simone
+53	Icehouse
+54	Bistrot La Fabrique
+55	Le Rouge Gorge
+56	Azalea
+57	Le Bar Darling
+58	Grenade
+59	Plan B
+60	Casa Del Popolo
+61	Bistro Auprès de ma blonde
+62	Café Melbourne
+63	Turbo Haüs
+64	Café Olimpico
+65	Pub Bishop & Bagg
+66	Café Club Social
+67	Vices & Versa
+68	Taverne Atlantic
+69	Anemone
+70	Bar Cicchetti
+71	Dépanneur Le Pick Up
+72	WILLS
+73	Pumpui
+74	Damas
+75	Leméac
+76	La Croissanterie Figaro
+77	Brasserie Bernard
+78	Fiorellino Laurier
+79	Provisions Bar à Vin
+80	ALMA
+81	Bar Henrietta
+82	Rumi
+83	Le Petit Alep Bistro
+84	Pizzeria Napoletana
+85	Luciano Trattoria
+86	Mon Lapin
+87	Isle de Garde
+88	vinvinvin
+89	Snowbird Tiki Bar
+90	Marci
+91	Terrasse Saint-Ambroise
+92	Messorem Bracitorium
+93	Joe Beef
+94	Le Vin Papillon
+95	Tuck Shop
+96	Riverside Saint-Henri
+97	Arthurs Nosh Bar
+98	BarBara
+99	Stem Bar
+100	Candide
+101	Restaurant Mélisse
+102	Mano Cornuto
+103	SHAY
+104	Mauvais Garçons
+105	Bazart
+106	Le Richmond
+107	Canal Lounge
+108	Hoogan & Beaufort
+109	Verdun Beach
+110	Palco
+111	Monkland Taverne
+112	Terroirs Restaurant
+113	June Buvette
+114	Le Butterblume
+115	Moccione Pizza
+116	Les Cavistes
+117	Moqueur
+118	Bar Renard
+119	Denise
+120	Marché des Éclusiers
+121	Pub BreWskey
+122	Boqueria
+123	Maggie Oakes
+124	Pincette
+125	Maison Saint-Paul
+126	Modavie
+127	Kyo Bar Japonais
+128	Pangea
+129	La Catrina
+130	Terrasse R
+131	Emmanuelle
+132	Ciel Rose
+133	Le Pois Penché
+134	OSMO x MARUSAN
+136	Le Balcon
+137	Brasseurs du Monde
+138	Le Saint-Bock
+139	Oncle Lee
+140	Café Miracolo
+141	La Prunelle
+142	Les Rites Berbères
+143	La Maison Oflore
+144	Rhumerie Barraca
+145	Aux Quartiers Belle Gueule
+146	Café In Gamba (Saint-Viateur)
+147	Bar Mamie
+148	Buvette Beaubien
+150	Bar le Vestiaire
+151	Café des Habitudes
+152	Café Pista
+153	Fleurimont Café & Vin
+154	Bar Bello
+155	Café San Gennaro
+156	Le Relais Boréale
+157	SAE LOW
+158	Buvette Pompette
+159	Pub Arya
+160	SUPERNAT
+161	Labarake
+162	Mignon
+163	Club Social P.S. / Elena Pizza
+164	Brasseur de Montréal
+165	September Surf Café
+166	Memento
+167	BENELUX (Verdun)
+168	Maison de thé Cha Noir
+169	Nikkei
+170	Arte & Farina
+171	Rosso Cielo / Cielo Terrace
+172	Le Boating Club
+173	Amato
+174	Les Insulaires Microbrasseurs
+175	Le Mitoyen
+176	Chez Vincent
+177	Bravi
+178	Dirty D
+179	Siam Dix30
+180	Annie's Sur-le-Lac
+181	Olé Tapas
+182	Delos Resto-Bar
+183	Ye Olde Orchard Pub & Grill
+184	Lou's Pointe-Claire
+185	Bernies Pizza Martini Bar
+186	Restaurant Le Gourmand
+187	Pub Burgundy Lion
+188	Seasalt
+189	Enoteca Monza Pizzeria Moderna – Downtown
+190	Enoteca Monza Pizzeria Moderna – Sherbrooke Est
+191	Enoteca Monza Pizzeria Moderna – Brossard
