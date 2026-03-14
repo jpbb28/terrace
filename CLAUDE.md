@@ -24,7 +24,7 @@ src/
 │   ├── TerraceDetail.tsx   # Detail overlay panel
 │   └── FilterBar.tsx       # Search + filters (24 neighborhoods)
 ├── data/
-│   └── terraces.ts         # Seed data (179 Montreal terraces, sourced from 12+ publications)
+│   └── terraces.ts         # Seed data (180 Montreal terraces, sourced from 12+ publications)
 └── lib/
     ├── types.ts            # TypeScript types (HourPeriod, Terrace, neighborhoods, terrace types)
     └── utils.ts            # isOpenNow(), formatHours() — Montreal timezone aware
