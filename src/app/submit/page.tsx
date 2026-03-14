@@ -133,9 +133,10 @@ function SubmitPageContent() {
     if (images.length > 0) {
       const slug = form.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
       const folder = isEdit ? `corrections/${editId}` : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
-      for (const file of images) {
+      for (const [i, file] of images.entries()) {
         const ext = file.name.split(".").pop() ?? "jpg";
-        const path = `${folder}/${crypto.randomUUID()}.${ext}`;
+        const filename = i === 0 ? `main.${ext}` : `${crypto.randomUUID()}.${ext}`;
+        const path = `${folder}/${filename}`;
         const { error: uploadError } = await supabase.storage.from("photos").upload(path, file);
         if (!uploadError) {
           const { data: { publicUrl } } = supabase.storage.from("photos").getPublicUrl(path);
