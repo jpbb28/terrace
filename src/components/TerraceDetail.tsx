@@ -8,6 +8,7 @@ import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
 import { getHoursStatus, getDaysSchedule } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import ReviewSection from "@/components/ReviewSection";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -171,6 +172,9 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             </a>
           )}
         </div>
+
+        {/* Reviews */}
+        <ReviewSection terraceId={terrace.id} placeId={terrace.placeId} />
 
         {/* Correction link */}
         <div className="pt-4 border-t border-border">

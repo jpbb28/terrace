@@ -36,7 +36,7 @@ src/
 - `npm start` — Start production server
 
 ## Key Decisions
-- **No database yet** — Using static data to validate the concept. Plan: Supabase (PostGIS) for v2.
+- **Supabase is live** — Used for reviews. Plan: expand to submissions, PostGIS geo queries in v2.
 - **Data sourcing** — Terraces compiled from Time Out, Tastet, Cult MTL, Tourisme Montreal, Narcity, Daily Hive, OpenTable, Montreal Diaries, MTL Blog, The Rooftop Guide, experienceoldmontreal.com, and Eater Montreal. Cross-referenced across multiple lists. Sources from 2024-2025 preferred.
 - **Data integrity** — Optional fields (terraceType, capacity, openingHours, seasonalOpen/Close) are only set when confirmed by source articles. Boolean flags (heated, dogFriendly, covered) default to false and are only set true when explicitly confirmed. Missing data is hidden in the UI, never shown as zeros or defaults.
 - **Leaflet over Mapbox** — Free, no API key needed, sepia theme via CSS filter.
@@ -66,6 +66,16 @@ src/
 2. **Add your production domain to the Google API key whitelist** in Google Cloud Console → APIs & Services → Credentials → restrict the key to your domain (e.g. `terrace.yourdomain.com`)
 3. **Also restrict the key by API** — only enable: Places API (New) + Street View Static API
 4. Set `GOOGLE_PLACES_API_KEY` as an environment variable in your hosting platform (Netlify/Vercel)
+
+## Supabase Schema
+
+Project URL: `https://mnrpyixjrjoqiecfsibg.supabase.co`
+Full schema in memory file `supabase_schema.md`. Tables:
+
+- **`reviews`** — terrace-specific ratings (1–5) + text. Token-only dedup (localStorage UUID). API: `POST /api/reviews`, `GET /api/reviews/[terraceId]`
+- **`submissions`** — new terrace suggestions from the submit form
+- **`corrections`** — edit suggestions for existing terraces (includes `changes` jsonb diff and `terrace_id`)
+- **`terrace_events`** — analytics events (views, clicks) with `event_type`, `session_id`, `device_type`
 
 ## Planned V2 Features
 - Supabase backend with PostGIS for geo queries
