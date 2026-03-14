@@ -124,6 +124,21 @@ function SubmitPageContent() {
     e.preventDefault();
     setState("submitting");
 
+    // Upload photos first
+    const uploadedUrls: string[] = [];
+    if (images.length > 0) {
+      const folder = isEdit ? `corrections/${editId}` : `submissions/${crypto.randomUUID()}`;
+      for (const file of images) {
+        const ext = file.name.split(".").pop() ?? "jpg";
+        const path = `${folder}/${crypto.randomUUID()}.${ext}`;
+        const { error: uploadError } = await supabase.storage.from("photos").upload(path, file);
+        if (!uploadError) {
+          const { data: { publicUrl } } = supabase.storage.from("photos").getPublicUrl(path);
+          uploadedUrls.push(publicUrl);
+        }
+      }
+    }
+
     const shared = {
       name: form.name,
       address: form.address,
@@ -147,8 +162,8 @@ function SubmitPageContent() {
     };
 
     const { error } = isEdit
-      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges() })
-      : await supabase.from("submissions").insert(shared);
+      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges(), photos: uploadedUrls })
+      : await supabase.from("submissions").insert({ ...shared, photos: uploadedUrls });
 
     if (error) {
       console.error("Submission error:", error);
@@ -414,9 +429,7 @@ function SubmitPageContent() {
                 <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="text-sm text-muted">
-                {images.length === 0
-                  ? t.uploadPhotos
-                  : t.filesSelected(images.length)}
+                {images.length === 0 ? t.uploadPhotos : t.filesSelected(images.length)}
               </span>
               <span className="text-xs text-muted/60">{t.photoHint}</span>
               <input
@@ -431,18 +444,43 @@ function SubmitPageContent() {
               />
             </label>
             {images.length > 0 && (
-              <ul className="mt-2 space-y-1">
-                {images.map((f, i) => (
-                  <li key={i} className="text-xs text-muted flex items-center gap-1.5">
-                    <svg className="w-3.5 h-3.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M14 8h.01" strokeLinecap="round" strokeLinejoin="round" />
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    {f.name}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-3 space-y-2">
+                {/* Main photo — landscape */}
+                <div className="relative group">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-accent">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={URL.createObjectURL(images[0])} alt="" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="absolute bottom-2 left-2 text-[10px] bg-accent text-white px-1.5 py-0.5 rounded font-medium leading-none">
+                    {t.photoMainBadge}
+                  </span>
+                </div>
+                {/* Additional photos — square thumbnails */}
+                {images.length > 1 && (
+                  <div className="flex gap-2 flex-wrap">
+                    {images.slice(1).map((f, i) => {
+                      const idx = i + 1;
+                      return (
+                        <div key={idx} className="relative group">
+                          <div className="relative w-20 h-20 rounded-lg overflow-hidden border-2 border-border">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={URL.createObjectURL(f)} alt="" className="w-full h-full object-cover" />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setImages((prev) => [prev[idx], ...prev.filter((_, j) => j !== idx)])}
+                            className="absolute inset-0 flex items-end justify-center pb-1 opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 rounded-lg"
+                          >
+                            <span className="text-[10px] text-white font-medium leading-none bg-black/50 px-1.5 py-0.5 rounded">
+                              {t.photoMakeMain}
+                            </span>
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             )}
           </section>
 
