@@ -20,8 +20,8 @@ const count = terraces.length;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://terrasseseason.com"),
-  title: "Terrace Season – Discover Montréal's Best Terraces & Patios",
-  description: `The most complete guide to terraces and patios in Montréal. ${count} spots across 24 neighborhoods — filter by rooftop, dog-friendly, covered, open now, and more.`,
+  title: "Terrasse Season – Discover Montréal's Best Terraces & Patios",
+  description: "The most complete guide to terraces and patios in Montréal. Hundreds of spots across 24 neighborhoods — filter by rooftop, dog-friendly, covered, open now, and more.",
   keywords: [
     "Montreal terraces",
     "Montreal patios",
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "https://terrasseseason.com",
-    siteName: "Terrace Season",
+    siteName: "Terrasse Season",
     type: "website",
-    title: "Terrace Season – Montréal's Terrace & Patio Guide",
-    description: `${count} terraces and patios across 24 Montréal neighborhoods. Filter by type, features, and open now.`,
+    title: "Terrasse Season – Montréal's Terrace & Patio Guide",
+    description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     locale: "en_CA",
     alternateLocale: "fr_CA",
     images: [
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1536,
         height: 1024,
-        alt: "Terrace Season – Montréal's Terrace & Patio Guide",
+        alt: "Terrasse Season – Montréal's Terrace & Patio Guide",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terrace Season – Montréal's Terrace & Patio Guide",
-    description: `${count} terraces and patios across 24 Montréal neighborhoods. Filter by type, features, and open now.`,
+    title: "Terrasse Season – Montréal's Terrace & Patio Guide",
+    description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     images: ["/og.png"],
   },
 };
@@ -91,10 +91,10 @@ function buildJsonLd() {
       {
         "@type": "WebSite",
         "@id": "https://terrasseseason.com/#website",
-        name: "Terrace Season",
+        name: "Terrasse Season",
         url: "https://terrasseseason.com",
         description:
-          `The most complete directory of terraces and patios in Montréal, Québec. ${count} outdoor dining spots across 24 neighborhoods, filterable by type, features, and hours.`,
+          "The most complete directory of terraces and patios in Montréal, Québec. Hundreds of outdoor dining spots across 24 neighborhoods, filterable by type, features, and hours.",
         inLanguage: ["en", "fr"],
         potentialAction: {
           "@type": "SearchAction",

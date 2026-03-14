@@ -259,7 +259,7 @@ function SubmitPageContent() {
             <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
             <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
           </svg>
-          <span className="font-bold">Terrace Season</span>
+          <span className="font-bold">Terrasse Season</span>
         </div>
       </div>
 

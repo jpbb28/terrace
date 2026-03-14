@@ -3,13 +3,13 @@ import { terraces } from "@/data/terraces";
 export async function GET() {
   const count = terraces.length;
 
-  const body = `# Terrace Season
+  const body = `# Terrasse Season
 
 > The most complete directory of terraces and patios in Montréal, Québec. ${count} outdoor dining and drinking spots, filterable by neighborhood, terrace type, and features.
 
 ## What this site is
 
-Terrace Season (terrasseseason.com) is an interactive map and searchable directory of terraces, patios, and outdoor seating in Montréal. It is bilingual (English / French).
+Terrasse Season (terrasseseason.com) is an interactive map and searchable directory of terraces, patios, and outdoor seating in Montréal. It is bilingual (English / French).
 
 ## Data coverage
 

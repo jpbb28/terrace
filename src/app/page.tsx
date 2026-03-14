@@ -172,7 +172,7 @@ export default function Home() {
               </svg>
               <div>
                 <h1 className="font-display text-lg font-bold tracking-tight leading-none">
-                  Terrace Season
+                  Terrasse Season
                 </h1>
                 <p className="text-[11px] text-muted mt-0.5 tracking-wide uppercase">
                   Montr&eacute;al
@@ -263,7 +263,7 @@ export default function Home() {
                 <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
               </svg>
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
-                Terrace Season
+                Terrasse Season
               </h1>
             </div>
             <div className="flex items-center gap-2">
