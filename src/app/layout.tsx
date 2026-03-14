@@ -43,11 +43,20 @@ export const metadata: Metadata = {
     description: `${count} terraces and patios across 24 Montréal neighborhoods. Filter by type, features, and open now.`,
     locale: "en_CA",
     alternateLocale: "fr_CA",
+    images: [
+      {
+        url: "/og.png",
+        width: 1536,
+        height: 1024,
+        alt: "Terrace Season – Montréal's Terrace & Patio Guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Terrace Season – Montréal's Terrace & Patio Guide",
     description: `${count} terraces and patios across 24 Montréal neighborhoods. Filter by type, features, and open now.`,
+    images: ["/og.png"],
   },
 };
 
