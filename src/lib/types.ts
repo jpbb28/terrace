@@ -58,6 +58,8 @@ export interface Terrace {
   openingHours?: string;       // legacy display string
   openingPeriods?: HourPeriod[]; // structured hours from Google Places
   placeId?: string;            // Google Places ID for future refreshes
+  googleRating?: number;       // Fetched weekly via GitHub Actions
+  googleReviewCount?: number;
   description: string;
   descriptionFr?: string;
 }

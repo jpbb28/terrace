@@ -174,7 +174,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         </div>
 
         {/* Reviews */}
-        <ReviewSection terraceId={terrace.id} placeId={terrace.placeId} />
+        <ReviewSection terraceId={terrace.id} placeId={terrace.placeId} googleRating={terrace.googleRating} googleReviewCount={terrace.googleReviewCount} />
 
         {/* Correction link */}
         <div className="pt-4 border-t border-border">

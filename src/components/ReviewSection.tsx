@@ -13,6 +13,8 @@ interface Review {
 interface Props {
   terraceId: string;
   placeId?: string;
+  googleRating?: number;
+  googleReviewCount?: number;
 }
 
 function Stars({ value, interactive = false, onChange }: {
@@ -60,7 +62,7 @@ function timeAgo(dateStr: string, lang: string): string {
   return lang === "fr" ? `il y a ${Math.floor(months / 12)} an` : `${Math.floor(months / 12)}y ago`;
 }
 
-export default function ReviewSection({ terraceId, placeId }: Props) {
+export default function ReviewSection({ terraceId, placeId, googleRating, googleReviewCount }: Props) {
   const { lang } = useLang();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [avg, setAvg] = useState<number | null>(null);
@@ -155,18 +157,26 @@ export default function ReviewSection({ terraceId, placeId }: Props) {
         )}
       </div>
 
-      {/* Google Reviews link */}
-      {placeId && (
+      {/* Google rating */}
+      {placeId && googleRating && (
         <a
           href={`https://search.google.com/local/reviews?placeid=${placeId}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors mb-4"
+          className="flex items-center gap-2 mb-4 group w-fit"
         >
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/>
+          <svg className="w-3.5 h-3.5 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/>
           </svg>
-          {lang === "fr" ? "Voir les avis Google" : "See Google reviews"}
+          <span className="text-sm font-medium group-hover:text-accent transition-colors">
+            {googleRating.toFixed(1)}
+          </span>
+          <Stars value={Math.round(googleRating)} />
+          {googleReviewCount && (
+            <span className="text-xs text-muted group-hover:text-accent transition-colors">
+              ({googleReviewCount.toLocaleString()} {lang === "fr" ? "avis Google" : "Google reviews"})
+            </span>
+          )}
         </a>
       )}
 
