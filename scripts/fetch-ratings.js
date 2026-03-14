@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 
 // Support GitHub Actions env var or local .env.local
-let API_KEY = process.env.GOOGLE_PLACES_API_KEY_UNRESTRICTED;
+let API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 if (!API_KEY) {
   const envPath = path.join(ROOT, ".env.local");
   if (fs.existsSync(envPath)) {
