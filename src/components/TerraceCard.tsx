@@ -47,7 +47,7 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
         </div>
       ) : (
         <div className="w-full h-36 bg-gradient-to-br from-warm-soft via-accent-soft to-olive-soft flex items-center justify-center">
-          <span className="text-xs text-accent/40 font-medium">No photo yet</span>
+          <span className="text-xs text-accent/40 font-medium">{t.noPhotoYet}</span>
         </div>
       )}
       <div className="p-4">

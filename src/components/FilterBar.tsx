@@ -148,7 +148,7 @@ export default function FilterBar({
                   onClick={() => onNeighborhoodsChange([])}
                   className="text-[11px] text-accent hover:underline cursor-pointer"
                 >
-                  Clear all
+                  {t.clearAll}
                 </button>
               </div>
             )}
@@ -196,7 +196,7 @@ export default function FilterBar({
           {[
             { label: t.dogFriendly, active: dogFriendly, onClick: () => onDogFriendlyChange(!dogFriendly), disabled: false },
             { label: t.covered, active: covered, onClick: () => onCoveredChange(!covered), disabled: false },
-            { label: "Open now", active: openNow, onClick: () => onOpenNowChange(!openNow), disabled: false },
+            { label: t.openNow, active: openNow, onClick: () => onOpenNowChange(!openNow), disabled: false },
             { label: locating ? t.locating : t.nearMe, active: sortByDistance, onClick: onSortByDistanceChange, disabled: locating },
           ].map(({ label, active, onClick, disabled }) => (
             <button

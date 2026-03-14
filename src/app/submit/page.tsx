@@ -184,12 +184,12 @@ function SubmitPageContent() {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
         <div className="max-w-md text-center">
-          <p className="text-sm text-red-500 mb-4">Something went wrong. Please try again.</p>
+          <p className="text-sm text-red-500 mb-4">{t.submitError}</p>
           <button
             onClick={() => setState("idle")}
             className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors"
           >
-            Try again
+            {t.tryAgain}
           </button>
         </div>
       </div>

@@ -210,8 +210,9 @@ function Tag({ label }: { label: string }) {
 
 function HoursItem({ terrace }: { terrace: Terrace }) {
   const [expanded, setExpanded] = useState(false);
-  const status = getHoursStatus(terrace);
-  const schedule = getDaysSchedule(terrace.openingPeriods);
+  const { t, lang } = useLang();
+  const status = getHoursStatus(terrace, lang);
+  const schedule = getDaysSchedule(terrace.openingPeriods, lang);
 
   if (!status) return null;
 
@@ -231,7 +232,7 @@ function HoursItem({ terrace }: { terrace: Terrace }) {
             status.open ? "text-green-700" : "text-foreground"
           }`}
         >
-          {status.open ? "Open" : "Closed"}
+          {status.open ? t.openLabel : t.closedLabel}
         </span>
         {status.qualifier && (
           <>
@@ -254,7 +255,7 @@ function HoursItem({ terrace }: { terrace: Terrace }) {
 
       {expanded && (
         <div className="px-3 pb-3 border-t border-border space-y-1.5 pt-2.5">
-          {schedule.map(({ dayName, hours, isToday }) => (
+          {schedule.map(({ dayName, hours, isToday, isClosed }) => (
             <div
               key={dayName}
               className={`flex justify-between gap-4 text-xs ${
@@ -262,7 +263,7 @@ function HoursItem({ terrace }: { terrace: Terrace }) {
               }`}
             >
               <span className="shrink-0">{dayName}</span>
-              <span className={`text-right ${hours === "Closed" ? "text-muted" : ""}`}>
+              <span className={`text-right ${isClosed ? "text-muted" : ""}`}>
                 {hours}
               </span>
             </div>

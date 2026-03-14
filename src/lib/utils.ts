@@ -1,4 +1,5 @@
 import { Terrace } from "./types";
+import { Lang } from "./i18n";
 
 /**
  * Returns true if the terrace is currently open, false if closed,
@@ -45,7 +46,9 @@ export function isOpenNow(terrace: Terrace): boolean | null {
 }
 
 const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAY_NAMES_FR = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 const FULL_DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const FULL_DAY_NAMES_FR = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
 function fmt(t: string) {
   const [h, m] = t.split(":").map(Number);
@@ -69,12 +72,18 @@ interface HoursStatus {
 /**
  * Returns Google Maps-style status: open/closed, qualifier text, and today's hours.
  */
-export function getHoursStatus(terrace: Terrace): HoursStatus | null {
+export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus | null {
   const periods = terrace.openingPeriods;
   if (!periods?.length) return null;
 
+  const closedStr = lang === "fr" ? "Fermé" : "Closed";
+  const open24hStr = lang === "fr" ? "Ouvert 24h/24" : "Open 24 hours";
+  const closesStr = lang === "fr" ? "Ferme à" : "Closes";
+  const opensStr = lang === "fr" ? "Ouvre à" : "Opens";
+  const dayNames = lang === "fr" ? DAY_NAMES_FR : DAY_NAMES;
+
   if (periods.some((p) => p.is24h)) {
-    return { open: true, qualifier: "", todayHours: "Open 24 hours" };
+    return { open: true, qualifier: "", todayHours: open24hStr };
   }
 
   const now = new Date(
@@ -88,7 +97,7 @@ export function getHoursStatus(terrace: Terrace): HoursStatus | null {
   const todayHours =
     todayPeriods.length > 0
       ? todayPeriods.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ")
-      : "Closed";
+      : closedStr;
 
   // Check if currently open and find the active close time
   for (const p of periods) {
@@ -100,14 +109,14 @@ export function getHoursStatus(terrace: Terrace): HoursStatus | null {
 
     if (p.day === todayDay) {
       if (!overnight && nowMin >= openMin && nowMin < closeMin) {
-        return { open: true, qualifier: `Closes ${fmtMin(closeMin)}`, todayHours };
+        return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
       }
       if (overnight && nowMin >= openMin) {
-        return { open: true, qualifier: `Closes ${fmtMin(closeMin)}`, todayHours };
+        return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
       }
     }
     if (p.day === yesterdayDay && overnight && nowMin < closeMin) {
-      return { open: true, qualifier: `Closes ${fmtMin(closeMin)}`, todayHours };
+      return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
     }
   }
 
@@ -124,7 +133,7 @@ export function getHoursStatus(terrace: Terrace): HoursStatus | null {
     });
 
   if (sortedLaterToday.length > 0) {
-    return { open: false, qualifier: `Opens ${fmt(sortedLaterToday[0].open)}`, todayHours };
+    return { open: false, qualifier: `${opensStr} ${fmt(sortedLaterToday[0].open)}`, todayHours };
   }
 
   for (let i = 1; i <= 7; i++) {
@@ -137,8 +146,8 @@ export function getHoursStatus(terrace: Terrace): HoursStatus | null {
         return ah * 60 + am - (bh * 60 + bm);
       });
     if (nextPeriods.length > 0) {
-      const dayLabel = i === 1 ? "" : ` ${DAY_NAMES[nextDay]}`;
-      return { open: false, qualifier: `Opens ${fmt(nextPeriods[0].open)}${dayLabel}`, todayHours };
+      const dayLabel = i === 1 ? "" : ` ${dayNames[nextDay]}`;
+      return { open: false, qualifier: `${opensStr} ${fmt(nextPeriods[0].open)}${dayLabel}`, todayHours };
     }
   }
 
@@ -149,9 +158,14 @@ export function getHoursStatus(terrace: Terrace): HoursStatus | null {
  * Returns the full week schedule as an array, with today flagged.
  */
 export function getDaysSchedule(
-  periods: Terrace["openingPeriods"]
-): { dayName: string; hours: string; isToday: boolean }[] {
+  periods: Terrace["openingPeriods"],
+  lang: Lang = "en"
+): { dayName: string; hours: string; isToday: boolean; isClosed: boolean }[] {
   if (!periods?.length) return [];
+
+  const closedStr = lang === "fr" ? "Fermé" : "Closed";
+  const open24hStr = lang === "fr" ? "Ouvert 24h/24" : "Open 24 hours";
+  const fullDayNames = lang === "fr" ? FULL_DAY_NAMES_FR : FULL_DAY_NAMES;
 
   const now = new Date(
     new Date().toLocaleString("en-US", { timeZone: "America/Toronto" })
@@ -159,10 +173,11 @@ export function getDaysSchedule(
   const todayDay = now.getDay();
 
   if (periods.some((p) => p.is24h)) {
-    return FULL_DAY_NAMES.map((name, i) => ({
+    return fullDayNames.map((name, i) => ({
       dayName: name,
-      hours: "Open 24 hours",
+      hours: open24hStr,
       isToday: i === todayDay,
+      isClosed: false,
     }));
   }
 
@@ -172,13 +187,13 @@ export function getDaysSchedule(
     byDay[p.day].push(p);
   }
 
-  return FULL_DAY_NAMES.map((name, i) => {
+  return fullDayNames.map((name, i) => {
     const dayPeriods = byDay[i] ?? [];
-    const hours =
-      dayPeriods.length > 0
-        ? dayPeriods.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ")
-        : "Closed";
-    return { dayName: name, hours, isToday: i === todayDay };
+    const isClosed = dayPeriods.length === 0;
+    const hours = isClosed
+      ? closedStr
+      : dayPeriods.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ");
+    return { dayName: name, hours, isToday: i === todayDay, isClosed };
   });
 }
 
