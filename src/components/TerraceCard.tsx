@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
+import { slugify } from "@/lib/utils";
 
 interface TerraceCardProps {
   terrace: Terrace;
@@ -27,9 +28,10 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
   const typeInfos = terrace.terraceType?.map((tt) => typeConfig[tt]).filter(Boolean) ?? [];
 
   return (
-    <button
-      onClick={onClick}
-      className={`w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
+    <a
+      href={`/terraces/${slugify(terrace.name)}`}
+      onClick={(e) => { e.preventDefault(); onClick(); }}
+      className={`block w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
         selected
           ? "border-accent bg-white/90 shadow-md shadow-accent/10"
           : "border-transparent bg-white/50 hover:bg-white/80 hover:border-border hover:shadow-sm"
@@ -111,6 +113,6 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
         )}
       </div>
       </div>
-    </button>
+    </a>
   );
 }

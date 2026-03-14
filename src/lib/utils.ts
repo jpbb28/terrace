@@ -1,6 +1,15 @@
 import { Terrace } from "./types";
 import { Lang } from "./i18n";
 
+export function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 /**
  * Returns true if the terrace is currently open, false if closed,
  * or null if no structured hours data is available.
