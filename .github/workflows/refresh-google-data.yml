@@ -1,4 +1,4 @@
-name: Refresh Google Ratings
+name: Refresh Google Data
 
 on:
   schedule:
@@ -17,18 +17,20 @@ jobs:
         with:
           node-version: 20
 
-      - name: Fetch ratings from Google Places API
+      - name: Fetch ratings and hours from Google Places API
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
-        run: node scripts/fetch-ratings.js
+        run: |
+          node scripts/fetch-ratings.js
+          node scripts/refresh-hours.js
 
       - name: Apply ratings to terraces.ts
         run: node scripts/apply-ratings.js
 
-      - name: Commit updated ratings
+      - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/terraces.ts scripts/ratings-results.json
-          git diff --staged --quiet || git commit -m "chore: refresh Google ratings [skip ci]"
+          git diff --staged --quiet || git commit -m "chore: refresh Google ratings + hours [skip ci]"
           git push
