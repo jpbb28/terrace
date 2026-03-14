@@ -127,7 +127,8 @@ function SubmitPageContent() {
     // Upload photos first
     const uploadedUrls: string[] = [];
     if (images.length > 0) {
-      const folder = isEdit ? `corrections/${editId}` : `submissions/${crypto.randomUUID()}`;
+      const slug = form.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const folder = isEdit ? `corrections/${editId}` : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
       for (const file of images) {
         const ext = file.name.split(".").pop() ?? "jpg";
         const path = `${folder}/${crypto.randomUUID()}.${ext}`;
