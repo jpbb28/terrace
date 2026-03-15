@@ -187,11 +187,8 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           )}
         </div>
 
-        {/* Reviews */}
-        <ReviewSection terraceId={terrace.id} placeId={terrace.placeId} googleRating={terrace.googleRating} googleReviewCount={terrace.googleReviewCount} />
-
         {/* Correction link */}
-        <div className="pt-4 border-t border-border flex items-center justify-between">
+        <div className="pb-4 border-b border-border flex items-center justify-between mb-6">
           <Link
             href={`/submit?edit=${terrace.id}`}
             className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
@@ -212,6 +209,9 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             </svg>
           </Link>
         </div>
+
+        {/* Reviews */}
+        <ReviewSection terraceId={terrace.id} placeId={terrace.placeId} googleRating={terrace.googleRating} googleReviewCount={terrace.googleReviewCount} />
       </div>
     </div>
   );
