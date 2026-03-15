@@ -41,7 +41,7 @@ export default function AboutPage() {
             We only mark a terrasse as dog-friendly, heated, or covered when we have a source confirming it. Not because it seems likely, not because similar places usually are. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
           </p>
           <p>
-            Some data is thin, and we know it. Dog-friendliness in particular is hard to verify from published sources — most restaurants don&apos;t advertise it, and what&apos;s written online goes out of date fast. If you know a spot welcomes dogs (or doesn&apos;t), submitting that information is genuinely useful. That&apos;s how this gets better.
+            Some data is thin, and we know it. Dog-friendliness in particular is hard to verify from published sources. Most restaurants don&apos;t advertise it, and what&apos;s written online goes out of date fast. If you know a spot welcomes dogs (or doesn&apos;t), submitting that information is genuinely useful. That&apos;s how this gets better.
           </p>
 
           <h2 className="font-display text-xl font-bold text-foreground mt-8">Contributing</h2>
