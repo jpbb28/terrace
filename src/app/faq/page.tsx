@@ -51,8 +51,7 @@ const faqs = [
   },
   {
     q: "Why does some information appear missing for certain terrasses?",
-    a: "If a detail isn't shown, it means we don't have a confirmed source for it. Not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, please suggest a correction.",
-    link: { href: "/submit", label: "Suggest a correction →" },
+    a: "If a detail isn't shown, it means we don't have a confirmed source for it. Not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, find the terrasse on the map and use the Edit button on its page.",
   },
 ];
 
