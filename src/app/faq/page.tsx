@@ -4,7 +4,7 @@ import SiteNav from "@/components/SiteNav";
 
 export const metadata: Metadata = {
   title: "FAQ – Terrasse Season",
-  description: "Common questions about Montréal terrasse season — when they open, dog-friendly rules, heated terrasses, how the hours work, and more.",
+  description: "Common questions about Montréal terrasse season: when they open, dog-friendly rules, heated terrasses, how the hours work, and more.",
   alternates: { canonical: "https://terrasseseason.com/faq" },
   openGraph: {
     title: "FAQ – Terrasse Season",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "When do Montréal terrasses open for the season?",
-    a: "The traditional start is Victoria Day weekend — the third Monday of May. Most spots open around then, though some heated or covered terrasses operate year-round or through the shoulder seasons. We've written a full seasonal breakdown in our guide.",
+    a: "The traditional start is Victoria Day weekend, the third Monday of May. Most spots open around then, though some heated or covered terrasses operate year-round or through the shoulder seasons. We've written a full seasonal breakdown in our guide.",
     link: { href: "/blog/when-do-montreal-terrasses-open", label: "When do terrasses open? →" },
   },
   {
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     q: "Do I need a reservation to sit on a terrasse?",
-    a: "It depends entirely on the spot. Neighbourhood cafés and casual bistros usually don't take terrasse reservations — first come, first served. Popular restaurants and rooftop bars in July and August can fill up fast; calling ahead or checking their website is worth it. If you're going somewhere specific on a weekend evening in peak season, assume you'll need a reservation.",
+    a: "It depends entirely on the spot. Neighbourhood cafés and casual bistros usually don't take terrasse reservations. First come, first served. Popular restaurants and rooftop bars in July and August can fill up fast, so calling ahead or checking their website is worth it. If you're going somewhere specific on a weekend evening in peak season, assume you'll need a reservation.",
   },
   {
     q: "How do I find dog-friendly terrasses?",
-    a: "Use the dog-friendly filter on the map. We only mark a terrasse as dog-friendly when we have a confirmed source — not just because it seems likely.",
+    a: "Use the dog-friendly filter on the map. We only mark a terrasse as dog-friendly when we have a confirmed source. Not just because it seems likely.",
     link: { href: "/dog-friendly-terrasses-montreal", label: "Read the dog-friendly guide →", blog: true },
   },
   {
@@ -38,20 +38,20 @@ const faqs = [
   },
   {
     q: "What do \"covered\" and \"heated\" mean?",
-    a: "Covered means the terrasse has a roof or canopy of some kind — it won't keep you fully dry in a downpour, but it'll handle light rain and block wind. Heated means the terrasse has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
+    a: "Covered means the terrasse has a roof or canopy of some kind. It won't keep you fully dry in a downpour, but it'll handle light rain and block wind. Heated means the terrasse has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
   },
   {
     q: "How accurate is the information on this site?",
-    a: "We do our best. Data is sourced from published lists and verified where possible. Hours come from Google Places and are updated seasonally. That said, the restaurant industry moves fast — spots close, hours change, ownership pivots. Treat this as a reliable starting point, not a guarantee. Always worth a quick check on the restaurant's own social media before a dedicated trip.",
+    a: "We do our best. Data is sourced from published lists and verified where possible. Hours come from Google Places and are updated seasonally. That said, the restaurant industry moves fast. Spots close, hours change, ownership pivots. Treat this as a reliable starting point, not a guarantee. Always worth a quick check on the restaurant's own social media before a dedicated trip.",
   },
   {
     q: "How do I suggest a new terrasse or report an error?",
-    a: "Use the suggest form — it's linked at the top of every terrace page, or you can go there directly. We review everything that comes in.",
+    a: "Use the suggest form. It's linked at the top of every terrace page, or you can go there directly. We review everything that comes in.",
     link: { href: "/submit", label: "Suggest a terrasse →" },
   },
   {
     q: "Why does some information appear missing for certain terrasses?",
-    a: "If a detail isn't shown, it means we don't have a confirmed source for it — not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, please suggest a correction.",
+    a: "If a detail isn't shown, it means we don't have a confirmed source for it. Not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, please suggest a correction.",
     link: { href: "/submit", label: "Suggest a correction →" },
   },
 ];

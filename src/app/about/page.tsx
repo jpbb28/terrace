@@ -5,7 +5,7 @@ import { terraces } from "@/data/terraces";
 
 export const metadata: Metadata = {
   title: "About – Terrasse Season",
-  description: "Terrasse Season is a directory of outdoor dining spots across Montréal — who built it, how the data works, and how to contribute.",
+  description: "Terrasse Season is a directory of outdoor dining spots across Montréal. Who built it, how the data works, and how to contribute.",
   alternates: { canonical: "https://terrasseseason.com/about" },
 };
 
@@ -22,7 +22,7 @@ export default function AboutPage() {
 
         <div className="prose-like space-y-5 text-base text-foreground/80 leading-relaxed">
           <p>
-            Terrasse Season is a directory of outdoor dining spots in Montréal — terrasses, patios, rooftops, and backyards across the city&apos;s 24 neighbourhoods. {terraces.length} listings, filterable by type, features, and hours.
+            Terrasse Season is a directory of outdoor dining spots in Montréal: terrasses, patios, rooftops, and backyards across the city&apos;s 24 neighbourhoods. {terraces.length} listings, filterable by type, features, and hours.
           </p>
 
           <p>
@@ -30,7 +30,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            The data comes from cross-referencing Time Out, Tastet, Cult MTL, Tourisme Montréal, Narcity, Daily Hive, OpenTable, and several others, then verifying what we could. Hours come from Google Places and are updated seasonally. Nothing is perfect — terrasses open and close, restaurants pivot, owners change their minds about dogs — but we update as often as we can.
+            The data comes from cross-referencing Time Out, Tastet, Cult MTL, Tourisme Montréal, Narcity, Daily Hive, OpenTable, and several others, then verifying what we could. Hours come from Google Places and are updated seasonally. Nothing is perfect. Terrasses open and close, restaurants pivot, owners change their minds about dogs. We update as often as we can.
           </p>
 
           <hr className="border-border my-8" />
@@ -38,7 +38,7 @@ export default function AboutPage() {
           <h2 className="font-display text-xl font-bold text-foreground">How the data works</h2>
 
           <p>
-            We only mark a terrasse as dog-friendly, heated, or covered when we have a source confirming it — not because it seems likely, not because similar places usually are. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
+            We only mark a terrasse as dog-friendly, heated, or covered when we have a source confirming it. Not because it seems likely, not because similar places usually are. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
           </p>
 
           <h2 className="font-display text-xl font-bold text-foreground mt-8">Contributing</h2>
