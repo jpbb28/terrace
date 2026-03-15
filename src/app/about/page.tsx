@@ -1,0 +1,73 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import SiteNav from "@/components/SiteNav";
+import { terraces } from "@/data/terraces";
+
+export const metadata: Metadata = {
+  title: "About – Terrasse Season",
+  description: "Terrasse Season is a directory of outdoor dining spots across Montréal — who built it, how the data works, and how to contribute.",
+  alternates: { canonical: "https://terrasseseason.com/about" },
+};
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <SiteNav />
+
+      <div className="max-w-2xl mx-auto px-5 py-12">
+        <p className="text-[11px] uppercase tracking-widest text-accent font-medium mb-2">
+          About
+        </p>
+        <h1 className="font-display text-3xl font-bold mb-8">Terrasse Season</h1>
+
+        <div className="prose-like space-y-5 text-base text-foreground/80 leading-relaxed">
+          <p>
+            Terrasse Season is a directory of outdoor dining spots in Montréal — terrasses, patios, rooftops, and backyards across the city&apos;s 24 neighbourhoods. {terraces.length} listings, filterable by type, features, and hours.
+          </p>
+
+          <p>
+            It was built out of frustration. The good terrasse lists in Montréal are scattered across a dozen food publications, updated inconsistently, and almost never searchable. This is an attempt at something better: one place, with the information you actually need.
+          </p>
+
+          <p>
+            The data comes from cross-referencing Time Out, Tastet, Cult MTL, Tourisme Montréal, Narcity, Daily Hive, OpenTable, and several others, then verifying what we could. Hours come from Google Places and are updated seasonally. Nothing is perfect — terrasses open and close, restaurants pivot, owners change their minds about dogs — but we update as often as we can.
+          </p>
+
+          <hr className="border-border my-8" />
+
+          <h2 className="font-display text-xl font-bold text-foreground">How the data works</h2>
+
+          <p>
+            We only mark a terrasse as dog-friendly, heated, or covered when we have a source confirming it — not because it seems likely, not because similar places usually are. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
+          </p>
+
+          <h2 className="font-display text-xl font-bold text-foreground mt-8">Contributing</h2>
+
+          <p>
+            Spotted a missing terrasse? Know that a listing has the wrong hours or closed last year?{" "}
+            <Link href="/submit" className="text-accent hover:underline">
+              The suggest form
+            </Link>{" "}
+            is the fastest way to get it fixed. We review everything that comes in.
+          </p>
+
+          <h2 className="font-display text-xl font-bold text-foreground mt-8">A note on accuracy</h2>
+
+          <p>
+            We do our best, but things change fast in the restaurant industry. Always worth checking a restaurant&apos;s own social media or calling ahead before making a trip specifically for the terrasse.
+          </p>
+
+          <hr className="border-border my-8" />
+
+          <p className="text-sm text-muted">
+            Questions or feedback?{" "}
+            <Link href="/submit" className="text-accent hover:underline">
+              Use the suggest form
+            </Link>{" "}
+            or find us on Instagram.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
