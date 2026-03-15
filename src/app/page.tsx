@@ -9,6 +9,7 @@ import { isOpenNow } from "@/lib/utils";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
 import { useLang } from "@/lib/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
@@ -126,6 +127,16 @@ export default function Home() {
     setSelectedId(id);
   }, []);
 
+  const openFromCard = useCallback((id: string) => {
+    trackEvent(id, "card_click");
+    openTerrace(id);
+  }, [openTerrace]);
+
+  const openFromMap = useCallback((id: string) => {
+    trackEvent(id, "map_marker_click");
+    openTerrace(id);
+  }, [openTerrace]);
+
   const closeTerrace = useCallback(() => {
     setSelectedId(null);
   }, []);
@@ -223,7 +234,7 @@ export default function Home() {
                     <TerraceCard
                       terrace={terrace}
                       selected={selectedId === terrace.id}
-                      onClick={() => openTerrace(terrace.id)}
+                      onClick={() => openFromCard(terrace.id)}
                       distance={distance}
                     />
                   </div>
@@ -232,6 +243,14 @@ export default function Home() {
             </div>
           </>
         )}
+
+        {/* Footer links */}
+        <div className="shrink-0 border-t border-border px-5 py-2.5 flex items-center gap-4">
+          <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">Blog</Link>
+          <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">About</Link>
+          <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
+          <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">Terms</Link>
+        </div>
       </div>
 
       {/* ── Desktop map ── */}
@@ -239,7 +258,7 @@ export default function Home() {
         <Map
           terraces={filtered}
           selectedId={selectedId}
-          onSelect={openTerrace}
+          onSelect={openFromMap}
           center={mapCenter}
           zoom={mapZoom}
         />
@@ -333,7 +352,7 @@ export default function Home() {
                       key={terrace.id}
                       terrace={terrace}
                       selected={selectedId === terrace.id}
-                      onClick={() => openTerrace(terrace.id)}
+                      onClick={() => openFromCard(terrace.id)}
                       distance={distance}
                     />
                   ))
@@ -350,13 +369,23 @@ export default function Home() {
                 <Map
                   terraces={filtered}
                   selectedId={selectedId}
-                  onSelect={openTerrace}
+                  onSelect={openFromMap}
                   center={mapCenter}
                   zoom={mapZoom}
                 />
               </div>
             </div>
           </>
+        )}
+
+        {/* Mobile footer links */}
+        {!selectedTerrace && (
+          <div className="shrink-0 border-t border-border px-4 py-2 flex items-center gap-4">
+            <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">Blog</Link>
+            <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">About</Link>
+            <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
+            <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">Terms</Link>
+          </div>
         )}
       </div>
     </div>
