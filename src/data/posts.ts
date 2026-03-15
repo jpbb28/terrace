@@ -6,17 +6,24 @@ export type Block =
 export type Post = {
   slug: string;
   title: string;
+  titleFr: string;
   description: string;
+  descriptionFr: string;
   date: string;
+  dateFr: string;
   content: Block[];
+  contentFr: Block[];
 };
 
 export const posts: Post[] = [
   {
     slug: "when-do-montreal-terrasses-open",
     title: "When Do Montréal Terrasses Open?",
+    titleFr: "Quand ouvrent les terrasses à Montréal?",
     description: "The short answer is Victoria Day weekend. The longer answer involves February, earned suffering, and why September is the month nobody talks about.",
+    descriptionFr: "La réponse courte : la Fête de la Reine. La réponse longue passe par février, la souffrance méritée, et pourquoi septembre est le mois dont personne parle.",
     date: "May 1, 2025",
+    dateFr: "1er mai 2025",
     content: [
       { t: "p", text: "Victoria Day. That's your answer. Third Monday of May, and the city that's been hunching its shoulders against the cold since October suddenly puts chairs outside." },
       { t: "p", text: "It's not gradual. It happens almost overnight. Café owners drag out tables at 7am. By noon, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine they don't strictly need at that hour. Nobody cares. The season has started." },
@@ -29,31 +36,62 @@ export const posts: Post[] = [
       { t: "labeled", name: "September", text: "If you're only going to have one perfect terrasse month in Montréal, this is it. Warm enough during the day, cool in the evenings, and suddenly you can hear yourself think again. The August crowds vanish. The regulars come back. This is when the city stops performing and starts living again." },
       { t: "labeled", name: "October", text: "Wind-down. Heated and covered spots hold on; most sidewalk and rooftop terrasses close somewhere between Thanksgiving and Halloween. Call ahead if you're going somewhere specific. Don't just show up." },
     ],
+    contentFr: [
+      { t: "p", text: "La Fête de la Reine. C'est ça, votre réponse. Le troisième lundi de mai, et la ville qui rentrait les épaules depuis octobre sort ses chaises." },
+      { t: "p", text: "Ça se passe vite. Presque du jour au lendemain. Les proprios de café sortent leurs tables à 7h. À midi, chaque trottoir sur Saint-Laurent a du monde dessus, encore en manteau, qui commande du vin dont ils n'ont pas vraiment besoin à cette heure-là. Tout le monde s'en fout. La saison a commencé." },
+      { t: "p", text: "Ce que les gens des villes plus chaudes comprennent pas sur la saison de terrasse à Montréal : ça veut dire quelque chose ici. Tu l'as mérité. Chaque matin de février où tu grattais ton pare-brise à -25, chaque mars où tu pensais que le printemps arrivait et t'as eu une autre bordée de neige. C'est la facture. La terrasse, c'est comment tu la collectes." },
+      { t: "p", text: "La saison dure plus longtemps que tu penses. Les endroits couverts et chauffés poussent jusqu'en octobre. Certains ferment techniquement jamais. Mais la vraie saison, c'est juin à septembre. La saison des attardages. De rester pour un autre verre parce que pourquoi rentrer." },
+      { t: "divider" },
+      { t: "labeled", name: "Mai", text: "La première vague ouvre autour de la Fête de la Reine. Les heures sont conservatrices au début. Lunch avant le souper, souper avant le soir. Apporte une veste le soir. Le soleil tombe et la température suit, plus vite que tu penses." },
+      { t: "labeled", name: "Juin", text: "Le bon mois. Encore assez frais pour être confortable, assez chaud pour rester. Les touristes sont pas encore là en masse. Tu peux avoir une place quelque part de populaire sans planifier toute ta soirée autour. La ville est dans cette courte expiration collective après l'hiver. Vas-y maintenant, avant que tout le monde s'en rende compte." },
+      { t: "labeled", name: "Juillet-août", text: "Le peak. Tu le sais dès que t'arrives près d'un rooftop populaire un vendredi à 19h. Arrive à 17h ou va tard. Les places se libèrent après 21h. Fais une réservation comme un adulte ou accepte les conséquences. La bouffe est bonne, les drinks sont froids, l'attente est réelle." },
+      { t: "labeled", name: "Septembre", text: "Le meilleur mois. Chaud le jour, frais le soir, foules gérables. C'est quand la ville arrête de performer et recommence à vivre." },
+      { t: "labeled", name: "Octobre", text: "Fin de saison. Les spots couverts et chauffés tiennent, la plupart des terrasses de trottoir et de rooftop ferment entre l'Action de grâce et l'Halloween. Appelle avant si tu tiens à un endroit précis." },
+    ],
   },
   {
     slug: "best-rooftop-terrasses-montreal",
     title: "The Best Rooftop Terrasses in Montréal",
+    titleFr: "Les meilleures terrasses sur les toits à Montréal",
     description: "People from Miami don't understand why Montréalers make such a thing about rooftops. They've never survived a February here.",
+    descriptionFr: "Les gens de Miami comprennent pas pourquoi les Montréalais font tout un plat des rooftops. Ils ont jamais survécu à un février ici.",
     date: "May 15, 2025",
+    dateFr: "15 mai 2025",
     content: [
       { t: "p", text: "People from Miami or Barcelona don't understand why Montréalers make such a thing about rooftop terrasses. They have outdoor drinking 365 days a year. They've been desensitized." },
       { t: "p", text: "We haven't." },
       { t: "p", text: "Six months of winter will do that. You come back to a rooftop in May or June and it hits you in a way that's genuinely difficult to explain to anyone who spent the winter somewhere reasonable. The St. Lawrence out there. The city below you. A cold beer. The feeling that you made it." },
       { t: "p", text: "The rooftop scene here is smaller than the city's overall terrasse culture. Most outdoor drinking in Montréal happens at street level, which is actually how it should be, which is actually better. But there are good options if you know what you're looking for." },
       { t: "divider" },
-      { t: "labeled", name: "The hotel rooftops", text: "Old Montréal has a cluster of these. Cocktails, views, the price of a small car. Fine for out-of-town guests or an anniversary. Not what I'm talking about." },
+      { t: "labeled", name: "The hotel rooftops", text: "Old Montréal has a cluster of these attached to boutique hotels. Cocktails, good views, polished service. They tend toward the upscale end, which makes them a great call for a special occasion, out-of-town guests, or when someone else is paying." },
       { t: "labeled", name: "The converted rooftops", text: "Bars and restaurants that took a building top and turned it into something real, with no particular effort to make it look designed. String lights, mismatched furniture, a bar that works. These places tend to have better prices and crowds that actually live here." },
-      { t: "labeled", name: "The ones you have to find", text: "A terrace above a Plateau restaurant that doesn't advertise itself. A rooftop in the Latin Quarter that fits maybe forty people and has been there for years without a PR campaign. These are the ones worth the effort. Ask someone who lives in the neighbourhood." },
+      { t: "labeled", name: "The ones you have to find", text: "A terrace above a Plateau restaurant that doesn't advertise itself. A rooftop in the Latin Quarter that fits maybe forty people and has been there for years without a PR campaign. These are the ones worth the effort." },
       { t: "divider" },
       { t: "p", text: "Practical things: arrive earlier than you think necessary. By 7pm on a Friday in July, most good rooftops have a wait. Get there at 5, or make a reservation. Some places take them, some don't. Worth a call." },
       { t: "p", text: "One more thing. It's windier up there than it looks from the street. Every time. Bring something for your shoulders or spend the evening cold and annoyed at yourself. Your choice." },
+    ],
+    contentFr: [
+      { t: "p", text: "Les gens de Miami ou Barcelone comprennent pas pourquoi les Montréalais font tout un plat des terrasses de rooftop. Ils ont de la boisson dehors 365 jours par année. Ils sont désensibilisés." },
+      { t: "p", text: "Pas nous." },
+      { t: "p", text: "Six mois d'hiver, ça fait ça. Tu reviens sur un rooftop en mai ou juin et ça te frappe d'une façon difficile à expliquer à quelqu'un qui a passé l'hiver quelque part de raisonnable. Le Saint-Laurent là-bas. La ville en dessous. Une bière froide. Le feeling que t'as survécu." },
+      { t: "p", text: "La scène de rooftop ici est plus petite que la culture de terrasse en général. La plupart du boire dehors à Montréal se passe au niveau de la rue, ce qui est en fait comme ça devrait être, ce qui est en fait mieux. Mais il y a de bons options si tu sais quoi chercher." },
+      { t: "divider" },
+      { t: "labeled", name: "Les rooftops d'hôtel", text: "Le Vieux-Montréal en a un cluster attachés à des hôtels boutique. Cocktails, belles vues, service soigné. Ça penche vers le haut de gamme, ce qui en fait un bon choix pour une occasion spéciale, des invités de l'extérieur, ou quand quelqu'un d'autre paye." },
+      { t: "labeled", name: "Les rooftops convertis", text: "Des bars et restos qui ont pris un toit d'immeuble ordinaire et en ont fait quelque chose de vrai, sans effort particulier pour que ça ait l'air designé. Lumières string, mobilier dépareillé, un bar qui marche. Ces endroits ont généralement de meilleurs prix et une clientèle qui vit vraiment ici." },
+      { t: "labeled", name: "Ceux qu'il faut trouver", text: "Une terrasse au-dessus d'un resto du Plateau qui se publicise pas. Un rooftop dans le Quartier latin qui prend peut-être quarante personnes et existe depuis des années sans campagne de PR. Ceux-là valent l'effort." },
+      { t: "divider" },
+      { t: "p", text: "Quelques affaires pratiques : arrive plus tôt que tu penses nécessaire. À 19h un vendredi de juillet, la plupart des bons rooftops ont une file. Arrive à 17h, ou fais une réservation. Certains en prennent, d'autres non. Vaut un appel." },
+      { t: "p", text: "Autre chose. C'est plus venteux là-haut que ça en a l'air de la rue. À chaque fois. Apporte quelque chose pour tes épaules ou passe la soirée à avoir froid et à t'en vouloir." },
     ],
   },
   {
     slug: "dog-friendly-terrasses-montreal",
     title: "Dog-Friendly Terrasses in Montréal",
+    titleFr: "Les terrasses dog-friendly à Montréal",
     description: "Montréal has always been a dog city. The terrasse culture has caught up. A practical guide to where you can actually go.",
+    descriptionFr: "Montréal a toujours été une ville de chiens. La culture de terrasse a rattrapé. Guide pratique pour savoir où aller vraiment.",
     date: "June 1, 2025",
+    dateFr: "1er juin 2025",
     content: [
       { t: "p", text: "Montréal has always been a dog city. Walk any street in the Plateau on a Saturday morning and count. The density is remarkable. People here have dogs the way other cities have cars. A fundamental part of how they move through the world." },
       { t: "p", text: "The terrasse culture has caught up. More places now treat dogs as actual guests rather than things to be managed until someone complains. Water bowl at the door. Staff who stop to say hello before taking your order. You can tell the difference between a place that has a dogs-allowed policy and a place that actually likes dogs." },
@@ -61,14 +99,26 @@ export const posts: Post[] = [
       { t: "divider" },
       { t: "p", text: "A water bowl near the entrance is a real signal. It means they've thought about this. Low or no barriers are better than high-walled patios where your dog can't see anything and starts climbing the furniture. In July and August, find shade. Pavement heats up fast and dogs overheat faster than you'd think." },
       { t: "p", text: "For neighbourhoods: the Plateau and Mile End are the obvious circuit. Dense, walkable, generally relaxed about dogs. Saint-Henri and Little Burgundy have gotten better as their restaurant scenes have matured. Old Montréal is inconsistent. Some places are genuinely welcoming, others don't want the complication on a busy tourist afternoon. I don't blame them. But I also don't go back." },
-      { t: "p", text: "Use the dog-friendly filter on this site. That's what it's there for." },
+      { t: "p", text: "The dog-friendly filter on this site exists, but the data is thin. Most restaurants don't publish their dog policy anywhere, which means we're largely dependent on people who've actually been. If you know a spot that welcomes dogs, use the Edit button on that terrasse's page to mark it. That's how this becomes useful." },
+    ],
+    contentFr: [
+      { t: "p", text: "Montréal a toujours été une ville de chiens. Prends n'importe quelle rue dans le Plateau un samedi matin et compte. La densité est remarquable. Le monde ici a des chiens comme d'autres villes ont des chars. Une partie fondamentale de comment ils bougent dans le monde." },
+      { t: "p", text: "La culture de terrasse a rattrapé. Plus d'endroits traitent maintenant les chiens comme de vrais invités plutôt que comme des choses à gérer jusqu'à ce que quelqu'un se plaigne. Bol d'eau à l'entrée. Personnel qui s'arrête pour dire bonjour avant de prendre ta commande. Tu peux faire la différence entre un endroit qui a une politique chiens-acceptés et un endroit qui aime vraiment les chiens." },
+      { t: "p", text: "La règle au Québec : les chiens peuvent pas entrer dans les établissements alimentaires. Règlement sanitaire, pas négociable. Les terrasses sont dehors, et les établissements peuvent y accepter les chiens tant qu'ils restent à l'extérieur. La plupart des endroits dog-friendly ont compris comment ça marche en pratique. Le chien reste dehors. C'est le deal." },
+      { t: "divider" },
+      { t: "p", text: "Un bol d'eau près de l'entrée, c'est un vrai signal. Ça veut dire qu'ils ont pensé à ça. Les barrières basses ou inexistantes marchent mieux que les patios à murs hauts où ton chien voit rien et commence à grimper les murs. En juillet-août, trouve de l'ombre. L'asphalte chauffe vite et les chiens surchauffent plus vite que tu penses." },
+      { t: "p", text: "Pour les quartiers : le Plateau et Mile End sont le circuit évident. Dense, facile à marcher entre les spots, généralement relaxe pour les chiens. Saint-Henri et Petite-Bourgogne sont devenus plus accueillants à mesure que leurs scènes de restos ont mûri. Le Vieux-Montréal est inégal. Certains endroits sont vraiment accueillants, d'autres veulent pas la complication un après-midi de touristes. On les comprend. On y retourne pas." },
+      { t: "p", text: "Le filtre dog-friendly sur ce site existe, mais les données sont minces. La plupart des restos publient pas leur politique de chiens, ce qui veut dire qu'on dépend largement des gens qui y vont vraiment. Si tu sais qu'un endroit accueille les chiens, utilise le bouton Modifier sur la page de cette terrasse pour nous le dire. C'est comme ça que ça devient utile." },
     ],
   },
   {
     slug: "montreal-terrasses-by-neighbourhood",
     title: "Montréal Terrasses by Neighbourhood",
+    titleFr: "Les terrasses de Montréal par quartier",
     description: "Where the terrasse culture actually lives, neighbourhood by neighbourhood. Including the honest version of what each one is like.",
+    descriptionFr: "Là où la culture de terrasse vit vraiment, quartier par quartier. La version honnête.",
     date: "June 15, 2025",
+    dateFr: "15 juin 2025",
     content: [
       { t: "p", text: "Montréal's terrasse culture is concentrated. It stacks up in a few places and disperses quickly beyond them. You can waste a lot of time looking for a good terrasse in the wrong neighbourhood. Here's the honest version." },
       { t: "divider" },
@@ -78,6 +128,16 @@ export const posts: Post[] = [
       { t: "labeled", name: "Griffintown", text: "Still developing. Some good spots along the canal. Not worth a dedicated trip yet, but if you're already there, there are options. Check back in a few years." },
       { t: "labeled", name: "Saint-Henri and Little Burgundy", text: "Both have developed real restaurant scenes over the past decade, which is recent and worth acknowledging. Less crowded than the Plateau, more neighbourhood feel. The stretch of Notre-Dame Ouest from Atwater heading west is worth walking on a summer evening. Don't tell too many people." },
       { t: "labeled", name: "Verdun", text: "Consistently underrated. Wellington Street has a run of genuinely good terrasses. Honest prices, local crowd, seats available without a fight. The river is close. Go to Verdun." },
+    ],
+    contentFr: [
+      { t: "p", text: "La culture de terrasse à Montréal est concentrée. Elle s'empile dans quelques endroits et se disperse vite ailleurs. Tu peux perdre beaucoup de temps à chercher une bonne terrasse dans le mauvais quartier. Voici la version honnête." },
+      { t: "divider" },
+      { t: "labeled", name: "Plateau-Mont-Royal", text: "La référence. Plus de terrasses par bloc que n'importe où ailleurs en ville, allant des classiques tables de trottoir de bistro aux cours arrière avec foyers. Saint-Laurent, Mont-Royal, Rachel. C'est là que t'amènes les visiteurs qui veulent comprendre ce que boire dehors à Montréal ressemble vraiment. C'est aussi le plus achalandé, et ça se sent. Les deux sont vrais." },
+      { t: "labeled", name: "Mile End", text: "Légèrement moins formel que le Plateau, légèrement plus intéressant. La scène de terrasse est plus jeune et moins préoccupée par les apparences. Un banc en bois avec une carte de vins naturels est plus courant que des nappes et un menu imprimé. Bernard et Saint-Viateur. Si tu cherches l'énergie du Plateau mais avec plus de place pour respirer, c'est plus près de ce que tu veux." },
+      { t: "labeled", name: "Vieux-Montréal", text: "Sois honnête avec toi-même sur ce que tu fais là. Beaucoup de terrasses dans le Vieux-Montréal sont pricées pour les gens qui visitent la ville et reviendront pas avant quelques années. C'est correct. Mais de bons spots existent, surtout dans les rues plus calmes loin de la Place Jacques-Cartier. L'architecture est vraie. Le fleuve est vrai. Ça vaut la peine si tu choisis avec soin." },
+      { t: "labeled", name: "Griffintown", text: "En développement. Quelques bons spots le long du canal. Pas la peine d'un voyage dédié encore, mais si t'es déjà dans le coin, il y a des options." },
+      { t: "labeled", name: "Saint-Henri et Petite-Bourgogne", text: "Les deux ont développé de vraies scènes de restos sur la dernière décennie. Moins achalandé que le Plateau, plus de feeling de quartier. Le bout de Notre-Dame Ouest d'Atwater vers l'ouest vaut la peine d'être marché un soir d'été. Dis-le pas trop fort." },
+      { t: "labeled", name: "Verdun", text: "Constamment sous-estimé. La rue Wellington a une suite de bonnes terrasses. Prix honnêtes, clientèle locale, des places disponibles sans se battre. Le fleuve est proche. Allez à Verdun." },
     ],
   },
 ];

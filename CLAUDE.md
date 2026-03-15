@@ -2,6 +2,8 @@
 
 Discover every terrace and patio in Montreal.
 
+**Production URL**: https://terrasseseason.com
+
 ## Tech Stack
 - **Framework**: Next.js 16 (App Router, TypeScript)
 - **Styling**: Tailwind CSS v4, warm/earthy theme
