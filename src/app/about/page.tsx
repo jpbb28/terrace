@@ -38,7 +38,7 @@ export default function AboutPage() {
           <h2 className="font-display text-xl font-bold text-foreground">How the data works</h2>
 
           <p>
-            For features like heated and covered, we only mark them when we have a source confirming it. Dog-friendliness is harder — published sources are sparse, so we also rely on user submissions, which means accuracy varies more. When in doubt, call ahead. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
+            For features like heated and covered, we only mark them when we have a source confirming it. Dog-friendliness is harder. Published sources are sparse, so we also rely on user submissions, which means accuracy varies more. When in doubt, call ahead. Hours are set from Google Places data and refreshed before each season. If a detail isn&apos;t shown, it means we don&apos;t have a confirmed source for it, not that the answer is no.
           </p>
           <p>
             Some data is thin, and we know it. Dog-friendliness in particular is hard to verify from published sources. Most restaurants don&apos;t advertise it, and what&apos;s written online goes out of date fast. If you know a spot welcomes dogs (or doesn&apos;t), submitting that information is genuinely useful. That&apos;s how this gets better.
@@ -51,7 +51,7 @@ export default function AboutPage() {
             <Link href="/submit" className="text-accent hover:underline">
               the suggest form
             </Link>
-            . To correct something on an existing listing — wrong hours, closed permanently, dog policy changed — use the Edit button on that terrasse&apos;s page. It pre-fills the existing details so you only need to change what&apos;s wrong. We review everything that comes in.
+            . To correct something on an existing listing (wrong hours, closed permanently, dog policy changed), use the Edit button on that terrasse&apos;s page. It pre-fills the existing details so you only need to change what&apos;s wrong. We review everything that comes in.
           </p>
 
           <h2 className="font-display text-xl font-bold text-foreground mt-8">A note on accuracy</h2>
