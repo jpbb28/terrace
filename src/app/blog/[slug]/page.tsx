@@ -33,16 +33,26 @@ export default async function BlogPost({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    datePublished: post.date,
+    datePublished: post.dateIso,
+    dateModified: post.dateIso,
+    author: {
+      "@type": "Organization",
+      name: "Terrasse Season",
+      url: "https://terrasseseason.com",
+    },
     publisher: {
       "@type": "Organization",
       name: "Terrasse Season",
       url: "https://terrasseseason.com",
     },
     url: `https://terrasseseason.com/blog/${slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://terrasseseason.com/blog/${slug}`,
+    },
   };
 
   return (

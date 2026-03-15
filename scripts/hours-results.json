@@ -1,0 +1,6614 @@
+{
+  "1": {
+    "name": "Terrasse Nelligan",
+    "placeId": "ChIJw4lBglcayUwRDRjGxITxpgc",
+    "periods": []
+  },
+  "2": {
+    "name": "Terrasse sur l'Auberge",
+    "placeId": "ChIJlejpUlYayUwRUiml8Uony3I",
+    "periods": []
+  },
+  "3": {
+    "name": "Terrasse William Gray",
+    "placeId": "ChIJQcQy81YayUwRGiY5FbKWdSY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "4": {
+    "name": "Perché",
+    "placeId": "ChIJ2Rtti1YayUwRhgdfCln5q84",
+    "periods": []
+  },
+  "5": {
+    "name": "Terrasse Place d'Armes",
+    "placeId": "ChIJtbvqtFAayUwRQBmpOFt4dxs",
+    "periods": []
+  },
+  "6": {
+    "name": "Terrasses Bonsecours",
+    "placeId": "ChIJYyKjRv8ayUwRKFjeHxTmkq4",
+    "periods": []
+  },
+  "7": {
+    "name": "Jardin Nelson",
+    "placeId": "ChIJpVn8h1YayUwR7qA4GYdAphM",
+    "periods": []
+  },
+  "8": {
+    "name": "Romies",
+    "placeId": "ChIJwzJ_5XQbyUwR4s74FlLfomk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "9": {
+    "name": "L'Auberge Saint-Gabriel",
+    "placeId": "ChIJ7d6Q_FYayUwR067bgZty6kk",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "10": {
+    "name": "Jacopo",
+    "placeId": "ChIJE-RxvFYbyUwRW-mDsHvl9vc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "11": {
+    "name": "Café Il Cortile",
+    "placeId": "ChIJ6X0VoGoayUwRLJopiVNT21E",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "12": {
+    "name": "Gaspar French Brasserie",
+    "placeId": "ChIJCdLMUlYayUwRcvW39j2wAb0",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "13": {
+    "name": "Terrasse Carla",
+    "placeId": "ChIJCQm8C1EayUwRH2STD6p_jdE",
+    "periods": []
+  },
+  "14": {
+    "name": "Jellyfish",
+    "placeId": "ChIJsYSiVV8ayUwRJFuJs0XmXNI",
+    "periods": [
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "15": {
+    "name": "Vieux-Port Steakhouse",
+    "placeId": "ChIJlWh3_1YayUwRT2BYbzgdHVk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "16": {
+    "name": "Wolf & Workman",
+    "placeId": "ChIJQ5FDbfsbyUwR7KC5OLT_6m4",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "17": {
+    "name": "Le Polisson",
+    "placeId": "ChIJOTYSM1gayUwR0mZ1w47lfoE",
+    "periods": []
+  },
+  "18": {
+    "name": "Cour Arrière",
+    "placeId": "ChIJT3DF9xEbyUwREVYXCv9pZL8",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "14:00"
+      },
+      {
+        "day": 1,
+        "open": "06:30",
+        "close": "14:00"
+      },
+      {
+        "day": 2,
+        "open": "06:30",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "06:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "06:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "14:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "19": {
+    "name": "Bevo Bar + Pizzeria",
+    "placeId": "ChIJW8fv8lYayUwRLx7pfbQVuhE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "20": {
+    "name": "Buvette Pastek",
+    "placeId": "ChIJvYQOtTgbyUwR62UCD2rplqg",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "21": {
+    "name": "La Cave à Manger",
+    "placeId": "ChIJJYd8aVYbyUwRWEOeInIxA9g",
+    "periods": [
+      {
+        "day": 0,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 1,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 2,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 3,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 4,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "20:00"
+      },
+      {
+        "day": 6,
+        "open": "07:00",
+        "close": "20:00"
+      }
+    ]
+  },
+  "23": {
+    "name": "Le Sainte-Élisabeth",
+    "placeId": "ChIJD9mWCU0ayUwR_cRwhTUnfos",
+    "periods": [
+      {
+        "day": 1,
+        "open": "16:30",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "16:30",
+        "close": "02:00"
+      },
+      {
+        "day": 3,
+        "open": "16:30",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "16:30",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "16:30",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:30",
+        "close": "03:00"
+      }
+    ]
+  },
+  "24": {
+    "name": "Maison Boulud",
+    "placeId": "ChIJIQzw90AayUwRnVSjzezllKc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "14:00"
+      },
+      {
+        "day": 0,
+        "open": "18:00",
+        "close": "21:30"
+      },
+      {
+        "day": 1,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 2,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 3,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "21:30"
+      },
+      {
+        "day": 4,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "21:30"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "07:00",
+        "close": "10:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "14:00"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "25": {
+    "name": "Rose Orange",
+    "placeId": "ChIJP-pK8fgbyUwR1gmry43_1og",
+    "periods": [
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "05:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "26": {
+    "name": "Terrasse Alizé",
+    "placeId": "ChIJ6xeE7GgbyUwRKx__kgSrmdE",
+    "periods": []
+  },
+  "27": {
+    "name": "Jatoba",
+    "placeId": "ChIJu_tAA0UayUwRPbxhaQYT3ms",
+    "periods": [
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "28": {
+    "name": "Renoir",
+    "placeId": "ChIJbSKD3kAayUwR7XiyriJvz2M",
+    "periods": [
+      {
+        "day": 0,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 0,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 1,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "06:30",
+        "close": "10:30"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "29": {
+    "name": "MARCUS Restaurant + Lounge",
+    "placeId": "ChIJUfYhiN8byUwRM3uPfKkHwUc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "07:30",
+        "close": "10:30"
+      },
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "14:30"
+      },
+      {
+        "day": 0,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "07:00",
+        "close": "10:30"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "07:00",
+        "close": "10:30"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "07:00",
+        "close": "10:30"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "07:00",
+        "close": "10:30"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "10:30"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "07:30",
+        "close": "10:30"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "14:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:30"
+      }
+    ]
+  },
+  "30": {
+    "name": "Bar Furco",
+    "placeId": "ChIJ5d7980UayUwRfBIVAf6UFe0",
+    "periods": [
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "31": {
+    "name": "Ferreira Café",
+    "placeId": "ChIJdyXKZkEayUwR2qeViS0Kndk",
+    "periods": [
+      {
+        "day": 1,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "21:30"
+      },
+      {
+        "day": 2,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "21:30"
+      },
+      {
+        "day": 3,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "21:30"
+      },
+      {
+        "day": 4,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "21:30"
+      },
+      {
+        "day": 5,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "32": {
+    "name": "Escondite",
+    "placeId": "ChIJw1a65EQayUwRGw0brnBCmJk",
+    "periods": [
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "33": {
+    "name": "Papito",
+    "placeId": "ChIJ73SuS70byUwRmhRxZO8RxK0",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "34": {
+    "name": "Les Enfants Terribles (Place Ville Marie)",
+    "placeId": "ChIJiygGYkQayUwRX_y9m-SawgA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "35": {
+    "name": "Bivouac",
+    "placeId": "ChIJHWyDNugbyUwR7j5h5U11LGE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "11:45",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "37": {
+    "name": "Muze Lounge & Terrasse",
+    "placeId": "ChIJ4U7ESU8ayUwRhM7vKs6qieA",
+    "periods": []
+  },
+  "38": {
+    "name": "Biiru",
+    "placeId": "ChIJwbQbl0UayUwRsViu0c9uvqQ",
+    "periods": [
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "39": {
+    "name": "Nacarat",
+    "placeId": "ChIJ-84iWkMayUwRUaWawznHGHs",
+    "periods": [
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "40": {
+    "name": "Belvu",
+    "placeId": "ChIJ5zat-eUbyUwRr841D1REK2E",
+    "periods": []
+  },
+  "41": {
+    "name": "Café Parvis",
+    "placeId": "ChIJu1OQ9kUayUwRY8HESTqnl5E",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "42": {
+    "name": "Pavillon Social Club (SAT)",
+    "placeId": "ChIJJ2t7RZMbyUwR3eterW8M9WU",
+    "periods": []
+  },
+  "43": {
+    "name": "Bar George",
+    "placeId": "ChIJQ3lcl0EayUwRpXqRythab9M",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "07:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "44": {
+    "name": "Sir Winston Churchill Pub",
+    "placeId": "ChIJz1on3UEayUwRfPsiQVDBUC8",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "45": {
+    "name": "Poincaré Chinatown",
+    "placeId": "ChIJk0hRm-gbyUwRtb1VeDYLCjY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "46": {
+    "name": "Le Majestique",
+    "placeId": "ChIJKz2aKs0byUwRBPsetIbRk90",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "47": {
+    "name": "Le Filet",
+    "placeId": "ChIJY-TutywayUwRY4X-wJtFlAw",
+    "periods": [
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:45",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:45",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "48": {
+    "name": "Café Santropol",
+    "placeId": "ChIJ1_CaEDMayUwRcCe0drIg8Ig",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "20:00"
+      }
+    ]
+  },
+  "49": {
+    "name": "Khyber Pass",
+    "placeId": "ChIJaYtxrM4byUwRGwtw_AhjoWk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "50": {
+    "name": "Le Jardin de Panos",
+    "placeId": "ChIJJ6T_sc4byUwRDS00PeoIGn8",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "21:30"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "21:30"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "51": {
+    "name": "Réservoir",
+    "placeId": "ChIJt1iSMzMayUwRXDqFy_11h8c",
+    "periods": [
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "52": {
+    "name": "La Buvette Chez Simone",
+    "placeId": "ChIJm1mG0CoayUwReBaPkTO00xM",
+    "periods": [
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "00:30"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "00:30"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "53": {
+    "name": "Icehouse",
+    "placeId": "ChIJFyqcxTQayUwRvDR6nzFlDgQ",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "54": {
+    "name": "Bistrot La Fabrique",
+    "placeId": "ChIJeVtMebUbyUwRElVz5WRkGTM",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "21:30"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "21:30"
+      }
+    ]
+  },
+  "55": {
+    "name": "Le Rouge Gorge",
+    "placeId": "ChIJBTIkIdsbyUwRJCy5mg5jD64",
+    "periods": [
+      {
+        "day": 0,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "56": {
+    "name": "Azalea",
+    "placeId": "ChIJ9Xajc1YbyUwR6yTqKvvfonA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 1,
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "21:00"
+      }
+    ]
+  },
+  "57": {
+    "name": "Le Bar Darling",
+    "placeId": "ChIJqdsWvNIbyUwRUIsV_AIKQiU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "10:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "58": {
+    "name": "Grenade",
+    "placeId": "ChIJgX-J7bkbyUwRNQe86KTzx9I",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "59": {
+    "name": "Plan B",
+    "placeId": "ChIJNV7JgtEbyUwRMHXWlu-k3kI",
+    "periods": [
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "60": {
+    "name": "Casa Del Popolo",
+    "placeId": "ChIJ4w0kTNQbyUwRhGmeVBPK1ug",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "61": {
+    "name": "Bistro Auprès de ma blonde",
+    "placeId": "ChIJFSWIucsbyUwRb7lOHz5QmpQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:30"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "23:30"
+      }
+    ]
+  },
+  "62": {
+    "name": "Café Melbourne",
+    "placeId": "ChIJDf_1gNMbyUwRcqql2jZQ72Y",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 1,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 2,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 3,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 4,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "16:00"
+      }
+    ]
+  },
+  "63": {
+    "name": "Turbo Haüs",
+    "placeId": "ChIJS2FqGW8byUwRcAiNOjkbglk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "64": {
+    "name": "Café Olimpico",
+    "placeId": "ChIJZ1CISXkZyUwRcCfuPM5b-Lo",
+    "periods": [
+      {
+        "day": 0,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "06:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "65": {
+    "name": "Pub Bishop & Bagg",
+    "placeId": "ChIJt6kg_3sZyUwRPlVRCgGG3_w",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "66": {
+    "name": "Café Club Social",
+    "placeId": "ChIJicz8MHkZyUwRRumbrPmlpWM",
+    "periods": [
+      {
+        "day": 0,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "06:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "06:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "67": {
+    "name": "Vices & Versa",
+    "placeId": "ChIJvTQmWMkyVUARlw-M1y4sjVc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "03:00"
+      }
+    ]
+  },
+  "68": {
+    "name": "Taverne Atlantic",
+    "placeId": "ChIJ2yxMLpIZyUwR7tgRHqU7QDE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "69": {
+    "name": "Anemone",
+    "placeId": "ChIJxzfAOXMZyUwRIhk6YUw3y7c",
+    "periods": [
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:30"
+      }
+    ]
+  },
+  "70": {
+    "name": "Bar Cicchetti",
+    "placeId": "ChIJUTwROHMZyUwRpSbkahmsP2k",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "71": {
+    "name": "Dépanneur Le Pick Up",
+    "placeId": "ChIJm3pqbw0ZyUwRXtuiSuFuihs",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 1,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 3,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 4,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "16:00"
+      }
+    ]
+  },
+  "72": {
+    "name": "WILLS",
+    "placeId": "ChIJOUZMv3IZyUwREfBRgGb1oPg",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "73": {
+    "name": "Pumpui",
+    "placeId": "ChIJL7yPoW0ZyUwRTLrGqZUZCcg",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 0,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 1,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 2,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 3,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 4,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 5,
+        "open": "16:30",
+        "close": "21:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "15:30"
+      },
+      {
+        "day": 6,
+        "open": "16:30",
+        "close": "21:00"
+      }
+    ]
+  },
+  "74": {
+    "name": "Damas",
+    "placeId": "ChIJNVw9hX8ZyUwRbsz0S4Rg6eY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "14:30"
+      },
+      {
+        "day": 0,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "14:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "75": {
+    "name": "Leméac",
+    "placeId": "ChIJm_plcYAZyUwRqtzJFLqPyEM",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "76": {
+    "name": "La Croissanterie Figaro",
+    "placeId": "ChIJP5zXL4AZyUwRdK-XEC0X_9k",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "77": {
+    "name": "Brasserie Bernard",
+    "placeId": "ChIJg0ahNJ0ZyUwRpv0slKVfjXY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "79": {
+    "name": "Provisions Bar à Vin",
+    "placeId": "ChIJE9BCanYZyUwROrTeFhErxEs",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "80": {
+    "name": "ALMA",
+    "placeId": "ChIJ7epUbp0ZyUwRe-GTZF741jw",
+    "periods": [
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "81": {
+    "name": "Bar Henrietta",
+    "placeId": "ChIJRWsZf9UbyUwRwQvQ6UdBSWM",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "82": {
+    "name": "Rumi",
+    "placeId": "ChIJ40IgO4AZyUwR1ROWv-zayOI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "21:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "21:30"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "21:30"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "21:30"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "21:45"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "21:45"
+      }
+    ]
+  },
+  "83": {
+    "name": "Le Petit Alep Bistro",
+    "placeId": "ChIJB76LnBMZyUwRxfaR2QfHZWk",
+    "periods": [
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "84": {
+    "name": "Pizzeria Napoletana",
+    "placeId": "ChIJ6wfm3mwZyUwR_OiovAdITds",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "85": {
+    "name": "Luciano Trattoria",
+    "placeId": "ChIJQ0b2_kEZyUwR7ZMpIaWkSzg",
+    "periods": [
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "86": {
+    "name": "Mon Lapin",
+    "placeId": "ChIJEZybpW0ZyUwRUNE3vXSjTLU",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "87": {
+    "name": "Isle de Garde",
+    "placeId": "ChIJQecLVWgZyUwRlyyxBRbaG9g",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "88": {
+    "name": "vinvinvin",
+    "placeId": "ChIJXVHk-c4ZyUwR5ovsu_TnFos",
+    "periods": [
+      {
+        "day": 0,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "89": {
+    "name": "Snowbird Tiki Bar",
+    "placeId": "ChIJH2rlfG0ZyUwRM79aUBB0Vaw",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "90": {
+    "name": "Marci",
+    "placeId": "ChIJS_MqBAAZyUwRodCEerf1fCk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "21:30"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "91": {
+    "name": "Terrasse Saint-Ambroise",
+    "placeId": "ChIJZQsoEJEQyUwRgZqXrb-nilM",
+    "periods": []
+  },
+  "92": {
+    "name": "Messorem Bracitorium",
+    "placeId": "ChIJBZTB3yMRyUwR9qKTRYpDl2M",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "12:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "12:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "93": {
+    "name": "Joe Beef",
+    "placeId": "ChIJYQneI3oayUwR2jPdwbZE2k0",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "94": {
+    "name": "Le Vin Papillon",
+    "placeId": "ChIJbVV8IHoayUwRkwaSUmwt6KA",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "95": {
+    "name": "Tuck Shop",
+    "placeId": "ChIJmbEpM5oQyUwRT5Ew1a7RsoU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "96": {
+    "name": "Riverside Saint-Henri",
+    "placeId": "ChIJM5vDYJAQyUwR4ASSqJJyb_Q",
+    "periods": []
+  },
+  "97": {
+    "name": "Arthurs Nosh Bar",
+    "placeId": "ChIJ40xVwZsQyUwRI4DWxWOKybc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "16:00"
+      },
+      {
+        "day": 1,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "16:00"
+      }
+    ]
+  },
+  "98": {
+    "name": "BarBara",
+    "placeId": "ChIJAzWC-oIRyUwRispJ1ONPp70",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "99": {
+    "name": "Stem Bar",
+    "placeId": "ChIJV4H4yBcbyUwRwwJk9z6EPH4",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "100": {
+    "name": "Candide",
+    "placeId": "ChIJi4oyWGQayUwRPAmT4-4U-jo",
+    "periods": [
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "101": {
+    "name": "Restaurant Mélisse",
+    "placeId": "ChIJFwGmIV8ayUwRsiaVqvgx_Vc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "14:30"
+      }
+    ]
+  },
+  "102": {
+    "name": "Mano Cornuto",
+    "placeId": "ChIJJ1C4gdQbyUwRg_V28-gfyfA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "103": {
+    "name": "SHAY",
+    "placeId": "ChIJhVcpFrgbyUwRo11A48ntBDs",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 0,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "104": {
+    "name": "Mauvais Garçons",
+    "placeId": "ChIJ-Ze7RGMayUwRbIjoAWrGwTc",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "105": {
+    "name": "Bazart",
+    "placeId": "ChIJz6XfS_UbyUwRg_1-bl_BcAY",
+    "periods": [
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "106": {
+    "name": "Le Richmond",
+    "placeId": "ChIJj6preGMayUwRjqnHfz3Juxo",
+    "periods": [
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "107": {
+    "name": "Canal Lounge",
+    "placeId": "ChIJeUBoPngayUwRoLPuQxdeW6k",
+    "periods": []
+  },
+  "108": {
+    "name": "Hoogan & Beaufort",
+    "placeId": "ChIJLWsVh-4byUwR8JlDKIYRZvY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "13:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:30"
+      }
+    ]
+  },
+  "109": {
+    "name": "Verdun Beach",
+    "placeId": "ChIJV7MNUTMRyUwRG6jEhrd1Tr4",
+    "periods": [
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:30"
+      }
+    ]
+  },
+  "110": {
+    "name": "Palco",
+    "placeId": "ChIJpyO9a2QQyUwRvcCoMuseF50",
+    "periods": []
+  },
+  "111": {
+    "name": "Monkland Taverne",
+    "placeId": "ChIJv8EVuFIXyUwRPUZwguOMrIE",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "112": {
+    "name": "Terroirs Restaurant",
+    "placeId": "ChIJ2VLiVLwbyUwR6jGvrd8ln5M",
+    "periods": [
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "18:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "113": {
+    "name": "June Buvette",
+    "placeId": "ChIJgfqNp5YbyUwR-k6VqFxJ4qw",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "114": {
+    "name": "Le Butterblume",
+    "placeId": "ChIJp-R4Z3oZyUwRJG0oXbwmge0",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "16:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "16:00"
+      }
+    ]
+  },
+  "115": {
+    "name": "Moccione Pizza",
+    "placeId": "ChIJHe6iJxkZyUwRh_08-_i7xDQ",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "116": {
+    "name": "Les Cavistes",
+    "placeId": "ChIJG_3XF5QYyUwRAnvyv7vcCIE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "117": {
+    "name": "Moqueur",
+    "placeId": "ChIJo6WdpFYbyUwRZ42jRQhjApA",
+    "periods": []
+  },
+  "118": {
+    "name": "Bar Renard",
+    "placeId": "ChIJnaLrBK4byUwRlf9GDGLaHWw",
+    "periods": [
+      {
+        "day": 0,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "119": {
+    "name": "Denise",
+    "placeId": "ChIJm_wiugwZyUwRQNz3mNBer4Y",
+    "periods": [
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "120": {
+    "name": "Marché des Éclusiers",
+    "placeId": "ChIJ4cOO1_UayUwRId7fTpGRbi0",
+    "periods": []
+  },
+  "121": {
+    "name": "Pub BreWskey",
+    "placeId": "ChIJJaoitVUayUwR-HuAiVhF5qU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "02:00"
+      }
+    ]
+  },
+  "122": {
+    "name": "Boqueria",
+    "placeId": "ChIJh7JQ9LsbyUwReHpE6qsnBlg",
+    "periods": []
+  },
+  "123": {
+    "name": "Maggie Oakes",
+    "placeId": "ChIJl8LPjlYayUwReIJnVvoVhHQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "07:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "07:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "07:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "07:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "07:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "07:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "07:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "124": {
+    "name": "Pincette",
+    "placeId": "ChIJJQSKgS0byUwRXQ0Q63QpizY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "125": {
+    "name": "Maison Saint-Paul",
+    "placeId": "ChIJa1TsNFQayUwRsyZ2zcTixkQ",
+    "periods": []
+  },
+  "126": {
+    "name": "Modavie",
+    "placeId": "ChIJF47_p1cayUwR1uC4VBovwI0",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "127": {
+    "name": "Kyo Bar Japonais",
+    "placeId": "ChIJ9wsUtlAayUwR-gBi75WVTlw",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "128": {
+    "name": "Pangea",
+    "placeId": "ChIJW6T5-yMbyUwRLWIrtNTBSaw",
+    "periods": [
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "129": {
+    "name": "La Catrina",
+    "placeId": "ChIJbfJE4FobyUwRywyRy0pwzZE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "17:00"
+      },
+      {
+        "day": 2,
+        "open": "12:00",
+        "close": "17:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "130": {
+    "name": "Terrasse R",
+    "placeId": "ChIJxSn5W0QayUwRj8W-oHLpVyM",
+    "periods": []
+  },
+  "131": {
+    "name": "Emmanuelle",
+    "placeId": "ChIJL_JS420byUwRLfUpTrQ-uEA",
+    "periods": []
+  },
+  "132": {
+    "name": "Ciel Rose",
+    "placeId": "ChIJH_eC1s0byUwRX44ohrIT63c",
+    "periods": []
+  },
+  "133": {
+    "name": "Le Pois Penché",
+    "placeId": "ChIJqZ0wokEayUwRFyroNjgCPNI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:30",
+        "close": "15:00"
+      },
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "10:30",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "134": {
+    "name": "OSMO x MARUSAN",
+    "placeId": "ChIJ8RAbfVkayUwRHxAv6SgGENQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "18:00"
+      }
+    ]
+  },
+  "135": {
+    "name": "Kampai Garden",
+    "placeId": "ChIJja8kwWsayUwRJ2zKnUMY174",
+    "periods": []
+  },
+  "136": {
+    "name": "Le Balcon",
+    "placeId": "ChIJY2pGPFQayUwRcnYZJSlewd0",
+    "periods": [
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "137": {
+    "name": "Brasseurs du Monde",
+    "placeId": "ChIJ0wlQK7MbyUwRZ7g3CMX46aI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "138": {
+    "name": "Le Saint-Bock",
+    "placeId": "ChIJ0zgIp7QbyUwRz9ilNqPjQis",
+    "periods": [
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "139": {
+    "name": "Oncle Lee",
+    "placeId": "ChIJJXkEP6AbyUwRV_mi3BrJrhU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "140": {
+    "name": "Café Miracolo",
+    "placeId": "ChIJh3t5WPEbyUwRVS_Y0-AuV7g",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "00:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "00:00"
+      }
+    ]
+  },
+  "141": {
+    "name": "La Prunelle",
+    "placeId": "ChIJWaRLbMwbyUwRMWiHV1eaAE4",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:30"
+      }
+    ]
+  },
+  "142": {
+    "name": "Les Rites Berbères",
+    "placeId": "ChIJM4CcBNQbyUwRmaFbmTef0rM",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "143": {
+    "name": "La Maison Oflore",
+    "placeId": "ChIJFezozu8byUwR_k0lestW8Gw",
+    "periods": []
+  },
+  "144": {
+    "name": "Rhumerie Barraca",
+    "placeId": "ChIJzVNNwtobyUwRIq-i7O7LbYk",
+    "periods": [
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "145": {
+    "name": "Aux Quartiers Belle Gueule",
+    "placeId": "ChIJzbEFgGEZyUwRal50wkQeM2A",
+    "periods": [
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "146": {
+    "name": "Café In Gamba (Saint-Viateur)",
+    "placeId": "ChIJX_pHqIsZyUwRguEkhgK6m4s",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:30",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "07:00",
+        "close": "18:00"
+      },
+      {
+        "day": 2,
+        "open": "07:00",
+        "close": "18:00"
+      },
+      {
+        "day": 3,
+        "open": "07:00",
+        "close": "18:00"
+      },
+      {
+        "day": 4,
+        "open": "07:00",
+        "close": "18:00"
+      },
+      {
+        "day": 5,
+        "open": "07:00",
+        "close": "18:00"
+      },
+      {
+        "day": 6,
+        "open": "08:30",
+        "close": "18:00"
+      }
+    ]
+  },
+  "147": {
+    "name": "Bar Mamie",
+    "placeId": "ChIJe_40HgIZyUwRTPrHQXJQtZI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 4,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "148": {
+    "name": "Buvette Beaubien",
+    "placeId": "ChIJtUI0JM0ZyUwRzHcX7MbOeiw",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "149": {
+    "name": "Iconoglace",
+    "placeId": "ChIJsdugHcQZyUwRtB5_uQ7ZDF8",
+    "periods": []
+  },
+  "150": {
+    "name": "Bar le Vestiaire",
+    "placeId": "ChIJ4wJ8YmkZyUwREndiLFQBbPw",
+    "periods": [
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "01:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "02:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "151": {
+    "name": "Café des Habitudes",
+    "placeId": "ChIJoaMGmvwZyUwRuC3avUFLWQ0",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "21:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "18:00"
+      }
+    ]
+  },
+  "152": {
+    "name": "Café Pista",
+    "placeId": "ChIJU1y3VkkbyUwRFGnSjdIR3KA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "07:30",
+        "close": "17:00"
+      },
+      {
+        "day": 2,
+        "open": "07:30",
+        "close": "17:00"
+      },
+      {
+        "day": 3,
+        "open": "07:30",
+        "close": "17:00"
+      },
+      {
+        "day": 4,
+        "open": "07:30",
+        "close": "17:00"
+      },
+      {
+        "day": 5,
+        "open": "07:30",
+        "close": "18:00"
+      },
+      {
+        "day": 6,
+        "open": "08:00",
+        "close": "18:00"
+      }
+    ]
+  },
+  "153": {
+    "name": "Fleurimont Café & Vin",
+    "placeId": "ChIJMT-hlt4ZyUwRbA2MiCJEU9E",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "17:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "17:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "17:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "17:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "17:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ]
+  },
+  "154": {
+    "name": "Bar Bello",
+    "placeId": "ChIJoTnCRdgZyUwRiRvDG1noNR8",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "155": {
+    "name": "Café San Gennaro",
+    "placeId": "ChIJ07floW0ZyUwRZuoV2k9fGqI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "07:30",
+        "close": "19:30"
+      },
+      {
+        "day": 2,
+        "open": "07:30",
+        "close": "19:30"
+      },
+      {
+        "day": 3,
+        "open": "07:30",
+        "close": "19:30"
+      },
+      {
+        "day": 4,
+        "open": "07:30",
+        "close": "19:30"
+      },
+      {
+        "day": 5,
+        "open": "07:30",
+        "close": "19:30"
+      },
+      {
+        "day": 6,
+        "open": "07:30",
+        "close": "19:30"
+      }
+    ]
+  },
+  "156": {
+    "name": "Le Relais Boréale",
+    "placeId": "ChIJBQuDVE4ZyUwRx3BDK5jKMCA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "157": {
+    "name": "SAE LOW",
+    "placeId": "ChIJLTIyP1wZyUwRhbDqyWTm7Zs",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "10:00",
+        "close": "14:30"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "14:30"
+      }
+    ]
+  },
+  "158": {
+    "name": "Buvette Pompette",
+    "placeId": "ChIJASK4j0kZyUwRCmsPZ0Dv4dc",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "159": {
+    "name": "Pub Arya",
+    "placeId": "ChIJzXO5mOUZyUwRL_srZr4VrjY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "160": {
+    "name": "SUPERNAT",
+    "placeId": "ChIJ8RGTevkdyUwRa0Z125h9Ros",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:00",
+        "close": "16:00"
+      },
+      {
+        "day": 3,
+        "open": "09:00",
+        "close": "16:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "09:00",
+        "close": "16:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "09:00",
+        "close": "16:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "16:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "161": {
+    "name": "Labarake",
+    "placeId": "ChIJLWfyi_EbyUwRc8m78JHDcWk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "162": {
+    "name": "Mignon",
+    "placeId": "ChIJYQNK8dUbyUwRQW2G_pIyjhg",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "163": {
+    "name": "Club Social P.S. / Elena Pizza",
+    "placeId": "ChIJPZfPEsERyUwRUAwzJYePpLQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "16:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "16:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "16:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "16:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "164": {
+    "name": "Brasseur de Montréal",
+    "placeId": "ChIJ-50kv2MayUwRIyr0diOu024",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "23:00"
+      }
+    ]
+  },
+  "165": {
+    "name": "September Surf Café",
+    "placeId": "ChIJzZqeJHoayUwRZXP5r0uR-_w",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "15:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "15:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "15:00"
+      }
+    ]
+  },
+  "166": {
+    "name": "Memento",
+    "placeId": "ChIJkeELZYsbyUwRxnQaH1ogIIA",
+    "periods": [
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "167": {
+    "name": "BENELUX (Verdun)",
+    "placeId": "ChIJj8lLQGQQyUwRBnDP-9qh2PQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "14:00",
+        "close": "03:00"
+      },
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "12:00",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "14:00",
+        "close": "03:00"
+      }
+    ]
+  },
+  "168": {
+    "name": "Maison de thé Cha Noir",
+    "placeId": "ChIJAw4jjmcQyUwRBd-RN9m0uaE",
+    "periods": [
+      {
+        "day": 0,
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": 6,
+        "open": "10:00",
+        "close": "18:00"
+      }
+    ]
+  },
+  "169": {
+    "name": "Nikkei",
+    "placeId": "ChIJUdE5_FgbyUwR-6ci6tiuzNw",
+    "periods": [
+      {
+        "day": 1,
+        "open": "18:00",
+        "close": "22:30"
+      },
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "170": {
+    "name": "Arte & Farina",
+    "placeId": "ChIJoyls17YbyUwRDfgxkHcplaU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": 1,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 2,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 3,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 4,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 5,
+        "open": "08:00",
+        "close": "19:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "18:00"
+      }
+    ]
+  },
+  "171": {
+    "name": "Rosso Cielo / Cielo Terrace",
+    "placeId": "ChIJA0deIAAjyUwRXFB4Kw9lWu4",
+    "periods": [
+      {
+        "day": 0,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "06:30",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "06:30",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "06:30",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "06:30",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "06:30",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "07:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "172": {
+    "name": "Le Boating Club",
+    "placeId": "ChIJ6S7VnO4myUwRLNl58icsbaI",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "02:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "02:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "02:00"
+      }
+    ]
+  },
+  "173": {
+    "name": "Amato",
+    "placeId": "ChIJSyYGg-gmyUwRvTdnpZ8G47I",
+    "periods": [
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 2,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 3,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 4,
+        "open": "17:30",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "14:00"
+      },
+      {
+        "day": 5,
+        "open": "17:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "174": {
+    "name": "Les Insulaires Microbrasseurs",
+    "placeId": "ChIJRy-wnpQhyUwRSVET2jG5iBA",
+    "periods": [
+      {
+        "day": 0,
+        "open": "15:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "15:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "15:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "15:00",
+        "close": "01:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "15:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "175": {
+    "name": "Le Mitoyen",
+    "placeId": "ChIJT0lSiLwkyUwRmn77aaRxfY8",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "21:00"
+      },
+      {
+        "day": 2,
+        "open": "18:00",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "18:00",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "18:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "176": {
+    "name": "Chez Vincent",
+    "placeId": "ChIJK-qy0GcbyUwREA7U2h1u5kY",
+    "periods": [
+      {
+        "day": 1,
+        "open": "15:00",
+        "close": "21:00"
+      },
+      {
+        "day": 2,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "11:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "177": {
+    "name": "Bravi",
+    "placeId": "ChIJ4Wf91y8DyUwRkOayQGdLrJg",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "178": {
+    "name": "Dirty D",
+    "placeId": "ChIJj64d_k4PyUwRHzFtuhlN7mY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "03:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "03:00"
+      }
+    ]
+  },
+  "179": {
+    "name": "Siam Dix30",
+    "placeId": "ChIJ469JcE8PyUwRKwfZLtK9rUU",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "21:30"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "21:30"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "180": {
+    "name": "Annie's Sur-le-Lac",
+    "placeId": "ChIJ7_WQokY4yUwRgcjzOLQslBI",
+    "periods": [
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "11:30",
+        "close": "22:00"
+      }
+    ]
+  },
+  "181": {
+    "name": "Olé Tapas",
+    "placeId": "ChIJwyv24kY4yUwR6TSu5UcKGCk",
+    "periods": [
+      {
+        "day": 0,
+        "open": "12:00",
+        "close": "20:00"
+      },
+      {
+        "day": 5,
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": 6,
+        "open": "12:00",
+        "close": "21:00"
+      }
+    ]
+  },
+  "182": {
+    "name": "Delos Resto-Bar",
+    "placeId": "ChIJZ-r7gkg4yUwRVMbEbSItPEY",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  },
+  "183": {
+    "name": "Ye Olde Orchard Pub & Grill",
+    "placeId": "ChIJo-fda5o-yUwRgVvDOfyCC_M",
+    "periods": [
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "00:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "01:00"
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "01:00"
+      }
+    ]
+  },
+  "184": {
+    "name": "Lou's Pointe-Claire",
+    "placeId": "ChIJYavsxBI_yUwR82KwjX1xt8k",
+    "periods": [
+      {
+        "day": 0,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "23:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "23:00"
+      }
+    ]
+  },
+  "185": {
+    "name": "Bernies Pizza Martini Bar",
+    "placeId": "ChIJB4gc8MY9yUwR_fVJ9v7m1rQ",
+    "periods": [
+      {
+        "day": 0,
+        "open": "16:00",
+        "close": "22:00"
+      },
+      {
+        "day": 1,
+        "open": "16:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 3,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 4,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 5,
+        "open": "16:00",
+        "close": "22:30"
+      },
+      {
+        "day": 6,
+        "open": "16:00",
+        "close": "22:30"
+      }
+    ]
+  },
+  "186": {
+    "name": "Restaurant Le Gourmand",
+    "placeId": "ChIJ17YdWZo-yUwR_q6NUWyCBzc",
+    "periods": [
+      {
+        "day": 1,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 1,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 2,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 2,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 3,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 3,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 4,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 4,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 5,
+        "open": "11:30",
+        "close": "15:00"
+      },
+      {
+        "day": 5,
+        "open": "17:00",
+        "close": "22:00"
+      },
+      {
+        "day": 6,
+        "open": "17:00",
+        "close": "22:00"
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
 import BlogIndexContent from "./BlogIndexContent";
+import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
   title: "Notes – Terrasse Season",
@@ -13,11 +14,43 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Notes – Terrasse Season",
+  description: "Guides, neighbourhood breakdowns, and everything else worth knowing about Montréal terrasse season.",
+  url: "https://terrasseseason.com/blog",
+  publisher: {
+    "@type": "Organization",
+    name: "Terrasse Season",
+    url: "https://terrasseseason.com",
+  },
+  blogPost: posts.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.dateIso,
+    dateModified: post.dateIso,
+    url: `https://terrasseseason.com/blog/${post.slug}`,
+    author: {
+      "@type": "Organization",
+      name: "Terrasse Season",
+      url: "https://terrasseseason.com",
+    },
+  })),
+};
+
 export default function BlogIndex() {
   return (
-    <div className="min-h-screen bg-background">
-      <SiteNav />
-      <BlogIndexContent />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-background">
+        <SiteNav />
+        <BlogIndexContent />
+      </div>
+    </>
   );
 }

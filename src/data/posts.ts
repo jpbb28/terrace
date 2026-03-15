@@ -25,6 +25,7 @@ export const posts: Post[] = [
     descriptionFr: "La réponse courte : la Fête de la Reine. La réponse longue passe par février, la souffrance méritée, et pourquoi septembre est le mois dont personne parle.",
     date: "March 15, 2026",
     dateFr: "15 mars 2026",
+    dateIso: "2026-03-15",
     content: [
       { t: "p", text: "Victoria Day. That's your answer. Third Monday of May, and the city that's been hunching its shoulders against the cold since October suddenly puts chairs outside." },
       { t: "p", text: "It's not gradual. It happens almost overnight. Café owners drag out tables at 7am. By noon, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine they don't strictly need at that hour. Nobody cares. The season has started." },
@@ -58,6 +59,7 @@ export const posts: Post[] = [
     descriptionFr: "Les gens de Miami comprennent pas pourquoi les Montréalais font tout un plat des rooftops. Ils ont jamais survécu à un février ici.",
     date: "March 15, 2026",
     dateFr: "15 mars 2026",
+    dateIso: "2026-03-15",
     content: [
       { t: "p", text: "People from Miami or Barcelona don't understand why Montréalers make such a thing about rooftop terrasses. They have outdoor drinking 365 days a year. They've been desensitized." },
       { t: "p", text: "We haven't." },
@@ -93,6 +95,7 @@ export const posts: Post[] = [
     descriptionFr: "Montréal a toujours été une ville de chiens. La culture de terrasse a rattrapé. Guide pratique pour savoir où aller vraiment.",
     date: "March 15, 2026",
     dateFr: "15 mars 2026",
+    dateIso: "2026-03-15",
     content: [
       { t: "p", text: "Montréal has always been a dog city. Walk any street in the Plateau on a Saturday morning and count. The density is remarkable. People here have dogs the way other cities have cars. A fundamental part of how they move through the world." },
       { t: "p", text: "The terrasse culture has caught up. More places now treat dogs as actual guests rather than things to be managed until someone complains. Water bowl at the door. Staff who stop to say hello before taking your order. You can tell the difference between a place that has a dogs-allowed policy and a place that actually likes dogs." },
@@ -120,6 +123,7 @@ export const posts: Post[] = [
     descriptionFr: "Là où la culture de terrasse vit vraiment, quartier par quartier. La version honnête.",
     date: "March 15, 2026",
     dateFr: "15 mars 2026",
+    dateIso: "2026-03-15",
     content: [
       { t: "p", text: "Montréal's terrasse culture is concentrated. It stacks up in a few places and disperses quickly beyond them. You can waste a lot of time looking for a good terrasse in the wrong neighbourhood. Here's the honest version." },
       { t: "divider" },
