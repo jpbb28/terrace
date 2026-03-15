@@ -4,8 +4,20 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { terraces } from "@/data/terraces";
 import { slugify, formatHours } from "@/lib/utils";
+import type { Terrace } from "@/lib/types";
 
 type Props = { params: Promise<{ slug: string }> };
+
+const TYPE_LABELS: Record<string, string> = {
+  sidewalk: "Sidewalk",
+  rooftop: "Rooftop",
+  backyard: "Backyard",
+  courtyard: "Courtyard",
+  balcony: "Balcony",
+  garden: "Garden",
+};
+
+const SCHEMA_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export function generateStaticParams() {
   return terraces.map((t) => ({ slug: slugify(t.name) }));
@@ -16,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const terrace = terraces.find((t) => slugify(t.name) === slug);
   if (!terrace) return {};
 
-  const typeStr = terrace.terraceType?.join(" and ") ?? "terrace";
-  const desc = `${terrace.name} is a ${typeStr} in ${terrace.neighborhood}, Montréal. ${terrace.description}`.slice(0, 160);
+  const typeStr = terrace.terraceType?.map((tt) => TYPE_LABELS[tt] ?? tt).join(" and ") ?? "terrace";
+  const desc = `${terrace.name} is a ${typeStr} terrace in ${terrace.neighborhood}, Montréal. ${terrace.description}`.slice(0, 160);
 
   return {
-    title: `${terrace.name} – Terrasse Season`,
+    title: `${terrace.name} – Terrasse & Patio in ${terrace.neighborhood}, Montréal`,
     description: desc,
     alternates: {
       canonical: `https://terrasseseason.com/terraces/${slug}`,
@@ -41,15 +53,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function TerracePage({ params }: Props) {
-  const { slug } = await params;
-  const terrace = terraces.find((t) => slugify(t.name) === slug);
-  if (!terrace) notFound();
+function buildJsonLd(terrace: Terrace, slug: string) {
+  const openingHoursSpecification = terrace.openingPeriods?.length
+    ? terrace.openingPeriods.map((p) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: `https://schema.org/${SCHEMA_DAYS[p.day]}`,
+        opens: p.open,
+        closes: p.close,
+      }))
+    : undefined;
 
-  const jsonLd = {
+  const establishment = {
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     name: terrace.name,
+    description: terrace.description,
     address: {
       "@type": "PostalAddress",
       streetAddress: terrace.address,
@@ -62,35 +80,80 @@ export default async function TerracePage({ params }: Props) {
       latitude: terrace.lat,
       longitude: terrace.lng,
     },
+    url: `https://terrasseseason.com/terraces/${slug}`,
     ...(terrace.cuisineType && { servesCuisine: terrace.cuisineType }),
-    ...(terrace.website && { url: terrace.website }),
+    ...(terrace.website && { sameAs: terrace.website }),
     ...(terrace.phone && { telephone: terrace.phone }),
-    description: terrace.description,
     ...(terrace.photos[0] && { image: terrace.photos[0] }),
+    ...(openingHoursSpecification && { openingHoursSpecification }),
+    ...(terrace.googleRating &&
+      terrace.googleReviewCount && {
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: terrace.googleRating,
+          reviewCount: terrace.googleReviewCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      }),
   };
 
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Terrasse Season",
+        item: "https://terrasseseason.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: terrace.neighborhood,
+        item: `https://terrasseseason.com/?neighborhood=${encodeURIComponent(terrace.neighborhood)}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: terrace.name,
+        item: `https://terrasseseason.com/terraces/${slug}`,
+      },
+    ],
+  };
+
+  return [establishment, breadcrumb];
+}
+
+export default async function TerracePage({ params }: Props) {
+  const { slug } = await params;
+  const terrace = terraces.find((t) => slugify(t.name) === slug);
+  if (!terrace) notFound();
+
+  const jsonLd = buildJsonLd(terrace, slug);
   const hoursLines = formatHours(terrace.openingPeriods);
+
   const features = [
     terrace.dogFriendly && "Dog-friendly",
     terrace.covered && "Covered",
     terrace.heated && "Heated",
   ].filter(Boolean) as string[];
 
-  const typeLabels: Record<string, string> = {
-    sidewalk: "Sidewalk",
-    rooftop: "Rooftop",
-    backyard: "Backyard",
-    courtyard: "Courtyard",
-    balcony: "Balcony",
-    garden: "Garden",
-  };
+  const typeStr = terrace.terraceType?.map((tt) => TYPE_LABELS[tt] ?? tt).join(" & ");
+  const subtitle = [typeStr ? `${typeStr} terrace` : "Terrace", terrace.cuisineType, `${terrace.neighborhood}, Montréal`]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
 
       <div className="min-h-screen bg-background">
         {/* Nav */}
@@ -127,7 +190,7 @@ export default async function TerracePage({ params }: Props) {
           <div className="relative w-full h-64 md:h-[420px]">
             <Image
               src={terrace.photos[0]}
-              alt={terrace.name}
+              alt={`${terrace.name} – outdoor terrace in ${terrace.neighborhood}, Montréal`}
               fill
               className="object-cover"
               priority
@@ -143,9 +206,10 @@ export default async function TerracePage({ params }: Props) {
           <p className="text-[11px] uppercase tracking-widest text-accent font-medium mb-2">
             {terrace.neighborhood} · Montréal
           </p>
-          <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-2">
+          <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-1">
             {terrace.name}
           </h1>
+          <p className="text-sm text-foreground/50 mb-3">{subtitle}</p>
           <p className="text-sm text-muted mb-6 flex items-center gap-1.5">
             <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -154,9 +218,17 @@ export default async function TerracePage({ params }: Props) {
             {terrace.address}, Montréal, QC
           </p>
 
-          <p className="text-base text-foreground/80 leading-relaxed mb-8">
+          <p className="text-base text-foreground/80 leading-relaxed mb-4">
             {terrace.description}
           </p>
+
+          {terrace.descriptionFr && (
+            <p className="text-sm text-foreground/50 leading-relaxed mb-8 italic">
+              {terrace.descriptionFr}
+            </p>
+          )}
+
+          {!terrace.descriptionFr && <div className="mb-8" />}
 
           {/* Info grid */}
           <div className="grid grid-cols-2 gap-3 mb-6">
@@ -166,7 +238,7 @@ export default async function TerracePage({ params }: Props) {
             {terrace.terraceType?.length ? (
               <InfoItem
                 label="Type"
-                value={terrace.terraceType.map((tt) => typeLabels[tt] ?? tt).join(", ")}
+                value={terrace.terraceType.map((tt) => TYPE_LABELS[tt] ?? tt).join(", ")}
               />
             ) : null}
             {terrace.capacity ? (
