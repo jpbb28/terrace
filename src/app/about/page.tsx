@@ -26,7 +26,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            It was built out of frustration. The good terrasse lists in Montréal are scattered across a dozen food publications, updated inconsistently, and almost never searchable. This is an attempt at something better: one place, with the information you actually need.
+            Montréal summers are short. The terrasse season is shorter. This site exists so you spend less time hunting for a spot and more time actually sitting in one. One place, searchable, with the information you actually need.
           </p>
 
           <p>
