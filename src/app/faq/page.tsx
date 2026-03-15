@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "What do \"covered\" and \"heated\" mean?",
-    a: "Covered means the terrasse has a roof or canopy structure overhead. How much protection that actually provides varies — some are fully enclosed enough to sit through a downpour, others are just a pergola. Heated means the terrasse has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
+    a: "Covered means the terrasse has a roof or canopy structure overhead. How much protection that actually provides varies. Some are fully enclosed enough to sit through a downpour, others are just a pergola. Heated means the terrasse has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
   },
   {
     q: "How accurate is the information on this site?",
