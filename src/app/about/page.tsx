@@ -26,7 +26,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            Montréal summers are short. The terrasse season is shorter. This site exists so you spend less time hunting for a spot and more time actually sitting in one. One place, searchable, with the information you actually need.
+            Montréal summers are short. The terrasse season is shorter. This site exists so you spend less time hunting for a spot and more time actually sitting in one. And so you find somewhere new instead of defaulting to the same place every weekend because it's the only one you know.
           </p>
 
           <p>
