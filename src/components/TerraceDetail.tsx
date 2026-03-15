@@ -53,6 +53,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
           </button>
           <button
             onClick={() => {
+              trackEvent(terrace.id, "share");
               const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
               if (navigator.share) {
                 navigator.share({ title: terrace.name, url });
@@ -200,6 +201,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               href={`https://instagram.com/${terrace.instagram.replace("@", "")}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent(terrace.id, "instagram")}
               className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
             >
               <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -227,7 +229,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         <div className="pb-4 border-b border-border flex items-center justify-between mb-6">
           <Link
             href={`/submit?edit=${terrace.id}`}
-            className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-border text-foreground/70 hover:text-accent hover:border-accent/40 transition-colors"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M15.232 5.232l3.536 3.536M9 13l6.586-6.586a2 2 0 012.828 2.828L11.828 15.828a2 2 0 01-1.414.586H8v-2a2 2 0 01.586-1.414z" strokeLinecap="round" strokeLinejoin="round" />
