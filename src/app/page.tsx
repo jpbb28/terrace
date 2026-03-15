@@ -246,10 +246,10 @@ export default function Home() {
 
         {/* Footer links */}
         <div className="shrink-0 border-t border-border px-5 py-2.5 flex items-center gap-4">
-          <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">Blog</Link>
-          <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">About</Link>
+          <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
+          <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
           <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
-          <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">Terms</Link>
+          <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
         </div>
       </div>
 
@@ -381,10 +381,10 @@ export default function Home() {
         {/* Mobile footer links */}
         {!selectedTerrace && (
           <div className="shrink-0 border-t border-border px-4 py-2 flex items-center gap-4">
-            <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">Blog</Link>
-            <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">About</Link>
+            <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
+            <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
             <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
-            <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">Terms</Link>
+            <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
           </div>
         )}
       </div>
