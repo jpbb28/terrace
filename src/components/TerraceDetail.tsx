@@ -34,7 +34,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
   };
 
   return (
-    <div className="flex flex-col h-full animate-fade-in">
+    <div className="flex flex-col flex-1 min-h-0 animate-fade-in">
       {/* Header accent bar */}
       <div className="h-1 shrink-0 bg-gradient-to-r from-accent via-warm to-olive" />
 
