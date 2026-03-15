@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Playfair_Display, DM_Sans, Lora } from "next/font/google";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import "./globals.css";
@@ -12,6 +12,12 @@ const playfair = Playfair_Display({
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
 });
@@ -135,7 +141,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
         />
       </head>
-      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${playfair.variable} ${dmSans.variable} ${lora.variable} antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
