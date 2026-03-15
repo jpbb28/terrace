@@ -47,11 +47,11 @@ export default function AboutPage() {
           <h2 className="font-display text-xl font-bold text-foreground mt-8">Contributing</h2>
 
           <p>
-            Spotted a missing terrasse? Know that a listing has the wrong hours or closed last year?{" "}
+            To add a missing terrasse, use{" "}
             <Link href="/submit" className="text-accent hover:underline">
-              The suggest form
-            </Link>{" "}
-            is the fastest way to get it fixed. We review everything that comes in.
+              the suggest form
+            </Link>
+            . To correct something on an existing listing — wrong hours, closed permanently, dog policy changed — use the Edit button on that terrasse&apos;s page. It pre-fills the existing details so you only need to change what&apos;s wrong. We review everything that comes in.
           </p>
 
           <h2 className="font-display text-xl font-bold text-foreground mt-8">A note on accuracy</h2>
