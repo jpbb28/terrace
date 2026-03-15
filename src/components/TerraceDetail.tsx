@@ -18,6 +18,7 @@ interface TerraceDetailProps {
 export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) {
   const { t, lang } = useLang();
   const [activePhoto, setActivePhoto] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setActivePhoto(0);
@@ -39,16 +40,48 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
       <div className="h-1 shrink-0 bg-gradient-to-r from-accent via-warm to-olive" />
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden p-5">
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className="mb-4 flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors cursor-pointer group"
-        >
-          <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          {t.backToList}
-        </button>
+        {/* Close + Share row */}
+        <div className="mb-4 flex items-center justify-between">
+          <button
+            onClick={onClose}
+            className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors cursor-pointer group"
+          >
+            <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {t.backToList}
+          </button>
+          <button
+            onClick={() => {
+              const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
+              if (navigator.share) {
+                navigator.share({ title: terrace.name, url });
+              } else {
+                navigator.clipboard.writeText(url).then(() => {
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                });
+              }
+            }}
+            className="flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1 hover:bg-accent/10 transition-colors cursor-pointer"
+          >
+            {copied ? (
+              <>
+                <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-accent">Copied!</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Share
+              </>
+            )}
+          </button>
+        </div>
 
         {/* Photo gallery */}
         {terrace.photos.length > 0 && (
@@ -133,15 +166,15 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         </div>
 
         {/* CTA */}
-        <div className="flex flex-wrap gap-3 mb-6">
+        <div className="flex gap-2 mb-6">
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${terrace.name} ${terrace.address}`)}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent(terrace.id, "directions")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
           >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
             {t.googleMaps}
@@ -153,12 +186,12 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent(terrace.id, "website_click")}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-accent-hover transition-colors shadow-sm hover:shadow-md"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-accent-hover transition-colors shadow-sm"
             >
-              {t.visitWebsite}
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
+              Website
             </a>
           )}
 
@@ -167,12 +200,12 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
               href={`https://instagram.com/${terrace.instagram.replace("@", "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
             >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
               </svg>
-              {terrace.instagram}
+              Instagram
             </a>
           )}
 
@@ -180,9 +213,9 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
             <a
               href={`tel:${terrace.phone}`}
               onClick={() => trackEvent(terrace.id, "phone_click")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 text-sm text-muted hover:text-foreground border border-border rounded-xl transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               {t.call}
