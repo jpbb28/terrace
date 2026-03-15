@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     alternateLocale: "fr_CA",
     images: [
       {
-        url: "/og-v2.png",
-        width: 1536,
-        height: 1024,
+        url: "/og-v2.jpg",
+        width: 1200,
+        height: 630,
         alt: "Terrasse Season – Montréal's Essential Terrace Guide",
       },
     ],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Terrasse Season – Montréal's Essential Terrace Guide",
     description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
-    images: ["/og-v2.png"],
+    images: ["/og-v2.jpg"],
   },
 };
 
