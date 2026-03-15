@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "How do I find dog-friendly terrasses?",
-    a: "Use the dog-friendly filter on the map. Dog-friendly listings are based on published sources or user submissions, so accuracy varies. If a spot isn't marked dog-friendly, it may still be — we just don't have it confirmed yet. Always worth calling ahead.",
+    a: "Use the dog-friendly filter on the map. Dog-friendly listings are based on published sources or user submissions, so accuracy varies. If a spot isn't marked dog-friendly, it may still be. We just don't have it confirmed yet. If you know a place welcomes dogs (or doesn't), use the Edit button on that terrasse's page to submit it. Always worth calling ahead to confirm.",
     link: { href: "/dog-friendly-terrasses-montreal", label: "Read the dog-friendly guide →", blog: true },
   },
   {
