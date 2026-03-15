@@ -104,15 +104,6 @@ export default function FaqPage() {
             ))}
           </div>
 
-          <div className="mt-10 p-5 rounded-xl bg-foreground/[0.03] border border-border">
-            <p className="text-sm text-foreground/70">
-              Something not answered here?{" "}
-              <Link href="/submit" className="text-accent hover:underline">
-                Use the suggest form
-              </Link>{" "}
-              and we&apos;ll get back to you.
-            </p>
-          </div>
         </div>
       </div>
     </>
