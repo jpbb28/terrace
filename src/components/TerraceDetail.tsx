@@ -54,14 +54,17 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
         {terrace.photos.length > 0 && (
           <div className="mb-5">
             <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-              <Image
-                src={terrace.photos[activePhoto]}
-                alt={terrace.name}
-                fill
-                className="object-cover"
-                sizes="380px"
-                priority
-              />
+              {terrace.photos.map((photo, i) => (
+                <Image
+                  key={photo}
+                  src={photo}
+                  alt={terrace.name}
+                  fill
+                  className={`object-cover transition-opacity duration-150 ${i === activePhoto ? "opacity-100" : "opacity-0"}`}
+                  sizes="380px"
+                  priority={i === 0}
+                />
+              ))}
             </div>
             {terrace.photos.length > 1 && (
               <div className="flex gap-1.5 pt-2 overflow-x-auto">
