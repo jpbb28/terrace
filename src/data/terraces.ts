@@ -598,7 +598,7 @@ export const terraces: Terrace[] = [
   },
   {
     id: "22",
-    name: "Horizon Rooftop",
+    name: "Pub Cartier Arms / Horizon Rooftop Bar",
     address: "360 Rue Saint-Antoine O",
     lat: 45.5050,
     lng: -73.5580,
@@ -1943,7 +1943,7 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    website: "https://cafe-olimpico-1970.myshopify.com",
+    website: "https://cafeolimpico.com/",
     instagram: "@cafeolimpico",
     photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/64/5.jpg"],
     openingPeriods: [
