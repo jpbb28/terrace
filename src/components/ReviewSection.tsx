@@ -147,7 +147,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
       {placeId && googleRating && (
         <div>
           <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-2">
-            {lang === "fr" ? "Sur Google" : "On Google"}
+            {lang === "fr" ? "Ce que dit Google" : "What Google reviews say"}
           </p>
           <a
             href={`https://search.google.com/local/reviews?placeid=${placeId}`}
@@ -175,7 +175,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
       <div>
         <div className="flex items-center justify-between mb-3">
           <p className="text-[11px] font-medium uppercase tracking-wide text-muted">
-            {lang === "fr" ? "Avis sur la terrasse" : "Terrace reviews"}
+            {lang === "fr" ? "Ce que disent nos utilisateurs" : "What our users say about the terrace"}
           </p>
           {avg !== null && count > 0 && (
             <div className="flex items-center gap-2">
