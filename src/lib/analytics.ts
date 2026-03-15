@@ -1,6 +1,6 @@
 import { supabase } from "./supabase";
 
-type EventType = "view" | "website_click" | "directions" | "phone_click" | "instagram";
+type EventType = "view" | "website_click" | "directions" | "phone_click" | "instagram" | "share" | "card_click" | "map_marker_click";
 
 function getSessionId(): string {
   let id = sessionStorage.getItem("ts_session");
