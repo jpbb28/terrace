@@ -42,6 +42,14 @@ fix blog dates and use better body font but the header font is very nice (is bod
 
 
 
+**make a cloudflare email and add contact info**
+
+
+
+PWA icon (sun?)
+
+
+
 posthog not setup properly
 
 
