@@ -38,7 +38,7 @@ fix blog dates and use better body font but the header font is very nice (is bod
 
 
 
-**do we have many spots in verdun? Can we find more?**
+**check verdun spots that were added - run photos script for these and all recent adds**
 
 
 

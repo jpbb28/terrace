@@ -258,11 +258,11 @@ export default function Home() {
         )}
 
         {/* Footer links */}
-        <div className="shrink-0 border-t border-border px-5 py-2.5 flex items-center gap-4">
-          <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
-          <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
-          <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
-          <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
+        <div className="shrink-0 border-t border-border px-5 py-2.5 md:py-4 flex items-center gap-4">
+          <Link href="/blog" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
+          <Link href="/about" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
+          <Link href="/faq" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">FAQ</Link>
+          <Link href="/terms" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
         </div>
       </div>
 
