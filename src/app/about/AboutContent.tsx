@@ -80,15 +80,15 @@ export default function AboutContent() {
 
       <div className="prose-like space-y-5 text-base text-foreground/80 leading-relaxed">
         <p>
-          Terrasse Season is a directory of outdoor dining spots in Montréal: terrasses, patios, rooftops, and backyards across the city&apos;s 24 neighbourhoods. {count} listings, filterable by type, features, and hours.
+          Terrasse Season is a directory of outdoor dining spots in Montréal: terraces, patios, rooftops, and backyards across the city&apos;s 24 neighbourhoods. {count} listings, filterable by type, features, and hours.
         </p>
 
         <p>
-          Montréal summers are short. The terrasse season is shorter. This site exists so you spend less time hunting for a spot and more time actually sitting in one. And so you find somewhere new instead of defaulting to the same place every weekend because it&apos;s the only one you know.
+          Montréal summers are short. The terrace season is shorter. This site exists so you spend less time hunting for a spot and more time actually sitting in one. And so you find somewhere new instead of defaulting to the same place every weekend because it&apos;s the only one you know.
         </p>
 
         <p>
-          The data comes from cross-referencing Time Out, Tastet, Cult MTL, Tourisme Montréal, Narcity, Daily Hive, OpenTable, and several others, then verifying what we could. Hours come from Google Places and are updated seasonally. Nothing is perfect. Terrasses open and close, restaurants pivot, owners change their minds about dogs. We update as often as we can.
+          The data comes from cross-referencing Time Out, Tastet, Cult MTL, Tourisme Montréal, Narcity, Daily Hive, OpenTable, and several others, then verifying what we could. Hours come from Google Places and are updated seasonally. Nothing is perfect. Terraces open and close, restaurants pivot, owners change their minds about dogs. We update as often as we can.
         </p>
 
         <hr className="border-border my-8" />
@@ -105,17 +105,17 @@ export default function AboutContent() {
         <h2 className="font-display text-xl font-bold text-foreground mt-8">Contributing</h2>
 
         <p>
-          To add a missing terrasse, use{" "}
+          To add a missing terrace, use{" "}
           <Link href="/submit" className="text-accent hover:underline">
             the suggest form
           </Link>
-          . To correct something on an existing listing (wrong hours, closed permanently, dog policy changed), use the <strong>Edit</strong> button on that terrasse&apos;s page. It pre-fills the existing details so you only need to change what&apos;s wrong. We review everything that comes in.
+          . To correct something on an existing listing (wrong hours, closed permanently, dog policy changed), use the <strong>Edit</strong> button on that terrace&apos;s page. It pre-fills the existing details so you only need to change what&apos;s wrong. We review everything that comes in.
         </p>
 
         <h2 className="font-display text-xl font-bold text-foreground mt-8">A note on accuracy</h2>
 
         <p>
-          We do our best, but things change fast in the restaurant industry. Always worth checking a restaurant&apos;s own social media or calling ahead before making a trip specifically for the terrasse.
+          We do our best, but things change fast in the restaurant industry. Always worth checking a restaurant&apos;s own social media or calling ahead before making a trip specifically for the terrace.
         </p>
 
         <hr className="border-border my-8" />
