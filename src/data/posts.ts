@@ -28,7 +28,7 @@ export const posts: Post[] = [
     dateIso: "2026-03-15",
     content: [
       { t: "p", text: "Sometime in May. Most places aim for the Victoria Day long weekend, the third Monday of the month, but it's not a hard rule. Some open earlier if the weather cooperates. Some drag their feet into June." },
-      { t: "p", text: "But there's a day when it tips. Café owners drag out tables at 7am. Soon enough, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine at noon. Nobody cares. The season has started." },
+      { t: "p", text: "But there's a day when it tips. Café owners drag out tables at 7am. Soon enough, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine at noon. The season has started." },
       { t: "p", text: "The thing about Montréal terrace season that people from warmer places don't understand: it means something here. You've earned it. Every February morning when you scraped ice off your windshield at -25, every March when you thought spring was coming and got another foot of snow. That's the bill. The terrace is how you collect." },
       { t: "p", text: "The season runs longer than you'd think. Heated covered places push well into October. Some technically never close. But the real season is June through September. The season of lingering. Of staying for another drink because why would you go inside." },
       { t: "divider" },
