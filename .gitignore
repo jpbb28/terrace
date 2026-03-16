@@ -49,5 +49,15 @@ scripts/hires-progress.json
 # photos (hosted on Supabase Storage)
 /public/photos/
 
+# PWA generated files (next-pwa output — regenerated on build)
+/public/sw.js
+/public/sw.js.map
+/public/workbox-*.js
+/public/workbox-*.js.map
+/public/worker-*.js
+/public/worker-*.js.map
+/public/swe-worker-*.js
+/public/swe-worker-*.js.map
+
 # other apps
 /wheel_src
