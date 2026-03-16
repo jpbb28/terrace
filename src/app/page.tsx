@@ -42,9 +42,22 @@ export default function Home() {
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
   const savedScrollTop = useRef(0);
   const desktopListRef = useRef<HTMLDivElement>(null);
   const mobileListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSortByDistance = useCallback(() => {
     if (sortByDistance) {
@@ -298,6 +311,25 @@ export default function Home() {
               >
                 {t.submit}
               </Link>
+              <div className="relative" ref={mobileMenuRef}>
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="w-7 h-7 flex flex-col items-center justify-center gap-[4px] text-muted hover:text-foreground transition-colors cursor-pointer"
+                  aria-label="Menu"
+                >
+                  <span className="w-4 h-px bg-current rounded-full" />
+                  <span className="w-4 h-px bg-current rounded-full" />
+                  <span className="w-4 h-px bg-current rounded-full" />
+                </button>
+                {mobileMenuOpen && (
+                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
+                    <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
+                    <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
+                    <Link href="/faq" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">FAQ</Link>
+                    <Link href="/terms" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "Conditions" : "Terms"}</Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -378,15 +410,6 @@ export default function Home() {
           </>
         )}
 
-        {/* Mobile footer links */}
-        {!selectedTerrace && (
-          <div className="shrink-0 border-t border-border px-4 py-2 flex items-center gap-4">
-            <Link href="/blog" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
-            <Link href="/about" className="text-[11px] text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
-            <Link href="/faq" className="text-[11px] text-muted hover:text-foreground transition-colors">FAQ</Link>
-            <Link href="/terms" className="text-[11px] text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
-          </div>
-        )}
       </div>
     </div>
   );
