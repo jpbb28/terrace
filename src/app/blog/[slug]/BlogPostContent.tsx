@@ -116,7 +116,7 @@ export default function BlogPostContent({ post }: { post: Post }) {
           className="group flex items-center justify-between py-5 px-6 rounded-xl border border-border hover:border-accent/50 hover:bg-accent-soft transition-all duration-200"
         >
           <span className="font-display text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-            {lang === "fr" ? "Trouver une terrasse" : "Find a terrasse"}
+            {lang === "fr" ? "Trouver une terrasse" : "Find a terrace"}
           </span>
           <svg
             className="w-5 h-5 text-accent transition-transform duration-200 group-hover:translate-x-1"

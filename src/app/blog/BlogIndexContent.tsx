@@ -43,7 +43,7 @@ export default function BlogIndexContent() {
         <p className="mt-5 text-[16px] leading-[1.8] text-foreground/60" style={loraStyle}>
           {lang === "fr"
             ? "Guides et portraits de quartiers pour la saison de terrasse à Montréal."
-            : "Guides and neighbourhood portraits for Montréal terrasse season."}
+            : "Guides and neighbourhood portraits for Montréal terrace season."}
         </p>
       </header>
 
@@ -144,7 +144,7 @@ export default function BlogIndexContent() {
           className="group flex items-center justify-between py-5 px-6 rounded-xl border border-border hover:border-accent/50 hover:bg-accent-soft transition-all duration-200"
         >
           <span className="font-display text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-            {lang === "fr" ? "Trouver une terrasse" : "Find a terrasse"}
+            {lang === "fr" ? "Trouver une terrasse" : "Find a terrace"}
           </span>
           <svg
             className="w-5 h-5 text-accent transition-transform duration-200 group-hover:translate-x-1"
