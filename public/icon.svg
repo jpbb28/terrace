@@ -1,0 +1,16 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#c45d3e" rx="0"/>
+  <!-- Sun icon scaled to fit with padding (original 32x32, scaled to ~260px centered) -->
+  <g transform="translate(256,256) scale(8.125)">
+    <polygon points="0,-15 -3.25,-6 3.25,-6" fill="#faf6f1"/>
+    <polygon points="0,15 -3.25,6 3.25,6" fill="#faf6f1"/>
+    <polygon points="-15,0 -6,-3.25 -6,3.25" fill="#faf6f1"/>
+    <polygon points="15,0 6,-3.25 6,3.25" fill="#faf6f1"/>
+    <polygon points="-10.6,-10.6 -5.8,-7.6 -8.2,-5.2" fill="#faf6f1"/>
+    <polygon points="10.6,10.6 5.8,7.6 8.2,5.2" fill="#faf6f1"/>
+    <polygon points="10.6,-10.6 7.6,-5.8 5.2,-8.2" fill="#faf6f1"/>
+    <polygon points="-10.6,10.6 -7.6,5.8 -5.2,8.2" fill="#faf6f1"/>
+    <circle cx="0" cy="0" r="6" fill="#faf6f1"/>
+  </g>
+</svg>
