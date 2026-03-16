@@ -45,12 +45,17 @@ export default function FilterBar({
 }: FilterBarProps) {
   const { t } = useLang();
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
+  const [typeOpen, setTypeOpen] = useState(false);
   const neighborhoodRef = useRef<HTMLDivElement>(null);
+  const typeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (neighborhoodRef.current && !neighborhoodRef.current.contains(e.target as Node)) {
         setNeighborhoodOpen(false);
+      }
+      if (typeRef.current && !typeRef.current.contains(e.target as Node)) {
+        setTypeOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -85,7 +90,16 @@ export default function FilterBar({
   const neighborhoodLabel =
     selectedNeighborhoods.length === 0
       ? t.allNeighborhoods
-      : selectedNeighborhoods.join(", ");
+      : selectedNeighborhoods.length === 1
+      ? selectedNeighborhoods[0]
+      : `${selectedNeighborhoods.length} ${t.neighborhoods}`;
+
+  const typeLabel =
+    selectedTypes.length === 0
+      ? t.allTypes
+      : selectedTypes.length === 1
+      ? (terraceTypes.find((tt) => tt.value === selectedTypes[0])?.label ?? selectedTypes[0])
+      : `${selectedTypes.length} ${t.types}`;
 
   return (
     <div className="space-y-3">
@@ -121,61 +135,83 @@ export default function FilterBar({
         )}
       </div>
 
-      {/* Neighborhood multi-select + result count */}
+      {/* Neighborhood dropdown — always visible */}
+      {/* On mobile: sits beside type dropdown. On desktop: full row with result count */}
       <div className="flex items-center gap-2">
-      <div className="relative flex-1" ref={neighborhoodRef}>
-        <button
-          onClick={() => setNeighborhoodOpen(!neighborhoodOpen)}
-          className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
-            selectedNeighborhoods.length > 0
-              ? "border-accent text-foreground font-medium"
-              : "border-border text-muted hover:border-border-strong"
-          }`}
-        >
-          <span className={`truncate ${selectedNeighborhoods.length > 0 ? "text-foreground" : ""}`}>
-            {neighborhoodLabel}
-          </span>
-          <svg className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${neighborhoodOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
+        <div className="relative flex-1" ref={neighborhoodRef}>
+          <button
+            onClick={() => { setNeighborhoodOpen(!neighborhoodOpen); setTypeOpen(false); }}
+            className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
+              selectedNeighborhoods.length > 0
+                ? "border-accent text-foreground font-medium"
+                : "border-border text-muted hover:border-border-strong"
+            }`}
+          >
+            <span className="truncate">{neighborhoodLabel}</span>
+            <svg className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${neighborhoodOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          {neighborhoodOpen && (
+            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg max-h-52 overflow-y-auto">
+              {selectedNeighborhoods.length > 0 && (
+                <div className="px-3 py-2 border-b border-border">
+                  <button onClick={() => onNeighborhoodsChange([])} className="text-[11px] text-accent hover:underline cursor-pointer">
+                    {t.clearAll}
+                  </button>
+                </div>
+              )}
+              {neighborhoods.map((n) => (
+                <label key={n} className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
+                  <input type="checkbox" checked={selectedNeighborhoods.includes(n)} onChange={() => toggleNeighborhood(n)} className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0" />
+                  <span className="text-xs text-foreground">{n}</span>
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
 
-        {neighborhoodOpen && (
-          <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg max-h-52 overflow-y-auto">
-            {selectedNeighborhoods.length > 0 && (
-              <div className="px-3 py-2 border-b border-border">
-                <button
-                  onClick={() => onNeighborhoodsChange([])}
-                  className="text-[11px] text-accent hover:underline cursor-pointer"
-                >
-                  {t.clearAll}
-                </button>
-              </div>
-            )}
-            {neighborhoods.map((n) => (
-              <label
-                key={n}
-                className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors"
-              >
-                <input
-                  type="checkbox"
-                  checked={selectedNeighborhoods.includes(n)}
-                  onChange={() => toggleNeighborhood(n)}
-                  className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
-                />
-                <span className="text-xs text-foreground">{n}</span>
-              </label>
-            ))}
-          </div>
-        )}
-      </div>
-      <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
-        {t.spots(resultCount)}
-      </span>
+        {/* Type dropdown — mobile only */}
+        <div className="relative flex-1 md:hidden" ref={typeRef}>
+          <button
+            onClick={() => { setTypeOpen(!typeOpen); setNeighborhoodOpen(false); }}
+            className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
+              selectedTypes.length > 0
+                ? "border-accent text-foreground font-medium"
+                : "border-border text-muted hover:border-border-strong"
+            }`}
+          >
+            <span className="truncate">{typeLabel}</span>
+            <svg className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${typeOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          {typeOpen && (
+            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg overflow-hidden">
+              {selectedTypes.length > 0 && (
+                <div className="px-3 py-2 border-b border-border">
+                  <button onClick={() => onTypesChange([])} className="text-[11px] text-accent hover:underline cursor-pointer">
+                    {t.clearAll}
+                  </button>
+                </div>
+              )}
+              {terraceTypes.map((tt) => (
+                <label key={tt.value} className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
+                  <input type="checkbox" checked={selectedTypes.includes(tt.value)} onChange={() => toggleType(tt.value)} className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0" />
+                  <span className="text-xs text-foreground">{tt.label}</span>
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
+          {t.spots(resultCount)}
+        </span>
       </div>
 
-      {/* Type toggle pills */}
-      <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
+      {/* Type toggle pills — desktop only */}
+      <div className="hidden md:flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
         {terraceTypes.map((tt) => (
           <button
             key={tt.value}
