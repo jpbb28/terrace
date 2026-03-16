@@ -28,7 +28,7 @@ export const posts: Post[] = [
     dateIso: "2026-03-15",
     content: [
       { t: "p", text: "Sometime in May. Most places aim for the Victoria Day long weekend, the third Monday of the month, but it's not a hard rule. Some open earlier if the weather cooperates. Some drag their feet into June." },
-      { t: "p", text: "But there's a day when it tips. Café owners drag out tables at 7am. By noon, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine they don't strictly need at that hour. Nobody cares. The season has started." },
+      { t: "p", text: "But there's a day when it tips. Café owners drag out tables at 7am. By noon, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine like it's already summer. Nobody cares. The season has started." },
       { t: "p", text: "The thing about Montréal terrace season that people from warmer places don't understand: it means something here. You've earned it. Every February morning when you scraped ice off your windshield at -25, every March when you thought spring was coming and got another foot of snow. That's the bill. The terrace is how you collect." },
       { t: "p", text: "The season runs longer than you'd think. Heated covered places push well into October. Some technically never close. But the real season is June through September. The season of lingering. Of staying for another drink because why would you go inside." },
       { t: "divider" },
@@ -40,7 +40,7 @@ export const posts: Post[] = [
     ],
     contentFr: [
       { t: "p", text: "Quelque part en mai. La plupart des terrasses visent la Fête de la Reine, le troisième lundi du mois, mais c'est pas une règle absolue. Certains ouvrent avant si la météo coopère. D'autres traînent jusqu'en juin." },
-      { t: "p", text: "Mais il y a un jour où ça bascule. Les proprios traînent leurs tables à 7h du matin. À midi, les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin dont on avait pas vraiment besoin à cette heure-là. On s'en fout. La saison a commencé." },
+      { t: "p", text: "Mais il y a un jour où ça bascule. Les proprios traînent leurs tables à 7h du matin. À midi, les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin comme si c'était déjà l'été. On s'en fout. La saison a commencé." },
       { t: "p", text: "Ce que les gens des villes chaudes saisissent pas, c'est ce que ça représente. On l'a gagné. Chaque matin de février à gratter le char à -25, chaque mars où on pensait que c'était fini et on a pris une autre tempête dans la face. C'est la facture. La terrasse, c'est le remboursement." },
       { t: "p", text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. Certains ferment techniquement jamais. Mais la vraie saison, c'est juin à septembre. La saison où on reste pour un autre verre juste parce que rentrer, ça a pas de bon sens." },
       { t: "divider" },
