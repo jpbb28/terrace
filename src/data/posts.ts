@@ -40,7 +40,7 @@ export const posts: Post[] = [
     ],
     contentFr: [
       { t: "p", text: "Quelque part en mai. La plupart des terrasses visent la Fête de la Reine, le troisième lundi du mois, mais c'est pas une règle absolue. Certains ouvrent avant si la météo coopère. D'autres traînent jusqu'en juin." },
-      { t: "p", text: "Mais même avec des ouvertures éparpillées, il y a un moment où ça bascule. Les proprios traînent leurs tables à 7h du matin. À midi, les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin dont on avait pas vraiment besoin à cette heure-là. On s'en fout. La saison a commencé." },
+      { t: "p", text: "Mais même avec des ouvertures éparpillées, il y a un moment où on le sent dans l'air. Les proprios traînent leurs tables à 7h du matin. À midi, les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin dont on avait pas vraiment besoin à cette heure-là. On s'en fout. La saison a commencé." },
       { t: "p", text: "Ce que les gens des villes chaudes saisissent pas, c'est ce que ça représente. On l'a gagné. Chaque matin de février à gratter le char à -25, chaque mars où on pensait que c'était fini et on a pris une autre tempête dans la face. C'est la facture. La terrasse, c'est le remboursement." },
       { t: "p", text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. Certains ferment techniquement jamais. Mais la vraie saison, c'est juin à septembre. La saison où on reste pour un autre verre juste parce que rentrer, ça a pas de bon sens." },
       { t: "divider" },
