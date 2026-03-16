@@ -44,6 +44,7 @@ export default function Home() {
 
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mapMounted, setMapMounted] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const savedScrollTop = useRef(0);
@@ -51,7 +52,10 @@ export default function Home() {
   const mobileListRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cb = () => setAllCardsLoaded(true);
+    const cb = () => {
+      setAllCardsLoaded(true);
+      setMapMounted(true);
+    };
     if ("requestIdleCallback" in window) {
       (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb);
     } else {
@@ -423,13 +427,15 @@ export default function Home() {
                     : "opacity-0 z-0 pointer-events-none"
                 }`}
               >
-                <Map
-                  terraces={filtered}
-                  selectedId={selectedId}
-                  onSelect={openFromMap}
-                  center={mapCenter}
-                  zoom={mapZoom}
-                />
+                {mapMounted && (
+                  <Map
+                    terraces={filtered}
+                    selectedId={selectedId}
+                    onSelect={openFromMap}
+                    center={mapCenter}
+                    zoom={mapZoom}
+                  />
+                )}
               </div>
             </div>
           </>

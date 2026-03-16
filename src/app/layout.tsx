@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans, Lora } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import PWAAutoUpdate from "@/components/PWAAutoUpdate";
@@ -16,14 +16,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
 });
-
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const count = terraces.length;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://terrasseseason.com"),
@@ -128,7 +120,6 @@ function buildJsonLd() {
       },
       ...(terrace.cuisineType && { servesCuisine: terrace.cuisineType }),
       ...(terrace.website && { url: terrace.website }),
-      description: terrace.description,
     },
   }));
 
@@ -177,6 +168,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://mnrpyixjrjoqiecfsibg.supabase.co" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#c45d3e" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
@@ -185,7 +177,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
         />
       </head>
-      <body className={`${playfair.variable} ${dmSans.variable} ${lora.variable} antialiased`}>
+      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
         <PWAAutoUpdate />
       </body>
