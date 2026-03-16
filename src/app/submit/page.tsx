@@ -282,7 +282,7 @@ function SubmitPageContent() {
               : t.submitSubtitle}
           </p>
           <p className="text-muted text-xs mt-2">
-            Prefer email?{" "}
+            Other questions?{" "}
             <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
               hello@terraceseason.com
             </a>
