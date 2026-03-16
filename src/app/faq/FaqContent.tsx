@@ -5,43 +5,43 @@ import { useLang } from "@/lib/LanguageContext";
 
 const faqsEn = [
   {
-    q: "When do Montréal terrasses open for the season?",
-    a: "The traditional start is Victoria Day weekend, the third Monday of May. Most spots open around then, though some heated or covered terrasses operate year-round or through the shoulder seasons. We've written a full seasonal breakdown in our guide.",
-    link: { href: "/blog/when-do-montreal-terrasses-open", label: "When do terrasses open? →" },
+    q: "When do Montréal terraces open for the season?",
+    a: "The traditional start is Victoria Day weekend, the third Monday of May. Most spots open around then, though some heated or covered terraces operate year-round or through the shoulder seasons. We've written a full seasonal breakdown in our guide.",
+    link: { href: "/blog/when-do-montreal-terrasses-open", label: "When do terraces open? →" },
   },
   {
-    q: "What's the difference between a terrasse and a patio?",
-    a: "Nothing, really. \"Terrasse\" is the French/Québec term; \"patio\" is the English one. In practice, Montréalers use both interchangeably. On this site we use terrasse because that's what most locals call it.",
+    q: "What's the difference between a terrace and a patio?",
+    a: "Nothing, really. \"Terrasse\" is the French/Québec term; \"patio\" is the English one. In practice, Montréalers use both interchangeably. On this site we use terrace because that's what most locals call it.",
   },
   {
-    q: "Do I need a reservation to sit on a terrasse?",
-    a: "It depends entirely on the spot. Neighbourhood cafés and casual bistros usually don't take terrasse reservations. First come, first served. Popular restaurants and rooftop bars in July and August can fill up fast, so calling ahead or checking their website is worth it. If you're going somewhere specific on a weekend evening in peak season, assume you'll need a reservation.",
+    q: "Do I need a reservation to sit on a terrace?",
+    a: "It depends entirely on the spot. Neighbourhood cafés and casual bistros usually don't take terrace reservations. First come, first served. Popular restaurants and rooftop bars in July and August can fill up fast, so calling ahead or checking their website is worth it. If you're going somewhere specific on a weekend evening in peak season, assume you'll need a reservation.",
   },
   {
-    q: "How do I find dog-friendly terrasses?",
-    a: "Use the dog-friendly filter on the map. Dog-friendly listings are based on published sources or user submissions, so accuracy varies. Always worth calling ahead to confirm. If a spot isn't marked dog-friendly, it may still be. We just don't have it confirmed yet. If you know a place welcomes dogs (or doesn't), use the Edit button on that terrasse's page to submit it.",
+    q: "How do I find dog-friendly terraces?",
+    a: "Use the dog-friendly filter on the map. Dog-friendly listings are based on published sources or user submissions, so accuracy varies. Always worth calling ahead to confirm. If a spot isn't marked dog-friendly, it may still be. We just don't have it confirmed yet. If you know a place welcomes dogs (or doesn't), use the Edit button on that terrace's page to submit it.",
     link: { href: "/blog/dog-friendly-terrasses-montreal", label: "Read the dog-friendly guide →" },
   },
   {
-    q: "Are there terrasses open in winter or year-round?",
-    a: "Some. Heated and covered terrasses can run well into October or November, and a handful operate through the winter. Use the \"heated\" and \"covered\" filters on the map to find them. Hours are often reduced in the off-season, so calling ahead is a good idea.",
+    q: "Are there terraces open in winter or year-round?",
+    a: "Some. Heated and covered terraces can run well into October or November, and a handful operate through the winter. Use the \"heated\" and \"covered\" filters on the map to find them. Hours are often reduced in the off-season, so calling ahead is a good idea.",
   },
   {
     q: "What do \"covered\" and \"heated\" mean?",
-    a: "Covered means the terrasse has a roof or canopy structure overhead. How much protection that actually provides varies. Some are enclosed enough to sit through a downpour, others are just a pergola that won't block the wind. Heated means the terrasse has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
+    a: "Covered means the terrace has a roof or canopy structure overhead. How much protection that actually provides varies. Some are enclosed enough to sit through a downpour, others are just a pergola that won't block the wind. Heated means the terrace has outdoor heating (infrared heaters, fire pits, or similar). A spot can be one, both, or neither.",
   },
   {
     q: "How accurate is the information on this site?",
     a: "We do our best. Data is sourced from published lists and verified where possible. Hours come from Google Places and are updated seasonally. That said, the restaurant industry moves fast. Spots close, hours change, ownership pivots. Treat this as a reliable starting point, not a guarantee. Always worth a quick check on the restaurant's own social media before a dedicated trip.",
   },
   {
-    q: "How do I suggest a new terrasse or report an error?",
-    a: "To add a missing terrasse, use the suggest form. To correct something on an existing listing, use the Edit button on that terrasse's page.",
-    link: { href: "/submit", label: "Suggest a terrasse →" },
+    q: "How do I suggest a new terrace or report an error?",
+    a: "To add a missing terrace, use the suggest form. To correct something on an existing listing, use the Edit button on that terrace's page. You can also reach us directly at hello@terraceseason.com.",
+    link: { href: "/submit", label: "Suggest a terrace →" },
   },
   {
-    q: "Why does some information appear missing for certain terrasses?",
-    a: "If a detail isn't shown, it means we don't have a confirmed source for it. Not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, find the terrasse on the map and use the Edit button on its page.",
+    q: "Why does some information appear missing for certain terraces?",
+    a: "If a detail isn't shown, it means we don't have a confirmed source for it. Not that the answer is no. We'd rather show nothing than show something wrong. If you know the missing detail, find the terrace on the map and use the Edit button on its page.",
   },
 ];
 
@@ -78,7 +78,7 @@ const faqsFr = [
   },
   {
     q: "Comment je propose une nouvelle terrasse ou signale une erreur?",
-    a: "Pour ajouter une terrasse manquante, utilise le formulaire de suggestion. Pour corriger une fiche existante, utilise le bouton Modifier sur la page de cette terrasse.",
+    a: "Pour ajouter une terrasse manquante, utilise le formulaire de suggestion. Pour corriger une fiche existante, utilise le bouton Modifier sur la page de cette terrasse. Tu peux aussi nous écrire directement à hello@terraceseason.com.",
     link: { href: "/submit", label: "Suggérer une terrasse →" },
   },
   {
@@ -102,7 +102,7 @@ export default function FaqContent() {
       <p className="text-sm text-muted mb-10">
         {lang === "fr"
           ? "Sur la saison de terrasse à Montréal, le site, et comment les données fonctionnent."
-          : "About Montréal terrasse season, the site, and how the data works."}
+          : "About Montréal terrace season, the site, and how the data works."}
       </p>
 
       <div className="space-y-0">
@@ -121,6 +121,24 @@ export default function FaqContent() {
           </div>
         ))}
       </div>
+
+      <p className="text-sm text-muted mt-10">
+        {lang === "fr" ? (
+          <>
+            Autre chose?{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
+          </>
+        ) : (
+          <>
+            Something else?{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
+          </>
+        )}
+      </p>
     </div>
   );
 }

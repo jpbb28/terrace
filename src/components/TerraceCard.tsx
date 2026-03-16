@@ -10,9 +10,10 @@ interface TerraceCardProps {
   selected: boolean;
   onClick: () => void;
   distance?: number;
+  priority?: boolean;
 }
 
-export default function TerraceCard({ terrace, selected, onClick, distance }: TerraceCardProps) {
+export default function TerraceCard({ terrace, selected, onClick, distance, priority = false }: TerraceCardProps) {
   const { t, lang } = useLang();
 
   const typeConfig: Record<string, { label: string; color: string }> = {
@@ -42,7 +43,9 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
             alt={terrace.name}
             fill
             className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-            sizes="500px"
+            sizes="(min-width: 768px) 468px, calc(100vw - 24px)"
+            quality={60}
+            priority={priority}
           />
         </div>
       ) : (
@@ -52,9 +55,9 @@ export default function TerraceCard({ terrace, selected, onClick, distance }: Te
       )}
       <div className="p-4">
       <div className="flex items-start justify-between gap-2 mb-1.5">
-        <h3 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
+        <h2 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
           {terrace.name}
-        </h3>
+        </h2>
         {typeInfos.length > 0 && (
           <div className="flex gap-1 shrink-0 flex-wrap justify-end">
             {typeInfos.map((info) => (
