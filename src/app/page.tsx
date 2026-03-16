@@ -138,7 +138,7 @@ export default function Home() {
 
   const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
 
-  const INITIAL_CARD_COUNT = 8;
+  const INITIAL_CARD_COUNT = 4;
   const visibleCards = allCardsLoaded ? filteredWithDistance : filteredWithDistance.slice(0, INITIAL_CARD_COUNT);
 
   const selectedTerrace = selectedId
