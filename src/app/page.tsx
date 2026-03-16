@@ -286,13 +286,15 @@ export default function Home() {
 
       {/* ── Desktop map ── */}
       <div className="hidden md:block flex-1 h-full">
-        <Map
-          terraces={filtered}
-          selectedId={selectedId}
-          onSelect={openFromMap}
-          center={mapCenter}
-          zoom={mapZoom}
-        />
+        {mapMounted && (
+          <Map
+            terraces={filtered}
+            selectedId={selectedId}
+            onSelect={openFromMap}
+            center={mapCenter}
+            zoom={mapZoom}
+          />
+        )}
       </div>
 
       {/* ── Mobile layout ── */}
