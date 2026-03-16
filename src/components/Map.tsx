@@ -89,6 +89,8 @@ export default function Map({ terraces, selectedId, onSelect, center, zoom }: Ma
           position={[t.lat, t.lng]}
           icon={createIcon(selectedId === t.id)}
           eventHandlers={{ click: () => onSelect(t.id) }}
+          title={t.name}
+          alt={t.name}
         >
           <Popup>
             <div className="min-w-[180px]">
