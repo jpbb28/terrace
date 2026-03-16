@@ -176,7 +176,7 @@ export default function Home() {
   };
 
   return (
-    <div className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
+    <main className="h-[100dvh] flex flex-col md:flex-row overflow-hidden bg-background">
       {/* ── Desktop sidebar ── */}
       <div className="hidden md:flex w-[500px] shrink-0 flex-col h-full border-r border-border-strong bg-background">
         {/* Header — always visible */}
@@ -249,6 +249,7 @@ export default function Home() {
                       selected={selectedId === terrace.id}
                       onClick={() => openFromCard(terrace.id)}
                       distance={distance}
+                      priority={i === 0}
                     />
                   </div>
                 ))
@@ -389,13 +390,14 @@ export default function Home() {
                     <p className="text-sm text-muted">{t.noResults}</p>
                   </div>
                 ) : (
-                  filteredWithDistance.map(({ terrace, distance }) => (
+                  filteredWithDistance.map(({ terrace, distance }, i) => (
                     <TerraceCard
                       key={terrace.id}
                       terrace={terrace}
                       selected={selectedId === terrace.id}
                       onClick={() => openFromCard(terrace.id)}
                       distance={distance}
+                      priority={i === 0}
                     />
                   ))
                 )}
@@ -421,6 +423,6 @@ export default function Home() {
         )}
 
       </div>
-    </div>
+    </main>
   );
 }
