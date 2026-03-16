@@ -341,27 +341,37 @@ export default function Home() {
           <TerraceDetail terrace={selectedTerrace} onClose={closeTerrace} />
         ) : (
           <>
-            <div className="shrink-0 flex bg-background border-b border-border">
-              <button
-                onClick={() => setMobileView("list")}
-                className={`flex-1 py-2.5 text-xs font-medium text-center transition-colors cursor-pointer ${
-                  mobileView === "list"
-                    ? "text-accent border-b-2 border-accent"
-                    : "text-muted"
-                }`}
-              >
-                {t.list} ({filteredWithDistance.length})
-              </button>
-              <button
-                onClick={() => setMobileView("map")}
-                className={`flex-1 py-2.5 text-xs font-medium text-center transition-colors cursor-pointer ${
-                  mobileView === "map"
-                    ? "text-accent border-b-2 border-accent"
-                    : "text-muted"
-                }`}
-              >
-                {t.map}
-              </button>
+            <div className="shrink-0 px-4 py-2.5 bg-background border-b border-border">
+              <div className="flex rounded-xl bg-[#ede8e0] p-1 gap-1">
+                <button
+                  onClick={() => setMobileView("list")}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    mobileView === "list"
+                      ? "bg-white text-accent shadow-sm"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="3" width="14" height="2" rx="1" fill="currentColor"/>
+                    <rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/>
+                    <rect x="1" y="11" width="14" height="2" rx="1" fill="currentColor"/>
+                  </svg>
+                  {t.list} ({filteredWithDistance.length})
+                </button>
+                <button
+                  onClick={() => setMobileView("map")}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    mobileView === "map"
+                      ? "bg-white text-accent shadow-sm"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/>
+                  </svg>
+                  {t.map}
+                </button>
+              </div>
             </div>
 
             <div className="flex-1 relative overflow-hidden">
