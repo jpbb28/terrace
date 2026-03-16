@@ -281,6 +281,12 @@ function SubmitPageContent() {
               ? t.correctSubtitle(editTerrace.name)
               : t.submitSubtitle}
           </p>
+          <p className="text-muted text-xs mt-2">
+            Prefer email?{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
