@@ -193,6 +193,12 @@ function SubmitPageContent() {
           >
             {t.tryAgain}
           </button>
+          <p className="text-xs text-muted mt-4">
+            If the problem persists, email us at{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
+          </p>
         </div>
       </div>
     );
@@ -274,6 +280,12 @@ function SubmitPageContent() {
             {isEdit
               ? t.correctSubtitle(editTerrace.name)
               : t.submitSubtitle}
+          </p>
+          <p className="text-muted text-xs mt-2">
+            Other questions?{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
           </p>
         </div>
 

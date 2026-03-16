@@ -60,11 +60,15 @@ export default function AboutContent() {
           <hr className="border-border my-8" />
 
           <p className="text-sm text-muted">
-            Questions ou commentaires?{" "}
+            Questions ou commentaires? Écris-nous à{" "}
+            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+              hello@terraceseason.com
+            </a>
+            {" "}ou utilise{" "}
             <Link href="/submit" className="text-accent hover:underline">
-              Utilise le formulaire de suggestion
-            </Link>{" "}
-            ou trouve-nous sur Instagram.
+              le formulaire de suggestion
+            </Link>
+            .
           </p>
         </div>
       </div>
@@ -121,11 +125,15 @@ export default function AboutContent() {
         <hr className="border-border my-8" />
 
         <p className="text-sm text-muted">
-          Questions or feedback?{" "}
+          Questions or feedback? Email{" "}
+          <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+            hello@terraceseason.com
+          </a>
+          {" "}or use{" "}
           <Link href="/submit" className="text-accent hover:underline">
-            Use the suggest form
-          </Link>{" "}
-          or find us on Instagram.
+            the suggest form
+          </Link>
+          .
         </p>
       </div>
     </div>
