@@ -7,7 +7,26 @@ const ROOT = path.resolve(__dirname, "..");
 const RESULTS_FILE = path.join(ROOT, "scripts", "photo-results.json");
 const OUTPUT_FILE = path.join(ROOT, "scripts", "review.html");
 
-const results = JSON.parse(fs.readFileSync(RESULTS_FILE, "utf-8"));
+const allResults = JSON.parse(fs.readFileSync(RESULTS_FILE, "utf-8"));
+
+const newOnly = process.argv.includes("--new-only");
+let results = allResults;
+if (newOnly) {
+  const terraceSrc2 = fs.readFileSync(path.join(ROOT, "src", "data", "terraces.ts"), "utf-8");
+  const emptyPhotoIds = new Set();
+  const blocks = terraceSrc2.split(/\n  \{/);
+  for (const block of blocks) {
+    const idMatch = block.match(/id:\s*"(\d+)"/);
+    const photosMatch = block.match(/photos:\s*(\[[^\]]*\])/);
+    if (idMatch && photosMatch && photosMatch[1].trim() === "[]") {
+      emptyPhotoIds.add(idMatch[1]);
+    }
+  }
+  results = Object.fromEntries(
+    Object.entries(allResults).filter(([id]) => Number(id) >= 180 && emptyPhotoIds.has(id))
+  );
+  console.log(`--new-only: showing ${Object.keys(results).length} new terraces without photos yet\n`);
+}
 
 // Load API key
 const envFile = fs.readFileSync(path.join(ROOT, ".env.local"), "utf-8");
