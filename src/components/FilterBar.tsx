@@ -230,10 +230,10 @@ export default function FilterBar({
       {/* Attribute filter pills */}
       <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
           {[
+            { label: locating ? t.locating : t.nearMe, active: sortByDistance, onClick: onSortByDistanceChange, disabled: locating },
+            { label: t.openNow, active: openNow, onClick: () => onOpenNowChange(!openNow), disabled: false },
             { label: t.dogFriendly, active: dogFriendly, onClick: () => onDogFriendlyChange(!dogFriendly), disabled: false },
             { label: t.covered, active: covered, onClick: () => onCoveredChange(!covered), disabled: false },
-            { label: t.openNow, active: openNow, onClick: () => onOpenNowChange(!openNow), disabled: false },
-            { label: locating ? t.locating : t.nearMe, active: sortByDistance, onClick: onSortByDistanceChange, disabled: locating },
           ].map(({ label, active, onClick, disabled }) => (
             <button
               key={label}
