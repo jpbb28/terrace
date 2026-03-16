@@ -39,6 +39,8 @@ function SubmitPageContent() {
     { value: "rooftop", label: t.rooftop },
     { value: "backyard", label: t.backyardFull },
     { value: "courtyard", label: t.courtyardFull },
+    { value: "balcony", label: t.balcony },
+    { value: "garden", label: t.garden },
   ];
 
   const [state, setState] = useState<FormState>("idle");

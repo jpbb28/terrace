@@ -106,8 +106,8 @@ export const translations = {
     submitAnother: "Submit another",
     // Terrace type labels for sidewalk/etc in filters
     sidewalkFull: "Sidewalk / Streetside",
-    backyardFull: "Backyard / Garden",
-    courtyardFull: "Courtyard / Hidden Patio",
+    backyardFull: "Backyard",
+    courtyardFull: "Courtyard",
     openNow: "Open now",
     clearAll: "Clear all",
     neighborhoods: "neighborhoods",
@@ -226,8 +226,8 @@ export const translations = {
     submitAnother: "Soumettre une autre",
     // Terrace type labels for sidewalk/etc in filters
     sidewalkFull: "Trottoir / Devant le commerce",
-    backyardFull: "Arri\u00E8re-cour / Jardin",
-    courtyardFull: "Cour int\u00E9rieure / Patio cach\u00E9",
+    backyardFull: "Arri\u00E8re-cour",
+    courtyardFull: "Cour int\u00E9rieure",
     openNow: "Ouvert maintenant",
     clearAll: "Tout effacer",
     neighborhoods: "quartiers",
