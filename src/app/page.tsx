@@ -42,12 +42,22 @@ export default function Home() {
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
 
+  const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const savedScrollTop = useRef(0);
   const desktopListRef = useRef<HTMLDivElement>(null);
   const mobileListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cb = () => setAllCardsLoaded(true);
+    if ("requestIdleCallback" in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb);
+    } else {
+      setTimeout(cb, 200);
+    }
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -123,6 +133,9 @@ export default function Home() {
   }, [search, neighborhoods, terraceTypes, dogFriendly, covered, openNow, sortByDistance, userLocation]);
 
   const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
+
+  const INITIAL_CARD_COUNT = 8;
+  const visibleCards = allCardsLoaded ? filteredWithDistance : filteredWithDistance.slice(0, INITIAL_CARD_COUNT);
 
   const selectedTerrace = selectedId
     ? terraces.find((t) => t.id === selectedId) ?? null
@@ -238,7 +251,7 @@ export default function Home() {
                   <p className="text-sm text-muted">{t.noResults}</p>
                 </div>
               ) : (
-                filteredWithDistance.map(({ terrace, distance }, i) => (
+                visibleCards.map(({ terrace, distance }, i) => (
                   <div
                     key={terrace.id}
                     className="card-enter"
@@ -390,7 +403,7 @@ export default function Home() {
                     <p className="text-sm text-muted">{t.noResults}</p>
                   </div>
                 ) : (
-                  filteredWithDistance.map(({ terrace, distance }, i) => (
+                  visibleCards.map(({ terrace, distance }, i) => (
                     <TerraceCard
                       key={terrace.id}
                       terrace={terrace}
