@@ -168,6 +168,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
         <link rel="preconnect" href="https://mnrpyixjrjoqiecfsibg.supabase.co" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#c45d3e" />
