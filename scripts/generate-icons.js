@@ -50,6 +50,42 @@ function makeSunSvg(size, sunFill = 0.75) {
 function makeInstagramSvg(bg, fg) {
   const s = 1080;
   const cx = s / 2;
+  const sunCy = 400;
+  const sunScale = (s * 0.42) / 32;
+
+  const tx = (x) => cx + (x - 16) * sunScale;
+  const ty = (y) => sunCy + (y - 16) * sunScale;
+  const tp = (pts) => pts.map(([x, y]) => `${tx(x)},${ty(y)}`).join(' ');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
+  <defs>
+    <style>${playfairFontFace}</style>
+  </defs>
+  <rect width="${s}" height="${s}" fill="${bg}"/>
+  <polygon points="${tp([[16,1],[14,8],[18,8]])}" fill="${fg}"/>
+  <polygon points="${tp([[16,31],[14,24],[18,24]])}" fill="${fg}"/>
+  <polygon points="${tp([[1,16],[8,14],[8,18]])}" fill="${fg}"/>
+  <polygon points="${tp([[31,16],[24,14],[24,18]])}" fill="${fg}"/>
+  <polygon points="${tp([[5.4,5.4],[10.2,8.4],[7.8,10.8]])}" fill="${fg}"/>
+  <polygon points="${tp([[26.6,26.6],[21.8,23.6],[24.2,21.2]])}" fill="${fg}"/>
+  <polygon points="${tp([[26.6,5.4],[23.6,10.2],[21.2,7.8]])}" fill="${fg}"/>
+  <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
+  <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
+  <text
+    x="${cx}" y="730"
+    text-anchor="middle"
+    font-family="Playfair Display, Georgia, serif"
+    font-size="112"
+    font-weight="700"
+    fill="${fg}"
+    letter-spacing="2"
+  >Terrasse Season</text>
+</svg>`;
+}
+
+function makeInstagramSvgTwoLines(bg, fg) {
+  const s = 1080;
+  const cx = s / 2;
   const sunCy = 370;
   const sunScale = (s * 0.42) / 32;
 
@@ -120,6 +156,18 @@ async function generate() {
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-inverted.png'));
   console.log('Generated icon-instagram-inverted.png (1080x1080)');
+
+  const igTwoLinesSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1');
+  await sharp(Buffer.from(igTwoLinesSvg))
+    .png()
+    .toFile(join(__dirname, '../public/icon-instagram-2lines.png'));
+  console.log('Generated icon-instagram-2lines.png (1080x1080)');
+
+  const igTwoLinesInvertedSvg = makeInstagramSvgTwoLines('#faf6f1', '#c45d3e');
+  await sharp(Buffer.from(igTwoLinesInvertedSvg))
+    .png()
+    .toFile(join(__dirname, '../public/icon-instagram-2lines-inverted.png'));
+  console.log('Generated icon-instagram-2lines-inverted.png (1080x1080)');
 }
 
 generate().catch(console.error);
