@@ -98,10 +98,13 @@ export const metadata: Metadata = {
     images: ["/og-v2.jpg"],
   },
   manifest: "/manifest.json",
-  themeColor: "#c45d3e",
   icons: {
     apple: "/icon-192x192.png",
   },
+};
+
+export const viewport = {
+  themeColor: "#c45d3e",
 };
 
 function buildJsonLd() {
