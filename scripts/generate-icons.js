@@ -88,6 +88,9 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   const cx = s / 2;
   const sunCy = 370;
   const sunScale = (s * sunFill) / 32;
+  const sunBottom = sunCy + 15 * sunScale;
+  const text1Y = Math.max(700, sunBottom + 80);
+  const text2Y = text1Y + 140;
 
   const tx = (x) => cx + (x - 16) * sunScale;
   const ty = (y) => sunCy + (y - 16) * sunScale;
@@ -108,7 +111,7 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
   <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
   <text
-    x="${cx}" y="700"
+    x="${cx}" y="${text1Y}"
     text-anchor="middle"
     font-family="Playfair Display, Georgia, serif"
     font-size="120"
@@ -117,7 +120,7 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
     letter-spacing="2"
   >Terrasse</text>
   <text
-    x="${cx}" y="840"
+    x="${cx}" y="${text2Y}"
     text-anchor="middle"
     font-family="Playfair Display, Georgia, serif"
     font-size="120"
