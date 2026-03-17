@@ -5208,7 +5208,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.escondite.ca",
     instagram: "@escondite_mtl",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/6.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/0.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/1.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/195/6.jpg"],
     openingPeriods: [
       { day: 0, open: "11:00", close: "21:00" },
       { day: 2, open: "17:30", close: "21:00" },
@@ -5634,7 +5634,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://annies.ca",
     instagram: "@annies_sur_le_lac",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/5.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/8.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/2.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/4.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/7.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/180/8.jpg"],
     openingPeriods: [
       { day: 2, open: "11:30", close: "21:00" },
       { day: 3, open: "11:30", close: "21:00" },
@@ -5687,7 +5687,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://delosrestobar.com",
     instagram: "@restaurant.delos",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/182/3.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/182/7.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/182/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/182/7.jpg"],
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:00" },
       { day: 2, open: "17:00", close: "22:00" },
@@ -5716,7 +5716,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.yeoldeorchard.com/pointeclaire",
     instagram: "@yoopub",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/183/2.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/183/main.jpg"],
     openingPeriods: [
       { day: 0, open: "09:00", close: "23:00" },
       { day: 1, open: "11:30", close: "23:00" },
@@ -5804,7 +5804,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.restaurantlegourmand.ca",
     instagram: "@restaurantlegourmand",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/186/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/186/0.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/186/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/186/0.jpg"],
     openingPeriods: [
       { day: 1, open: "11:30", close: "15:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -5939,7 +5939,7 @@ export const terraces: Terrace[] = [
     website: "https://restaurantmonza.com/en/locations/restaurant-brossard/",
     phone: "450-500-7466",
     instagram: "@enotecamonza",
-    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/191/8.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/191/0.jpg"],
+    photos: ["https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/191/main.jpg", "https://mnrpyixjrjoqiecfsibg.supabase.co/storage/v1/object/public/photos/191/0.jpg"],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "11:30", close: "22:00" },

@@ -4,9 +4,11 @@
 // Usage: node scripts/rename-main-photos.js
 // Requires: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_KEY in .env.local
 
-const { createClient } = require("@supabase/supabase-js");
-const { readFileSync, writeFileSync } = require("fs");
-const { resolve } = require("path");
+import { createClient } from "@supabase/supabase-js";
+import { readFileSync, writeFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Parse .env.local manually (no dotenv needed)
 const envPath = resolve(__dirname, "../.env.local");
