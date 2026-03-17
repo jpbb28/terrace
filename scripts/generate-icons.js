@@ -1,7 +1,8 @@
 import sharp from 'sharp';
+import { writePsdBuffer } from 'ag-psd';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -139,6 +140,19 @@ const pwaOutputs = [
   { name: 'apple-touch-icon.png', size: 180, fill: 0.75 },
 ];
 
+async function svgToPsd(svg, outPath, size) {
+  const raw = await sharp(Buffer.from(svg)).ensureAlpha().raw().toBuffer();
+  const canvas = {
+    width: size,
+    height: size,
+    getContext: () => ({
+      getImageData: () => ({ data: new Uint8ClampedArray(raw), width: size, height: size }),
+    }),
+  };
+  const psdBuf = writePsdBuffer({ width: size, height: size, canvas }, { generateThumbnail: false });
+  writeFileSync(outPath, psdBuf);
+}
+
 async function generate() {
   for (const { name, size, fill } of pwaOutputs) {
     const svg = makeSunSvg(size, fill);
@@ -177,6 +191,19 @@ async function generate() {
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines-bigsun.png'));
   console.log('Generated icon-instagram-2lines-bigsun.png (1080x1080)');
+
+  // PSD versions of Instagram images
+  const igPsds = [
+    { svg: igSvg,                name: 'icon-instagram.psd' },
+    { svg: igInvertedSvg,        name: 'icon-instagram-inverted.psd' },
+    { svg: igTwoLinesSvg,        name: 'icon-instagram-2lines.psd' },
+    { svg: igTwoLinesInvertedSvg,name: 'icon-instagram-2lines-inverted.psd' },
+    { svg: igBigSunSvg,          name: 'icon-instagram-2lines-bigsun.psd' },
+  ];
+  for (const { svg, name } of igPsds) {
+    await svgToPsd(svg, join(__dirname, `../public/${name}`), 1080);
+    console.log(`Generated ${name} (1080x1080)`);
+  }
 }
 
 generate().catch(console.error);
