@@ -44,7 +44,7 @@ export default function TerraceCard({ terrace, selected, onClick, distance, prio
             fill
             className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
             sizes="(min-width: 768px) 468px, calc(100vw - 24px)"
-            quality={60}
+
             priority={priority}
           />
         </div>
