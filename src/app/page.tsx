@@ -11,7 +11,7 @@ import TerraceDetail from "@/components/TerraceDetail";
 import { useLang } from "@/lib/LanguageContext";
 import { trackEvent } from "@/lib/analytics";
 
-const Map = dynamic(() => import("@/components/Map"), { ssr: false });
+const Map = dynamic(() => import(/* webpackPrefetch: false */ "@/components/Map"), { ssr: false });
 
 const MONTREAL_CENTER: [number, number] = [45.5152, -73.58];
 const DEFAULT_ZOOM = 13;
