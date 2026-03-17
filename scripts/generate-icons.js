@@ -2,23 +2,36 @@ import sharp from 'sharp';
 import { writePsdBuffer } from 'ag-psd';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import opentype from 'opentype.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Embed Playfair Display (Latin subset) from Next.js font cache (optional)
-const playfairPath = join(__dirname, '../.next/static/media/eaead17c7dbfcd5d-s.p.woff2');
-let playfairFontFace = '';
-try {
-  const playfairB64 = readFileSync(playfairPath).toString('base64');
-  playfairFontFace = `@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  src: url('data:font/woff2;base64,${playfairB64}') format('woff2');
-}`;
-} catch {
-  // Font cache not available; will fall back to Georgia/serif
+// Download and cache Playfair Display Bold TTF from Google Fonts
+async function ensureFont() {
+  const fontDir = join(__dirname, 'fonts');
+  const fontPath = join(fontDir, 'PlayfairDisplay-Bold.ttf');
+  if (!existsSync(fontPath)) {
+    mkdirSync(fontDir, { recursive: true });
+    // Old Android UA makes Google Fonts return TTF format
+    const cssRes = await fetch('https://fonts.googleapis.com/css?family=Playfair+Display:700', {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' },
+    });
+    const css = await cssRes.text();
+    const match = css.match(/src: url\(([^)]+)\)/);
+    if (!match) throw new Error('Could not parse font URL from Google Fonts CSS');
+    const fontRes = await fetch(match[1]);
+    writeFileSync(fontPath, Buffer.from(await fontRes.arrayBuffer()));
+    console.log('Downloaded PlayfairDisplay-Bold.ttf');
+  }
+  return opentype.loadSync(fontPath);
+}
+
+// Render text as an SVG <path>, horizontally centred at cx, baseline at y
+function textPath(font, text, cx, y, fontSize, fill) {
+  const width = font.getAdvanceWidth(text, fontSize);
+  const path = font.getPath(text, cx - width / 2, y, fontSize);
+  return `<path d="${path.toPathData(3)}" fill="${fill}"/>`;
 }
 
 // sunFill: fraction of canvas the sun occupies (0–1)
@@ -48,7 +61,7 @@ function makeSunSvg(size, sunFill = 0.75) {
 </svg>`;
 }
 
-function makeInstagramSvg(bg, fg) {
+function makeInstagramSvg(bg, fg, font) {
   const s = 1080;
   const cx = s / 2;
   const sunCy = 400;
@@ -59,9 +72,6 @@ function makeInstagramSvg(bg, fg) {
   const tp = (pts) => pts.map(([x, y]) => `${tx(x)},${ty(y)}`).join(' ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
-  <defs>
-    <style>${playfairFontFace}</style>
-  </defs>
   <rect width="${s}" height="${s}" fill="${bg}"/>
   <polygon points="${tp([[16,1],[14,8],[18,8]])}" fill="${fg}"/>
   <polygon points="${tp([[16,31],[14,24],[18,24]])}" fill="${fg}"/>
@@ -72,19 +82,11 @@ function makeInstagramSvg(bg, fg) {
   <polygon points="${tp([[26.6,5.4],[23.6,10.2],[21.2,7.8]])}" fill="${fg}"/>
   <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
   <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
-  <text
-    x="${cx}" y="730"
-    text-anchor="middle"
-    font-family="Playfair Display, Georgia, serif"
-    font-size="112"
-    font-weight="700"
-    fill="${fg}"
-    letter-spacing="2"
-  >Terrasse Season</text>
+  ${textPath(font, 'Terrasse Season', cx, 730, 112, fg)}
 </svg>`;
 }
 
-function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
+function makeInstagramSvgTwoLines(bg, fg, font, sunFill = 0.42) {
   const s = 1080;
   const cx = s / 2;
   const sunCy = 370;
@@ -98,9 +100,6 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   const tp = (pts) => pts.map(([x, y]) => `${tx(x)},${ty(y)}`).join(' ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
-  <defs>
-    <style>${playfairFontFace}</style>
-  </defs>
   <rect width="${s}" height="${s}" fill="${bg}"/>
   <polygon points="${tp([[16,1],[14,8],[18,8]])}" fill="${fg}"/>
   <polygon points="${tp([[16,31],[14,24],[18,24]])}" fill="${fg}"/>
@@ -111,24 +110,8 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   <polygon points="${tp([[26.6,5.4],[23.6,10.2],[21.2,7.8]])}" fill="${fg}"/>
   <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
   <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
-  <text
-    x="${cx}" y="${text1Y}"
-    text-anchor="middle"
-    font-family="Playfair Display, Georgia, serif"
-    font-size="120"
-    font-weight="700"
-    fill="${fg}"
-    letter-spacing="2"
-  >Terrasse</text>
-  <text
-    x="${cx}" y="${text2Y}"
-    text-anchor="middle"
-    font-family="Playfair Display, Georgia, serif"
-    font-size="120"
-    font-weight="700"
-    fill="${fg}"
-    letter-spacing="2"
-  >Season</text>
+  ${textPath(font, 'Terrasse', cx, text1Y, 120, fg)}
+  ${textPath(font, 'Season', cx, text2Y, 120, fg)}
 </svg>`;
 }
 
@@ -154,6 +137,8 @@ async function svgToPsd(svg, outPath, size) {
 }
 
 async function generate() {
+  const font = await ensureFont();
+
   for (const { name, size, fill } of pwaOutputs) {
     const svg = makeSunSvg(size, fill);
     await sharp(Buffer.from(svg))
@@ -162,31 +147,31 @@ async function generate() {
     console.log(`Generated ${name} (${size}x${size})`);
   }
 
-  const igSvg = makeInstagramSvg('#c45d3e', '#faf6f1');
+  const igSvg = makeInstagramSvg('#c45d3e', '#faf6f1', font);
   await sharp(Buffer.from(igSvg))
     .png()
     .toFile(join(__dirname, '../public/icon-instagram.png'));
   console.log('Generated icon-instagram.png (1080x1080)');
 
-  const igInvertedSvg = makeInstagramSvg('#faf6f1', '#c45d3e');
+  const igInvertedSvg = makeInstagramSvg('#faf6f1', '#c45d3e', font);
   await sharp(Buffer.from(igInvertedSvg))
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-inverted.png'));
   console.log('Generated icon-instagram-inverted.png (1080x1080)');
 
-  const igTwoLinesSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1');
+  const igTwoLinesSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font);
   await sharp(Buffer.from(igTwoLinesSvg))
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines.png'));
   console.log('Generated icon-instagram-2lines.png (1080x1080)');
 
-  const igTwoLinesInvertedSvg = makeInstagramSvgTwoLines('#faf6f1', '#c45d3e');
+  const igTwoLinesInvertedSvg = makeInstagramSvgTwoLines('#faf6f1', '#c45d3e', font);
   await sharp(Buffer.from(igTwoLinesInvertedSvg))
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines-inverted.png'));
   console.log('Generated icon-instagram-2lines-inverted.png (1080x1080)');
 
-  const igBigSunSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', 0.54);
+  const igBigSunSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font, 0.54);
   await sharp(Buffer.from(igBigSunSvg))
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines-bigsun.png'));
