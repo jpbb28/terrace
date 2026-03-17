@@ -83,11 +83,11 @@ function makeInstagramSvg(bg, fg) {
 </svg>`;
 }
 
-function makeInstagramSvgTwoLines(bg, fg) {
+function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   const s = 1080;
   const cx = s / 2;
   const sunCy = 370;
-  const sunScale = (s * 0.42) / 32;
+  const sunScale = (s * sunFill) / 32;
 
   const tx = (x) => cx + (x - 16) * sunScale;
   const ty = (y) => sunCy + (y - 16) * sunScale;
@@ -168,6 +168,12 @@ async function generate() {
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines-inverted.png'));
   console.log('Generated icon-instagram-2lines-inverted.png (1080x1080)');
+
+  const igBigSunSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', 0.54);
+  await sharp(Buffer.from(igBigSunSvg))
+    .png()
+    .toFile(join(__dirname, '../public/icon-instagram-2lines-bigsun.png'));
+  console.log('Generated icon-instagram-2lines-bigsun.png (1080x1080)');
 }
 
 generate().catch(console.error);
