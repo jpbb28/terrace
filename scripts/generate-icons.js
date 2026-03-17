@@ -89,7 +89,7 @@ function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   const sunCy = 370;
   const sunScale = (s * sunFill) / 32;
   const sunBottom = sunCy + 15 * sunScale;
-  const text1Y = Math.max(700, sunBottom + 80);
+  const text1Y = sunBottom + 150;
   const text2Y = text1Y + 140;
 
   const tx = (x) => cx + (x - 16) * sunScale;
