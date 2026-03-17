@@ -11,7 +11,7 @@ import TerraceDetail from "@/components/TerraceDetail";
 import { useLang } from "@/lib/LanguageContext";
 import { trackEvent } from "@/lib/analytics";
 
-const Map = dynamic(() => import(/* webpackPrefetch: false */ "@/components/Map"), { ssr: false });
+const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
 const MONTREAL_CENTER: [number, number] = [45.5152, -73.58];
 const DEFAULT_ZOOM = 13;
@@ -44,7 +44,8 @@ export default function Home() {
 
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mapMounted, setMapMounted] = useState(false);
+  const [desktopMapMounted, setDesktopMapMounted] = useState(false);
+  const [mobileMapMounted, setMobileMapMounted] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const savedScrollTop = useRef(0);
@@ -54,7 +55,7 @@ export default function Home() {
   useEffect(() => {
     const cb = () => {
       setAllCardsLoaded(true);
-      setMapMounted(true);
+      setDesktopMapMounted(true);
     };
     if ("requestIdleCallback" in window) {
       (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb);
@@ -286,7 +287,7 @@ export default function Home() {
 
       {/* ── Desktop map ── */}
       <div className="hidden md:block flex-1 h-full">
-        {mapMounted && (
+        {desktopMapMounted && (
           <Map
             terraces={filtered}
             selectedId={selectedId}
@@ -379,7 +380,7 @@ export default function Home() {
                   {t.list} ({filteredWithDistance.length})
                 </button>
                 <button
-                  onClick={() => setMobileView("map")}
+                  onClick={() => { setMobileView("map"); setMobileMapMounted(true); }}
                   className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                     mobileView === "map"
                       ? "bg-white text-accent shadow-sm"
@@ -429,7 +430,7 @@ export default function Home() {
                     : "opacity-0 z-0 pointer-events-none"
                 }`}
               >
-                {mapMounted && (
+                {mobileMapMounted && (
                   <Map
                     terraces={filtered}
                     selectedId={selectedId}
