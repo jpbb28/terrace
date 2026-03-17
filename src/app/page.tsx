@@ -53,15 +53,16 @@ export default function Home() {
   const mobileListRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cb = () => {
-      setAllCardsLoaded(true);
-      setDesktopMapMounted(true);
-    };
+    const cb = () => setAllCardsLoaded(true);
     if ("requestIdleCallback" in window) {
       (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb);
     } else {
       setTimeout(cb, 200);
     }
+  }, []);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) setDesktopMapMounted(true);
   }, []);
 
   useEffect(() => {
