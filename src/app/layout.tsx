@@ -97,6 +97,11 @@ export const metadata: Metadata = {
     description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     images: ["/og-v2.jpg"],
   },
+  manifest: "/manifest.json",
+  themeColor: "#c45d3e",
+  icons: {
+    apple: "/icon-192x192.png",
+  },
 };
 
 function buildJsonLd() {
@@ -168,11 +173,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
         <link rel="preconnect" href="https://mnrpyixjrjoqiecfsibg.supabase.co" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#c45d3e" />
-        <link rel="apple-touch-icon" href="/icon-192x192.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
