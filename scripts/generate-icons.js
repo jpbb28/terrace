@@ -1,7 +1,8 @@
 import sharp from 'sharp';
+import { writePsdBuffer } from 'ag-psd';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -83,11 +84,14 @@ function makeInstagramSvg(bg, fg) {
 </svg>`;
 }
 
-function makeInstagramSvgTwoLines(bg, fg) {
+function makeInstagramSvgTwoLines(bg, fg, sunFill = 0.42) {
   const s = 1080;
   const cx = s / 2;
   const sunCy = 370;
-  const sunScale = (s * 0.42) / 32;
+  const sunScale = (s * sunFill) / 32;
+  const sunBottom = sunCy + 15 * sunScale;
+  const text1Y = sunBottom + 150;
+  const text2Y = text1Y + 140;
 
   const tx = (x) => cx + (x - 16) * sunScale;
   const ty = (y) => sunCy + (y - 16) * sunScale;
@@ -108,7 +112,7 @@ function makeInstagramSvgTwoLines(bg, fg) {
   <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
   <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
   <text
-    x="${cx}" y="700"
+    x="${cx}" y="${text1Y}"
     text-anchor="middle"
     font-family="Playfair Display, Georgia, serif"
     font-size="120"
@@ -117,7 +121,7 @@ function makeInstagramSvgTwoLines(bg, fg) {
     letter-spacing="2"
   >Terrasse</text>
   <text
-    x="${cx}" y="840"
+    x="${cx}" y="${text2Y}"
     text-anchor="middle"
     font-family="Playfair Display, Georgia, serif"
     font-size="120"
@@ -135,6 +139,19 @@ const pwaOutputs = [
   { name: 'icon-512x512-maskable.png', size: 512, fill: 0.50 },
   { name: 'apple-touch-icon.png', size: 180, fill: 0.75 },
 ];
+
+async function svgToPsd(svg, outPath, size) {
+  const raw = await sharp(Buffer.from(svg)).ensureAlpha().raw().toBuffer();
+  const canvas = {
+    width: size,
+    height: size,
+    getContext: () => ({
+      getImageData: () => ({ data: new Uint8ClampedArray(raw), width: size, height: size }),
+    }),
+  };
+  const psdBuf = writePsdBuffer({ width: size, height: size, canvas }, { generateThumbnail: false });
+  writeFileSync(outPath, psdBuf);
+}
 
 async function generate() {
   for (const { name, size, fill } of pwaOutputs) {
@@ -168,6 +185,25 @@ async function generate() {
     .png()
     .toFile(join(__dirname, '../public/icon-instagram-2lines-inverted.png'));
   console.log('Generated icon-instagram-2lines-inverted.png (1080x1080)');
+
+  const igBigSunSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', 0.54);
+  await sharp(Buffer.from(igBigSunSvg))
+    .png()
+    .toFile(join(__dirname, '../public/icon-instagram-2lines-bigsun.png'));
+  console.log('Generated icon-instagram-2lines-bigsun.png (1080x1080)');
+
+  // PSD versions of Instagram images
+  const igPsds = [
+    { svg: igSvg,                name: 'icon-instagram.psd' },
+    { svg: igInvertedSvg,        name: 'icon-instagram-inverted.psd' },
+    { svg: igTwoLinesSvg,        name: 'icon-instagram-2lines.psd' },
+    { svg: igTwoLinesInvertedSvg,name: 'icon-instagram-2lines-inverted.psd' },
+    { svg: igBigSunSvg,          name: 'icon-instagram-2lines-bigsun.psd' },
+  ];
+  for (const { svg, name } of igPsds) {
+    await svgToPsd(svg, join(__dirname, `../public/${name}`), 1080);
+    console.log(`Generated ${name} (1080x1080)`);
+  }
 }
 
 generate().catch(console.error);
