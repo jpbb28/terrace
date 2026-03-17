@@ -79,7 +79,7 @@ for (const { url, storagePath } of unique) {
 
     // Detect format
     const metadata = await sharp(originalBuffer).metadata();
-    const isAlreadySmall = originalBuffer.length < 120 * 1024; // under 120KB, skip
+    const isAlreadySmall = originalBuffer.length < 400 * 1024; // under 400KB, skip
     if (isAlreadySmall) {
       console.log(`  SKIP  ${storagePath} — already ${originalKB}KB`);
       skipped++;
