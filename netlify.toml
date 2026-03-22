@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://terraceseason.com/*"
+  to = "https://terrasseseason.com/:splat"
+  status = 301
+  force = true
