@@ -61,18 +61,12 @@ function makeSunSvg(size, sunFill = 0.75) {
 </svg>`;
 }
 
-function makeInstagramSvg(bg, fg, font) {
-  const s = 1080;
-  const cx = s / 2;
-  const sunCy = 400;
-  const sunScale = (s * 0.42) / 32;
-
+// Returns SVG markup for just the sun shapes (no background)
+function sunShapesSvg(s, cx, sunCy, sunScale, fg) {
   const tx = (x) => cx + (x - 16) * sunScale;
   const ty = (y) => sunCy + (y - 16) * sunScale;
   const tp = (pts) => pts.map(([x, y]) => `${tx(x)},${ty(y)}`).join(' ');
-
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
-  <rect width="${s}" height="${s}" fill="${bg}"/>
   <polygon points="${tp([[16,1],[14,8],[18,8]])}" fill="${fg}"/>
   <polygon points="${tp([[16,31],[14,24],[18,24]])}" fill="${fg}"/>
   <polygon points="${tp([[1,16],[8,14],[8,18]])}" fill="${fg}"/>
@@ -82,10 +76,37 @@ function makeInstagramSvg(bg, fg, font) {
   <polygon points="${tp([[26.6,5.4],[23.6,10.2],[21.2,7.8]])}" fill="${fg}"/>
   <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
   <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
-  ${textPath(font, 'Terrasse Season', cx, 730, 112, fg)}
 </svg>`;
 }
 
+// Returns { flatSvg, layers: [{name, svg}] }
+function makeInstagramSvg(bg, fg, font) {
+  const s = 1080;
+  const cx = s / 2;
+  const sunCy = 400;
+  const sunScale = (s * 0.42) / 32;
+
+  const bgSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}"><rect width="${s}" height="${s}" fill="${bg}"/></svg>`;
+  const sunSvg = sunShapesSvg(s, cx, sunCy, sunScale, fg);
+  const textSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">${textPath(font, 'Terrasse Season', cx, 780, 112, fg)}</svg>`;
+
+  const flatSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
+  <rect width="${s}" height="${s}" fill="${bg}"/>
+  ${sunShapesSvg(s, cx, sunCy, sunScale, fg).replace(/<\/?svg[^>]*>/g, '')}
+  ${textPath(font, 'Terrasse Season', cx, 780, 112, fg)}
+</svg>`;
+
+  return {
+    flatSvg,
+    layers: [
+      { name: 'Background', svg: bgSvg },
+      { name: 'Sun', svg: sunSvg },
+      { name: 'Text', svg: textSvg },
+    ],
+  };
+}
+
+// Returns { flatSvg, layers: [{name, svg}] }
 function makeInstagramSvgTwoLines(bg, fg, font, sunFill = 0.42) {
   const s = 1080;
   const cx = s / 2;
@@ -95,24 +116,28 @@ function makeInstagramSvgTwoLines(bg, fg, font, sunFill = 0.42) {
   const text1Y = sunBottom + 150;
   const text2Y = text1Y + 140;
 
-  const tx = (x) => cx + (x - 16) * sunScale;
-  const ty = (y) => sunCy + (y - 16) * sunScale;
-  const tp = (pts) => pts.map(([x, y]) => `${tx(x)},${ty(y)}`).join(' ');
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
-  <rect width="${s}" height="${s}" fill="${bg}"/>
-  <polygon points="${tp([[16,1],[14,8],[18,8]])}" fill="${fg}"/>
-  <polygon points="${tp([[16,31],[14,24],[18,24]])}" fill="${fg}"/>
-  <polygon points="${tp([[1,16],[8,14],[8,18]])}" fill="${fg}"/>
-  <polygon points="${tp([[31,16],[24,14],[24,18]])}" fill="${fg}"/>
-  <polygon points="${tp([[5.4,5.4],[10.2,8.4],[7.8,10.8]])}" fill="${fg}"/>
-  <polygon points="${tp([[26.6,26.6],[21.8,23.6],[24.2,21.2]])}" fill="${fg}"/>
-  <polygon points="${tp([[26.6,5.4],[23.6,10.2],[21.2,7.8]])}" fill="${fg}"/>
-  <polygon points="${tp([[5.4,26.6],[8.4,21.8],[10.8,24.2]])}" fill="${fg}"/>
-  <circle cx="${cx}" cy="${sunCy}" r="${6 * sunScale}" fill="${fg}"/>
+  const bgSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}"><rect width="${s}" height="${s}" fill="${bg}"/></svg>`;
+  const sunSvg = sunShapesSvg(s, cx, sunCy, sunScale, fg);
+  const textSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
   ${textPath(font, 'Terrasse', cx, text1Y, 120, fg)}
   ${textPath(font, 'Season', cx, text2Y, 120, fg)}
 </svg>`;
+
+  const flatSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}">
+  <rect width="${s}" height="${s}" fill="${bg}"/>
+  ${sunShapesSvg(s, cx, sunCy, sunScale, fg).replace(/<\/?svg[^>]*>/g, '')}
+  ${textPath(font, 'Terrasse', cx, text1Y, 120, fg)}
+  ${textPath(font, 'Season', cx, text2Y, 120, fg)}
+</svg>`;
+
+  return {
+    flatSvg,
+    layers: [
+      { name: 'Background', svg: bgSvg },
+      { name: 'Sun', svg: sunSvg },
+      { name: 'Text', svg: textSvg },
+    ],
+  };
 }
 
 const pwaOutputs = [
@@ -123,17 +148,20 @@ const pwaOutputs = [
   { name: 'apple-touch-icon.png', size: 180, fill: 0.75 },
 ];
 
-async function svgToPsd(svg, outPath, size) {
+async function svgToImageData(svg, size) {
   const raw = await sharp(Buffer.from(svg)).ensureAlpha().raw().toBuffer();
-  const canvas = {
-    width: size,
-    height: size,
-    getContext: () => ({
-      getImageData: () => ({ data: new Uint8ClampedArray(raw), width: size, height: size }),
-    }),
-  };
-  const psdBuf = writePsdBuffer({ width: size, height: size, canvas }, { generateThumbnail: false });
-  writeFileSync(outPath, psdBuf);
+  return { data: new Uint8ClampedArray(raw), width: size, height: size };
+}
+
+async function layersToPsd(layers, outPath, size) {
+  const psdLayers = [];
+  // ag-psd children order: first = top of layer stack in Photoshop
+  for (const { name, svg } of [...layers].reverse()) {
+    const imageData = await svgToImageData(svg, size);
+    psdLayers.push({ name, top: 0, left: 0, bottom: size, right: size, imageData });
+  }
+  const psdBuf = writePsdBuffer({ width: size, height: size, children: psdLayers }, { generateThumbnail: false });
+  writeFileSync(outPath, Buffer.from(psdBuf));
 }
 
 async function generate() {
@@ -141,53 +169,38 @@ async function generate() {
 
   for (const { name, size, fill } of pwaOutputs) {
     const svg = makeSunSvg(size, fill);
-    await sharp(Buffer.from(svg))
-      .png()
-      .toFile(join(__dirname, `../public/${name}`));
+    await sharp(Buffer.from(svg)).png().toFile(join(__dirname, `../public/${name}`));
     console.log(`Generated ${name} (${size}x${size})`);
   }
 
-  const igSvg = makeInstagramSvg('#c45d3e', '#faf6f1', font);
-  await sharp(Buffer.from(igSvg))
-    .png()
-    .toFile(join(__dirname, '../public/icon-instagram.png'));
-  console.log('Generated icon-instagram.png (1080x1080)');
+  const ig         = makeInstagramSvg('#c45d3e', '#faf6f1', font);
+  const igInverted = makeInstagramSvg('#faf6f1', '#c45d3e', font);
+  const ig2        = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font);
+  const ig2Inv     = makeInstagramSvgTwoLines('#faf6f1', '#c45d3e', font);
+  const ig2Big     = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font, 0.54);
 
-  const igInvertedSvg = makeInstagramSvg('#faf6f1', '#c45d3e', font);
-  await sharp(Buffer.from(igInvertedSvg))
-    .png()
-    .toFile(join(__dirname, '../public/icon-instagram-inverted.png'));
-  console.log('Generated icon-instagram-inverted.png (1080x1080)');
-
-  const igTwoLinesSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font);
-  await sharp(Buffer.from(igTwoLinesSvg))
-    .png()
-    .toFile(join(__dirname, '../public/icon-instagram-2lines.png'));
-  console.log('Generated icon-instagram-2lines.png (1080x1080)');
-
-  const igTwoLinesInvertedSvg = makeInstagramSvgTwoLines('#faf6f1', '#c45d3e', font);
-  await sharp(Buffer.from(igTwoLinesInvertedSvg))
-    .png()
-    .toFile(join(__dirname, '../public/icon-instagram-2lines-inverted.png'));
-  console.log('Generated icon-instagram-2lines-inverted.png (1080x1080)');
-
-  const igBigSunSvg = makeInstagramSvgTwoLines('#c45d3e', '#faf6f1', font, 0.54);
-  await sharp(Buffer.from(igBigSunSvg))
-    .png()
-    .toFile(join(__dirname, '../public/icon-instagram-2lines-bigsun.png'));
-  console.log('Generated icon-instagram-2lines-bigsun.png (1080x1080)');
-
-  // PSD versions of Instagram images
-  const igPsds = [
-    { svg: igSvg,                name: 'icon-instagram.psd' },
-    { svg: igInvertedSvg,        name: 'icon-instagram-inverted.psd' },
-    { svg: igTwoLinesSvg,        name: 'icon-instagram-2lines.psd' },
-    { svg: igTwoLinesInvertedSvg,name: 'icon-instagram-2lines-inverted.psd' },
-    { svg: igBigSunSvg,          name: 'icon-instagram-2lines-bigsun.psd' },
+  const pngs = [
+    { variant: ig,         name: 'icon-instagram.png' },
+    { variant: igInverted, name: 'icon-instagram-inverted.png' },
+    { variant: ig2,        name: 'icon-instagram-2lines.png' },
+    { variant: ig2Inv,     name: 'icon-instagram-2lines-inverted.png' },
+    { variant: ig2Big,     name: 'icon-instagram-2lines-bigsun.png' },
   ];
-  for (const { svg, name } of igPsds) {
-    await svgToPsd(svg, join(__dirname, `../public/${name}`), 1080);
+  for (const { variant, name } of pngs) {
+    await sharp(Buffer.from(variant.flatSvg)).png().toFile(join(__dirname, `../public/${name}`));
     console.log(`Generated ${name} (1080x1080)`);
+  }
+
+  const psds = [
+    { variant: ig,         name: 'icon-instagram.psd' },
+    { variant: igInverted, name: 'icon-instagram-inverted.psd' },
+    { variant: ig2,        name: 'icon-instagram-2lines.psd' },
+    { variant: ig2Inv,     name: 'icon-instagram-2lines-inverted.psd' },
+    { variant: ig2Big,     name: 'icon-instagram-2lines-bigsun.psd' },
+  ];
+  for (const { variant, name } of psds) {
+    await layersToPsd(variant.layers, join(__dirname, `../public/${name}`), 1080);
+    console.log(`Generated ${name} (1080x1080, 3 layers)`);
   }
 }
 

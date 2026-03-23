@@ -2,6 +2,8 @@ claude --dangerously-skip-permissions
 
 
 
+**add bots**
+
 
 
 terrace season
@@ -38,7 +40,7 @@ fix blog dates and use better body font but the header font is very nice (is bod
 
 
 
-**check verdun spots that were added - run photos script for these and all recent adds**
+check verdun spots that were added - run photos script for these and all recent adds
 
 
 

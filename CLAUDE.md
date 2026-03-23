@@ -55,19 +55,18 @@ src/
 - `openingPeriods` — structured hours from Google Places API (`{day, open, close}[]`); populated via `node scripts/fetch-hours.js` then `node scripts/apply-hours.js`. Re-run seasonally (winter/summer hours differ). `placeId` stored per terrace to enable cheap future refreshes.
 - `openingHours` — legacy display string, kept for terraces not yet in Places data
 
-## ⚠️ SECURITY — READ BEFORE WORKING ON PHOTOS OR DEPLOYMENT
+## ⚠️ SECURITY
 
 ### Google API Key
 - The key lives ONLY in `.env.local` — this file is gitignored, never commit it
-- **`terraces.ts` must never contain the raw API key** — Street View entries are stored as `/api/streetview/{id}` paths, served via a Next.js API route that reads `GOOGLE_PLACES_API_KEY` server-side
-- `scripts/review.html` temporarily embeds the key in Street View `<img>` src URLs for local review only — **delete `review.html` and `photo-results.json` when the review is complete**, or at minimum never share/deploy them
-- Run `node scripts/apply-photos.js` to apply selections — it stores safe paths, not raw URLs
+- Used only for `scripts/fetch-hours.js` — hours data fetching via Google Places API
+- Restrict the key in Google Cloud Console to: Places API (New) only
+- Set `GOOGLE_PLACES_API_KEY` as an environment variable in Netlify
 
-### TODO before going live
-1. **Build `/api/streetview/[id]` route** — proxies Street View requests server-side so the key is never exposed to the browser
-2. **Add your production domain to the Google API key whitelist** in Google Cloud Console → APIs & Services → Credentials → restrict the key to your domain (e.g. `terrace.yourdomain.com`)
-3. **Also restrict the key by API** — only enable: Places API (New) + Street View Static API
-4. Set `GOOGLE_PLACES_API_KEY` as an environment variable in your hosting platform (Netlify/Vercel)
+## Photos
+- All terrace photos are in `public/photos/{id}/` as WebP files, committed to git and served via Netlify CDN
+- No external photo service (Supabase Storage removed)
+- Street View removed — not used
 
 ## Supabase Schema
 

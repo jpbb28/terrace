@@ -11,15 +11,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   turbopack: {},
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "mnrpyixjrjoqiecfsibg.supabase.co",
-        pathname: "/storage/v1/object/public/**",
-      },
-    ],
-  },
   async headers() {
     return [
       {
