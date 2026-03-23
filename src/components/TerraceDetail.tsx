@@ -95,7 +95,7 @@ export default function TerraceDetail({ terrace, onClose }: TerraceDetailProps) 
                   alt={terrace.name}
                   fill
                   className={`object-cover transition-opacity duration-150 ${i === activePhoto ? "opacity-100" : "opacity-0"}`}
-                  sizes="380px"
+                  sizes="(max-width: 768px) 100vw, 468px"
                   priority={i === 0}
                 />
               ))}
