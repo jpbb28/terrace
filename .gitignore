@@ -46,8 +46,6 @@ scripts/photo-results.json
 scripts/sv-headings.json
 scripts/hires-progress.json
 
-# photos (hosted on Supabase Storage)
-/public/photos/
 
 # PWA generated files (next-pwa output — regenerated on build)
 /public/sw.js
