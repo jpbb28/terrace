@@ -2,7 +2,7 @@ name: Refresh Google Data
 
 on:
   schedule:
-    - cron: "0 6 * * 1"  # Every Monday at 6am UTC
+    - cron: "0 6 1 * *"  # Every 1st of the month at 6am UTC
   workflow_dispatch:       # Allow manual trigger from GitHub UI
 
 permissions:
