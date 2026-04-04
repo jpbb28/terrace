@@ -3,6 +3,7 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import PWAAutoUpdate from "@/components/PWAAutoUpdate";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,7 +21,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://terrasseseason.com"),
   title: "Terrasse Season – Discover Montréal's Best Terraces & Patios",
-  description: "The most complete guide to terraces and patios in Montréal. Hundreds of spots across 24 neighborhoods — filter by rooftop, dog-friendly, covered, open now, and more.",
+  description:
+    "The most complete guide to terraces and patios in Montréal. Hundreds of spots across 24 neighborhoods — filter by rooftop, dog-friendly, covered, open now, and more.",
   keywords: [
     // terrace / terrasse
     "Montreal terraces",
@@ -79,7 +81,8 @@ export const metadata: Metadata = {
     siteName: "Terrasse Season",
     type: "website",
     title: "Terrasse Season – Montréal's Essential Terrace Guide",
-    description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
+    description:
+      "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     locale: "en_CA",
     alternateLocale: "fr_CA",
     images: [
@@ -94,7 +97,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Terrasse Season – Montréal's Essential Terrace Guide",
-    description: "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
+    description:
+      "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     images: ["/og-v2.jpg"],
   },
   manifest: "/manifest.json",
@@ -176,14 +180,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://mnrpyixjrjoqiecfsibg.supabase.co" />
+        <link
+          rel="preconnect"
+          href="https://mnrpyixjrjoqiecfsibg.supabase.co"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
         />
       </head>
       <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <ErrorBoundary>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ErrorBoundary>
         <PWAAutoUpdate />
       </body>
     </html>

@@ -11,11 +11,17 @@ export async function POST(req: NextRequest) {
   let message: string;
 
   if (table === "submissions") {
-    const who = [record.submitter_name, record.submitter_email].filter(Boolean).join(" — ");
+    const who = [record.submitter_name, record.submitter_email]
+      .filter(Boolean)
+      .join(" — ");
     message = `**New terrace submission**\n**Name:** ${record.name}\n**Neighborhood:** ${record.neighborhood ?? "—"}\n**Address:** ${record.address}${who ? `\n**From:** ${who}` : ""}`;
   } else if (table === "corrections") {
-    const changedFields = record.changes ? Object.keys(record.changes).join(", ") : "—";
-    const who = [record.submitter_name, record.submitter_email].filter(Boolean).join(" — ");
+    const changedFields = record.changes
+      ? Object.keys(record.changes).join(", ")
+      : "—";
+    const who = [record.submitter_name, record.submitter_email]
+      .filter(Boolean)
+      .join(" — ");
     message = `**New correction**\n**Terrace:** ${record.terrace_name}\n**Changed:** ${changedFields}${who ? `\n**From:** ${who}` : ""}`;
   } else {
     return NextResponse.json({ ok: true });
