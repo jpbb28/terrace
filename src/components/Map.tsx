@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Terrace } from "@/lib/types";
+import { getHoursStatus } from "@/lib/utils";
 
 const FALLBACK_CENTER: [number, number] = [45.5152, -73.58];
 
@@ -63,6 +64,196 @@ const terraceTypeLabel: Record<string, string> = {
   garden: "Garden",
 };
 
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <span style={{ color: "#c45d3e", fontSize: 12, letterSpacing: 1 }}>
+      {"★".repeat(Math.round(rating))}
+      {"☆".repeat(5 - Math.round(rating))}
+    </span>
+  );
+}
+
+function TerracePopup({ t }: { t: Terrace }) {
+  const hours = getHoursStatus(t);
+  const photo = t.photos?.[0];
+
+  return (
+    <div
+      style={{
+        width: 240,
+        fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
+      }}
+    >
+      {/* Photo */}
+      {photo && (
+        <div style={{ height: 130, overflow: "hidden", position: "relative" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photo}
+            alt={t.name}
+            loading="lazy"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+          {/* Gradient overlay for close button legibility */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 60,
+              height: 40,
+              background:
+                "linear-gradient(135deg, transparent 40%, rgba(0,0,0,0.35) 100%)",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Content */}
+      <div style={{ padding: "12px 14px 13px" }}>
+        {/* Name */}
+        <p
+          style={{
+            fontFamily: "var(--font-playfair), Georgia, serif",
+            fontSize: 15,
+            fontWeight: 700,
+            color: "#2c2418",
+            marginBottom: 3,
+            lineHeight: 1.25,
+          }}
+        >
+          {t.name}
+        </p>
+
+        {/* Neighborhood · cuisine */}
+        <p style={{ fontSize: 11, color: "#9c8b78", marginBottom: 7 }}>
+          {t.neighborhood}
+          {t.cuisineType ? ` · ${t.cuisineType}` : ""}
+        </p>
+
+        {/* Open/closed status */}
+        {hours && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              marginBottom: 7,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: "0.04em",
+                padding: "2px 7px",
+                borderRadius: 20,
+                background: hours.open
+                  ? "rgba(74,142,74,0.12)"
+                  : "rgba(180,60,40,0.1)",
+                color: hours.open ? "#3a8a3a" : "#b43c28",
+              }}
+            >
+              {hours.open ? "OPEN" : "CLOSED"}
+            </span>
+            {hours.qualifier && (
+              <span style={{ fontSize: 11, color: "#9c8b78" }}>
+                {hours.qualifier}
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Rating */}
+        {t.googleRating && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              marginBottom: 8,
+            }}
+          >
+            <StarRating rating={t.googleRating} />
+            <span style={{ fontSize: 11, color: "#9c8b78" }}>
+              {t.googleRating.toFixed(1)}
+              {t.googleReviewCount
+                ? ` (${t.googleReviewCount.toLocaleString()})`
+                : ""}
+            </span>
+          </div>
+        )}
+
+        {/* Badges row */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+          {t.terraceType?.map((tt) => (
+            <span
+              key={tt}
+              style={{
+                fontSize: 10,
+                fontWeight: 500,
+                padding: "2px 7px",
+                borderRadius: 20,
+                background: "rgba(196,93,62,0.1)",
+                color: "#c45d3e",
+              }}
+            >
+              {terraceTypeLabel[tt]}
+            </span>
+          ))}
+          {t.dogFriendly && (
+            <span
+              style={{
+                fontSize: 10,
+                fontWeight: 500,
+                padding: "2px 7px",
+                borderRadius: 20,
+                background: "rgba(100,80,50,0.08)",
+                color: "#7a6040",
+              }}
+            >
+              🐾 Dog friendly
+            </span>
+          )}
+          {t.heated && (
+            <span
+              style={{
+                fontSize: 10,
+                fontWeight: 500,
+                padding: "2px 7px",
+                borderRadius: 20,
+                background: "rgba(100,80,50,0.08)",
+                color: "#7a6040",
+              }}
+            >
+              🔥 Heated
+            </span>
+          )}
+          {t.covered && (
+            <span
+              style={{
+                fontSize: 10,
+                fontWeight: 500,
+                padding: "2px 7px",
+                borderRadius: 20,
+                background: "rgba(100,80,50,0.08)",
+                color: "#7a6040",
+              }}
+            >
+              ☂ Covered
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface MapProps {
   terraces: Terrace[];
   selectedId: string | null;
@@ -71,13 +262,26 @@ interface MapProps {
   zoom: number;
 }
 
-export default function Map({ terraces, selectedId, onSelect, center, zoom }: MapProps) {
-  const safeCenter = isValidLatLng(center[0], center[1]) ? center : FALLBACK_CENTER;
+export default function Map({
+  terraces,
+  selectedId,
+  onSelect,
+  center,
+  zoom,
+}: MapProps) {
+  const safeCenter = isValidLatLng(center[0], center[1])
+    ? center
+    : FALLBACK_CENTER;
 
   const validTerraces = terraces.filter((t) => isValidLatLng(t.lat, t.lng));
 
   return (
-    <MapContainer center={safeCenter} zoom={zoom} className="h-full w-full" zoomControl={true}>
+    <MapContainer
+      center={safeCenter}
+      zoom={zoom}
+      className="h-full w-full"
+      zoomControl={true}
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -93,20 +297,7 @@ export default function Map({ terraces, selectedId, onSelect, center, zoom }: Ma
           alt={t.name}
         >
           <Popup>
-            <div className="min-w-[180px]">
-              <p className="font-semibold text-sm mb-1" style={{ color: "#2c2418", fontFamily: "var(--font-playfair), Georgia, serif" }}>
-                {t.name}
-              </p>
-              <p className="text-xs mb-1.5" style={{ color: "#9c8b78" }}>{t.address}</p>
-              {t.terraceType?.length ? (
-                <span
-                  className="inline-block text-[10px] font-medium px-2 py-0.5 rounded-full"
-                  style={{ background: "rgba(196, 93, 62, 0.12)", color: "#c45d3e" }}
-                >
-                  {t.terraceType.map((tt) => terraceTypeLabel[tt]).join(", ")}
-                </span>
-              ) : null}
-            </div>
+            <TerracePopup t={t} />
           </Popup>
         </Marker>
       ))}
