@@ -24,28 +24,39 @@ export async function GET(
   const { searchParams } = new URL(req.url);
   const page = Math.max(0, parseInt(searchParams.get("page") ?? "0", 10));
 
-  const { data, error } = await supabase
-    .from("reviews")
-    .select("id, rating, text, created_at")
-    .eq("terrace_id", terraceId)
-    .order("created_at", { ascending: false })
-    .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+  const [pageResult, aggResult] = await Promise.all([
+    supabase
+      .from("reviews")
+      .select("id, rating, text, created_at")
+      .eq("terrace_id", terraceId)
+      .order("created_at", { ascending: false })
+      .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1),
+    supabase.from("reviews").select("rating").eq("terrace_id", terraceId),
+  ]);
 
-  if (error) {
-    logError("GET /api/reviews/[terraceId]", error, { terraceId });
+  if (pageResult.error) {
+    logError("GET /api/reviews/[terraceId]", pageResult.error, { terraceId });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+  if (aggResult.error) {
+    logError("GET /api/reviews/[terraceId] agg", aggResult.error, {
+      terraceId,
+    });
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 
+  const allRatings = aggResult.data;
+  const totalCount = allRatings.length;
   const avg =
-    data.length > 0
-      ? data.reduce((sum, r) => sum + r.rating, 0) / data.length
+    totalCount > 0
+      ? allRatings.reduce((sum, r) => sum + r.rating, 0) / totalCount
       : null;
 
   return NextResponse.json({
-    reviews: data,
+    reviews: pageResult.data,
     avg,
-    count: data.length,
+    count: totalCount,
     page,
-    hasMore: data.length === PAGE_SIZE,
+    hasMore: pageResult.data.length === PAGE_SIZE,
   });
 }
