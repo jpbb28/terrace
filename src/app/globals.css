@@ -186,6 +186,35 @@ body {
   transform: rotate(-45deg) scale(1.2);
 }
 
+.terrace-marker-label {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 600;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #fff;
+  color: #2c2418;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  line-height: 1.4;
+}
+
+.terrace-marker-wrapper.active .terrace-marker-label {
+  background: var(--warm);
+  color: #fff;
+}
+
 /* ── Sidebar glass effect ── */
 .sidebar-glass {
   background: var(--sidebar-bg);

@@ -20,10 +20,20 @@ function isValidLatLng(lat: unknown, lng: unknown): boolean {
   );
 }
 
-function createIcon(active: boolean) {
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function createIcon(active: boolean, name: string) {
+  const activeClass = active ? "active" : "";
+  const label = escapeHtml(name);
   return L.divIcon({
     className: "",
-    html: `<div class="terrace-marker ${active ? "active" : ""}"><span class="terrace-marker-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" width="16" height="16"><polygon points="16,1 14,8 18,8" fill="white"/><polygon points="16,31 14,24 18,24" fill="white"/><polygon points="1,16 8,14 8,18" fill="white"/><polygon points="31,16 24,14 24,18" fill="white"/><polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="white"/><polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="white"/><polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="white"/><polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="white"/><circle cx="16" cy="16" r="6" fill="white"/></svg></span></div>`,
+    html: `<div class="terrace-marker-wrapper ${activeClass}" style="position:relative;width:36px"><div class="terrace-marker ${activeClass}"><span class="terrace-marker-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" width="16" height="16"><polygon points="16,1 14,8 18,8" fill="white"/><polygon points="16,31 14,24 18,24" fill="white"/><polygon points="1,16 8,14 8,18" fill="white"/><polygon points="31,16 24,14 24,18" fill="white"/><polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="white"/><polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="white"/><polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="white"/><polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="white"/><circle cx="16" cy="16" r="6" fill="white"/></svg></span></div><span class="terrace-marker-label">${label}</span></div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 36],
     popupAnchor: [0, -36],
@@ -73,7 +83,13 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function TerracePopup({ t }: { t: Terrace }) {
+function TerracePopup({
+  t,
+  onViewDetails,
+}: {
+  t: Terrace;
+  onViewDetails?: (id: string) => void;
+}) {
   const hours = getHoursStatus(t);
   const photo = t.photos?.[0];
 
@@ -249,6 +265,28 @@ function TerracePopup({ t }: { t: Terrace }) {
             </span>
           )}
         </div>
+
+        {/* View details button — only on mobile map */}
+        {onViewDetails && (
+          <button
+            onClick={() => onViewDetails(t.id)}
+            style={{
+              marginTop: 11,
+              width: "100%",
+              padding: "7px 0",
+              borderRadius: 8,
+              background: "#c45d3e",
+              color: "#fff",
+              fontSize: 12,
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+              letterSpacing: "0.02em",
+            }}
+          >
+            View details →
+          </button>
+        )}
       </div>
     </div>
   );
@@ -258,6 +296,7 @@ interface MapProps {
   terraces: Terrace[];
   selectedId: string | null;
   onSelect: (id: string) => void;
+  onViewDetails?: (id: string) => void;
   center: [number, number];
   zoom: number;
 }
@@ -266,6 +305,7 @@ export default function Map({
   terraces,
   selectedId,
   onSelect,
+  onViewDetails,
   center,
   zoom,
 }: MapProps) {
@@ -291,13 +331,13 @@ export default function Map({
         <Marker
           key={t.id}
           position={[t.lat, t.lng]}
-          icon={createIcon(selectedId === t.id)}
+          icon={createIcon(selectedId === t.id, t.name)}
           eventHandlers={{ click: () => onSelect(t.id) }}
           title={t.name}
           alt={t.name}
         >
           <Popup>
-            <TerracePopup t={t} />
+            <TerracePopup t={t} onViewDetails={onViewDetails} />
           </Popup>
         </Marker>
       ))}

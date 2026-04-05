@@ -16,7 +16,12 @@ const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const MONTREAL_CENTER: [number, number] = [45.5152, -73.58];
 const DEFAULT_ZOOM = 13;
 
-function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+function haversineKm(
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number,
+): number {
   const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLng = ((lng2 - lng1) * Math.PI) / 180;
@@ -38,7 +43,13 @@ export default function Home() {
   const [openNow, setOpenNow] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<"map" | "list">("list");
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [mobileMapHighlightId, setMobileMapHighlightId] = useState<
+    string | null
+  >(null);
+  const [userLocation, setUserLocation] = useState<{
+    lat: number;
+    lng: number;
+  } | null>(null);
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
 
@@ -55,7 +66,9 @@ export default function Home() {
   useEffect(() => {
     const cb = () => setAllCardsLoaded(true);
     if ("requestIdleCallback" in window) {
-      (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb);
+      (
+        window as Window & { requestIdleCallback: (cb: () => void) => void }
+      ).requestIdleCallback(cb);
     } else {
       setTimeout(cb, 200);
     }
@@ -67,7 +80,10 @@ export default function Home() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node)
+      ) {
         setMobileMenuOpen(false);
       }
     }
@@ -87,40 +103,55 @@ export default function Home() {
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setUserLocation({
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+        });
         setSortByDistance(true);
         setLocating(false);
       },
       () => {
         setLocating(false);
       },
-      { timeout: 10000 }
+      { timeout: 10000 },
     );
   }, [sortByDistance, userLocation]);
 
   const filteredWithDistance = useMemo(() => {
     const q = search.toLowerCase();
 
-    const scored = terraces.flatMap((t) => {
-      if (search) {
-        const nameLower = t.name.toLowerCase();
-        const match =
-          nameLower.includes(q) ||
-          t.address.toLowerCase().includes(q) ||
-          t.cuisineType.toLowerCase().includes(q);
-        if (!match) return [];
-        const score = nameLower.startsWith(q) ? 0 : nameLower.includes(q) ? 1 : 2;
-        return [{ terrace: t, score }];
-      }
-      return [{ terrace: t, score: 0 }];
-    }).filter(({ terrace: t }) => {
-      if (neighborhoods.length > 0 && !neighborhoods.includes(t.neighborhood)) return false;
-      if (terraceTypes.length > 0 && (!t.terraceType || !t.terraceType.some((tt) => terraceTypes.includes(tt)))) return false;
-      if (dogFriendly && !t.dogFriendly) return false;
-      if (covered && !t.covered) return false;
-      if (openNow && isOpenNow(t) !== true) return false;
-      return true;
-    });
+    const scored = terraces
+      .flatMap((t) => {
+        if (search) {
+          const nameLower = t.name.toLowerCase();
+          const match =
+            nameLower.includes(q) ||
+            t.address.toLowerCase().includes(q) ||
+            t.cuisineType.toLowerCase().includes(q);
+          if (!match) return [];
+          const score = nameLower.startsWith(q)
+            ? 0
+            : nameLower.includes(q)
+              ? 1
+              : 2;
+          return [{ terrace: t, score }];
+        }
+        return [{ terrace: t, score: 0 }];
+      })
+      .filter(({ terrace: t }) => {
+        if (neighborhoods.length > 0 && !neighborhoods.includes(t.neighborhood))
+          return false;
+        if (
+          terraceTypes.length > 0 &&
+          (!t.terraceType ||
+            !t.terraceType.some((tt) => terraceTypes.includes(tt)))
+        )
+          return false;
+        if (dogFriendly && !t.dogFriendly) return false;
+        if (covered && !t.covered) return false;
+        if (openNow && isOpenNow(t) !== true) return false;
+        return true;
+      });
 
     if (sortByDistance && userLocation) {
       const withDist = scored.map(({ terrace: t }) => ({
@@ -135,39 +166,69 @@ export default function Home() {
       scored.sort((a, b) => a.score - b.score);
     }
 
-    return scored.map(({ terrace: t }) => ({ terrace: t, distance: undefined }));
-  }, [search, neighborhoods, terraceTypes, dogFriendly, covered, openNow, sortByDistance, userLocation]);
+    return scored.map(({ terrace: t }) => ({
+      terrace: t,
+      distance: undefined,
+    }));
+  }, [
+    search,
+    neighborhoods,
+    terraceTypes,
+    dogFriendly,
+    covered,
+    openNow,
+    sortByDistance,
+    userLocation,
+  ]);
 
-  const filtered = useMemo(() => filteredWithDistance.map((x) => x.terrace), [filteredWithDistance]);
+  const filtered = useMemo(
+    () => filteredWithDistance.map((x) => x.terrace),
+    [filteredWithDistance],
+  );
 
   const INITIAL_CARD_COUNT = 4;
-  const visibleCards = allCardsLoaded ? filteredWithDistance : filteredWithDistance.slice(0, INITIAL_CARD_COUNT);
+  const visibleCards = allCardsLoaded
+    ? filteredWithDistance
+    : filteredWithDistance.slice(0, INITIAL_CARD_COUNT);
 
   const selectedTerrace = selectedId
-    ? terraces.find((t) => t.id === selectedId) ?? null
+    ? (terraces.find((t) => t.id === selectedId) ?? null)
     : null;
 
   const mapCenter = useMemo<[number, number]>(() => {
     if (selectedTerrace) return [selectedTerrace.lat, selectedTerrace.lng];
+    if (mobileMapHighlightId) {
+      const t = terraces.find((t) => t.id === mobileMapHighlightId);
+      if (t) return [t.lat, t.lng];
+    }
     return MONTREAL_CENTER;
-  }, [selectedTerrace]);
+  }, [selectedTerrace, mobileMapHighlightId]);
 
-  const mapZoom = selectedTerrace ? 16 : DEFAULT_ZOOM;
+  const mapZoom = selectedTerrace || mobileMapHighlightId ? 16 : DEFAULT_ZOOM;
 
   const openTerrace = useCallback((id: string) => {
-    savedScrollTop.current = desktopListRef.current?.scrollTop ?? mobileListRef.current?.scrollTop ?? 0;
+    savedScrollTop.current =
+      desktopListRef.current?.scrollTop ??
+      mobileListRef.current?.scrollTop ??
+      0;
     setSelectedId(id);
   }, []);
 
-  const openFromCard = useCallback((id: string) => {
-    trackEvent(id, "card_click");
-    openTerrace(id);
-  }, [openTerrace]);
+  const openFromCard = useCallback(
+    (id: string) => {
+      trackEvent(id, "card_click");
+      openTerrace(id);
+    },
+    [openTerrace],
+  );
 
-  const openFromMap = useCallback((id: string) => {
-    trackEvent(id, "map_marker_click");
-    openTerrace(id);
-  }, [openTerrace]);
+  const openFromMap = useCallback(
+    (id: string) => {
+      trackEvent(id, "map_marker_click");
+      openTerrace(id);
+    },
+    [openTerrace],
+  );
 
   const closeTerrace = useCallback(() => {
     setSelectedId(null);
@@ -176,20 +237,29 @@ export default function Home() {
   useEffect(() => {
     if (!selectedId) {
       requestAnimationFrame(() => {
-        if (desktopListRef.current) desktopListRef.current.scrollTop = savedScrollTop.current;
-        if (mobileListRef.current) mobileListRef.current.scrollTop = savedScrollTop.current;
+        if (desktopListRef.current)
+          desktopListRef.current.scrollTop = savedScrollTop.current;
+        if (mobileListRef.current)
+          mobileListRef.current.scrollTop = savedScrollTop.current;
       });
     }
   }, [selectedId]);
 
   const filterBarProps = {
-    search, onSearchChange: setSearch,
-    selectedNeighborhoods: neighborhoods, onNeighborhoodsChange: setNeighborhoods,
-    selectedTypes: terraceTypes, onTypesChange: setTerraceTypes,
-    dogFriendly, onDogFriendlyChange: setDogFriendly,
-    covered, onCoveredChange: setCovered,
-    openNow, onOpenNowChange: setOpenNow,
-    sortByDistance, onSortByDistanceChange: handleSortByDistance,
+    search,
+    onSearchChange: setSearch,
+    selectedNeighborhoods: neighborhoods,
+    onNeighborhoodsChange: setNeighborhoods,
+    selectedTypes: terraceTypes,
+    onTypesChange: setTerraceTypes,
+    dogFriendly,
+    onDogFriendlyChange: setDogFriendly,
+    covered,
+    onCoveredChange: setCovered,
+    openNow,
+    onOpenNowChange: setOpenNow,
+    sortByDistance,
+    onSortByDistanceChange: handleSortByDistance,
     locating,
     resultCount: filteredWithDistance.length,
   };
@@ -202,16 +272,24 @@ export default function Home() {
         <div className="p-5 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
-              <svg className="w-7 h-7 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
-                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
-                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
-                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
-                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
-                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
-                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
-                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
-                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+              <svg
+                className="w-7 h-7 shrink-0"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
+                <polygon
+                  points="26.6,26.6 21.8,23.6 24.2,21.2"
+                  fill="#c45d3e"
+                />
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
+                <circle cx="16" cy="16" r="6" fill="#c45d3e" />
               </svg>
               <div>
                 <h1 className="font-display text-lg font-bold tracking-tight leading-none">
@@ -250,7 +328,10 @@ export default function Home() {
 
             <div className="mx-5 mt-3 h-px bg-border shrink-0" />
 
-            <div ref={desktopListRef} className="flex-1 overflow-y-auto overflow-x-hidden w-0 min-w-full p-4 space-y-2.5">
+            <div
+              ref={desktopListRef}
+              className="flex-1 overflow-y-auto overflow-x-hidden w-0 min-w-full p-4 space-y-2.5"
+            >
               {filteredWithDistance.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-3xl mb-2">&#9789;</p>
@@ -279,10 +360,30 @@ export default function Home() {
 
         {/* Footer links */}
         <div className="shrink-0 border-t border-border px-5 py-2.5 md:py-4 flex items-center gap-4">
-          <Link href="/blog" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
-          <Link href="/about" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
-          <Link href="/faq" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors">FAQ</Link>
-          <Link href="/terms" className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors ml-auto">{lang === "fr" ? "Conditions" : "Terms"}</Link>
+          <Link
+            href="/blog"
+            className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors"
+          >
+            {lang === "fr" ? "Notes" : "Blog"}
+          </Link>
+          <Link
+            href="/about"
+            className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors"
+          >
+            {lang === "fr" ? "À propos" : "About"}
+          </Link>
+          <Link
+            href="/faq"
+            className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors"
+          >
+            FAQ
+          </Link>
+          <Link
+            href="/terms"
+            className="text-[11px] md:text-xs text-muted hover:text-foreground transition-colors ml-auto"
+          >
+            {lang === "fr" ? "Conditions" : "Terms"}
+          </Link>
         </div>
       </div>
 
@@ -305,16 +406,24 @@ export default function Home() {
         <div className="shrink-0 px-4 pt-3 pb-2 bg-background border-b border-border">
           <div className="flex items-center justify-between mb-2.5">
             <div className="flex items-center gap-2">
-              <svg className="w-6 h-6 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
-                <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
-                <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
-                <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
-                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
-                <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
-                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
-                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
-                <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+              <svg
+                className="w-6 h-6 shrink-0"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
+                <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
+                <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
+                <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
+                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
+                <polygon
+                  points="26.6,26.6 21.8,23.6 24.2,21.2"
+                  fill="#c45d3e"
+                />
+                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
+                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
+                <circle cx="16" cy="16" r="6" fill="#c45d3e" />
               </svg>
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
                 Terrasse Season
@@ -345,10 +454,34 @@ export default function Home() {
                 </button>
                 {mobileMenuOpen && (
                   <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
-                    <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "Notes" : "Blog"}</Link>
-                    <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "À propos" : "About"}</Link>
-                    <Link href="/faq" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">FAQ</Link>
-                    <Link href="/terms" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors">{lang === "fr" ? "Conditions" : "Terms"}</Link>
+                    <Link
+                      href="/blog"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                    >
+                      {lang === "fr" ? "Notes" : "Blog"}
+                    </Link>
+                    <Link
+                      href="/about"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                    >
+                      {lang === "fr" ? "À propos" : "About"}
+                    </Link>
+                    <Link
+                      href="/faq"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                    >
+                      FAQ
+                    </Link>
+                    <Link
+                      href="/terms"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                    >
+                      {lang === "fr" ? "Conditions" : "Terms"}
+                    </Link>
                   </div>
                 )}
               </div>
@@ -373,23 +506,60 @@ export default function Home() {
                       : "text-muted hover:text-foreground"
                   }`}
                 >
-                  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="3" width="14" height="2" rx="1" fill="currentColor"/>
-                    <rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/>
-                    <rect x="1" y="11" width="14" height="2" rx="1" fill="currentColor"/>
+                  <svg
+                    className="w-3.5 h-3.5 shrink-0"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="1"
+                      y="3"
+                      width="14"
+                      height="2"
+                      rx="1"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="1"
+                      y="7"
+                      width="14"
+                      height="2"
+                      rx="1"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="1"
+                      y="11"
+                      width="14"
+                      height="2"
+                      rx="1"
+                      fill="currentColor"
+                    />
                   </svg>
                   {t.list} ({filteredWithDistance.length})
                 </button>
                 <button
-                  onClick={() => { setMobileView("map"); setMobileMapMounted(true); }}
+                  onClick={() => {
+                    setMobileView("map");
+                    setMobileMapMounted(true);
+                  }}
                   className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                     mobileView === "map"
                       ? "bg-white text-accent shadow-sm"
                       : "text-muted hover:text-foreground"
                   }`}
                 >
-                  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/>
+                  <svg
+                    className="w-3.5 h-3.5 shrink-0"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                      fill="currentColor"
+                    />
                   </svg>
                   {t.map}
                 </button>
@@ -434,8 +604,12 @@ export default function Home() {
                 {mobileMapMounted && (
                   <Map
                     terraces={filtered}
-                    selectedId={selectedId}
-                    onSelect={openFromMap}
+                    selectedId={mobileMapHighlightId}
+                    onSelect={(id) => {
+                      trackEvent(id, "map_marker_click");
+                      setMobileMapHighlightId(id);
+                    }}
+                    onViewDetails={openTerrace}
                     center={mapCenter}
                     zoom={mapZoom}
                   />
@@ -444,7 +618,6 @@ export default function Home() {
             </div>
           </>
         )}
-
       </div>
     </main>
   );
