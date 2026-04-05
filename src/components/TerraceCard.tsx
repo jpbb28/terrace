@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Terrace } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
@@ -13,7 +14,13 @@ interface TerraceCardProps {
   priority?: boolean;
 }
 
-export default function TerraceCard({ terrace, selected, onClick, distance, priority = false }: TerraceCardProps) {
+export default function TerraceCard({
+  terrace,
+  selected,
+  onClick,
+  distance,
+  priority = false,
+}: TerraceCardProps) {
   const { t, lang } = useLang();
 
   const typeConfig: Record<string, { label: string; color: string }> = {
@@ -25,7 +32,12 @@ export default function TerraceCard({ terrace, selected, onClick, distance, prio
     garden: { label: t.garden, color: "bg-olive-soft text-olive" },
   };
 
-  const typeInfos = terrace.terraceType?.map((tt) => typeConfig[tt]).filter(Boolean) ?? [];
+  const typeInfos =
+    terrace.terraceType?.map((tt) => typeConfig[tt]).filter(Boolean) ?? [];
+
+  const [activePhoto, setActivePhoto] = useState(0);
+  const touchStartX = useRef(0);
+  const didSwipe = useRef(false);
 
   return (
     <button
@@ -37,82 +49,144 @@ export default function TerraceCard({ terrace, selected, onClick, distance, prio
       }`}
     >
       {terrace.photos.length > 0 ? (
-        <div className="relative w-full h-44 overflow-hidden">
+        <div
+          className="relative w-full h-44 overflow-hidden"
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+            didSwipe.current = false;
+          }}
+          onTouchEnd={(e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(dx) > 40 && terrace.photos.length > 1) {
+              didSwipe.current = true;
+              e.stopPropagation();
+              setActivePhoto((p) =>
+                dx < 0
+                  ? Math.min(p + 1, terrace.photos.length - 1)
+                  : Math.max(p - 1, 0),
+              );
+            }
+          }}
+          onClick={(e) => {
+            if (didSwipe.current) {
+              e.stopPropagation();
+              didSwipe.current = false;
+            }
+          }}
+        >
           <Image
-            src={terrace.photos[0]}
+            src={terrace.photos[activePhoto]}
             alt={terrace.name}
             fill
             className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
             sizes="(min-width: 768px) 468px, calc(100vw - 24px)"
-
-            priority={priority}
+            priority={priority && activePhoto === 0}
           />
+          {terrace.photos.length > 1 && (
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 pointer-events-none">
+              {terrace.photos.map((_, i) => (
+                <span
+                  key={i}
+                  className={`block rounded-full transition-all duration-200 ${
+                    i === activePhoto
+                      ? "w-4 h-1.5 bg-white"
+                      : "w-1.5 h-1.5 bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       ) : (
         <div className="w-full h-36 bg-gradient-to-br from-warm-soft via-accent-soft to-olive-soft flex items-center justify-center">
-          <span className="text-xs text-accent/40 font-medium">{t.noPhotoYet}</span>
+          <span className="text-xs text-accent/40 font-medium">
+            {t.noPhotoYet}
+          </span>
         </div>
       )}
       <div className="p-4">
-      <div className="flex items-start justify-between gap-2 mb-1.5">
-        <h2 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
-          {terrace.name}
-        </h2>
-        {typeInfos.length > 0 && (
-          <div className="flex gap-1 shrink-0 flex-wrap justify-end">
-            {typeInfos.map((info) => (
-              <span key={info.label} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${info.color}`}>
-                {info.label}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="flex items-start justify-between gap-2 mb-1.5">
+          <h2 className="font-display font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors">
+            {terrace.name}
+          </h2>
+          {typeInfos.length > 0 && (
+            <div className="flex gap-1 shrink-0 flex-wrap justify-end">
+              {typeInfos.map((info) => (
+                <span
+                  key={info.label}
+                  className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${info.color}`}
+                >
+                  {info.label}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
 
-      <div className="flex items-center justify-between mb-2">
-        <p className="text-xs text-muted flex items-center gap-1">
-          <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          {terrace.address}
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-xs text-muted flex items-center gap-1">
+            <svg
+              className="w-3 h-3 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {terrace.address}
+          </p>
+          {distance !== undefined && (
+            <span className="text-[10px] font-medium text-accent shrink-0 ml-2">
+              {distance < 1
+                ? `${Math.round(distance * 1000)} m`
+                : `${distance.toFixed(1)} km`}
+            </span>
+          )}
+        </div>
+
+        <p className="text-xs text-foreground/60 mb-3 line-clamp-2 leading-relaxed">
+          {lang === "fr" && terrace.descriptionFr
+            ? terrace.descriptionFr
+            : terrace.description}
         </p>
-        {distance !== undefined && (
-          <span className="text-[10px] font-medium text-accent shrink-0 ml-2">
-            {distance < 1 ? `${Math.round(distance * 1000)} m` : `${distance.toFixed(1)} km`}
-          </span>
-        )}
-      </div>
 
-      <p className="text-xs text-foreground/60 mb-3 line-clamp-2 leading-relaxed">
-        {lang === "fr" && terrace.descriptionFr ? terrace.descriptionFr : terrace.description}
-      </p>
-
-      <div className="flex flex-wrap gap-1.5">
-        <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted font-medium">
-          {lang === "fr" ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType) : terrace.cuisineType}
-        </span>
-        {terrace.capacity ? (
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            {t.seats(terrace.capacity)}
+        <div className="flex flex-wrap gap-1.5">
+          <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted font-medium">
+            {lang === "fr"
+              ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType)
+              : terrace.cuisineType}
           </span>
-        ) : null}
-        {terrace.dogFriendly && (
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            {t.dogsOk}
-          </span>
-        )}
-        {terrace.covered && (
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
-            {t.coveredTag}
-          </span>
-        )}
-        {terrace.heated && (
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-warm-soft text-warm">
-            {t.heated}
-          </span>
-        )}
-      </div>
+          {terrace.capacity ? (
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
+              {t.seats(terrace.capacity)}
+            </span>
+          ) : null}
+          {terrace.dogFriendly && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
+              {t.dogsOk}
+            </span>
+          )}
+          {terrace.covered && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
+              {t.coveredTag}
+            </span>
+          )}
+          {terrace.heated && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-warm-soft text-warm">
+              {t.heated}
+            </span>
+          )}
+        </div>
       </div>
     </button>
   );

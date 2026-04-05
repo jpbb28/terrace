@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -91,7 +91,9 @@ function TerracePopup({
   onViewDetails?: (id: string) => void;
 }) {
   const hours = getHoursStatus(t);
-  const photo = t.photos?.[0];
+  const [activePhoto, setActivePhoto] = useState(0);
+  const touchStartX = useRef(0);
+  const photo = t.photos?.[activePhoto];
 
   return (
     <div
@@ -102,7 +104,20 @@ function TerracePopup({
     >
       {/* Photo */}
       {photo && (
-        <div style={{ height: 130, overflow: "hidden", position: "relative" }}>
+        <div
+          style={{ height: 130, overflow: "hidden", position: "relative" }}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(dx) > 40 && t.photos.length > 1) {
+              if (dx < 0)
+                setActivePhoto((p) => Math.min(p + 1, t.photos.length - 1));
+              else setActivePhoto((p) => Math.max(p - 1, 0));
+            }
+          }}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={photo}
@@ -127,6 +142,35 @@ function TerracePopup({
                 "linear-gradient(135deg, transparent 40%, rgba(0,0,0,0.35) 100%)",
             }}
           />
+          {t.photos.length > 1 && (
+            <div
+              style={{
+                position: "absolute",
+                bottom: 6,
+                left: 0,
+                right: 0,
+                display: "flex",
+                justifyContent: "center",
+                gap: 4,
+                pointerEvents: "none",
+              }}
+            >
+              {t.photos.map((_, i) => (
+                <span
+                  key={i}
+                  style={{
+                    display: "block",
+                    borderRadius: 999,
+                    background: "white",
+                    opacity: i === activePhoto ? 1 : 0.45,
+                    width: i === activePhoto ? 14 : 6,
+                    height: 6,
+                    transition: "all 0.2s",
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
 

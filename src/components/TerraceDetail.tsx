@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
@@ -24,6 +24,7 @@ export default function TerraceDetail({
   const { t, lang } = useLang();
   const [activePhoto, setActivePhoto] = useState(0);
   const [copied, setCopied] = useState(false);
+  const touchStartX = useRef(0);
 
   useEffect(() => {
     setActivePhoto(0);
@@ -122,7 +123,22 @@ export default function TerraceDetail({
         {/* Photo gallery */}
         {terrace.photos.length > 0 && (
           <div className="mb-5">
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+            <div
+              className="relative w-full aspect-video rounded-xl overflow-hidden"
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                if (Math.abs(dx) > 40) {
+                  if (dx < 0)
+                    setActivePhoto((p) =>
+                      Math.min(p + 1, terrace.photos.length - 1),
+                    );
+                  else setActivePhoto((p) => Math.max(p - 1, 0));
+                }
+              }}
+            >
               {terrace.photos.map((photo, i) => (
                 <Image
                   key={photo}
