@@ -40,6 +40,94 @@ function createIcon(active: boolean, name: string) {
   });
 }
 
+function LocateButton() {
+  const map = useMap();
+  const [locating, setLocating] = useState(false);
+  const [userPos, setUserPos] = useState<[number, number] | null>(null);
+  const markerRef = useRef<L.CircleMarker | null>(null);
+
+  useEffect(() => {
+    if (!userPos) return;
+    if (markerRef.current) markerRef.current.remove();
+    markerRef.current = L.circleMarker(userPos, {
+      radius: 8,
+      fillColor: "#4285F4",
+      fillOpacity: 1,
+      color: "#fff",
+      weight: 2,
+    }).addTo(map);
+    return () => {
+      markerRef.current?.remove();
+    };
+  }, [userPos, map]);
+
+  function handleLocate() {
+    if (locating) return;
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const latlng: [number, number] = [
+          pos.coords.latitude,
+          pos.coords.longitude,
+        ];
+        setUserPos(latlng);
+        map.flyTo(latlng, 15, { duration: 1 });
+        setLocating(false);
+      },
+      () => setLocating(false),
+      { timeout: 10000 },
+    );
+  }
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 24,
+        right: 12,
+        zIndex: 1000,
+      }}
+    >
+      <button
+        onClick={handleLocate}
+        title="My location"
+        style={{
+          width: 36,
+          height: 36,
+          background: "#fff",
+          border: "2px solid rgba(0,0,0,0.15)",
+          borderRadius: 6,
+          cursor: locating ? "default" : "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
+          opacity: locating ? 0.6 : 1,
+          transition: "opacity 0.2s",
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke={locating ? "#9c8b78" : "#4285F4"}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="2" x2="12" y2="6" />
+          <line x1="12" y1="18" x2="12" y2="22" />
+          <line x1="2" y1="12" x2="6" y2="12" />
+          <line x1="18" y1="12" x2="22" y2="12" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 function FlyTo({ center, zoom }: { center: [number, number]; zoom: number }) {
   const map = useMap();
   const prevCenter = useRef(center);
@@ -371,6 +459,7 @@ export default function Map({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <FlyTo center={safeCenter} zoom={zoom} />
+      <LocateButton />
       {validTerraces.map((t) => (
         <Marker
           key={t.id}

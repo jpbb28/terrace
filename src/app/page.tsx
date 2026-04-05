@@ -42,7 +42,7 @@ export default function Home() {
   const [covered, setCovered] = useState(false);
   const [openNow, setOpenNow] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [mobileView, setMobileView] = useState<"map" | "list">("list");
+  const [mobileView, setMobileView] = useState<"map" | "list">("map");
   const [mobileMapHighlightId, setMobileMapHighlightId] = useState<
     string | null
   >(null);
@@ -56,7 +56,7 @@ export default function Home() {
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopMapMounted, setDesktopMapMounted] = useState(false);
-  const [mobileMapMounted, setMobileMapMounted] = useState(false);
+  const [mobileMapMounted, setMobileMapMounted] = useState(true);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const savedScrollTop = useRef(0);
@@ -265,6 +265,7 @@ export default function Home() {
     onSortByDistanceChange: handleSortByDistance,
     locating,
     resultCount: filteredWithDistance.length,
+    mobileView,
   };
 
   return (
