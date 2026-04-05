@@ -392,7 +392,7 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setLang(lang === "en" ? "fr" : "en")}
-                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted hover:text-foreground hover:border-border-strong transition-colors font-medium tracking-wide"
+                className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide"
               >
                 {lang === "en" ? "FR" : "EN"}
               </button>
@@ -526,7 +526,7 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setLang(lang === "en" ? "fr" : "en")}
-                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted font-medium tracking-wide"
+                className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide"
               >
                 {lang === "en" ? "FR" : "EN"}
               </button>
