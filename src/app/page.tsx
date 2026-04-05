@@ -33,6 +33,63 @@ function haversineKm(
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+function LocateOverlayButton({
+  onLocate,
+  locating,
+}: {
+  onLocate: () => void;
+  locating: boolean;
+}) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 24,
+        right: 12,
+        zIndex: 1000,
+        pointerEvents: "auto",
+      }}
+    >
+      <button
+        onClick={onLocate}
+        title="My location"
+        style={{
+          width: 36,
+          height: 36,
+          background: "#fff",
+          border: "2px solid rgba(0,0,0,0.15)",
+          borderRadius: 6,
+          cursor: locating ? "default" : "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
+          opacity: locating ? 0.6 : 1,
+          transition: "opacity 0.2s",
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke={locating ? "#9c8b78" : "#4285F4"}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="2" x2="12" y2="6" />
+          <line x1="12" y1="18" x2="12" y2="22" />
+          <line x1="2" y1="12" x2="6" y2="12" />
+          <line x1="18" y1="12" x2="22" y2="12" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 export default function Home() {
   const { lang, setLang, t } = useLang();
   const [search, setSearch] = useState("");
@@ -52,6 +109,9 @@ export default function Home() {
   } | null>(null);
   const [sortByDistance, setSortByDistance] = useState(false);
   const [locating, setLocating] = useState(false);
+
+  const [locatedAt, setLocatedAt] = useState<[number, number] | null>(null);
+  const [mapLocating, setMapLocating] = useState(false);
 
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -116,6 +176,23 @@ export default function Home() {
       { timeout: 10000 },
     );
   }, [sortByDistance, userLocation]);
+
+  const handleLocateOnMap = useCallback(() => {
+    if (mapLocating) return;
+    setMapLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const latlng: [number, number] = [
+          pos.coords.latitude,
+          pos.coords.longitude,
+        ];
+        setLocatedAt(latlng);
+        setMapLocating(false);
+      },
+      () => setMapLocating(false),
+      { timeout: 10000 },
+    );
+  }, [mapLocating]);
 
   const filteredWithDistance = useMemo(() => {
     const q = search.toLowerCase();
@@ -204,10 +281,16 @@ export default function Home() {
       // At zoom 16, 0.0018° ≈ 120px north of center.
       if (t) return [t.lat + 0.0018, t.lng];
     }
+    if (locatedAt) return locatedAt;
     return MONTREAL_CENTER;
-  }, [selectedTerrace, mobileMapHighlightId]);
+  }, [selectedTerrace, mobileMapHighlightId, locatedAt]);
 
-  const mapZoom = selectedTerrace || mobileMapHighlightId ? 16 : DEFAULT_ZOOM;
+  const mapZoom =
+    selectedTerrace || mobileMapHighlightId
+      ? 16
+      : locatedAt
+        ? 15
+        : DEFAULT_ZOOM;
 
   const openTerrace = useCallback((id: string) => {
     savedScrollTop.current =
@@ -266,6 +349,8 @@ export default function Home() {
     locating,
     resultCount: filteredWithDistance.length,
     mobileView,
+    onLocateOnMap: handleLocateOnMap,
+    mapLocating,
   };
 
   return (
@@ -392,7 +477,7 @@ export default function Home() {
       </div>
 
       {/* ── Desktop map ── */}
-      <div className="hidden md:block flex-1 h-full">
+      <div className="hidden md:block flex-1 h-full relative">
         {desktopMapMounted && (
           <Map
             terraces={filtered}
@@ -400,8 +485,13 @@ export default function Home() {
             onSelect={openFromMap}
             center={mapCenter}
             zoom={mapZoom}
+            userPosition={locatedAt}
           />
         )}
+        <LocateOverlayButton
+          onLocate={handleLocateOnMap}
+          locating={mapLocating}
+        />
       </div>
 
       {/* ── Mobile layout ── */}
@@ -507,6 +597,30 @@ export default function Home() {
             <div className="shrink-0 px-4 py-2.5 bg-background border-b border-border">
               <div className="flex rounded-xl bg-[#ede8e0] p-1 gap-1">
                 <button
+                  onClick={() => {
+                    setMobileView("map");
+                    setMobileMapMounted(true);
+                  }}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    mobileView === "map"
+                      ? "bg-white text-accent shadow-sm"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  <svg
+                    className="w-3.5 h-3.5 shrink-0"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  {t.map}
+                </button>
+                <button
                   onClick={() => setMobileView("list")}
                   className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                     mobileView === "list"
@@ -546,30 +660,6 @@ export default function Home() {
                     />
                   </svg>
                   {t.list} ({filteredWithDistance.length})
-                </button>
-                <button
-                  onClick={() => {
-                    setMobileView("map");
-                    setMobileMapMounted(true);
-                  }}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-                    mobileView === "map"
-                      ? "bg-white text-accent shadow-sm"
-                      : "text-muted hover:text-foreground"
-                  }`}
-                >
-                  <svg
-                    className="w-3.5 h-3.5 shrink-0"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  {t.map}
                 </button>
               </div>
             </div>
@@ -620,8 +710,13 @@ export default function Home() {
                     onViewDetails={openTerrace}
                     center={mapCenter}
                     zoom={mapZoom}
+                    userPosition={locatedAt}
                   />
                 )}
+                <LocateOverlayButton
+                  onLocate={handleLocateOnMap}
+                  locating={mapLocating}
+                />
               </div>
             </div>
           </>

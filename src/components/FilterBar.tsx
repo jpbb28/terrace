@@ -52,6 +52,8 @@ interface FilterBarProps {
   locating: boolean;
   resultCount: number;
   mobileView?: "map" | "list";
+  onLocateOnMap?: () => void;
+  mapLocating?: boolean;
 }
 
 export default function FilterBar({
@@ -72,6 +74,8 @@ export default function FilterBar({
   locating,
   resultCount,
   mobileView,
+  onLocateOnMap,
+  mapLocating,
 }: FilterBarProps) {
   const { t } = useLang();
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
@@ -320,16 +324,22 @@ export default function FilterBar({
       {/* Attribute filter pills */}
       <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
         {[
-          ...(mobileView !== "map"
-            ? [
-                {
-                  label: locating ? t.locating : t.nearMe,
-                  active: sortByDistance,
-                  onClick: onSortByDistanceChange,
-                  disabled: locating,
-                },
-              ]
-            : []),
+          {
+            label:
+              mobileView === "map"
+                ? mapLocating
+                  ? t.locating
+                  : t.nearMe
+                : locating
+                  ? t.locating
+                  : t.nearMe,
+            active: mobileView === "map" ? false : sortByDistance,
+            onClick:
+              mobileView === "map"
+                ? (onLocateOnMap ?? (() => {}))
+                : onSortByDistanceChange,
+            disabled: mobileView === "map" ? (mapLocating ?? false) : locating,
+          },
           {
             label: t.openNow,
             active: openNow,
