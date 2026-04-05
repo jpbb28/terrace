@@ -98,14 +98,14 @@ function TerracePopup({
   return (
     <div
       style={{
-        width: 240,
+        width: 215,
         fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
       }}
     >
       {/* Photo */}
       {photo && (
         <div
-          style={{ height: 130, overflow: "hidden", position: "relative" }}
+          style={{ height: 110, overflow: "hidden", position: "relative" }}
           onTouchStart={(e) => {
             touchStartX.current = e.touches[0].clientX;
           }}

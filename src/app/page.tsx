@@ -199,7 +199,10 @@ export default function Home() {
     if (selectedTerrace) return [selectedTerrace.lat, selectedTerrace.lng];
     if (mobileMapHighlightId) {
       const t = terraces.find((t) => t.id === mobileMapHighlightId);
-      if (t) return [t.lat, t.lng];
+      // Offset center north so the pin lands in the lower portion of the map,
+      // leaving room for the popup to open above it without getting cut off.
+      // At zoom 16, 0.0018° ≈ 120px north of center.
+      if (t) return [t.lat + 0.0018, t.lng];
     }
     return MONTREAL_CENTER;
   }, [selectedTerrace, mobileMapHighlightId]);
