@@ -493,7 +493,11 @@ export default function Home() {
 
         {/* Mobile: detail takes over, or show tabs */}
         {selectedTerrace ? (
-          <TerraceDetail terrace={selectedTerrace} onClose={closeTerrace} />
+          <TerraceDetail
+            terrace={selectedTerrace}
+            onClose={closeTerrace}
+            backLabel={mobileView === "map" ? "Back to map" : undefined}
+          />
         ) : (
           <>
             <div className="shrink-0 px-4 py-2.5 bg-background border-b border-border">
