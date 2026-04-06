@@ -33,6 +33,14 @@ const nextConfig: NextConfig = {
         source: "/api/(.*)",
         headers: apiCorsHeaders,
       },
+      {
+        // Service worker must never be served from HTTP cache —
+        // browsers need to fetch it fresh to detect updates.
+        source: "/sw.js",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+        ],
+      },
     ];
   },
 };

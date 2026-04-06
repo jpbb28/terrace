@@ -106,6 +106,11 @@ export const metadata: Metadata = {
   icons: {
     apple: "/icon-192x192.png",
   },
+  appleWebApp: {
+    capable: true,
+    title: "Terrasse Season",
+    statusBarStyle: "default",
+  },
 };
 
 export const viewport = {
