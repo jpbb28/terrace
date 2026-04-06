@@ -467,6 +467,11 @@ export default function Home() {
             <h1 className="font-display text-lg font-bold tracking-tight leading-none">
               Terrasse Season
             </h1>
+            <p className="text-[10px] text-muted tracking-wide mt-0.5">
+              {lang === "fr"
+                ? "Le guide des terrasses de Montréal"
+                : "Montreal's terrace guide"}
+            </p>
           </div>
         </div>
 
@@ -830,9 +835,16 @@ export default function Home() {
                 <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
                 <circle cx="16" cy="16" r="6" fill="#c45d3e" />
               </svg>
-              <h1 className="font-display text-base font-bold tracking-tight leading-none">
-                Terrasse Season
-              </h1>
+              <div>
+                <h1 className="font-display text-base font-bold tracking-tight leading-none">
+                  Terrasse Season
+                </h1>
+                <p className="text-[9px] text-muted tracking-wide mt-0.5">
+                  {lang === "fr"
+                    ? "Le guide des terrasses de Montréal"
+                    : "Montreal's terrace guide"}
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <button

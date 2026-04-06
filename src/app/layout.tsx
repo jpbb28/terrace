@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import PWAAutoUpdate from "@/components/PWAAutoUpdate";
@@ -194,6 +195,7 @@ export default function RootLayout({
           <LanguageProvider>{children}</LanguageProvider>
         </ErrorBoundary>
         <PWAAutoUpdate />
+        <Analytics />
       </body>
     </html>
   );
