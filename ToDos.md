@@ -2,13 +2,11 @@ claude --dangerously-skip-permissions
 
 
 
-**add bots**
-
-
-
 terrace season
 
 
+
+**wire up discord for submissions/corrections**
 
 
 
@@ -76,11 +74,33 @@ add share this terrace button on each terrace detail page
 
 
 
-
-
-Later:
+**Bonjour,**
 
 
 
-wire up submissions/corrections to discord
+**Je me permets de vous contacter au sujet de Terrasse Season (terrasseseason.com), un guide numérique consacré aux terrasses et patios de Montréal que j'ai lancé récemment.**
+
+
+
+**Le site répertorie aujourd'hui 190 terrasses à travers les principaux quartiers de la ville, avec des informations pratiques sur chaque établissement : type de terrasse, heures d'ouverture, accessibilité aux chiens, et bien plus. Le contenu est disponible en français et en anglais, et l'interface est entièrement optimisée pour mobile.**
+
+
+
+**Montréal est reconnue pour sa culture des terrasses, une saison que les résidents et visiteurs attendent avec impatience chaque année. Terrasse Season vise à devenir la référence incontournable pour les Montréalais que pour les visiteurs qui souhaite profiter de cette expérience unique.**
+
+
+
+**Je serais ravi d'explorer avec vous des possibilités de collaboration ou de mise en valeur du site, que ce soit via vos canaux numériques, vos guides saisonniers, ou toute autre initiative qui vous semble pertinente.**
+
+
+
+**N'hésitez pas à me contacter pour en discuter.**
+
+
+
+**Cordialement,**
+
+**Jesse Bergman**
+
+
 

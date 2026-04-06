@@ -61,27 +61,50 @@ function UserDot({ position }: { position: [number, number] }) {
   return null;
 }
 
-function FlyTo({ center, zoom }: { center: [number, number]; zoom: number }) {
+function FlyTo({
+  center,
+  zoom,
+  flyTrigger,
+  panelOffset,
+}: {
+  center: [number, number];
+  zoom: number;
+  flyTrigger?: number;
+  panelOffset?: number;
+}) {
   const map = useMap();
   const prevCenter = useRef(center);
+  const prevTrigger = useRef(flyTrigger);
 
   useEffect(() => {
+    const forced =
+      flyTrigger !== undefined && flyTrigger !== prevTrigger.current;
     if (
+      !forced &&
       prevCenter.current[0] === center[0] &&
       prevCenter.current[1] === center[1]
     ) {
       return;
     }
     prevCenter.current = center;
+    prevTrigger.current = flyTrigger;
 
     if (!isValidLatLng(center[0], center[1])) return;
 
     try {
-      map.flyTo(center, zoom, { duration: 0.8 });
+      map.stop();
+      map.invalidateSize();
+      if (panelOffset) {
+        const pt = map.project(center, zoom);
+        const adjusted = map.unproject(L.point(pt.x + panelOffset, pt.y), zoom);
+        map.flyTo(adjusted, zoom, { duration: 0.8 });
+      } else {
+        map.flyTo(center, zoom, { duration: 0.8 });
+      }
     } catch {
       // Leaflet can throw on invalid state during initialization
     }
-  }, [center, zoom, map]);
+  }, [center, zoom, map, flyTrigger]);
 
   return null;
 }
@@ -111,6 +134,7 @@ function TerracePopup({
   t: Terrace;
   onViewDetails?: (id: string) => void;
 }) {
+  const map = useMap();
   const hours = getHoursStatus(t);
   const [activePhoto, setActivePhoto] = useState(0);
   const touchStartX = useRef(0);
@@ -331,10 +355,13 @@ function TerracePopup({
           )}
         </div>
 
-        {/* View details button — only on mobile map */}
+        {/* View details button */}
         {onViewDetails && (
           <button
-            onClick={() => onViewDetails(t.id)}
+            onClick={() => {
+              map.closePopup();
+              onViewDetails(t.id);
+            }}
             style={{
               marginTop: 11,
               width: "100%",
@@ -360,11 +387,13 @@ function TerracePopup({
 interface MapProps {
   terraces: Terrace[];
   selectedId: string | null;
-  onSelect: (id: string) => void;
+  onSelect?: (id: string) => void;
   onViewDetails?: (id: string) => void;
   center: [number, number];
   zoom: number;
   userPosition?: [number, number] | null;
+  flyTrigger?: number;
+  panelOffset?: number;
 }
 
 export default function Map({
@@ -375,6 +404,8 @@ export default function Map({
   center,
   zoom,
   userPosition,
+  flyTrigger,
+  panelOffset,
 }: MapProps) {
   const safeCenter = isValidLatLng(center[0], center[1])
     ? center
@@ -393,16 +424,22 @@ export default function Map({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <FlyTo center={safeCenter} zoom={zoom} />
+      <FlyTo
+        center={safeCenter}
+        zoom={zoom}
+        flyTrigger={flyTrigger}
+        panelOffset={panelOffset}
+      />
       {userPosition && <UserDot position={userPosition} />}
       {validTerraces.map((t) => (
         <Marker
           key={t.id}
           position={[t.lat, t.lng]}
           icon={createIcon(selectedId === t.id, t.name)}
-          eventHandlers={{ click: () => onSelect(t.id) }}
+          eventHandlers={{ click: () => onSelect?.(t.id) }}
           title={t.name}
           alt={t.name}
+          zIndexOffset={selectedId === t.id ? 1000 : 0}
         >
           <Popup>
             <TerracePopup t={t} onViewDetails={onViewDetails} />

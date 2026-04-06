@@ -14,12 +14,14 @@ interface TerraceDetailProps {
   terrace: Terrace;
   onClose: () => void;
   backLabel?: string;
+  closeOnly?: boolean;
 }
 
 export default function TerraceDetail({
   terrace,
   onClose,
   backLabel,
+  closeOnly,
 }: TerraceDetailProps) {
   const { t, lang } = useLang();
   const [activePhoto, setActivePhoto] = useState(0);
@@ -48,25 +50,43 @@ export default function TerraceDetail({
       <div className="flex-1 overflow-y-auto overflow-x-hidden p-5">
         {/* Close + Share row */}
         <div className="mb-4 flex items-center justify-between">
-          <button
-            onClick={onClose}
-            className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors cursor-pointer group"
-          >
-            <svg
-              className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+          {closeOnly ? (
+            <button
+              onClick={onClose}
+              className="w-7 h-7 flex items-center justify-center rounded-full text-muted hover:text-foreground hover:bg-foreground/[0.06] transition-colors cursor-pointer"
+              aria-label="Close"
             >
-              <path
-                d="M15 19l-7-7 7-7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {backLabel ?? t.backToList}
-          </button>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            </button>
+          ) : (
+            <button
+              onClick={onClose}
+              className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors cursor-pointer group"
+            >
+              <svg
+                className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  d="M15 19l-7-7 7-7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {backLabel ?? t.backToList}
+            </button>
+          )}
           <button
             onClick={() => {
               trackEvent(terrace.id, "share");

@@ -6,22 +6,58 @@ import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
-import HoursEditor, { DayHours, defaultHours, fromHourPeriods, toHourPeriods } from "@/components/HoursEditor";
+import HoursEditor, {
+  DayHours,
+  defaultHours,
+  fromHourPeriods,
+  toHourPeriods,
+} from "@/components/HoursEditor";
 
 const neighborhoods = [
-  "Ahuntsic", "Chinatown", "Downtown", "Griffintown", "Hochelaga",
-  "Latin Quarter", "Little Burgundy", "Little Italy", "Mile End", "Mile-Ex",
-  "NDG", "Old Montreal", "Outremont", "Parc-Extension", "Petite-Patrie",
-  "Plateau-Mont-Royal", "Pointe-Saint-Charles", "Quartier des Spectacles",
-  "Rosemont", "Saint-Henri", "The Village", "Verdun", "Villeray",
+  "Ahuntsic",
+  "Chinatown",
+  "Downtown",
+  "Griffintown",
+  "Hochelaga",
+  "Latin Quarter",
+  "Little Burgundy",
+  "Little Italy",
+  "Mile End",
+  "Mile-Ex",
+  "NDG",
+  "Old Montreal",
+  "Outremont",
+  "Parc-Extension",
+  "Petite-Patrie",
+  "Plateau-Mont-Royal",
+  "Pointe-Saint-Charles",
+  "Quartier des Spectacles",
+  "Rosemont",
+  "Saint-Henri",
+  "The Village",
+  "Verdun",
+  "Villeray",
 ];
 
 const emptyForm = {
-  name: "", address: "", neighborhood: "", terraceTypes: [] as string[],
-  cuisineType: "", capacity: "", covered: false, dogFriendly: false,
-  heated: false, website: "", instagram: "", phone: "",
-  seasonalOpen: "", seasonalClose: "", description: "",
-  submitterName: "", submitterEmail: "", submitterRole: "",
+  name: "",
+  address: "",
+  neighborhood: "",
+  terraceTypes: [] as string[],
+  cuisineType: "",
+  capacity: "",
+  covered: false,
+  dogFriendly: false,
+  heated: false,
+  website: "",
+  instagram: "",
+  phone: "",
+  seasonalOpen: "",
+  seasonalClose: "",
+  description: "",
+  submitterName: "",
+  submitterEmail: "",
+  submitterRole: "",
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -29,7 +65,9 @@ type FormState = "idle" | "submitting" | "success" | "error";
 function SubmitPageContent() {
   const searchParams = useSearchParams();
   const editId = searchParams.get("edit");
-  const editTerrace = editId ? terraces.find((t) => t.id === editId) ?? null : null;
+  const editTerrace = editId
+    ? (terraces.find((t) => t.id === editId) ?? null)
+    : null;
   const isEdit = editTerrace !== null;
 
   const { t } = useLang();
@@ -66,7 +104,9 @@ function SubmitPageContent() {
         seasonalOpen: editTerrace.seasonalOpen ?? "",
         seasonalClose: editTerrace.seasonalClose ?? "",
         description: editTerrace.description,
-        submitterName: "", submitterEmail: "", submitterRole: "",
+        submitterName: "",
+        submitterEmail: "",
+        submitterRole: "",
       });
       if (editTerrace.openingPeriods?.length) {
         setHours(fromHourPeriods(editTerrace.openingPeriods));
@@ -92,21 +132,41 @@ function SubmitPageContent() {
     const changes: Record<string, { from: unknown; to: unknown }> = {};
 
     const scalar: [string, unknown, unknown][] = [
-      ["name",          editTerrace.name,                  form.name],
-      ["address",       editTerrace.address,               form.address],
-      ["neighborhood",  editTerrace.neighborhood,          form.neighborhood || null],
-      ["terraceType",   editTerrace.terraceType ?? null,   form.terraceTypes.length ? form.terraceTypes : null],
-      ["cuisineType",   editTerrace.cuisineType || null,   form.cuisineType || null],
-      ["capacity",      editTerrace.capacity ?? null,      form.capacity ? parseInt(form.capacity) : null],
-      ["covered",       editTerrace.covered,               form.covered],
-      ["dogFriendly",   editTerrace.dogFriendly,           form.dogFriendly],
-      ["heated",        editTerrace.heated,                form.heated],
-      ["website",       editTerrace.website ?? null,       form.website || null],
-      ["instagram",     editTerrace.instagram ?? null,     form.instagram || null],
-      ["phone",         editTerrace.phone ?? null,         form.phone || null],
-      ["seasonalOpen",  editTerrace.seasonalOpen ?? null,  form.seasonalOpen || null],
-      ["seasonalClose", editTerrace.seasonalClose ?? null, form.seasonalClose || null],
-      ["description",   editTerrace.description,           form.description],
+      ["name", editTerrace.name, form.name],
+      ["address", editTerrace.address, form.address],
+      ["neighborhood", editTerrace.neighborhood, form.neighborhood || null],
+      [
+        "terraceType",
+        editTerrace.terraceType ?? null,
+        form.terraceTypes.length ? form.terraceTypes : null,
+      ],
+      [
+        "cuisineType",
+        editTerrace.cuisineType || null,
+        form.cuisineType || null,
+      ],
+      [
+        "capacity",
+        editTerrace.capacity ?? null,
+        form.capacity ? parseInt(form.capacity) : null,
+      ],
+      ["covered", editTerrace.covered, form.covered],
+      ["dogFriendly", editTerrace.dogFriendly, form.dogFriendly],
+      ["heated", editTerrace.heated, form.heated],
+      ["website", editTerrace.website ?? null, form.website || null],
+      ["instagram", editTerrace.instagram ?? null, form.instagram || null],
+      ["phone", editTerrace.phone ?? null, form.phone || null],
+      [
+        "seasonalOpen",
+        editTerrace.seasonalOpen ?? null,
+        form.seasonalOpen || null,
+      ],
+      [
+        "seasonalClose",
+        editTerrace.seasonalClose ?? null,
+        form.seasonalClose || null,
+      ],
+      ["description", editTerrace.description, form.description],
     ];
 
     for (const [field, from, to] of scalar) {
@@ -133,15 +193,25 @@ function SubmitPageContent() {
     // Upload photos first
     const uploadedUrls: string[] = [];
     if (images.length > 0) {
-      const slug = form.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      const folder = isEdit ? `corrections/${editId}` : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
+      const slug = form.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+      const folder = isEdit
+        ? `corrections/${editId}`
+        : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
       for (const [i, file] of images.entries()) {
         const ext = file.name.split(".").pop() ?? "jpg";
-        const filename = i === 0 ? `main.${ext}` : `${crypto.randomUUID()}.${ext}`;
+        const filename =
+          i === 0 ? `main.${ext}` : `${crypto.randomUUID()}.${ext}`;
         const path = `${folder}/${filename}`;
-        const { error: uploadError } = await supabase.storage.from("photos").upload(path, file);
+        const { error: uploadError } = await supabase.storage
+          .from("photos")
+          .upload(path, file);
         if (!uploadError) {
-          const { data: { publicUrl } } = supabase.storage.from("photos").getPublicUrl(path);
+          const {
+            data: { publicUrl },
+          } = supabase.storage.from("photos").getPublicUrl(path);
           uploadedUrls.push(publicUrl);
         }
       }
@@ -160,7 +230,9 @@ function SubmitPageContent() {
       website: form.website || null,
       instagram: form.instagram || null,
       phone: form.phone || null,
-      opening_periods: toHourPeriods(hours).length ? toHourPeriods(hours) : null,
+      opening_periods: toHourPeriods(hours).length
+        ? toHourPeriods(hours)
+        : null,
       seasonal_open: form.seasonalOpen || null,
       seasonal_close: form.seasonalClose || null,
       description: form.description || null,
@@ -170,8 +242,18 @@ function SubmitPageContent() {
     };
 
     const { error } = isEdit
-      ? await supabase.from("corrections").insert({ ...shared, terrace_id: editId, terrace_name: editTerrace!.name, changes: computeChanges(uploadedUrls), photos: uploadedUrls })
-      : await supabase.from("submissions").insert({ ...shared, photos: uploadedUrls });
+      ? await supabase
+          .from("corrections")
+          .insert({
+            ...shared,
+            terrace_id: editId,
+            terrace_name: editTerrace!.name,
+            changes: computeChanges(uploadedUrls),
+            photos: uploadedUrls,
+          })
+      : await supabase
+          .from("submissions")
+          .insert({ ...shared, photos: uploadedUrls });
 
     if (error) {
       console.error("Submission error:", error);
@@ -195,7 +277,10 @@ function SubmitPageContent() {
           </button>
           <p className="text-xs text-muted mt-4">
             If the problem persists, email us at{" "}
-            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+            <a
+              href="mailto:hello@terraceseason.com"
+              className="text-accent hover:underline"
+            >
               hello@terraceseason.com
             </a>
           </p>
@@ -209,16 +294,21 @@ function SubmitPageContent() {
       <div className="min-h-screen flex items-center justify-center p-6">
         <div className="max-w-md text-center">
           <div className="mb-4 flex justify-center">
-            <svg className="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
-              <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
-              <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
-              <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
-              <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
-              <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
-              <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
-              <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
-              <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+            <svg
+              className="w-12 h-12"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
+              <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
+              <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
+              <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
+              <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
+              <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e" />
+              <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
+              <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
+              <circle cx="16" cy="16" r="6" fill="#c45d3e" />
             </svg>
           </div>
           <h2 className="text-2xl font-bold mb-3">
@@ -236,7 +326,12 @@ function SubmitPageContent() {
             </Link>
             {!isEdit && (
               <button
-                onClick={() => { setState("idle"); setForm({ ...emptyForm }); setHours(defaultHours()); setImages([]); }}
+                onClick={() => {
+                  setState("idle");
+                  setForm({ ...emptyForm });
+                  setHours(defaultHours());
+                  setImages([]);
+                }}
                 className="px-4 py-2 rounded-lg border border-border text-sm hover:bg-card transition-colors"
               >
                 {t.submitAnother}
@@ -252,20 +347,28 @@ function SubmitPageContent() {
     <div className="min-h-screen">
       {/* Header */}
       <div className="border-b border-border px-6 py-4 flex items-center gap-4">
-        <Link href="/" className="text-muted hover:text-foreground text-sm transition-colors">
+        <Link
+          href="/"
+          className="text-muted hover:text-foreground text-sm transition-colors"
+        >
           {t.backToMap}
         </Link>
         <div className="flex items-center gap-2">
-          <svg className="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="16,1 14,8 18,8" fill="#c45d3e"/>
-            <polygon points="16,31 14,24 18,24" fill="#c45d3e"/>
-            <polygon points="1,16 8,14 8,18" fill="#c45d3e"/>
-            <polygon points="31,16 24,14 24,18" fill="#c45d3e"/>
-            <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e"/>
-            <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e"/>
-            <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e"/>
-            <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e"/>
-            <circle cx="16" cy="16" r="6" fill="#c45d3e"/>
+          <svg
+            className="w-5 h-5 shrink-0"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
+            <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
+            <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
+            <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
+            <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
+            <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e" />
+            <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
+            <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
+            <circle cx="16" cy="16" r="6" fill="#c45d3e" />
           </svg>
           <span className="font-bold">Terrasse Season</span>
         </div>
@@ -277,13 +380,14 @@ function SubmitPageContent() {
             {isEdit ? t.correctTitle : t.submitTitle}
           </h1>
           <p className="text-muted text-sm">
-            {isEdit
-              ? t.correctSubtitle(editTerrace.name)
-              : t.submitSubtitle}
+            {isEdit ? t.correctSubtitle(editTerrace.name) : t.submitSubtitle}
           </p>
           <p className="text-muted text-xs mt-2">
             Other questions?{" "}
-            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
+            <a
+              href="mailto:hello@terraceseason.com"
+              className="text-accent hover:underline"
+            >
               hello@terraceseason.com
             </a>
           </p>
@@ -328,7 +432,9 @@ function SubmitPageContent() {
                   >
                     <option value="">{t.selectPlaceholder}</option>
                     {neighborhoods.map((n) => (
-                      <option key={n} value={n}>{n}</option>
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -336,7 +442,10 @@ function SubmitPageContent() {
                 <Field label={t.terraceTypeLabel}>
                   <div className="flex flex-col gap-2 pt-1">
                     {terraceTypes.map((tt) => (
-                      <label key={tt.value} className="flex items-center gap-2 text-sm cursor-pointer">
+                      <label
+                        key={tt.value}
+                        className="flex items-center gap-2 text-sm cursor-pointer"
+                      >
                         <input
                           type="checkbox"
                           checked={form.terraceTypes.includes(tt.value)}
@@ -440,16 +549,28 @@ function SubmitPageContent() {
           </section>
 
           {/* Images */}
-          <section>
+          <section id="photos">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
               {t.photosSection}
             </h2>
             <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
-              <svg className="w-7 h-7 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                className="w-7 h-7 text-muted"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               <span className="text-sm text-muted">
-                {images.length === 0 ? t.uploadPhotos : t.filesSelected(images.length)}
+                {images.length === 0
+                  ? t.uploadPhotos
+                  : t.filesSelected(images.length)}
               </span>
               <span className="text-xs text-muted/60">{t.photoHint}</span>
               <input
@@ -469,7 +590,11 @@ function SubmitPageContent() {
                 <div className="relative group">
                   <div className="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-accent">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={URL.createObjectURL(images[0])} alt="" className="w-full h-full object-cover" />
+                    <img
+                      src={URL.createObjectURL(images[0])}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <span className="absolute bottom-2 left-2 text-[10px] bg-accent text-white px-1.5 py-0.5 rounded font-medium leading-none">
                     {t.photoMainBadge}
@@ -484,11 +609,20 @@ function SubmitPageContent() {
                         <div key={idx} className="relative group">
                           <div className="relative w-20 h-20 rounded-lg overflow-hidden border-2 border-border">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={URL.createObjectURL(f)} alt="" className="w-full h-full object-cover" />
+                            <img
+                              src={URL.createObjectURL(f)}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                           <button
                             type="button"
-                            onClick={() => setImages((prev) => [prev[idx], ...prev.filter((_, j) => j !== idx)])}
+                            onClick={() =>
+                              setImages((prev) => [
+                                prev[idx],
+                                ...prev.filter((_, j) => j !== idx),
+                              ])
+                            }
                             className="absolute inset-0 flex items-end justify-center pb-1 opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 rounded-lg"
                           >
                             <span className="text-[10px] text-white font-medium leading-none bg-black/50 px-1.5 py-0.5 rounded">
@@ -591,7 +725,9 @@ function SubmitPageContent() {
           >
             {state === "submitting"
               ? t.submitting
-              : isEdit ? t.sendCorrection : t.submitTerrace}
+              : isEdit
+                ? t.sendCorrection
+                : t.submitTerrace}
           </button>
         </form>
       </div>
@@ -607,18 +743,35 @@ export default function SubmitPage() {
   );
 }
 
-function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+function Field({
+  label,
+  required,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <div>
       <label className="block text-xs text-muted mb-1.5">
-        {label}{required && <span className="text-accent ml-0.5">*</span>}
+        {label}
+        {required && <span className="text-accent ml-0.5">*</span>}
       </label>
       {children}
     </div>
   );
 }
 
-function Checkbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+function Checkbox({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+}) {
   return (
     <label className="flex items-center gap-2 text-sm cursor-pointer">
       <input
