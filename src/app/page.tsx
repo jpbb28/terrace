@@ -461,8 +461,10 @@ export default function Home() {
       {/* ══ Desktop Header ══ */}
       <header className="hidden md:flex relative shrink-0 items-center gap-4 px-6 h-16 bg-background border-b border-border z-[1000]">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 shrink-0">
-          <LogoIcon />
+        <div className="flex items-start gap-2.5 shrink-0">
+          <div className="mt-[3px]">
+            <LogoIcon />
+          </div>
           <div>
             <h1 className="font-display text-lg font-bold tracking-tight leading-none">
               Terrasse Season
@@ -604,18 +606,18 @@ export default function Home() {
 
         {/* Actions */}
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={() => setLang(lang === "en" ? "fr" : "en")}
-            className="text-[11px] px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent hover:bg-accent hover:text-white transition-all font-semibold tracking-wide cursor-pointer"
-          >
-            {lang === "en" ? "Français" : "English"}
-          </button>
           <Link
             href="/submit"
             className="text-xs px-4 py-1.5 rounded-full bg-accent text-white hover:bg-accent-hover transition-colors font-medium whitespace-nowrap"
           >
             {lang === "fr" ? "Soumettre une terrasse" : "Submit a terrace"}
           </Link>
+          <button
+            onClick={() => setLang(lang === "en" ? "fr" : "en")}
+            className="text-[11px] px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent hover:bg-accent hover:text-white transition-all font-semibold tracking-wide cursor-pointer"
+          >
+            {lang === "en" ? "Français" : "English"}
+          </button>
           <div className="w-px h-4 bg-border shrink-0 ml-1" />
           <nav className="flex items-center gap-3">
             <Link
@@ -841,24 +843,24 @@ export default function Home() {
                 </h1>
                 <p className="text-[9px] text-muted tracking-wide mt-0.5">
                   {lang === "fr"
-                    ? "Le guide des terrasses de Montréal"
+                    ? "Les terrasses de Montréal"
                     : "Montreal's terrace guide"}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => setLang(lang === "en" ? "fr" : "en")}
-                className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide cursor-pointer"
-              >
-                {lang === "en" ? "FR" : "EN"}
-              </button>
               <Link
                 href="/submit"
                 className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
               >
                 {t.submit}
               </Link>
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide cursor-pointer"
+              >
+                {lang === "en" ? "FR" : "EN"}
+              </button>
               <div className="relative" ref={mobileMenuRef}>
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
