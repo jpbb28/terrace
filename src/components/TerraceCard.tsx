@@ -161,8 +161,20 @@ export default function TerraceCard({
             )}
           </p>
 
+          {/* Description */}
+          <p className="text-[11px] text-foreground/55 leading-snug line-clamp-2 mb-1.5">
+            {lang === "fr" && terrace.descriptionFr
+              ? terrace.descriptionFr
+              : terrace.description}
+          </p>
+
           {/* Attribute tags */}
           <div className="flex flex-wrap gap-1">
+            {terrace.capacity ? (
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-foreground/5 text-muted">
+                {t.seats(terrace.capacity)}
+              </span>
+            ) : null}
             {terrace.dogFriendly && (
               <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-foreground/5 text-muted">
                 {t.dogsOk}
@@ -275,27 +287,7 @@ export default function TerraceCard({
         </div>
 
         <div className="flex items-center justify-between mb-2">
-          <p className="text-xs text-muted flex items-center gap-1">
-            <svg
-              className="w-3 h-3 shrink-0"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {terrace.address}
-          </p>
+          <p className="text-xs text-muted">{terrace.neighborhood}</p>
           {distance !== undefined && (
             <span className="text-[10px] font-medium text-accent shrink-0 ml-2">
               {distance < 1
@@ -312,11 +304,6 @@ export default function TerraceCard({
         </p>
 
         <div className="flex flex-wrap gap-1.5">
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted font-medium">
-            {lang === "fr"
-              ? (cuisineTypeFR[terrace.cuisineType] ?? terrace.cuisineType)
-              : terrace.cuisineType}
-          </span>
           {terrace.capacity ? (
             <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 text-muted">
               {t.seats(terrace.capacity)}
