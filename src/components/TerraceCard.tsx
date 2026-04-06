@@ -199,8 +199,8 @@ export default function TerraceCard({
       onClick={onClick}
       className={`w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
         selected
-          ? "border-accent bg-white/90 shadow-md shadow-accent/10"
-          : "border-transparent bg-white/50 hover:bg-white/80 hover:border-border hover:shadow-sm"
+          ? "border-accent bg-white shadow-md shadow-accent/10"
+          : "border-border/60 bg-white shadow-sm hover:shadow-md hover:border-border"
       }`}
     >
       {terrace.photos.length > 0 ? (
