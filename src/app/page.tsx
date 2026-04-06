@@ -166,6 +166,16 @@ export default function Home() {
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showInstallModal, setShowInstallModal] = useState(false);
+  const [installPlatform, setInstallPlatform] = useState<
+    "ios" | "android" | "desktop"
+  >("desktop");
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    if (/iphone|ipad|ipod/i.test(ua)) setInstallPlatform("ios");
+    else if (/android/i.test(ua)) setInstallPlatform("android");
+    else setInstallPlatform("desktop");
+  }, []);
   const [desktopMapMounted, setDesktopMapMounted] = useState(false);
   const [mobileMapMounted, setMobileMapMounted] = useState(true);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
@@ -1112,31 +1122,39 @@ export default function Home() {
               </button>
             </div>
 
-            {/* iOS instructions */}
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
-                iPhone / iPad
-              </p>
-              <ol className="space-y-2">
+            {installPlatform === "ios" && (
+              <ol className="space-y-3">
                 <li className="flex items-start gap-2.5 text-sm text-foreground/80">
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                     1
                   </span>
                   {lang === "fr" ? (
                     <>
-                      Appuyez sur <strong>Partager</strong>{" "}
-                      <span className="inline-block">⎙</span> dans Safari
+                      Ouvrez ce site dans <strong>Safari</strong>
                     </>
                   ) : (
                     <>
-                      Tap the <strong>Share</strong> button{" "}
-                      <span className="inline-block">⎙</span> in Safari
+                      Open this site in <strong>Safari</strong>
                     </>
                   )}
                 </li>
                 <li className="flex items-start gap-2.5 text-sm text-foreground/80">
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                     2
+                  </span>
+                  {lang === "fr" ? (
+                    <>
+                      Appuyez sur <strong>Partager</strong> ⎙ en bas de l'écran
+                    </>
+                  ) : (
+                    <>
+                      Tap the <strong>Share</strong> button ⎙ at the bottom
+                    </>
+                  )}
+                </li>
+                <li className="flex items-start gap-2.5 text-sm text-foreground/80">
+                  <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    3
                   </span>
                   {lang === "fr" ? (
                     <>
@@ -1150,7 +1168,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2.5 text-sm text-foreground/80">
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                    3
+                    4
                   </span>
                   {lang === "fr" ? (
                     <>
@@ -1163,13 +1181,10 @@ export default function Home() {
                   )}
                 </li>
               </ol>
-            </div>
+            )}
 
-            <div className="border-t border-border pt-4">
-              <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
-                Android / Chrome
-              </p>
-              <ol className="space-y-2">
+            {installPlatform === "android" && (
+              <ol className="space-y-3">
                 <li className="flex items-start gap-2.5 text-sm text-foreground/80">
                   <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                     1
@@ -1198,8 +1213,63 @@ export default function Home() {
                     </>
                   )}
                 </li>
+                <li className="flex items-start gap-2.5 text-sm text-foreground/80">
+                  <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    3
+                  </span>
+                  {lang === "fr" ? (
+                    <>
+                      Appuyez sur <strong>Ajouter</strong>
+                    </>
+                  ) : (
+                    <>
+                      Tap <strong>Add</strong>
+                    </>
+                  )}
+                </li>
               </ol>
-            </div>
+            )}
+
+            {installPlatform === "desktop" && (
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
+                    Chrome / Edge
+                  </p>
+                  <p className="text-sm text-foreground/80">
+                    {lang === "fr" ? (
+                      <>
+                        Cliquez sur l'icône <strong>installer</strong> ⊕ dans la
+                        barre d'adresse, puis sur <strong>Installer</strong>.
+                      </>
+                    ) : (
+                      <>
+                        Click the <strong>install</strong> icon ⊕ in the address
+                        bar, then click <strong>Install</strong>.
+                      </>
+                    )}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
+                    Safari (Mac)
+                  </p>
+                  <p className="text-sm text-foreground/80">
+                    {lang === "fr" ? (
+                      <>
+                        Cliquez sur <strong>Partager</strong> →{" "}
+                        <strong>Ajouter au Dock</strong>.
+                      </>
+                    ) : (
+                      <>
+                        Click <strong>Share</strong> →{" "}
+                        <strong>Add to Dock</strong>.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
