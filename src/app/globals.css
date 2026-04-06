@@ -188,7 +188,7 @@ body {
 
 .terrace-marker-label-wrap {
   position: absolute;
-  top: 44px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -198,16 +198,7 @@ body {
 }
 
 .terrace-marker-label-nub {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 1px;
-  transform: rotate(45deg);
-  margin-bottom: -4px;
-  box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.06);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  display: none;
 }
 
 .terrace-marker-label {
@@ -218,33 +209,32 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-  background: rgba(255, 255, 255, 0.97);
   color: #2c2418;
-  padding: 3px 9px;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.14),
-    0 0 0 0.5px rgba(0, 0, 0, 0.04);
-  max-width: 120px;
+  background: none;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.4;
   letter-spacing: 0.01em;
-  position: relative;
-  z-index: 2;
-}
-
-.terrace-marker-wrapper.active .terrace-marker-label-nub {
-  background: var(--warm);
-  box-shadow: none;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.9),
+    1px -1px 0 rgba(255, 255, 255, 0.9),
+    -1px 1px 0 rgba(255, 255, 255, 0.9),
+    1px 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 .terrace-marker-wrapper.active .terrace-marker-label {
-  background: var(--warm);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 2px 10px rgba(212, 145, 59, 0.35);
+  color: #c45d3e;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.95),
+    1px -1px 0 rgba(255, 255, 255, 0.95),
+    -1px 1px 0 rgba(255, 255, 255, 0.95),
+    1px 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 5px rgba(255, 255, 255, 0.9);
 }
 
 /* ── Sidebar glass effect ── */
