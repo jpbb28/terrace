@@ -149,17 +149,14 @@ export default function TerraceCard({
             )}
           </div>
 
-          {/* Neighborhood */}
-          <p className="text-[11px] text-muted leading-tight mb-1.5">
-            {terrace.neighborhood}
-            {distance !== undefined && (
-              <span className="text-accent font-medium ml-1.5">
-                {distance < 1
-                  ? `${Math.round(distance * 1000)} m`
-                  : `${distance.toFixed(1)} km`}
-              </span>
-            )}
-          </p>
+          {/* Distance */}
+          {distance !== undefined && (
+            <p className="text-[11px] text-accent font-medium leading-tight mb-1">
+              {distance < 1
+                ? `${Math.round(distance * 1000)} m`
+                : `${distance.toFixed(1)} km`}
+            </p>
+          )}
 
           {/* Description */}
           <p className="text-[11px] text-foreground/55 leading-snug line-clamp-2 mb-1.5">

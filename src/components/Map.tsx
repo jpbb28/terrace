@@ -387,6 +387,7 @@ function TerracePopup({
 interface MapProps {
   terraces: Terrace[];
   selectedId: string | null;
+  hoveredId?: string | null;
   onSelect?: (id: string) => void;
   onViewDetails?: (id: string) => void;
   center: [number, number];
@@ -399,6 +400,7 @@ interface MapProps {
 export default function Map({
   terraces,
   selectedId,
+  hoveredId,
   onSelect,
   onViewDetails,
   center,
@@ -435,11 +437,13 @@ export default function Map({
         <Marker
           key={t.id}
           position={[t.lat, t.lng]}
-          icon={createIcon(selectedId === t.id, t.name)}
+          icon={createIcon(selectedId === t.id || hoveredId === t.id, t.name)}
           eventHandlers={{ click: () => onSelect?.(t.id) }}
           title={t.name}
           alt={t.name}
-          zIndexOffset={selectedId === t.id ? 1000 : 0}
+          zIndexOffset={
+            selectedId === t.id ? 1000 : hoveredId === t.id ? 500 : 0
+          }
         >
           <Popup>
             <TerracePopup t={t} onViewDetails={onViewDetails} />

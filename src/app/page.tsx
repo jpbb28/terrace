@@ -149,6 +149,7 @@ export default function Home() {
   const [covered, setCovered] = useState(false);
   const [openNow, setOpenNow] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<"map" | "list">("list");
   const [mobileMapHighlightId, setMobileMapHighlightId] = useState<
     string | null
@@ -724,6 +725,8 @@ export default function Home() {
                     key={terrace.id}
                     className="card-enter"
                     style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
+                    onMouseEnter={() => setHoveredId(terrace.id)}
+                    onMouseLeave={() => setHoveredId(null)}
                   >
                     <TerraceCard
                       terrace={terrace}
@@ -774,6 +777,7 @@ export default function Home() {
             <Map
               terraces={filtered}
               selectedId={selectedId}
+              hoveredId={hoveredId}
               onViewDetails={openFromMap}
               center={mapCenter}
               zoom={mapZoom}
