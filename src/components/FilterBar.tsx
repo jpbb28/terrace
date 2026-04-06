@@ -221,59 +221,122 @@ export default function FilterBar({
 
   return (
     <div className="space-y-3">
-      {/* Row 1: Search + Neighborhood (mobile list) / Search only (desktop + mobile map) */}
-      <div className="flex gap-2">
-        <div className="relative flex-1">
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
-          </svg>
-          <input
-            type="text"
-            placeholder={t.searchPlaceholder}
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className={`w-full pl-9 py-2.5 bg-white/60 border border-border rounded-xl text-sm text-foreground placeholder:text-muted-light focus:outline-none focus:border-accent focus:bg-white/80 focus:shadow-sm transition-all ${search ? "pr-8" : "pr-3"}`}
-          />
-          {search && (
-            <button
-              onClick={() => onSearchChange("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-muted hover:text-foreground transition-colors cursor-pointer"
-              aria-label="Clear search"
+      {/* Row 1 — mobile list: unified search + neighborhood in one box */}
+      {mobileView !== "map" && (
+        <div className="md:hidden flex items-center bg-white/60 border border-border rounded-xl focus-within:border-accent focus-within:bg-white/80 focus-within:shadow-sm transition-all">
+          <div className="relative flex-1 min-w-0">
+            <svg
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+            </svg>
+            <input
+              type="text"
+              placeholder={t.searchPlaceholder}
+              value={search}
+              onChange={(e) => onSearchChange(e.target.value)}
+              className={`w-full pl-9 py-2.5 bg-transparent text-[16px] text-foreground placeholder:text-muted-light focus:outline-none transition-all ${search ? "pr-8" : "pr-3"}`}
+            />
+            {search && (
+              <button
+                onClick={() => onSearchChange("")}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-muted hover:text-foreground transition-colors cursor-pointer"
+                aria-label="Clear search"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  strokeLinecap="round"
+                  className="w-3.5 h-3.5"
+                >
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+          <div className="w-px self-stretch my-2 bg-border shrink-0" />
+          <div className="relative shrink-0" ref={neighborhoodMobileRef}>
+            <button
+              onClick={() => {
+                setNeighborhoodOpen(!neighborhoodOpen);
+                setTypeOpen(false);
+                setFiltersOpen(false);
+              }}
+              className={`flex items-center gap-1 px-3 py-2.5 text-xs cursor-pointer transition-colors ${
+                selectedNeighborhoods.length > 0
+                  ? "text-foreground font-medium"
+                  : "text-muted"
+              }`}
+            >
+              <span className="truncate max-w-[80px]">{neighborhoodLabel}</span>
               <svg
-                viewBox="0 0 24 24"
+                className={`w-3 h-3 shrink-0 transition-transform duration-150 ${neighborhoodOpen ? "rotate-180" : ""}`}
                 fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2.5}
-                strokeLinecap="round"
-                className="w-3.5 h-3.5"
               >
-                <path d="M18 6L6 18M6 6l12 12" />
+                <path
+                  d="M19 9l-7 7-7-7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
-          )}
-        </div>
-
-        {/* Neighborhood dropdown — mobile list only (row 1) */}
-        {mobileView !== "map" && (
-          <div
-            className="relative md:hidden w-36 shrink-0"
-            ref={neighborhoodMobileRef}
-          >
-            {neighborhoodButton}
             {neighborhoodOpen && (
               <div className="absolute z-50 top-full mt-1 right-0 w-48 bg-white border border-border rounded-xl shadow-lg max-h-52 overflow-y-auto">
                 {neighborhoodDropdown}
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Row 1 — desktop always + mobile map view: standalone search */}
+      <div
+        className={`relative ${mobileView !== "map" ? "hidden md:block" : ""}`}
+      >
+        <svg
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+        </svg>
+        <input
+          type="text"
+          placeholder={t.searchPlaceholder}
+          value={search}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className={`w-full pl-9 py-2.5 bg-white/60 border border-border rounded-xl text-[16px] md:text-sm text-foreground placeholder:text-muted-light focus:outline-none focus:border-accent focus:bg-white/80 focus:shadow-sm transition-all ${search ? "pr-8" : "pr-3"}`}
+        />
+        {search && (
+          <button
+            onClick={() => onSearchChange("")}
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-muted hover:text-foreground transition-colors cursor-pointer"
+            aria-label="Clear search"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              strokeLinecap="round"
+              className="w-3.5 h-3.5"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
         )}
       </div>
 
