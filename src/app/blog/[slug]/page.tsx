@@ -47,6 +47,10 @@ export default async function BlogPost({ params }: Props) {
       "@type": "Organization",
       name: "Terrasse Season",
       url: "https://terrasseseason.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://terrasseseason.com/icon-192x192.png",
+      },
     },
     url: `https://terrasseseason.com/blog/${slug}`,
     mainEntityOfPage: {

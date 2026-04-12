@@ -20,12 +20,16 @@ function Divider({ i }: { i: number }) {
   );
 }
 
-function LabeledBlock({ block, i }: { block: Extract<Block, { t: "labeled" }>; i: number }) {
+function LabeledBlock({
+  block,
+  i,
+}: {
+  block: Extract<Block, { t: "labeled" }>;
+  i: number;
+}) {
   return (
     <div key={i} className="my-8 pl-5 border-l-2 border-accent/40">
-      <p
-        className="text-[10px] uppercase tracking-[0.2em] text-accent font-semibold mb-2"
-      >
+      <p className="text-[10px] uppercase tracking-[0.2em] text-accent font-semibold mb-2">
         {block.name}
       </p>
       <p
@@ -71,7 +75,8 @@ function Paragraph({
 
 function renderBlock(block: Block, i: number, firstPIdx: number) {
   if (block.t === "divider") return <Divider key={i} i={i} />;
-  if (block.t === "labeled") return <LabeledBlock key={i} block={block} i={i} />;
+  if (block.t === "labeled")
+    return <LabeledBlock key={i} block={block} i={i} />;
   return <Paragraph key={i} block={block} dropCap={i === firstPIdx} i={i} />;
 }
 
@@ -86,17 +91,19 @@ export default function BlogPostContent({ post }: { post: Post }) {
 
   return (
     <article className="max-w-[680px] mx-auto px-5 py-16">
-
       {/* Header */}
       <header className="mb-10">
         <p className="text-[10px] uppercase tracking-[0.22em] text-accent font-semibold mb-5">
           {date}
         </p>
-        <h1
-          className="font-display text-[2.6rem] md:text-[3.2rem] font-bold leading-[1.08] mb-8 text-foreground"
-        >
+        <h1 className="font-display text-[2.6rem] md:text-[3.2rem] font-bold leading-[1.08] mb-4 text-foreground">
           {title}
         </h1>
+        <p className="text-sm text-muted mb-8">
+          {lang === "fr"
+            ? "Par l'équipe Terrasse Season"
+            : "By the Terrasse Season team"}
+        </p>
         <div className="flex items-center gap-3">
           <div className="h-px w-10 bg-accent" />
           <div className="h-px flex-1 bg-border" />
@@ -125,7 +132,11 @@ export default function BlogPostContent({ post }: { post: Post }) {
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </Link>
       </footer>

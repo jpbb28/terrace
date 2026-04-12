@@ -3,6 +3,7 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
+import { slugify } from "@/lib/utils";
 import PWAAutoUpdate from "@/components/PWAAutoUpdate";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import "./globals.css";
@@ -21,7 +22,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://terrasseseason.com"),
-  title: "Terrasse Season – Discover Montréal's Best Terraces & Patios",
+  title: "Best Terraces, Patios & Rooftops in Montréal | Terrasse Season",
   description:
     "The most complete guide to terraces and patios in Montréal. Hundreds of spots across 24 neighborhoods — filter by rooftop, dog-friendly, covered, open now, and more.",
   keywords: [
@@ -85,7 +86,6 @@ export const metadata: Metadata = {
     description:
       "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
     locale: "en_CA",
-    alternateLocale: "fr_CA",
     images: [
       {
         url: "/og-v2.jpg",
@@ -118,12 +118,17 @@ export const viewport = {
 };
 
 function buildJsonLd() {
-  const itemListElement = terraces.map((terrace, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    item: {
+  const BASE = "https://terrasseseason.com";
+
+  const itemListElement = terraces.map((terrace, index) => {
+    const terraceId = `${BASE}/#terrace-${terrace.id}`;
+    const terraceUrl = `${BASE}/terraces/${slugify(terrace.name)}`;
+
+    const item: Record<string, unknown> = {
       "@type": "FoodEstablishment",
+      "@id": terraceId,
       name: terrace.name,
+      url: terraceUrl,
       address: {
         "@type": "PostalAddress",
         streetAddress: terrace.address,
@@ -136,43 +141,86 @@ function buildJsonLd() {
         latitude: terrace.lat,
         longitude: terrace.lng,
       },
-      ...(terrace.cuisineType && { servesCuisine: terrace.cuisineType }),
-      ...(terrace.website && { url: terrace.website }),
-    },
-  }));
+    };
+
+    if (terrace.photos.length > 0) {
+      item.image = `${BASE}${terrace.photos[0]}`;
+    }
+    if (terrace.cuisineType) {
+      item.servesCuisine = terrace.cuisineType;
+    }
+    if (terrace.googleRating && terrace.googleReviewCount) {
+      item.aggregateRating = {
+        "@type": "AggregateRating",
+        ratingValue: terrace.googleRating,
+        reviewCount: terrace.googleReviewCount,
+        bestRating: 5,
+        worstRating: 1,
+      };
+    }
+    if (terrace.website) {
+      item.sameAs = terrace.website;
+    }
+
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      url: terraceUrl,
+      item,
+    };
+  });
 
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": "https://terrasseseason.com/#website",
+        "@type": "Organization",
+        "@id": `${BASE}/#organization`,
         name: "Terrasse Season",
-        url: "https://terrasseseason.com",
+        url: BASE,
+        logo: {
+          "@type": "ImageObject",
+          url: `${BASE}/icon-192x192.png`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        name: "Terrasse Season",
+        url: BASE,
         description:
           "The most complete directory of terraces and patios in Montréal, Québec. Hundreds of outdoor dining spots across 24 neighborhoods, filterable by type, features, and hours.",
         inLanguage: ["en", "fr"],
+        publisher: { "@id": `${BASE}/#organization` },
         potentialAction: {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://terrasseseason.com/?q={search_term_string}",
+            urlTemplate: `${BASE}/?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": "CollectionPage",
-        "@id": "https://terrasseseason.com/#collection",
-        name: "All Montréal Terraces and Patios",
-        url: "https://terrasseseason.com",
-        description: `Directory of ${terraces.length} terraces and patios in Montréal, Québec, covering neighborhoods including Plateau-Mont-Royal, Old Montreal, Mile End, Griffintown, Little Italy, Saint-Henri, Verdun, Rosemont, Downtown, and more.`,
-        mainEntity: {
-          "@type": "ItemList",
-          name: "Montréal Terraces and Patios",
-          numberOfItems: terraces.length,
-          itemListElement,
-        },
+        "@id": `${BASE}/#collection`,
+        name: "Best Terraces, Patios & Rooftops in Montréal",
+        url: BASE,
+        description: `The most complete guide to all ${terraces.length} terraces, rooftops, and patios in Montréal, Québec — covering Plateau-Mont-Royal, Old Montréal, Mile End, Griffintown, Little Italy, Saint-Henri, Verdun, Rosemont, Downtown, and more.`,
+        dateModified: new Date().toISOString(),
+        isPartOf: { "@id": `${BASE}/#website` },
+        publisher: { "@id": `${BASE}/#organization` },
+        inLanguage: ["en", "fr"],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${BASE}/#terrace-list`,
+        name: "Best Terraces, Rooftops, and Patios in Montréal",
+        description: `A curated directory of ${terraces.length} outdoor dining and drinking spots across Montréal — rooftops, sidewalk terraces, courtyards, and patios.`,
+        url: BASE,
+        numberOfItems: terraces.length,
+        itemListOrder: "https://schema.org/ItemListUnordered",
+        itemListElement,
       },
     ],
   };
