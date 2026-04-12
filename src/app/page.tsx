@@ -760,6 +760,15 @@ export default function Home() {
             )}
           </div>
 
+          {/* Editorial intro — below the fold, for search crawlers */}
+          <div className="px-5 py-6 border-t border-border/60 bg-foreground/[0.015]">
+            <p className="text-[11px] text-muted leading-relaxed">
+              {lang === "fr"
+                ? `Terrasse Season est le répertoire le plus complet de terrasses à Montréal : plus de ${terraces.length} spots en plein air dans 24 quartiers, des rooftops d'hôtel du Vieux-Montréal aux jardins du canal à Saint-Henri, en passant par les cours cachées du Plateau et les trottoirs de Verdun. Les horaires sont mis à jour saisonnièrement. Recoupé à partir de Cult MTL, Tastet, Time Out, Tourisme Montréal et une douzaine d'autres publications locales.`
+                : `Terrasse Season is Montréal's most complete terrace directory — over ${terraces.length} outdoor spots across 24 neighbourhoods, from Old Montréal hotel rooftops to canal-side gardens in Saint-Henri, hidden backyards in the Plateau, and sidewalk tables in Verdun. Hours updated seasonally from Google Places. Cross-referenced from Cult MTL, Tastet, Time Out, Tourisme Montréal, and a dozen other local publications.`}
+            </p>
+          </div>
+
           {/* Footer links — bottom of card grid */}
           <div className="border-t border-border px-5 py-3 flex items-center gap-4">
             <Link
@@ -1041,16 +1050,23 @@ export default function Home() {
                     <p className="text-sm text-muted">{t.noResults}</p>
                   </div>
                 ) : (
-                  visibleCards.map(({ terrace, distance }, i) => (
-                    <TerraceCard
-                      key={terrace.id}
-                      terrace={terrace}
-                      selected={selectedId === terrace.id}
-                      onClick={() => openFromCard(terrace.id)}
-                      distance={distance}
-                      priority={i === 0}
-                    />
-                  ))
+                  <>
+                    {visibleCards.map(({ terrace, distance }, i) => (
+                      <TerraceCard
+                        key={terrace.id}
+                        terrace={terrace}
+                        selected={selectedId === terrace.id}
+                        onClick={() => openFromCard(terrace.id)}
+                        distance={distance}
+                        priority={i === 0}
+                      />
+                    ))}
+                    <p className="text-[10px] text-muted leading-relaxed px-1 pt-2 pb-4">
+                      {lang === "fr"
+                        ? `Le répertoire le plus complet de terrasses à Montréal : plus de ${terraces.length} spots dans 24 quartiers, des rooftops du Vieux-Montréal aux jardins du canal à Saint-Henri. Horaires mis à jour saisonnièrement.`
+                        : `Montréal's most complete terrace directory — over ${terraces.length} spots across 24 neighbourhoods, from Old Montréal rooftops to canal-side gardens in Saint-Henri. Hours updated seasonally.`}
+                    </p>
+                  </>
                 )}
               </div>
 
