@@ -761,12 +761,66 @@ export default function Home() {
           </div>
 
           {/* Editorial intro — below the fold, for search crawlers */}
-          <div className="px-5 py-6 border-t border-border/60 bg-foreground/[0.015]">
-            <p className="text-[11px] text-muted leading-relaxed">
-              {lang === "fr"
-                ? `Terrasse Season est le répertoire le plus complet de terrasses à Montréal : plus de ${terraces.length} spots en plein air dans 24 quartiers, des rooftops d'hôtel du Vieux-Montréal aux jardins du canal à Saint-Henri, en passant par les cours cachées du Plateau et les trottoirs de Verdun. Les horaires sont mis à jour saisonnièrement. Recoupé à partir de Cult MTL, Tastet, Time Out, Tourisme Montréal et une douzaine d'autres publications locales.`
-                : `Terrasse Season is Montréal's most complete terrace directory — over ${terraces.length} outdoor spots across 24 neighbourhoods, from Old Montréal hotel rooftops to canal-side gardens in Saint-Henri, hidden backyards in the Plateau, and sidewalk tables in Verdun. Hours updated seasonally from Google Places. Cross-referenced from Cult MTL, Tastet, Time Out, Tourisme Montréal, and a dozen other local publications.`}
-            </p>
+          <div className="px-5 py-6 border-t border-border/60 bg-foreground/[0.015] space-y-3">
+            {lang === "fr" ? (
+              <>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Terrasse Season est le répertoire le plus complet de terrasses
+                  à Montréal : plus de {terraces.length} spots en plein air dans
+                  24 quartiers pour la saison 2026. Rooftops d&apos;hôtel dans
+                  le Vieux-Montréal, jardins au bord du canal Lachine à
+                  Saint-Henri, cours cachées dans le Plateau-Mont-Royal, tables
+                  de trottoir à Verdun et Mile End, terrasses couvertes et
+                  chauffées pour les soirées fraîches de mai et septembre.
+                </p>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Parmi les adresses les plus reconnues : Terrasse William Gray
+                  et Terrasse Nelligan dans le Vieux-Montréal, Réservoir et Café
+                  Santropol dans le Plateau, Terrasse Saint-Ambroise et Messorem
+                  Bracitorium au bord du canal à Saint-Henri, Taverne Atlantic à
+                  Mile-Ex, et Rose Orange au 44e étage de la Place Ville Marie.
+                  Filtres disponibles par type (rooftop, cour, jardin,
+                  trottoir), caractéristiques (dog-friendly, couvert, chauffé)
+                  et quartier.
+                </p>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Les horaires proviennent de Google Places et sont mis à jour
+                  avant chaque saison. Les données sont recoupées à partir de
+                  Cult MTL, Tastet, Time Out Montréal, Tourisme Montréal, Daily
+                  Hive, Narcity et d&apos;autres publications locales. Les
+                  caractéristiques comme dog-friendly et couvert ne sont
+                  indiquées que lorsqu&apos;une source les confirme.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Terrasse Season is Montréal&apos;s most complete terrace and
+                  patio directory — over {terraces.length} outdoor spots across
+                  24 neighbourhoods for the 2026 season. Hotel rooftops in Old
+                  Montréal, canal-side gardens along the Lachine Canal in
+                  Saint-Henri, hidden courtyards in Plateau-Mont-Royal, sidewalk
+                  tables in Verdun and Mile End, and covered heated terraces for
+                  the cool evenings of May and September.
+                </p>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Among the most recognized spots: Terrasse William Gray and
+                  Terrasse Nelligan in Old Montréal, Réservoir and Café
+                  Santropol in the Plateau, Terrasse Saint-Ambroise and Messorem
+                  Bracitorium on the canal in Saint-Henri, Taverne Atlantic in
+                  Mile-Ex, and Rose Orange on the 44th floor of Place Ville
+                  Marie. Filter by type (rooftop, courtyard, garden, sidewalk),
+                  features (dog-friendly, covered, heated), and neighbourhood.
+                </p>
+                <p className="text-[11px] text-muted leading-relaxed">
+                  Hours come from Google Places and are refreshed each season.
+                  Data cross-referenced from Cult MTL, Tastet, Time Out
+                  Montréal, Tourisme Montréal, Daily Hive, Narcity, and other
+                  local publications. Features like dog-friendly and covered are
+                  only marked when a source confirms them.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Footer links — bottom of card grid */}
