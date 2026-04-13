@@ -785,20 +785,19 @@ export default function Home() {
                 </p>
                 <p className="text-[11px] text-muted leading-relaxed">
                   Les horaires proviennent de Google Places et sont mis à jour
-                  avant chaque saison. Les données sont recoupées à partir de
-                  Cult MTL, Tastet, Time Out Montréal, Tourisme Montréal, Daily
-                  Hive, Narcity et d&apos;autres publications locales. Les
-                  caractéristiques comme dog-friendly et couvert ne sont
-                  indiquées que lorsqu&apos;une source les confirme.
+                  avant chaque saison, issus de Cult MTL, Tastet, Time Out
+                  Montréal, Tourisme Montréal, Daily Hive, Narcity et
+                  d&apos;autres publications locales. Dog-friendly et couvert ne
+                  sont indiqués que si une source le confirme.
                 </p>
               </>
             ) : (
               <>
                 <p className="text-[11px] text-muted leading-relaxed">
                   Terrasse Season is Montréal&apos;s most complete terrace and
-                  patio directory — over {terraces.length} outdoor spots across
-                  24 neighbourhoods for the 2026 season. Hotel rooftops in Old
-                  Montréal, canal-side gardens along the Lachine Canal in
+                  patio directory, with over {terraces.length} outdoor spots
+                  across 24 neighbourhoods for the 2026 season. Hotel rooftops
+                  in Old Montréal, canal-side gardens along the Lachine Canal in
                   Saint-Henri, hidden courtyards in Plateau-Mont-Royal, sidewalk
                   tables in Verdun and Mile End, and covered heated terraces for
                   the cool evenings of May and September.
@@ -813,11 +812,11 @@ export default function Home() {
                   features (dog-friendly, covered, heated), and neighbourhood.
                 </p>
                 <p className="text-[11px] text-muted leading-relaxed">
-                  Hours come from Google Places and are refreshed each season.
-                  Data cross-referenced from Cult MTL, Tastet, Time Out
-                  Montréal, Tourisme Montréal, Daily Hive, Narcity, and other
-                  local publications. Features like dog-friendly and covered are
-                  only marked when a source confirms them.
+                  Hours come from Google Places and are refreshed each season,
+                  cross-referenced from Cult MTL, Tastet, Time Out Montréal,
+                  Tourisme Montréal, Daily Hive, Narcity, and other local
+                  publications. Dog-friendly and covered are only marked when a
+                  source confirms them.
                 </p>
               </>
             )}
