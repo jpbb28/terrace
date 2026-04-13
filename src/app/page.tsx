@@ -765,30 +765,31 @@ export default function Home() {
             {lang === "fr" ? (
               <>
                 <p className="text-[11px] text-muted leading-relaxed">
-                  Terrasse Season est le répertoire le plus complet de terrasses
-                  à Montréal : plus de {terraces.length} spots en plein air dans
-                  24 quartiers pour la saison 2026. Rooftops d&apos;hôtel dans
-                  le Vieux-Montréal, jardins au bord du canal Lachine à
-                  Saint-Henri, cours cachées dans le Plateau-Mont-Royal, tables
-                  de trottoir à Verdun et Mile End, terrasses couvertes et
-                  chauffées pour les soirées fraîches de mai et septembre.
+                  Terrasse Season recense {terraces.length} terrasses et patios
+                  à Montréal pour la saison 2026, le répertoire le plus complet
+                  de la ville. Rooftops dans le Vieux-Montréal, jardins au bord
+                  du canal Lachine à Saint-Henri, cours intérieures dans le
+                  Plateau-Mont-Royal, terrasses de trottoir à Verdun et dans
+                  Mile End, et terrasses couvertes et chauffées pour les soirs
+                  frais de mai et septembre.
                 </p>
                 <p className="text-[11px] text-muted leading-relaxed">
-                  Parmi les adresses les plus reconnues : Terrasse William Gray
-                  et Terrasse Nelligan dans le Vieux-Montréal, Réservoir et Café
-                  Santropol dans le Plateau, Terrasse Saint-Ambroise et Messorem
+                  Quelques incontournables : Terrasse William Gray et Terrasse
+                  Nelligan dans le Vieux-Montréal, Réservoir et Café Santropol
+                  dans le Plateau, Terrasse Saint-Ambroise et Messorem
                   Bracitorium au bord du canal à Saint-Henri, Taverne Atlantic à
                   Mile-Ex, et Rose Orange au 44e étage de la Place Ville Marie.
-                  Filtres disponibles par type (rooftop, cour, jardin,
-                  trottoir), caractéristiques (dog-friendly, couvert, chauffé)
-                  et quartier.
+                  Recherchez par type (rooftop, cour intérieure, jardin,
+                  trottoir), par caractéristique (dog-friendly, couvert,
+                  chauffé) ou par quartier.
                 </p>
                 <p className="text-[11px] text-muted leading-relaxed">
-                  Les horaires proviennent de Google Places et sont mis à jour
-                  avant chaque saison, issus de Cult MTL, Tastet, Time Out
+                  Les horaires sont tirés de Google Places et mis à jour à
+                  chaque saison, croisés avec Cult MTL, Tastet, Time Out
                   Montréal, Tourisme Montréal, Daily Hive, Narcity et
-                  d&apos;autres publications locales. Dog-friendly et couvert ne
-                  sont indiqués que si une source le confirme.
+                  d&apos;autres publications locales. Les mentions dog-friendly
+                  et terrasse couverte ne figurent que lorsqu&apos;une source
+                  les confirme.
                 </p>
               </>
             ) : (
@@ -1118,34 +1119,33 @@ export default function Home() {
                       {lang === "fr" ? (
                         <>
                           <p className="text-[10px] text-muted leading-relaxed">
-                            Terrasse Season est le répertoire le plus complet de
-                            terrasses à Montréal : plus de {terraces.length}{" "}
-                            spots en plein air dans 24 quartiers pour la saison
-                            2026. Rooftops d&apos;hôtel dans le Vieux-Montréal,
-                            jardins au bord du canal Lachine à Saint-Henri,
-                            cours cachées dans le Plateau-Mont-Royal, tables de
-                            trottoir à Verdun et Mile End, terrasses couvertes
-                            et chauffées pour les soirées fraîches de mai et
-                            septembre.
+                            Terrasse Season recense {terraces.length} terrasses
+                            et patios à Montréal pour la saison 2026, le
+                            répertoire le plus complet de la ville. Rooftops
+                            dans le Vieux-Montréal, jardins au bord du canal
+                            Lachine à Saint-Henri, cours intérieures dans le
+                            Plateau-Mont-Royal, terrasses de trottoir à Verdun
+                            et dans Mile End, et terrasses couvertes et
+                            chauffées pour les soirs frais de mai et septembre.
                           </p>
                           <p className="text-[10px] text-muted leading-relaxed">
-                            Parmi les adresses les plus reconnues : Terrasse
-                            William Gray et Terrasse Nelligan dans le
-                            Vieux-Montréal, Réservoir et Café Santropol dans le
-                            Plateau, Terrasse Saint-Ambroise et Messorem
-                            Bracitorium au bord du canal à Saint-Henri, Taverne
-                            Atlantic à Mile-Ex, et Rose Orange au 44e étage de
-                            la Place Ville Marie. Filtres disponibles par type
-                            (rooftop, cour, jardin, trottoir), caractéristiques
-                            (dog-friendly, couvert, chauffé) et quartier.
+                            Quelques incontournables : Terrasse William Gray et
+                            Terrasse Nelligan dans le Vieux-Montréal, Réservoir
+                            et Café Santropol dans le Plateau, Terrasse
+                            Saint-Ambroise et Messorem Bracitorium au bord du
+                            canal à Saint-Henri, Taverne Atlantic à Mile-Ex, et
+                            Rose Orange au 44e étage de la Place Ville Marie.
+                            Recherchez par type (rooftop, cour intérieure,
+                            jardin, trottoir), par caractéristique
+                            (dog-friendly, couvert, chauffé) ou par quartier.
                           </p>
                           <p className="text-[10px] text-muted leading-relaxed">
-                            Les horaires proviennent de Google Places et sont
-                            mis à jour avant chaque saison, issus de Cult MTL,
-                            Tastet, Time Out Montréal, Tourisme Montréal, Daily
-                            Hive, Narcity et d&apos;autres publications locales.
-                            Dog-friendly et couvert ne sont indiqués que si une
-                            source le confirme.
+                            Les horaires sont tirés de Google Places et mis à
+                            jour à chaque saison, croisés avec Cult MTL, Tastet,
+                            Time Out Montréal, Tourisme Montréal, Daily Hive,
+                            Narcity et d&apos;autres publications locales. Les
+                            mentions dog-friendly et terrasse couverte ne
+                            figurent que lorsqu&apos;une source les confirme.
                           </p>
                         </>
                       ) : (
