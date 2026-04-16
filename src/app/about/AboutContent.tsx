@@ -101,10 +101,10 @@ export default function AboutContent() {
           <p className="text-sm text-muted">
             Questions ou commentaires? Écris-nous à{" "}
             <a
-              href="mailto:hello@terraceseason.com"
+              href="mailto:hello@terrasseseason.com"
               className="text-accent hover:underline"
             >
-              hello@terraceseason.com
+              hello@terrasseseason.com
             </a>{" "}
             ou utilise{" "}
             <Link href="/submit" className="text-accent hover:underline">
@@ -203,10 +203,10 @@ export default function AboutContent() {
         <p className="text-sm text-muted">
           Questions or feedback? Email{" "}
           <a
-            href="mailto:hello@terraceseason.com"
+            href="mailto:hello@terrasseseason.com"
             className="text-accent hover:underline"
           >
-            hello@terraceseason.com
+            hello@terrasseseason.com
           </a>{" "}
           or use{" "}
           <Link href="/submit" className="text-accent hover:underline">

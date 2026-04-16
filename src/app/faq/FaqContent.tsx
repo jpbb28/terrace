@@ -36,7 +36,7 @@ const faqsEn = [
   },
   {
     q: "How do I suggest a new terrace or report an error?",
-    a: "To add a missing terrace, use the suggest form. To correct something on an existing listing, use the Edit button on that terrace's page. You can also reach us directly at hello@terraceseason.com.",
+    a: "To add a missing terrace, use the suggest form. To correct something on an existing listing, use the Edit button on that terrace's page. You can also reach us directly at hello@terrasseseason.com.",
     link: { href: "/submit", label: "Suggest a terrace →" },
   },
   {
@@ -78,7 +78,7 @@ const faqsFr = [
   },
   {
     q: "Comment je propose une nouvelle terrasse ou signale une erreur?",
-    a: "Pour ajouter une terrasse manquante, utilise le formulaire de suggestion. Pour corriger une fiche existante, utilise le bouton Modifier sur la page de cette terrasse. Tu peux aussi nous écrire directement à hello@terraceseason.com.",
+    a: "Pour ajouter une terrasse manquante, utilise le formulaire de suggestion. Pour corriger une fiche existante, utilise le bouton Modifier sur la page de cette terrasse. Tu peux aussi nous écrire directement à hello@terrasseseason.com.",
     link: { href: "/submit", label: "Suggérer une terrasse →" },
   },
   {
@@ -126,15 +126,15 @@ export default function FaqContent() {
         {lang === "fr" ? (
           <>
             Autre chose?{" "}
-            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
-              hello@terraceseason.com
+            <a href="mailto:hello@terrasseseason.com" className="text-accent hover:underline">
+              hello@terrasseseason.com
             </a>
           </>
         ) : (
           <>
             Something else?{" "}
-            <a href="mailto:hello@terraceseason.com" className="text-accent hover:underline">
-              hello@terraceseason.com
+            <a href="mailto:hello@terrasseseason.com" className="text-accent hover:underline">
+              hello@terrasseseason.com
             </a>
           </>
         )}

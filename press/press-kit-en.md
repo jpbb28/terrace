@@ -93,7 +93,7 @@ Terrasse Season is an independent project built by a Montréaler, for Montréale
 
 ### Contact
 
-**Email:** hello@terraceseason.com
+**Email:** hello@terrasseseason.com
 **Website:** terrasseseason.com
 **Submit a terrace:** terrasseseason.com/submit
 

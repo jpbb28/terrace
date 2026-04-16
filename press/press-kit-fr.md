@@ -93,7 +93,7 @@ Terrasse Season est un projet indépendant, construit par un Montréalais pour l
 
 ### Contact
 
-**Courriel:** hello@terraceseason.com
+**Courriel:** hello@terrasseseason.com
 **Site web:** terrasseseason.com
 **Soumettre une terrasse:** terrasseseason.com/submit
 

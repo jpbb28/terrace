@@ -278,10 +278,10 @@ function SubmitPageContent() {
           <p className="text-xs text-muted mt-4">
             If the problem persists, email us at{" "}
             <a
-              href="mailto:hello@terraceseason.com"
+              href="mailto:hello@terrasseseason.com"
               className="text-accent hover:underline"
             >
-              hello@terraceseason.com
+              hello@terrasseseason.com
             </a>
           </p>
         </div>
@@ -385,10 +385,10 @@ function SubmitPageContent() {
           <p className="text-muted text-xs mt-2">
             Other questions?{" "}
             <a
-              href="mailto:hello@terraceseason.com"
+              href="mailto:hello@terrasseseason.com"
               className="text-accent hover:underline"
             >
-              hello@terraceseason.com
+              hello@terrasseseason.com
             </a>
           </p>
         </div>
