@@ -49,6 +49,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${terrace.name} – Terrasse & Patio in ${terrace.neighborhood}, Montréal`,
     description: desc,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `https://terrasseseason.com/terraces/${slug}`,
     },
