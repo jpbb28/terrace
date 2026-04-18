@@ -491,9 +491,8 @@ export default function Home() {
         {/* Season open CTA */}
         <Link
           href="/open"
-          className="shrink-0 flex items-center gap-1.5 text-xs px-4 py-2 rounded-full bg-green-700/10 border border-green-700/20 text-green-700 hover:bg-green-700/15 transition-colors font-medium whitespace-nowrap"
+          className="shrink-0 text-xs px-4 py-2 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors font-medium whitespace-nowrap shadow-sm"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse" />
           {lang === "fr" ? "Ouvertures" : "What's open this season?"}
         </Link>
 
@@ -1015,9 +1014,8 @@ export default function Home() {
           {!selectedTerrace && (
             <Link
               href="/open"
-              className="-mx-4 flex items-center justify-center gap-2 py-2 mt-2 mb-2 bg-green-500/[0.07] border-y border-green-500/15 text-[11px] font-medium text-green-700"
+              className="-mx-4 flex items-center justify-center py-2 mt-2 mb-2 bg-green-700/[0.08] border-y border-green-700/15 text-[11px] font-medium text-green-800"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green-600" />
               {lang === "fr"
                 ? "Terrasses ouvertes cette saison"
                 : "What's open this season?"}

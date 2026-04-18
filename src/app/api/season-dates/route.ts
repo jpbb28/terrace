@@ -42,3 +42,24 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ ok: true });
 }
+
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const terraceId = searchParams.get("terraceId");
+
+  if (!terraceId || typeof terraceId !== "string") {
+    return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+  }
+
+  const { error } = await supabase
+    .from("terrace_season_dates")
+    .delete()
+    .eq("terrace_id", terraceId);
+
+  if (error) {
+    logError("DELETE /api/season-dates", error, { terraceId });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+
+  return NextResponse.json({ ok: true });
+}
