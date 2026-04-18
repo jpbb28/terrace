@@ -395,7 +395,9 @@ export default function OpenPage() {
         </Link>
         <div className="flex items-center gap-2">
           <LogoIcon />
-          <span className="font-bold">Terrasse Season</span>
+          <span className="font-display font-bold text-lg tracking-tight">
+            Terrasse Season
+          </span>
         </div>
       </div>
 
@@ -612,36 +614,43 @@ export default function OpenPage() {
             const official = data!.official[terrace.id];
             const canUndo = undoable.has(terrace.id);
             const isUndoing = undoing.has(terrace.id);
-            const typeStr = terrace.terraceType
-              ?.map((tt) => typeLabels[tt] ?? tt)
-              .join(", ");
+            const openNow = isOpenNow(terrace) === true;
+            const types = terrace.terraceType ?? [];
 
             return (
               <div
                 key={terrace.id}
                 onClick={() => router.push(`/?terrace=${terrace.id}`)}
-                className={`flex items-center gap-4 p-4 rounded-xl border transition-colors cursor-pointer hover:opacity-80 ${
+                className={`flex items-start gap-3 p-4 rounded-xl border transition-colors cursor-pointer hover:opacity-80 ${
                   status === "open"
                     ? "border-green-500/25 bg-green-500/[0.03]"
                     : "border-border bg-card"
                 }`}
               >
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-medium text-sm">{terrace.name}</span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                    <span className="text-[11px] text-accent font-medium">
-                      {terrace.neighborhood}
-                    </span>
-                    {typeStr && (
-                      <span className="text-[11px] text-muted">
-                        · {typeStr}
+                  <p className="font-medium text-sm leading-snug mb-1.5">
+                    {terrace.name}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {openNow && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-green-500 text-white">
+                        {lang === "fr" ? "Ouvert" : "Open now"}
                       </span>
                     )}
+                    {types.map((tt) => (
+                      <span
+                        key={tt}
+                        className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-foreground/[0.06] text-muted"
+                      >
+                        {typeLabels[tt] ?? tt}
+                      </span>
+                    ))}
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+                      {terrace.neighborhood}
+                    </span>
                     {official && official.opening_date > today && (
-                      <span className="text-[11px] text-muted">
-                        · {lang === "fr" ? "Ouvre le" : "Opens"}{" "}
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-700">
+                        {lang === "fr" ? "Ouvre le" : "Opens"}{" "}
                         {formatDate(official.opening_date, lang)}
                       </span>
                     )}
@@ -654,7 +663,7 @@ export default function OpenPage() {
                       handleUndo(terrace.id);
                     }}
                     disabled={isUndoing}
-                    className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50"
+                    className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50 mt-0.5"
                   >
                     {isUndoing ? "…" : lang === "fr" ? "Annuler" : "Undo"}
                   </button>
