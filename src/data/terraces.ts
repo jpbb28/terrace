@@ -22,7 +22,16 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassenelligan.com",
     instagram: "@terrassenelligan",
-    photos: ["/photos/1/main.webp", "/photos/1/1.webp", "/photos/1/2.webp", "/photos/1/3.webp", "/photos/1/4.webp", "/photos/1/5.webp", "/photos/1/6.webp", "/photos/1/8.webp"],
+    photos: [
+      "/photos/1/main.webp",
+      "/photos/1/1.webp",
+      "/photos/1/2.webp",
+      "/photos/1/3.webp",
+      "/photos/1/4.webp",
+      "/photos/1/5.webp",
+      "/photos/1/6.webp",
+      "/photos/1/8.webp",
+    ],
     openingPeriods: [],
     description:
       "Iconic rooftop bar on Hotel Nelligan with sightlines across Old Montreal and the Saint-Lawrence River. Famous for mimosa brunches. Retractable awnings available. Sources: Time Out, Daily Hive, Tourisme Montreal, Cult MTL, Montreal Diaries.",
@@ -47,7 +56,17 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://aubergeduvieuxport.com/terrasse-sur-lauberge/",
     instagram: "@terrassesurlauberge",
-    photos: ["/photos/2/main.webp", "/photos/2/0.webp", "/photos/2/1.webp", "/photos/2/3.webp", "/photos/2/4.webp", "/photos/2/5.webp", "/photos/2/7.webp", "/photos/2/8.webp", "/photos/2/9.webp"],
+    photos: [
+      "/photos/2/main.webp",
+      "/photos/2/0.webp",
+      "/photos/2/1.webp",
+      "/photos/2/3.webp",
+      "/photos/2/4.webp",
+      "/photos/2/5.webp",
+      "/photos/2/7.webp",
+      "/photos/2/8.webp",
+      "/photos/2/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Fifth-floor rooftop of Auberge du Vieux-Port with panoramic views of the Old Port and St. Lawrence River. 2025 menu features bison tartare, grilled octopus, tuna tataki, and poke bowls. Sources: Time Out, Narcity, Daily Hive, Tourisme Montreal, experienceoldmontreal.com.",
@@ -71,7 +90,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassewilliamgray.com",
     instagram: "@terrassewilliamgray",
-    photos: ["/photos/3/main.webp", "/photos/3/6.webp", "/photos/3/7.webp", "/photos/3/8.webp", "/photos/3/9.webp"],
+    photos: [
+      "/photos/3/main.webp",
+      "/photos/3/6.webp",
+      "/photos/3/7.webp",
+      "/photos/3/8.webp",
+      "/photos/3/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:30", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -94,7 +119,7 @@ export const terraces: Terrace[] = [
     name: "Perché",
     address: "153 Rue Saint-Amable",
     lat: 45.5078,
-    lng: -73.5530,
+    lng: -73.553,
     neighborhood: "Old Montreal",
     cuisineType: "Californian / Mediterranean",
     terraceType: ["rooftop"], // confirmed: "Fourth-floor terrace of Hotel William Gray"
@@ -103,7 +128,14 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://perchemtl.com",
     instagram: "@perchemtl",
-    photos: ["/photos/4/main.webp", "/photos/4/1.webp", "/photos/4/3.webp", "/photos/4/4.webp", "/photos/4/8.webp", "/photos/4/9.webp"],
+    photos: [
+      "/photos/4/main.webp",
+      "/photos/4/1.webp",
+      "/photos/4/3.webp",
+      "/photos/4/4.webp",
+      "/photos/4/8.webp",
+      "/photos/4/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Fourth-floor terrace of Hotel William Gray overlooking Place Jacques-Cartier. West Coast-inspired cuisine, lush decor, mezze plates. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
@@ -127,7 +159,17 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://hotelplacedarmes.com/food/terrasse-place-darmes/",
     instagram: "@terrasseplacedarmes",
-    photos: ["/photos/5/main.webp", "/photos/5/0.webp", "/photos/5/1.webp", "/photos/5/2.webp", "/photos/5/3.webp", "/photos/5/4.webp", "/photos/5/5.webp", "/photos/5/7.webp", "/photos/5/8.webp"],
+    photos: [
+      "/photos/5/main.webp",
+      "/photos/5/0.webp",
+      "/photos/5/1.webp",
+      "/photos/5/2.webp",
+      "/photos/5/3.webp",
+      "/photos/5/4.webp",
+      "/photos/5/5.webp",
+      "/photos/5/7.webp",
+      "/photos/5/8.webp",
+    ],
     openingPeriods: [],
     description:
       "Rooftop bar on Hotel Place d'Armes with views of Place d'Armes square and Notre-Dame Basilica. Partially covered for gray days. Brunch, lunch, and dinner. Sources: Time Out, Daily Hive, Tourisme Montreal, The Rooftop Guide.",
@@ -141,7 +183,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 3800,
     name: "Jardin Nelson",
     address: "407 Place Jacques-Cartier",
-    lat: 45.5080,
+    lat: 45.508,
     lng: -73.5525,
     neighborhood: "Old Montreal",
     cuisineType: "Bistro / Creperie",
@@ -151,7 +193,14 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://jardinnelson.com",
     instagram: "@jardin_nelson",
-    photos: ["/photos/7/main.webp", "/photos/7/0.webp", "/photos/7/2.webp", "/photos/7/4.webp", "/photos/7/7.webp", "/photos/7/9.webp"],
+    photos: [
+      "/photos/7/main.webp",
+      "/photos/7/0.webp",
+      "/photos/7/2.webp",
+      "/photos/7/4.webp",
+      "/photos/7/7.webp",
+      "/photos/7/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Hidden courtyard with colorful flowers and shrubs set against historic 1812 architecture (National Historical Site). Live jazz performances. Sweet and savory crepes, gourmet salads. Sources: Time Out, Tourisme Montreal, Montreal Diaries, experienceoldmontreal.com.",
@@ -165,8 +214,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 404,
     name: "Romies",
     address: "465 Rue McGill",
-    lat: 45.5020,
-    lng: -73.5560,
+    lat: 45.502,
+    lng: -73.556,
     neighborhood: "Old Montreal",
     cuisineType: "American Bistro",
     terraceType: ["courtyard"], // confirmed: "Hidden garden courtyard with tree canopy"
@@ -228,7 +277,7 @@ export const terraces: Terrace[] = [
     name: "Jacopo",
     address: "410 Rue Saint-Vincent",
     lat: 45.5078,
-    lng: -73.5530,
+    lng: -73.553,
     neighborhood: "Old Montreal",
     cuisineType: "Italian",
     // type unknown — "terrace" only, no structural description
@@ -259,8 +308,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 620,
     name: "Café Il Cortile",
     address: "1442 Rue Sherbrooke O",
-    lat: 45.5020,
-    lng: -73.5580,
+    lat: 45.502,
+    lng: -73.558,
     neighborhood: "Downtown",
     cuisineType: "Italian",
     terraceType: ["courtyard"], // confirmed: "Inner courtyard with cobblestones, awnings"
@@ -269,7 +318,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://cafeilcortile.com",
     instagram: "@ilcortilemtl",
-    photos: ["/photos/11/main.webp", "/photos/11/0.webp", "/photos/11/5.webp", "/photos/11/8.webp"],
+    photos: [
+      "/photos/11/main.webp",
+      "/photos/11/0.webp",
+      "/photos/11/5.webp",
+      "/photos/11/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -299,7 +353,7 @@ export const terraces: Terrace[] = [
     name: "Gaspar French Brasserie",
     address: "87 Rue de la Commune E",
     lat: 45.5045,
-    lng: -73.5510,
+    lng: -73.551,
     neighborhood: "Old Montreal",
     cuisineType: "French Brasserie",
     // type unknown — "views over De la Commune Street" could be sidewalk but not confirmed
@@ -330,8 +384,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 831,
     name: "Terrasse Carla",
     address: "985 Boulevard Saint-Laurent",
-    lat: 45.5050,
-    lng: -73.5590,
+    lat: 45.505,
+    lng: -73.559,
     neighborhood: "Old Montreal",
     cuisineType: "French-Vietnamese",
     terraceType: ["rooftop"], // confirmed: "Sixth-floor rooftop on Hampton Inn"
@@ -340,7 +394,15 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassecarla.com",
     instagram: "@terrassecarla",
-    photos: ["/photos/13/main.webp", "/photos/13/2.webp", "/photos/13/3.webp", "/photos/13/4.webp", "/photos/13/5.webp", "/photos/13/6.webp", "/photos/13/9.webp"],
+    photos: [
+      "/photos/13/main.webp",
+      "/photos/13/2.webp",
+      "/photos/13/3.webp",
+      "/photos/13/4.webp",
+      "/photos/13/5.webp",
+      "/photos/13/6.webp",
+      "/photos/13/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Sixth-floor rooftop on Hampton Inn with lush jungle vegetation inspired by Vietnam's French colonial architecture. 7,000-square-foot space with tropical decor. Views of Old Montreal. Sources: Time Out, Tastet, Tourisme Montreal.",
@@ -385,8 +447,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 9912,
     name: "Vieux-Port Steakhouse",
     address: "39 Rue Saint-Gabriel",
-    lat: 45.5040,
-    lng: -73.5550,
+    lat: 45.504,
+    lng: -73.555,
     neighborhood: "Old Montreal",
     cuisineType: "Steakhouse",
     terraceType: ["courtyard"], // confirmed: "Garden courtyard on Saint-Gabriel street"
@@ -417,8 +479,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2734,
     name: "Wolf & Workman",
     address: "139 Rue Saint-Paul O",
-    lat: 45.5030,
-    lng: -73.5560,
+    lat: 45.503,
+    lng: -73.556,
     neighborhood: "Old Montreal",
     cuisineType: "Distillery / Locavore",
     terraceType: ["courtyard"], // confirmed: "interior courtyard garden"
@@ -427,7 +489,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://wolfandworkman.com",
     instagram: "@wolfandworkman",
-    photos: ["/photos/16/main.webp", "/photos/16/1.webp", "/photos/16/4.webp", "/photos/16/9.webp"],
+    photos: [
+      "/photos/16/main.webp",
+      "/photos/16/1.webp",
+      "/photos/16/4.webp",
+      "/photos/16/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:00", close: "01:00" },
       { day: 1, open: "11:30", close: "01:00" },
@@ -459,7 +526,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://restolepolisson.com",
     instagram: "@lepolisson.mtl",
-    photos: ["/photos/17/main.webp", "/photos/17/1.webp", "/photos/17/2.webp", "/photos/17/7.webp"],
+    photos: [
+      "/photos/17/main.webp",
+      "/photos/17/1.webp",
+      "/photos/17/2.webp",
+      "/photos/17/7.webp",
+    ],
     openingPeriods: [],
     description:
       "An enchanting courtyard terrace tucked behind a stone-walled dining room on Saint-Paul Street. Seafood-focused menu with lobster, mussels, salmon tartare, and calamari. Small, intimate, and consistently praised for its calm atmosphere. Sources: Tourisme Montreal, TripAdvisor, RestoMontreal.",
@@ -473,7 +545,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 89,
     name: "Cour Arrière",
     address: "414 Rue Saint-Sulpice",
-    lat: 45.5060,
+    lat: 45.506,
     lng: -73.5555,
     neighborhood: "Old Montreal",
     cuisineType: "Smoked / Charcoal",
@@ -483,7 +555,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://cour-arriere.com",
     instagram: "@courarriere.mtl",
-    photos: ["/photos/18/main.webp", "/photos/18/0.webp", "/photos/18/1.webp", "/photos/18/2.webp", "/photos/18/6.webp"],
+    photos: [
+      "/photos/18/main.webp",
+      "/photos/18/0.webp",
+      "/photos/18/1.webp",
+      "/photos/18/2.webp",
+      "/photos/18/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "08:00", close: "14:00" },
       { day: 1, open: "06:30", close: "11:00" },
@@ -545,8 +623,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 417,
     name: "Buvette Pastek",
     address: "209 Rue Saint-Paul O",
-    lat: 45.5030,
-    lng: -73.5570,
+    lat: 45.503,
+    lng: -73.557,
     neighborhood: "Old Montreal",
     cuisineType: "Wine Bar",
     // type unknown
@@ -555,7 +633,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://buvettepastek.com",
     instagram: "@buvettepastek",
-    photos: ["/photos/20/main.webp", "/photos/20/1.webp", "/photos/20/7.webp", "/photos/20/8.webp"],
+    photos: [
+      "/photos/20/main.webp",
+      "/photos/20/1.webp",
+      "/photos/20/7.webp",
+      "/photos/20/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "16:00", close: "22:00" },
@@ -564,10 +647,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "16:00", close: "23:00" },
       { day: 6, open: "10:00", close: "23:00" },
     ],
-    description:
-      "Charming wine bar on Saint-Paul. Sources: Tastet.",
-    descriptionFr:
-      "Charmant bar à vin sur Saint-Paul. Sources: Tastet.",
+    description: "Charming wine bar on Saint-Paul. Sources: Tastet.",
+    descriptionFr: "Charmant bar à vin sur Saint-Paul. Sources: Tastet.",
   },
   {
     id: "21",
@@ -577,7 +658,7 @@ export const terraces: Terrace[] = [
     name: "La Cave à Manger",
     address: "386 Rue Saint-Paul E",
     lat: 45.5065,
-    lng: -73.5510,
+    lng: -73.551,
     neighborhood: "Old Montreal",
     cuisineType: "Bakery / Café",
     // type unknown
@@ -586,7 +667,14 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://lacaveamanger.ca",
     instagram: "@lacaveamanger.ca",
-    photos: ["/photos/21/main.webp", "/photos/21/0.webp", "/photos/21/4.webp", "/photos/21/6.webp", "/photos/21/8.webp", "/photos/21/9.webp"],
+    photos: [
+      "/photos/21/main.webp",
+      "/photos/21/0.webp",
+      "/photos/21/4.webp",
+      "/photos/21/6.webp",
+      "/photos/21/8.webp",
+      "/photos/21/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "07:00", close: "20:00" },
       { day: 1, open: "07:00", close: "20:00" },
@@ -596,17 +684,15 @@ export const terraces: Terrace[] = [
       { day: 5, open: "07:00", close: "20:00" },
       { day: 6, open: "07:00", close: "20:00" },
     ],
-    description:
-      "Charming terrace on Saint-Paul Street. Sources: Tastet.",
-    descriptionFr:
-      "Charmante terrasse sur la rue Saint-Paul. Sources: Tastet.",
+    description: "Charming terrace on Saint-Paul Street. Sources: Tastet.",
+    descriptionFr: "Charmante terrasse sur la rue Saint-Paul. Sources: Tastet.",
   },
   {
     id: "22",
     name: "Pub Cartier Arms / Horizon Rooftop Bar",
     address: "360 Rue Saint-Antoine O",
-    lat: 45.5050,
-    lng: -73.5580,
+    lat: 45.505,
+    lng: -73.558,
     neighborhood: "Old Montreal",
     cuisineType: "Bar / Lounge",
     terraceType: ["rooftop"], // confirmed: "14th floor of Hyatt Centric"
@@ -640,7 +726,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2310,
     name: "Le Sainte-Élisabeth",
     address: "1412 Rue Sainte-Élisabeth",
-    lat: 45.5120,
+    lat: 45.512,
     lng: -73.5605,
     neighborhood: "Downtown",
     cuisineType: "Pub",
@@ -650,7 +736,13 @@ export const terraces: Terrace[] = [
     heated: true,
     website: "https://pubsteeli.com",
     instagram: "@pubsteelisabeth",
-    photos: ["/photos/23/main.webp", "/photos/23/1.webp", "/photos/23/4.webp", "/photos/23/6.webp", "/photos/23/9.webp"],
+    photos: [
+      "/photos/23/main.webp",
+      "/photos/23/1.webp",
+      "/photos/23/4.webp",
+      "/photos/23/6.webp",
+      "/photos/23/9.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "16:30", close: "01:00" },
       { day: 2, open: "16:30", close: "02:00" },
@@ -671,8 +763,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1347,
     name: "Maison Boulud",
     address: "1228 Rue Sherbrooke O",
-    lat: 45.4990,
-    lng: -73.5760,
+    lat: 45.499,
+    lng: -73.576,
     neighborhood: "Downtown",
     cuisineType: "French Fine Dining",
     terraceType: ["courtyard"], // confirmed: "Ritz-Carlton garden courtyard"
@@ -681,7 +773,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://maisonboulud.com",
     instagram: "@maisonboulud",
-    photos: ["/photos/24/main.webp", "/photos/24/2.webp", "/photos/24/6.webp", "/photos/24/7.webp", "/photos/24/9.webp"],
+    photos: [
+      "/photos/24/main.webp",
+      "/photos/24/2.webp",
+      "/photos/24/6.webp",
+      "/photos/24/7.webp",
+      "/photos/24/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "07:00", close: "10:00" },
       { day: 0, open: "12:00", close: "14:00" },
@@ -713,8 +811,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 197,
     name: "Rose Orange",
     address: "1 Place Ville-Marie, 44th floor",
-    lat: 45.5010,
-    lng: -73.5690,
+    lat: 45.501,
+    lng: -73.569,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
     terraceType: ["rooftop"], // confirmed: "44th floor of Place Ville Marie"
@@ -723,7 +821,16 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://roseorange.ca",
     instagram: "@roseorangemontreal",
-    photos: ["/photos/25/main.webp", "/photos/25/1.webp", "/photos/25/2.webp", "/photos/25/3.webp", "/photos/25/4.webp", "/photos/25/5.webp", "/photos/25/7.webp", "/photos/25/8.webp"],
+    photos: [
+      "/photos/25/main.webp",
+      "/photos/25/1.webp",
+      "/photos/25/2.webp",
+      "/photos/25/3.webp",
+      "/photos/25/4.webp",
+      "/photos/25/5.webp",
+      "/photos/25/7.webp",
+      "/photos/25/8.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "17:00", close: "23:00" },
       { day: 2, open: "05:00", close: "23:00" },
@@ -744,8 +851,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 570,
     name: "Terrasse Alizé",
     address: "340 Rue De la Gauchetière O",
-    lat: 45.5020,
-    lng: -73.5650,
+    lat: 45.502,
+    lng: -73.565,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
     terraceType: ["rooftop"], // confirmed: "Ninth-floor terrace at Hotel Humaniti"
@@ -754,7 +861,15 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://terrassealize.ca",
     instagram: "@terrassealize",
-    photos: ["/photos/26/main.webp", "/photos/26/2.webp", "/photos/26/3.webp", "/photos/26/5.webp", "/photos/26/7.webp", "/photos/26/8.webp", "/photos/26/9.webp"],
+    photos: [
+      "/photos/26/main.webp",
+      "/photos/26/2.webp",
+      "/photos/26/3.webp",
+      "/photos/26/5.webp",
+      "/photos/26/7.webp",
+      "/photos/26/8.webp",
+      "/photos/26/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "22:00" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -776,8 +891,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1814,
     name: "Jatoba",
     address: "1184 Rue du Square-Phillips",
-    lat: 45.5050,
-    lng: -73.5680,
+    lat: 45.505,
+    lng: -73.568,
     neighborhood: "Downtown",
     cuisineType: "Japanese",
     terraceType: ["courtyard"], // confirmed: "inner garden. Boho-chic"
@@ -786,7 +901,14 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://jatobamontreal.com",
     instagram: "@jatobamontreal",
-    photos: ["/photos/27/main.webp", "/photos/27/1.webp", "/photos/27/3.webp", "/photos/27/4.webp", "/photos/27/5.webp", "/photos/27/8.webp"],
+    photos: [
+      "/photos/27/main.webp",
+      "/photos/27/1.webp",
+      "/photos/27/3.webp",
+      "/photos/27/4.webp",
+      "/photos/27/5.webp",
+      "/photos/27/8.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "11:30", close: "13:30" },
       { day: 2, open: "11:30", close: "13:30" },
@@ -812,7 +934,7 @@ export const terraces: Terrace[] = [
     name: "Renoir",
     address: "1155 Rue Sherbrooke O",
     lat: 45.4995,
-    lng: -73.5740,
+    lng: -73.574,
     neighborhood: "Downtown",
     cuisineType: "French",
     terraceType: ["courtyard"], // confirmed: "Inner courtyard at Sofitel hotel"
@@ -821,7 +943,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://restaurant-renoir.com",
     instagram: "@renoirmontreal",
-    photos: ["/photos/28/main.webp", "/photos/28/1.webp", "/photos/28/2.webp", "/photos/28/6.webp"],
+    photos: [
+      "/photos/28/main.webp",
+      "/photos/28/1.webp",
+      "/photos/28/2.webp",
+      "/photos/28/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "06:30", close: "10:30" },
       { day: 0, open: "11:30", close: "14:30" },
@@ -858,7 +985,7 @@ export const terraces: Terrace[] = [
     name: "MARCUS Restaurant + Lounge",
     address: "1440 Rue de la Montagne",
     lat: 45.4985,
-    lng: -73.5740,
+    lng: -73.574,
     neighborhood: "Downtown",
     cuisineType: "Contemporary / Seafood",
     terraceType: ["balcony"], // third-floor balcony terrace at Four Seasons Hotel
@@ -934,7 +1061,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2213,
     name: "Ferreira Café",
     address: "1446 Rue Peel",
-    lat: 45.4990,
+    lat: 45.499,
     lng: -73.5735,
     neighborhood: "Downtown",
     cuisineType: "Portuguese",
@@ -944,7 +1071,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://ferreiracafe.com",
     instagram: "@ferreirarestaurant",
-    photos: ["/photos/31/main.webp", "/photos/31/6.webp", "/photos/31/7.webp", "/photos/31/custom1.webp"],
+    photos: [
+      "/photos/31/main.webp",
+      "/photos/31/6.webp",
+      "/photos/31/7.webp",
+      "/photos/31/custom1.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "11:45", close: "14:00" },
       { day: 1, open: "17:30", close: "21:30" },
@@ -970,8 +1102,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 3484,
     name: "Escondite",
     address: "1206 Rue Union",
-    lat: 45.5050,
-    lng: -73.5670,
+    lat: 45.505,
+    lng: -73.567,
     neighborhood: "Downtown",
     cuisineType: "Mexican",
     terraceType: ["backyard"], // confirmed: "hidden patio"
@@ -1006,8 +1138,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 441,
     name: "Papito",
     address: "1425 Rue Saint-Alexandre",
-    lat: 45.5060,
-    lng: -73.5680,
+    lat: 45.506,
+    lng: -73.568,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean",
     // type unknown — "hidden terrace" could be many things
@@ -1016,7 +1148,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://papitorestaurant.com",
     instagram: "@papitorestaurant",
-    photos: ["/photos/33/main.webp", "/photos/33/1.webp", "/photos/33/3.webp", "/photos/33/8.webp"],
+    photos: [
+      "/photos/33/main.webp",
+      "/photos/33/1.webp",
+      "/photos/33/3.webp",
+      "/photos/33/8.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "17:00", close: "23:00" },
       { day: 3, open: "17:00", close: "23:00" },
@@ -1036,7 +1173,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 7036,
     name: "Les Enfants Terribles (Place Ville Marie)",
     address: "1 Place Ville-Marie",
-    lat: 45.5010,
+    lat: 45.501,
     lng: -73.5695,
     neighborhood: "Downtown",
     cuisineType: "French",
@@ -1068,8 +1205,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1030,
     name: "Bivouac",
     address: "1255 Rue Jeanne-Mance",
-    lat: 45.5080,
-    lng: -73.5660,
+    lat: 45.508,
+    lng: -73.566,
     neighborhood: "Downtown",
     cuisineType: "Quebec Bistro",
     terraceType: ["rooftop"], // confirmed: "Panoramic terrace with 180-degree view at DoubleTree by Hilton"
@@ -1104,8 +1241,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 350,
     name: "Muze Lounge & Terrasse",
     address: "355 Boulevard de Maisonneuve O, 5th floor",
-    lat: 45.5050,
-    lng: -73.5700,
+    lat: 45.505,
+    lng: -73.57,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean / Californian",
     terraceType: ["rooftop"], // confirmed: "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel"
@@ -1114,7 +1251,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.muzemontreal.com",
     instagram: "@muzemontreal",
-    photos: ["/photos/37/main.webp", "/photos/37/1.webp", "/photos/37/2.webp", "/photos/37/3.webp", "/photos/37/5.webp"],
+    photos: [
+      "/photos/37/main.webp",
+      "/photos/37/1.webp",
+      "/photos/37/2.webp",
+      "/photos/37/3.webp",
+      "/photos/37/5.webp",
+    ],
     openingPeriods: [],
     description:
       "Fifth-floor jungle-themed rooftop at HONEYROSE Hotel. Retractable roof for any weather. Mediterranean cuisine. Sources: Tourisme Montreal, mtl.org.",
@@ -1128,8 +1271,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2352,
     name: "Biiru",
     address: "1433 Rue City Councillors",
-    lat: 45.5020,
-    lng: -73.5700,
+    lat: 45.502,
+    lng: -73.57,
     neighborhood: "Downtown",
     cuisineType: "Japanese Izakaya",
     terraceType: ["backyard"], // confirmed: "40-seat hidden patio"
@@ -1139,7 +1282,13 @@ export const terraces: Terrace[] = [
     heated: true,
     website: "https://biiru.ca",
     instagram: "@biiru_mtl",
-    photos: ["/photos/38/main.webp", "/photos/38/1.webp", "/photos/38/2.webp", "/photos/38/6.webp", "/photos/38/8.webp"],
+    photos: [
+      "/photos/38/main.webp",
+      "/photos/38/1.webp",
+      "/photos/38/2.webp",
+      "/photos/38/6.webp",
+      "/photos/38/8.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "11:30", close: "14:30" },
       { day: 1, open: "17:00", close: "22:00" },
@@ -1166,7 +1315,7 @@ export const terraces: Terrace[] = [
     name: "Nacarat",
     address: "900 Boulevard René-Lévesque O",
     lat: 45.5005,
-    lng: -73.5690,
+    lng: -73.569,
     neighborhood: "Downtown",
     cuisineType: "Cocktail Bar",
     terraceType: ["rooftop"], // confirmed: "Third-floor patio at Fairmont le Reine Elizabeth"
@@ -1175,7 +1324,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.barnacarat.com",
     instagram: "@nacaratmtl",
-    photos: ["/photos/39/main.webp", "/photos/39/1.webp", "/photos/39/2.webp", "/photos/39/5.webp"],
+    photos: [
+      "/photos/39/main.webp",
+      "/photos/39/1.webp",
+      "/photos/39/2.webp",
+      "/photos/39/5.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "16:00", close: "23:00" },
       { day: 3, open: "16:00", close: "00:00" },
@@ -1196,7 +1350,7 @@ export const terraces: Terrace[] = [
     name: "Belvu",
     address: "1010 Rue De la Gauchetière O",
     lat: 45.4985,
-    lng: -73.5680,
+    lng: -73.568,
     neighborhood: "Downtown",
     cuisineType: "Asian-inspired",
     terraceType: ["rooftop"], // confirmed by user
@@ -1205,7 +1359,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.terrassebelvu.com",
     instagram: "@terrasse.belvu",
-    photos: ["/photos/40/main.webp", "/photos/40/2.webp", "/photos/40/3.webp", "/photos/40/4.webp", "/photos/40/8.webp"],
+    photos: [
+      "/photos/40/main.webp",
+      "/photos/40/2.webp",
+      "/photos/40/3.webp",
+      "/photos/40/4.webp",
+      "/photos/40/8.webp",
+    ],
     openingPeriods: [],
     description:
       "Promenade level of Marriott Chateau Champlain with views of the city and Windsor station. Asian-inspired cuisine and signature cocktails. Festive atmosphere. Sources: Tastet, mtl.org.",
@@ -1230,7 +1390,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.cafeparvis.com",
     instagram: "@cafe_parvis",
-    photos: ["/photos/41/main.webp", "/photos/41/2.webp", "/photos/41/6.webp", "/photos/41/9.webp"],
+    photos: [
+      "/photos/41/main.webp",
+      "/photos/41/2.webp",
+      "/photos/41/6.webp",
+      "/photos/41/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 2, open: "11:00", close: "23:00" },
@@ -1252,7 +1417,7 @@ export const terraces: Terrace[] = [
     name: "Pavillon Social Club (SAT)",
     address: "1201 Boulevard Saint-Laurent",
     lat: 45.5085,
-    lng: -73.5630,
+    lng: -73.563,
     neighborhood: "Downtown",
     cuisineType: "Contemporary",
     terraceType: ["rooftop"], // confirmed: "Large rooftop terrace atop the SAT arts space"
@@ -1261,7 +1426,17 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://sat.qc.ca/en/pavillon",
     instagram: "@pavillon_clubsocial",
-    photos: ["/photos/42/main.webp", "/photos/42/0.webp", "/photos/42/1.webp", "/photos/42/3.webp", "/photos/42/5.webp", "/photos/42/6.webp", "/photos/42/7.webp", "/photos/42/8.webp", "/photos/42/9.webp"],
+    photos: [
+      "/photos/42/main.webp",
+      "/photos/42/0.webp",
+      "/photos/42/1.webp",
+      "/photos/42/3.webp",
+      "/photos/42/5.webp",
+      "/photos/42/6.webp",
+      "/photos/42/7.webp",
+      "/photos/42/8.webp",
+      "/photos/42/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Large rooftop terrace atop the SAT arts space overlooking Saint-Laurent Boulevard. Urban jungle in the Quartier des spectacles. Rotating themes with local/international chefs. Sources: Time Out, Tastet, Tourisme Montreal.",
@@ -1275,8 +1450,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 4433,
     name: "Bar George",
     address: "1440 Rue Drummond",
-    lat: 45.4990,
-    lng: -73.5750,
+    lat: 45.499,
+    lng: -73.575,
     neighborhood: "Downtown",
     cuisineType: "Irish / English",
     terraceType: ["balcony"], // confirmed by user
@@ -1295,8 +1470,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "07:00", close: "02:00" },
       { day: 6, open: "08:00", close: "02:00" },
     ],
-    description:
-      "Grand terrace. Irish/English cuisine. Sources: Tastet.",
+    description: "Grand terrace. Irish/English cuisine. Sources: Tastet.",
     descriptionFr:
       "Grande terrasse. Cuisine irlandaise/anglaise. Sources: Tastet.",
   },
@@ -1307,8 +1481,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2648,
     name: "Sir Winston Churchill Pub",
     address: "1459 Rue Crescent",
-    lat: 45.4980,
-    lng: -73.5760,
+    lat: 45.498,
+    lng: -73.576,
     neighborhood: "Downtown",
     cuisineType: "Pub",
     terraceType: ["balcony"], // elevated balcony overlooking Crescent Street
@@ -1317,7 +1491,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://swcpc.com",
     instagram: "@sirwinstonchurchillpub",
-    photos: ["/photos/44/main.webp", "/photos/44/3.webp", "/photos/44/4.webp", "/photos/44/5.webp"],
+    photos: [
+      "/photos/44/main.webp",
+      "/photos/44/3.webp",
+      "/photos/44/4.webp",
+      "/photos/44/5.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "15:00", close: "01:00" },
@@ -1343,8 +1522,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 994,
     name: "Poincaré Chinatown",
     address: "1071 Boulevard Saint-Laurent",
-    lat: 45.5060,
-    lng: -73.5610,
+    lat: 45.506,
+    lng: -73.561,
     neighborhood: "Chinatown",
     cuisineType: "Brewery / Bar",
     terraceType: ["rooftop"], // confirmed: "Rooftop terrace on 2nd floor"
@@ -1413,7 +1592,7 @@ export const terraces: Terrace[] = [
     name: "Le Filet",
     address: "219 Avenue du Mont-Royal O",
     lat: 45.5185,
-    lng: -73.5830,
+    lng: -73.583,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Seafood Fine Dining",
     // type unknown — "views of Jeanne-Mance Park" could be sidewalk but not confirmed
@@ -1442,8 +1621,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2154,
     name: "Café Santropol",
     address: "3990 Rue Saint-Urbain",
-    lat: 45.5150,
-    lng: -73.5790,
+    lat: 45.515,
+    lng: -73.579,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Café / Vegetarian",
     terraceType: ["backyard"], // confirmed: "Hidden garden oasis... Canopied by trees and fenced in"
@@ -1452,7 +1631,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.santropol.com",
     instagram: "@cafesantropol",
-    photos: ["/photos/48/main.webp", "/photos/48/2.webp", "/photos/48/7.webp", "/photos/48/8.webp"],
+    photos: [
+      "/photos/48/main.webp",
+      "/photos/48/2.webp",
+      "/photos/48/7.webp",
+      "/photos/48/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:00", close: "20:00" },
       { day: 1, open: "11:00", close: "20:00" },
@@ -1473,8 +1657,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2037,
     name: "Khyber Pass",
     address: "506 Avenue Duluth E",
-    lat: 45.5170,
-    lng: -73.5740,
+    lat: 45.517,
+    lng: -73.574,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Afghan",
     terraceType: ["backyard"], // confirmed: "Hidden terrace... decorated with plants and colorful murals"
@@ -1483,7 +1667,13 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     instagram: "@restaurantkhyberpass",
-    photos: ["/photos/49/main.webp", "/photos/49/1.webp", "/photos/49/3.webp", "/photos/49/4.webp", "/photos/49/8.webp"],
+    photos: [
+      "/photos/49/main.webp",
+      "/photos/49/1.webp",
+      "/photos/49/3.webp",
+      "/photos/49/4.webp",
+      "/photos/49/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 1, open: "17:00", close: "23:00" },
@@ -1515,7 +1705,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.lejardindepanos.com",
     instagram: "@lejardindepanos",
-    photos: ["/photos/50/main.webp", "/photos/50/1.webp", "/photos/50/4.webp", "/photos/50/5.webp", "/photos/50/6.webp"],
+    photos: [
+      "/photos/50/main.webp",
+      "/photos/50/1.webp",
+      "/photos/50/4.webp",
+      "/photos/50/5.webp",
+      "/photos/50/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:30", close: "21:30" },
       { day: 2, open: "16:00", close: "21:30" },
@@ -1537,7 +1733,7 @@ export const terraces: Terrace[] = [
     name: "Réservoir",
     address: "9 Avenue Duluth E",
     lat: 45.5165,
-    lng: -73.5770,
+    lng: -73.577,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Brewery",
     terraceType: ["rooftop"], // confirmed: "bright yellow picnic tables on rooftop"
@@ -1578,7 +1774,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://labuvettechezsimone.com",
     instagram: "@buvettechezsimone",
-    photos: ["/photos/52/main.webp", "/photos/52/0.webp", "/photos/52/1.webp", "/photos/52/2.webp"],
+    photos: [
+      "/photos/52/main.webp",
+      "/photos/52/0.webp",
+      "/photos/52/1.webp",
+      "/photos/52/2.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "16:00", close: "00:30" },
       { day: 3, open: "16:00", close: "00:30" },
@@ -1598,7 +1799,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1014,
     name: "Icehouse",
     address: "51 Rue Roy E",
-    lat: 45.5160,
+    lat: 45.516,
     lng: -73.5775,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Tex-Mex",
@@ -1607,7 +1808,12 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     instagram: "@icehousemontreal",
-    photos: ["/photos/53/main.webp", "/photos/53/4.webp", "/photos/53/5.webp", "/photos/53/9.webp"],
+    photos: [
+      "/photos/53/main.webp",
+      "/photos/53/4.webp",
+      "/photos/53/5.webp",
+      "/photos/53/9.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "17:00", close: "22:00" },
       { day: 3, open: "17:00", close: "22:00" },
@@ -1615,10 +1821,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "23:00" },
       { day: 6, open: "17:00", close: "23:00" },
     ],
-    description:
-      "Charming little terrace. Sources: Tastet.",
-    descriptionFr:
-      "Charmante petite terrasse. Sources: Tastet.",
+    description: "Charming little terrace. Sources: Tastet.",
+    descriptionFr: "Charmante petite terrasse. Sources: Tastet.",
   },
   {
     id: "54",
@@ -1628,7 +1832,7 @@ export const terraces: Terrace[] = [
     name: "Bistrot La Fabrique",
     address: "3619 Rue Saint-Denis",
     lat: 45.5168,
-    lng: -73.5730,
+    lng: -73.573,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Comfort Food",
     terraceType: ["sidewalk"], // confirmed: "Sunny terrace on Saint-Denis Street"
@@ -1648,8 +1852,7 @@ export const terraces: Terrace[] = [
       { day: 6, open: "10:00", close: "14:30" },
       { day: 6, open: "17:30", close: "21:30" },
     ],
-    description:
-      "Sunny terrace on Saint-Denis Street. Sources: Tastet.",
+    description: "Sunny terrace on Saint-Denis Street. Sources: Tastet.",
     descriptionFr:
       "Terrasse ensoleillée sur la rue Saint-Denis. Sources: Tastet.",
   },
@@ -1660,8 +1863,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1231,
     name: "Le Rouge Gorge",
     address: "1234 Avenue du Mont-Royal E",
-    lat: 45.5250,
-    lng: -73.5730,
+    lat: 45.525,
+    lng: -73.573,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Wine Bar",
     terraceType: ["sidewalk"],
@@ -1680,8 +1883,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "15:00", close: "03:00" },
       { day: 6, open: "15:00", close: "03:00" },
     ],
-    description:
-      "Welcoming terrace with grass carpets. Sources: Tastet.",
+    description: "Welcoming terrace with grass carpets. Sources: Tastet.",
     descriptionFr:
       "Terrasse accueillante avec tapis de gazon. Sources: Tastet.",
   },
@@ -1693,7 +1895,7 @@ export const terraces: Terrace[] = [
     name: "Azalea",
     address: "4306 Rue Saint-Denis",
     lat: 45.5218,
-    lng: -73.5730,
+    lng: -73.573,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Iranian / Persian",
     terraceType: ["backyard"], // confirmed: "Secluded and lush hidden garden"
@@ -1702,7 +1904,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.azalearesto.com",
     instagram: "@azalea.buvette.caviste",
-    photos: ["/photos/56/main.webp", "/photos/56/0.webp", "/photos/56/3.webp", "/photos/56/7.webp", "/photos/56/8.webp"],
+    photos: [
+      "/photos/56/main.webp",
+      "/photos/56/0.webp",
+      "/photos/56/3.webp",
+      "/photos/56/7.webp",
+      "/photos/56/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "21:00" },
       { day: 1, open: "09:00", close: "17:00" },
@@ -1744,10 +1952,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "10:00", close: "03:00" },
       { day: 6, open: "10:00", close: "03:00" },
     ],
-    description:
-      "Charming little terrace on the Main. Sources: Tastet.",
-    descriptionFr:
-      "Charmante petite terrasse sur le Main. Sources: Tastet.",
+    description: "Charming little terrace on the Main. Sources: Tastet.",
+    descriptionFr: "Charmante petite terrasse sur le Main. Sources: Tastet.",
   },
   {
     id: "58",
@@ -1757,7 +1963,7 @@ export const terraces: Terrace[] = [
     name: "Grenade",
     address: "1603 Rue Ontario E",
     lat: 45.5245,
-    lng: -73.5600,
+    lng: -73.56,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Asian (Thai/Japanese/Vietnamese)",
     terraceType: ["backyard"], // confirmed: "Luxury backyard patio with a pond"
@@ -1789,7 +1995,7 @@ export const terraces: Terrace[] = [
     name: "Plan B",
     address: "327 Avenue du Mont-Royal E",
     lat: 45.5245,
-    lng: -73.5770,
+    lng: -73.577,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bar",
     terraceType: ["backyard"], // confirmed: "Lush back patio"
@@ -1820,7 +2026,7 @@ export const terraces: Terrace[] = [
     name: "Casa Del Popolo",
     address: "4873 Boulevard Saint-Laurent",
     lat: 45.5225,
-    lng: -73.5870,
+    lng: -73.587,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bar / Music Venue",
     terraceType: ["backyard"], // confirmed: "Back courtyard patio"
@@ -1852,7 +2058,7 @@ export const terraces: Terrace[] = [
     name: "Bistro Auprès de ma blonde",
     address: "3845 Rue Saint-Denis",
     lat: 45.5185,
-    lng: -73.5720,
+    lng: -73.572,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Bistro",
     terraceType: ["backyard"], // confirmed: "Verdant back terrace"
@@ -1881,8 +2087,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 436,
     name: "Café Melbourne",
     address: "4615 Boulevard Saint-Laurent",
-    lat: 45.5230,
-    lng: -73.5850,
+    lat: 45.523,
+    lng: -73.585,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Australian Café",
     // type unknown
@@ -1901,10 +2107,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "10:00", close: "16:00" },
       { day: 6, open: "10:00", close: "16:00" },
     ],
-    description:
-      "Near Avenue Mont-Royal. Sources: Tastet.",
-    descriptionFr:
-      "Près de l'Avenue Mont-Royal. Sources: Tastet.",
+    description: "Near Avenue Mont-Royal. Sources: Tastet.",
+    descriptionFr: "Près de l'Avenue Mont-Royal. Sources: Tastet.",
   },
   {
     id: "63",
@@ -1914,7 +2118,7 @@ export const terraces: Terrace[] = [
     name: "Turbo Haüs",
     address: "2040 Rue Saint-Denis",
     lat: 45.5115,
-    lng: -73.5670,
+    lng: -73.567,
     neighborhood: "Quartier des Spectacles",
     cuisineType: "Bar / Music Venue",
     // type unknown — winner of best terrasse but type not described
@@ -1982,8 +2186,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1810,
     name: "Pub Bishop & Bagg",
     address: "52 Rue Saint-Viateur O",
-    lat: 45.5240,
-    lng: -73.5990,
+    lat: 45.524,
+    lng: -73.599,
     neighborhood: "Mile End",
     cuisineType: "English Pub",
     // type unknown
@@ -2002,10 +2206,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "02:00" },
       { day: 6, open: "10:00", close: "02:00" },
     ],
-    description:
-      "Small, unpretentious terrace. Sources: Tastet.",
-    descriptionFr:
-      "Petite terrasse sans prétention. Sources: Tastet.",
+    description: "Small, unpretentious terrace. Sources: Tastet.",
+    descriptionFr: "Petite terrasse sans prétention. Sources: Tastet.",
   },
   {
     id: "66",
@@ -2015,7 +2217,7 @@ export const terraces: Terrace[] = [
     name: "Café Club Social",
     address: "180 Rue Saint-Viateur O",
     lat: 45.5246,
-    lng: -73.6010,
+    lng: -73.601,
     neighborhood: "Mile End",
     cuisineType: "Café",
     // type unknown
@@ -2023,7 +2225,14 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://www.cafeclubsocial.ca",
-    photos: ["/photos/66/main.webp", "/photos/66/0.webp", "/photos/66/1.webp", "/photos/66/3.webp", "/photos/66/4.webp", "/photos/66/9.webp"],
+    photos: [
+      "/photos/66/main.webp",
+      "/photos/66/0.webp",
+      "/photos/66/1.webp",
+      "/photos/66/3.webp",
+      "/photos/66/4.webp",
+      "/photos/66/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "06:00", close: "00:00" },
       { day: 1, open: "06:00", close: "00:00" },
@@ -2033,10 +2242,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "06:00", close: "00:00" },
       { day: 6, open: "06:00", close: "00:00" },
     ],
-    description:
-      "Mile End institution. Lively ambiance. Sources: Tastet.",
-    descriptionFr:
-      "Institution du Mile End. Ambiance animée. Sources: Tastet.",
+    description: "Mile End institution. Lively ambiance. Sources: Tastet.",
+    descriptionFr: "Institution du Mile End. Ambiance animée. Sources: Tastet.",
   },
   {
     id: "67",
@@ -2082,7 +2289,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1050,
     name: "Taverne Atlantic",
     address: "6512 Avenue du Parc",
-    lat: 45.5280,
+    lat: 45.528,
     lng: -73.6045,
     neighborhood: "Mile-Ex",
     cuisineType: "Pizza / Bar",
@@ -2115,7 +2322,7 @@ export const terraces: Terrace[] = [
     name: "Anemone",
     address: "271 Rue Saint-Zotique O",
     lat: 45.5305,
-    lng: -73.6020,
+    lng: -73.602,
     neighborhood: "Mile-Ex",
     cuisineType: "Contemporary",
     // type unknown — "Garage-door entrance terrace" is distinctive but not a standard type
@@ -2143,8 +2350,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 443,
     name: "Bar Cicchetti",
     address: "6703 Avenue du Parc",
-    lat: 45.5290,
-    lng: -73.6050,
+    lat: 45.529,
+    lng: -73.605,
     neighborhood: "Mile-Ex",
     cuisineType: "Venetian",
     // type unknown — "Stunning terrace" not specific
@@ -2153,7 +2360,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://barcicchetti.club",
     instagram: "@bar_cicchetti",
-    photos: ["/photos/70/main.webp", "/photos/70/0.webp", "/photos/70/1.webp", "/photos/70/9.webp"],
+    photos: [
+      "/photos/70/main.webp",
+      "/photos/70/0.webp",
+      "/photos/70/1.webp",
+      "/photos/70/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 1, open: "16:00", close: "23:00" },
@@ -2195,10 +2407,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "10:00", close: "16:00" },
       { day: 6, open: "10:00", close: "16:00" },
     ],
-    description:
-      "Vibrant terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse vibrante. Sources: Tastet.",
+    description: "Vibrant terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse vibrante. Sources: Tastet.",
   },
   {
     id: "72",
@@ -2207,8 +2417,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 145,
     name: "WILLS",
     address: "6729 Avenue de l'Esplanade",
-    lat: 45.5290,
-    lng: -73.6030,
+    lat: 45.529,
+    lng: -73.603,
     neighborhood: "Mile-Ex",
     cuisineType: "Microbrewery",
     // type unknown — "large garage door opening" is distinctive but could be sidewalk-adjacent
@@ -2217,7 +2427,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.wills.beer",
     instagram: "@wills.beer",
-    photos: ["/photos/72/main.webp", "/photos/72/0.webp", "/photos/72/3.webp", "/photos/72/6.webp", "/photos/72/7.webp"],
+    photos: [
+      "/photos/72/main.webp",
+      "/photos/72/0.webp",
+      "/photos/72/3.webp",
+      "/photos/72/6.webp",
+      "/photos/72/7.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "16:00", close: "23:00" },
       { day: 2, open: "16:00", close: "23:00" },
@@ -2248,7 +2464,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://pumpui.ca",
     instagram: "@pumpuimontreal",
-    photos: ["/photos/73/main.webp", "/photos/73/1.webp", "/photos/73/3.webp", "/photos/73/4.webp", "/photos/73/7.webp"],
+    photos: [
+      "/photos/73/main.webp",
+      "/photos/73/1.webp",
+      "/photos/73/3.webp",
+      "/photos/73/4.webp",
+      "/photos/73/7.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "15:30" },
       { day: 0, open: "16:30", close: "21:00" },
@@ -2282,7 +2504,7 @@ export const terraces: Terrace[] = [
     name: "Damas",
     address: "1209 Avenue Van Horne",
     lat: 45.5205,
-    lng: -73.6110,
+    lng: -73.611,
     neighborhood: "Outremont",
     cuisineType: "Syrian",
     terraceType: ["sidewalk"], // confirmed: "one of the city's best streetside setups, ringed by trees and planters"
@@ -2315,8 +2537,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2694,
     name: "Leméac",
     address: "1045 Avenue Laurier O",
-    lat: 45.5210,
-    lng: -73.6100,
+    lat: 45.521,
+    lng: -73.61,
     neighborhood: "Outremont",
     cuisineType: "French Brasserie",
     // type unknown — "charming covered terrace" not specific
@@ -2342,8 +2564,7 @@ export const terraces: Terrace[] = [
       { day: 6, open: "10:00", close: "15:00" },
       { day: 6, open: "17:00", close: "23:00" },
     ],
-    description:
-      "Charming covered terrace. French brasserie. Sources: Tastet.",
+    description: "Charming covered terrace. French brasserie. Sources: Tastet.",
     descriptionFr:
       "Charmante terrasse couverte. Brasserie française. Sources: Tastet.",
   },
@@ -2386,8 +2607,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1228,
     name: "Brasserie Bernard",
     address: "1249 Avenue Bernard",
-    lat: 45.5220,
-    lng: -73.6090,
+    lat: 45.522,
+    lng: -73.609,
     neighborhood: "Outremont",
     cuisineType: "French-inspired",
     terraceType: ["sidewalk"], // confirmed: "Watch passersby on Bernard Avenue"
@@ -2406,8 +2627,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "22:00" },
       { day: 6, open: "17:00", close: "22:00" },
     ],
-    description:
-      "Watch passersby on Bernard Avenue. Sources: Tastet.",
+    description: "Watch passersby on Bernard Avenue. Sources: Tastet.",
     descriptionFr:
       "Observez les passants sur l'Avenue Bernard. Sources: Tastet.",
   },
@@ -2416,7 +2636,7 @@ export const terraces: Terrace[] = [
     name: "Fiorellino Laurier",
     address: "1244 Avenue Laurier O",
     lat: 45.5215,
-    lng: -73.6120,
+    lng: -73.612,
     neighborhood: "Outremont",
     cuisineType: "Italian",
     terraceType: ["sidewalk"], // confirmed: "Large wooden deck patio on leafy Laurier Avenue"
@@ -2480,7 +2700,7 @@ export const terraces: Terrace[] = [
     name: "ALMA",
     address: "1231 Avenue Lajoie",
     lat: 45.5215,
-    lng: -73.6110,
+    lng: -73.611,
     neighborhood: "Outremont",
     cuisineType: "Wine Bar",
     // type unknown — "Stunning terrace" not specific
@@ -2496,10 +2716,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "18:00", close: "23:00" },
       { day: 6, open: "18:00", close: "23:00" },
     ],
-    description:
-      "Stunning terrace. Catalan wines. Sources: Tastet.",
-    descriptionFr:
-      "Superbe terrasse. Vins catalans. Sources: Tastet.",
+    description: "Stunning terrace. Catalan wines. Sources: Tastet.",
+    descriptionFr: "Superbe terrasse. Vins catalans. Sources: Tastet.",
   },
   {
     id: "81",
@@ -2508,7 +2726,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1373,
     name: "Bar Henrietta",
     address: "115 Avenue Laurier O",
-    lat: 45.5210,
+    lat: 45.521,
     lng: -73.6095,
     neighborhood: "Mile End",
     cuisineType: "Cocktail Bar",
@@ -2528,8 +2746,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "16:00", close: "03:00" },
       { day: 6, open: "16:00", close: "03:00" },
     ],
-    description:
-      "European-inspired outdoor space. Sources: Tastet.",
+    description: "European-inspired outdoor space. Sources: Tastet.",
     descriptionFr:
       "Espace extérieur d'inspiration européenne. Sources: Tastet.",
   },
@@ -2560,8 +2777,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:00", close: "21:45" },
       { day: 6, open: "11:00", close: "21:45" },
     ],
-    description:
-      "Terrace stretches around the restaurant. Sources: Tastet.",
+    description: "Terrace stretches around the restaurant. Sources: Tastet.",
     descriptionFr:
       "La terrasse s'étend tout autour du restaurant. Sources: Tastet.",
   },
@@ -2586,17 +2802,20 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.restaurantalep.com",
     instagram: "@le.petit.alep",
-    photos: ["/photos/83/main.webp", "/photos/83/1.webp", "/photos/83/2.webp", "/photos/83/6.webp"],
+    photos: [
+      "/photos/83/main.webp",
+      "/photos/83/1.webp",
+      "/photos/83/2.webp",
+      "/photos/83/6.webp",
+    ],
     openingPeriods: [
       { day: 3, open: "17:00", close: "22:30" },
       { day: 4, open: "11:30", close: "22:30" },
       { day: 5, open: "11:30", close: "22:30" },
       { day: 6, open: "17:00", close: "22:30" },
     ],
-    description:
-      "Street-side terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse en bord de rue. Sources: Tastet.",
+    description: "Street-side terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse en bord de rue. Sources: Tastet.",
   },
   {
     id: "84",
@@ -2605,8 +2824,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 4106,
     name: "Pizzeria Napoletana",
     address: "189 Rue Dante",
-    lat: 45.5340,
-    lng: -73.6010,
+    lat: 45.534,
+    lng: -73.601,
     neighborhood: "Little Italy",
     cuisineType: "Neapolitan Pizza",
     // type unknown
@@ -2615,7 +2834,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.napoletana.com",
     instagram: "@pizzerianapoletanamtl",
-    photos: ["/photos/84/main.webp", "/photos/84/1.webp", "/photos/84/2.webp", "/photos/84/3.webp", "/photos/84/8.webp"],
+    photos: [
+      "/photos/84/main.webp",
+      "/photos/84/1.webp",
+      "/photos/84/2.webp",
+      "/photos/84/3.webp",
+      "/photos/84/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:00", close: "22:30" },
@@ -2625,8 +2850,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "23:00" },
       { day: 6, open: "11:30", close: "23:00" },
     ],
-    description:
-      "Terrace becomes a lively gathering spot. Sources: Tastet.",
+    description: "Terrace becomes a lively gathering spot. Sources: Tastet.",
     descriptionFr:
       "La terrasse devient un lieu de rassemblement animé. Sources: Tastet.",
   },
@@ -2642,7 +2866,7 @@ export const terraces: Terrace[] = [
     name: "Luciano Trattoria",
     address: "1212 Rue Saint-Zotique E",
     lat: 45.5315,
-    lng: -73.5900,
+    lng: -73.59,
     neighborhood: "Petite-Patrie",
     cuisineType: "Italian",
     // type unknown — "Cozy terrace beside the restaurant" not specific
@@ -2671,7 +2895,7 @@ export const terraces: Terrace[] = [
     name: "Mon Lapin",
     address: "150 Rue Saint-Zotique E",
     lat: 45.5305,
-    lng: -73.5950,
+    lng: -73.595,
     neighborhood: "Petite-Patrie",
     cuisineType: "Wine Bar",
     terraceType: ["sidewalk"], // confirmed: "Terrace on Saint-Zotique street"
@@ -2753,8 +2977,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "15:00", close: "03:00" },
       { day: 6, open: "15:00", close: "03:00" },
     ],
-    description:
-      "Charmingly simple street-side terrace. Sources: Tastet.",
+    description: "Charmingly simple street-side terrace. Sources: Tastet.",
     descriptionFr:
       "Terrasse en bord de rue charmante et simple. Sources: Tastet.",
   },
@@ -2765,8 +2988,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1054,
     name: "Snowbird Tiki Bar",
     address: "6388 Rue Saint-Hubert",
-    lat: 45.5340,
-    lng: -73.5930,
+    lat: 45.534,
+    lng: -73.593,
     neighborhood: "Petite-Patrie",
     cuisineType: "Tiki Bar",
     terraceType: ["rooftop"], // confirmed: "Hidden rooftop terrace on Plaza Saint-Hubert"
@@ -2833,8 +3056,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2528,
     name: "Terrasse Saint-Ambroise",
     address: "5080 Rue Saint-Ambroise",
-    lat: 45.4710,
-    lng: -73.5830,
+    lat: 45.471,
+    lng: -73.583,
     neighborhood: "Saint-Henri",
     cuisineType: "Brewery / BBQ",
     terraceType: ["garden"], // canal-side garden with picnic tables and string lights
@@ -2843,7 +3066,15 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://mcauslan.com/en/terrasse",
     instagram: "@terrasse_stambroise",
-    photos: ["/photos/91/main.webp", "/photos/91/1.webp", "/photos/91/2.webp", "/photos/91/4.webp", "/photos/91/5.jpg", "/photos/91/7.webp", "/photos/91/9.webp"],
+    photos: [
+      "/photos/91/main.webp",
+      "/photos/91/1.webp",
+      "/photos/91/2.webp",
+      "/photos/91/4.webp",
+      "/photos/91/5.jpg",
+      "/photos/91/7.webp",
+      "/photos/91/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Canal-side terrace attached to McAuslan Brewery. Picnic tables, string lights, lush greenery. Wood-fired pizza Thursday-Sunday. Dogs welcomed. Winner of Cult MTL Best of MTL 2025 reader poll. Sources: Time Out, Cult MTL, Daily Hive, Montreal Diaries.",
@@ -2857,8 +3088,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2278,
     name: "Messorem Bracitorium",
     address: "2233 Rue Pitt",
-    lat: 45.4720,
-    lng: -73.5820,
+    lat: 45.472,
+    lng: -73.582,
     neighborhood: "Saint-Henri",
     cuisineType: "Microbrewery",
     terraceType: ["garden"], // large canal-side garden, one of the city's largest terraces
@@ -2867,7 +3098,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://messorem.co",
     instagram: "@messorembracitorium",
-    photos: ["/photos/92/main.webp", "/photos/92/0.webp", "/photos/92/3.webp", "/photos/92/4.webp", "/photos/92/6.webp"],
+    photos: [
+      "/photos/92/main.webp",
+      "/photos/92/0.webp",
+      "/photos/92/3.webp",
+      "/photos/92/4.webp",
+      "/photos/92/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "23:00" },
       { day: 1, open: "12:00", close: "23:00" },
@@ -2889,8 +3126,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 3176,
     name: "Joe Beef",
     address: "2491 Rue Notre-Dame O",
-    lat: 45.4800,
-    lng: -73.5850,
+    lat: 45.48,
+    lng: -73.585,
     neighborhood: "Little Burgundy",
     cuisineType: "French / Contemporary",
     terraceType: ["backyard"], // confirmed: "Charming back terraces"
@@ -2950,7 +3187,7 @@ export const terraces: Terrace[] = [
     name: "Tuck Shop",
     address: "4662 Rue Notre-Dame O",
     lat: 45.4785,
-    lng: -73.5920,
+    lng: -73.592,
     neighborhood: "Saint-Henri",
     cuisineType: "Contemporary",
     terraceType: ["sidewalk"], // confirmed: "Two beautiful wooden terraces"
@@ -2980,7 +3217,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1092,
     name: "Riverside Saint-Henri",
     address: "5020 Rue Saint-Ambroise",
-    lat: 45.4710,
+    lat: 45.471,
     lng: -73.5835,
     neighborhood: "Saint-Henri",
     cuisineType: "Seasonal Bar",
@@ -2990,7 +3227,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.riversidemtl.com",
     instagram: "@riversidemtl",
-    photos: ["/photos/96/main.webp", "/photos/96/3.webp", "/photos/96/5.webp", "/photos/96/6.webp", "/photos/96/9.webp"],
+    photos: [
+      "/photos/96/main.webp",
+      "/photos/96/3.webp",
+      "/photos/96/5.webp",
+      "/photos/96/6.webp",
+      "/photos/96/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Large green patio facing Lachine Canal. Colorful benches, green wall, picnic tables. Sources: Tastet, Tourisme Montreal.",
@@ -3014,7 +3257,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.arthursmtl.com",
     instagram: "@arthursmtl",
-    photos: ["/photos/97/main.webp", "/photos/97/3.webp", "/photos/97/6.webp", "/photos/97/7.webp", "/photos/97/8.webp"],
+    photos: [
+      "/photos/97/main.webp",
+      "/photos/97/3.webp",
+      "/photos/97/6.webp",
+      "/photos/97/7.webp",
+      "/photos/97/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "09:00", close: "16:00" },
       { day: 1, open: "09:00", close: "15:00" },
@@ -3024,10 +3273,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "09:00", close: "15:00" },
       { day: 6, open: "09:00", close: "16:00" },
     ],
-    description:
-      "Pink-and-green terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse rose et verte. Sources: Tastet.",
+    description: "Pink-and-green terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse rose et verte. Sources: Tastet.",
   },
   {
     id: "98",
@@ -3036,7 +3283,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1604,
     name: "BarBara",
     address: "4450 Rue Notre-Dame O",
-    lat: 45.4790,
+    lat: 45.479,
     lng: -73.5905,
     neighborhood: "Saint-Henri",
     cuisineType: "Italian Wine Bar",
@@ -3046,7 +3293,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.barbaravin.com",
     instagram: "@barbaravin_",
-    photos: ["/photos/98/main.webp", "/photos/98/1.webp", "/photos/98/3.webp", "/photos/98/9.webp"],
+    photos: [
+      "/photos/98/main.webp",
+      "/photos/98/1.webp",
+      "/photos/98/3.webp",
+      "/photos/98/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "08:00", close: "01:00" },
       { day: 1, open: "08:00", close: "01:00" },
@@ -3056,10 +3308,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "08:00", close: "01:00" },
       { day: 6, open: "08:00", close: "01:00" },
     ],
-    description:
-      "Long, spacious terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse longue et spacieuse. Sources: Tastet.",
+    description: "Long, spacious terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse longue et spacieuse. Sources: Tastet.",
   },
   {
     id: "99",
@@ -3068,7 +3318,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 347,
     name: "Stem Bar",
     address: "2475 Rue Notre-Dame O",
-    lat: 45.4800,
+    lat: 45.48,
     lng: -73.5845,
     neighborhood: "Little Burgundy",
     cuisineType: "Wine / Cocktails",
@@ -3086,10 +3336,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "23:00" },
       { day: 6, open: "17:00", close: "23:00" },
     ],
-    description:
-      "Simple and welcoming terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse simple et accueillante. Sources: Tastet.",
+    description: "Simple and welcoming terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse simple et accueillante. Sources: Tastet.",
   },
   {
     id: "100",
@@ -3098,8 +3346,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 745,
     name: "Candide",
     address: "551 Rue Saint-Martin",
-    lat: 45.4850,
-    lng: -73.5790,
+    lat: 45.485,
+    lng: -73.579,
     neighborhood: "Little Burgundy",
     cuisineType: "Contemporary / Local",
     terraceType: ["backyard"], // confirmed: "Secret terrace... in an old presbytery"
@@ -3129,8 +3377,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1335,
     name: "Restaurant Mélisse",
     address: "719 Rue William",
-    lat: 45.4950,
-    lng: -73.5640,
+    lat: 45.495,
+    lng: -73.564,
     neighborhood: "Griffintown",
     cuisineType: "French",
     // type unknown — "Charming terrace lined with plants"
@@ -3152,10 +3400,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "18:00", close: "22:00" },
       { day: 6, open: "10:00", close: "14:30" },
     ],
-    description:
-      "Charming terrace lined with plants. Sources: Tastet.",
-    descriptionFr:
-      "Charmante terrasse bordée de plantes. Sources: Tastet.",
+    description: "Charming terrace lined with plants. Sources: Tastet.",
+    descriptionFr: "Charmante terrasse bordée de plantes. Sources: Tastet.",
   },
   {
     id: "102",
@@ -3165,7 +3411,7 @@ export const terraces: Terrace[] = [
     name: "Mano Cornuto",
     address: "988 Rue Ottawa",
     lat: 45.4945,
-    lng: -73.5620,
+    lng: -73.562,
     neighborhood: "Griffintown",
     cuisineType: "Italian",
     // type unknown — "Spacious terrace"
@@ -3174,7 +3420,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.manocornuto.com",
     instagram: "@manocornuto.mtl",
-    photos: ["/photos/102/main.webp", "/photos/102/0.webp", "/photos/102/4.webp", "/photos/102/5.webp", "/photos/102/8.webp"],
+    photos: [
+      "/photos/102/main.webp",
+      "/photos/102/0.webp",
+      "/photos/102/4.webp",
+      "/photos/102/5.webp",
+      "/photos/102/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:00", close: "23:00" },
       { day: 1, open: "11:00", close: "23:00" },
@@ -3184,10 +3436,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:00", close: "23:00" },
       { day: 6, open: "11:00", close: "23:00" },
     ],
-    description:
-      "Spacious terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse spacieuse. Sources: Tastet.",
+    description: "Spacious terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse spacieuse. Sources: Tastet.",
   },
   {
     id: "103",
@@ -3196,8 +3446,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2163,
     name: "SHAY",
     address: "1414 Rue Notre-Dame O",
-    lat: 45.4880,
-    lng: -73.5720,
+    lat: 45.488,
+    lng: -73.572,
     neighborhood: "Griffintown",
     cuisineType: "Lebanese",
     // type unknown
@@ -3206,7 +3456,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://shaymtl.com",
     instagram: "@shaygriffintown",
-    photos: ["/photos/103/main.webp", "/photos/103/1.webp", "/photos/103/6.webp"],
+    photos: [
+      "/photos/103/main.webp",
+      "/photos/103/1.webp",
+      "/photos/103/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:00", close: "15:00" },
       { day: 0, open: "18:00", close: "22:00" },
@@ -3218,10 +3472,8 @@ export const terraces: Terrace[] = [
       { day: 6, open: "10:00", close: "15:00" },
       { day: 6, open: "18:00", close: "23:00" },
     ],
-    description:
-      "Inviting terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse accueillante. Sources: Tastet.",
+    description: "Inviting terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse accueillante. Sources: Tastet.",
   },
   {
     id: "104",
@@ -3230,8 +3482,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 895,
     name: "Mauvais Garçons",
     address: "1275 Rue Guy",
-    lat: 45.4940,
-    lng: -73.5660,
+    lat: 45.494,
+    lng: -73.566,
     neighborhood: "Griffintown",
     cuisineType: "Upscale Bistro",
     terraceType: ["courtyard"], // confirmed: "Hedge-ringed off-street terrace with garden party atmosphere"
@@ -3270,7 +3522,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://bazart.ca",
     instagram: "@bazartmontreal",
-    photos: ["/photos/105/main.webp", "/photos/105/1.webp", "/photos/105/3.webp", "/photos/105/4.webp", "/photos/105/7.webp"],
+    photos: [
+      "/photos/105/main.webp",
+      "/photos/105/1.webp",
+      "/photos/105/3.webp",
+      "/photos/105/4.webp",
+      "/photos/105/7.webp",
+    ],
     openingPeriods: [
       { day: 4, open: "17:00", close: "00:00" },
       { day: 5, open: "17:00", close: "01:00" },
@@ -3288,8 +3546,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1211,
     name: "Le Richmond",
     address: "377 Rue Richmond",
-    lat: 45.4940,
-    lng: -73.5650,
+    lat: 45.494,
+    lng: -73.565,
     neighborhood: "Griffintown",
     cuisineType: "Italian",
     terraceType: ["backyard"],
@@ -3331,12 +3589,80 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.canallounge.com",
     instagram: "@canallounge",
-    photos: ["/photos/107/main.webp", "/photos/107/0.webp", "/photos/107/1.webp", "/photos/107/3.webp", "/photos/107/5.webp", "/photos/107/7.webp", "/photos/107/8.webp"],
+    photos: [
+      "/photos/107/main.webp",
+      "/photos/107/0.webp",
+      "/photos/107/1.webp",
+      "/photos/107/3.webp",
+      "/photos/107/5.webp",
+      "/photos/107/7.webp",
+      "/photos/107/8.webp",
+    ],
     openingPeriods: [],
     description:
       "Patio situated directly on the water near Atwater Market. Sources: Daily Hive.",
     descriptionFr:
       "Patio situé directement au bord de l'eau près du Marché Atwater. Sources: Daily Hive.",
+  },
+  {
+    id: "197",
+    name: "Lulu's Pasta Bar",
+    address: "1346 Rue Notre-Dame O",
+    lat: 45.4882,
+    lng: -73.57,
+    neighborhood: "Griffintown",
+    cuisineType: "Italian",
+    terraceType: ["sidewalk"],
+    capacity: 24,
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://luluspastabar.com",
+    instagram: "@luluspastabar",
+    photos: [],
+    seasonalOpen: "2026-04-18",
+    openingPeriods: [
+      { day: 0, open: "13:00", close: "22:00" },
+      { day: 1, open: "11:00", close: "22:00" },
+      { day: 2, open: "11:00", close: "22:00" },
+      { day: 3, open: "11:00", close: "22:00" },
+      { day: 4, open: "11:00", close: "22:00" },
+      { day: 5, open: "11:00", close: "22:00" },
+      { day: 6, open: "11:00", close: "22:00" },
+    ],
+    description:
+      "Build-your-own pasta bar concept from Jimmy Petropoulos and Anthy Siounis. 24-seat sidewalk terrace on Notre-Dame West in Griffintown. Sources: The Montrealer, MTL Blog.",
+    descriptionFr:
+      "Bar à pâtes à composer soi-même, concept de Jimmy Petropoulos et Anthy Siounis. Terrasse de 24 places sur Notre-Dame Ouest à Griffintown. Sources: The Montrealer, MTL Blog.",
+  },
+  {
+    id: "198",
+    name: "Le Bureau Bar Tapas",
+    address: "1642 Rue Notre-Dame O",
+    lat: 45.4872,
+    lng: -73.5785,
+    neighborhood: "Griffintown",
+    cuisineType: "Mediterranean Tapas",
+    terraceType: ["sidewalk"],
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://www.lebureaubartapas.com",
+    instagram: "@lebureaubartapas",
+    photos: [],
+    seasonalOpen: "2026-04-18",
+    openingPeriods: [
+      { day: 0, open: "16:00", close: "01:00" },
+      { day: 2, open: "16:00", close: "03:00" },
+      { day: 3, open: "16:00", close: "03:00" },
+      { day: 4, open: "16:00", close: "03:00" },
+      { day: 5, open: "16:00", close: "03:00" },
+      { day: 6, open: "16:00", close: "03:00" },
+    ],
+    description:
+      "One of the first bars to anchor Griffintown's emergence, open since 2012. Private-import wines, draft beers, cocktails, and Mediterranean-style tapas including saganaki, grilled octopus, and shrimp tacos. Set in a former antique shop with exposed brick and vintage lamps. Sources: The Main, Evendo, RestoMontreal.",
+    descriptionFr:
+      "L'un des premiers bars à ancrer l'émergence de Griffintown, ouvert depuis 2012. Vins d'importation privée, bières pression, cocktails et tapas style méditerranéen dont saganaki, poulpe grillé et tacos de crevettes. Installé dans un ancien magasin d'antiquités avec briques apparentes et luminaires vintage. Sources: The Main, Evendo, RestoMontreal.",
   },
   {
     id: "108",
@@ -3346,7 +3672,7 @@ export const terraces: Terrace[] = [
     name: "Hoogan & Beaufort",
     address: "4095 Rue Molson",
     lat: 45.5325,
-    lng: -73.5780,
+    lng: -73.578,
     neighborhood: "Rosemont",
     cuisineType: "Contemporary Quebec",
     terraceType: ["courtyard"], // confirmed: "Spacious courtyard terrace with fire pit"
@@ -3385,8 +3711,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 456,
     name: "Verdun Beach",
     address: "4816 Rue Wellington",
-    lat: 45.4580,
-    lng: -73.5680,
+    lat: 45.458,
+    lng: -73.568,
     neighborhood: "Verdun",
     cuisineType: "Wine Bar",
     // type unknown — "Covered and heated terrace" not structurally specific
@@ -3395,7 +3721,12 @@ export const terraces: Terrace[] = [
     heated: true,
     website: "https://barverdunbeach.com",
     instagram: "@barverdunbeach",
-    photos: ["/photos/109/main.webp", "/photos/109/0.webp", "/photos/109/4.webp", "/photos/109/6.webp"],
+    photos: [
+      "/photos/109/main.webp",
+      "/photos/109/0.webp",
+      "/photos/109/4.webp",
+      "/photos/109/6.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "18:00", close: "22:00" },
       { day: 3, open: "18:00", close: "22:00" },
@@ -3419,7 +3750,7 @@ export const terraces: Terrace[] = [
     name: "Monkland Taverne",
     address: "5555 Avenue Monkland",
     lat: 45.4735,
-    lng: -73.6200,
+    lng: -73.62,
     neighborhood: "NDG",
     cuisineType: "Gastropub",
     terraceType: ["sidewalk"],
@@ -3428,7 +3759,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://monklandtavern.ca",
     instagram: "@monklandtaverne",
-    photos: ["/photos/111/main.webp", "/photos/111/8.webp", "/photos/111/9.webp"],
+    photos: [
+      "/photos/111/main.webp",
+      "/photos/111/8.webp",
+      "/photos/111/9.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "17:30", close: "22:00" },
       { day: 3, open: "17:30", close: "22:00" },
@@ -3469,8 +3804,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "18:00", close: "22:00" },
       { day: 6, open: "18:00", close: "22:00" },
     ],
-    description:
-      "Lush terrace. Local products focus. Sources: Tastet.",
+    description: "Lush terrace. Local products focus. Sources: Tastet.",
     descriptionFr:
       "Terrasse luxuriante. Accent sur les produits locaux. Sources: Tastet.",
   },
@@ -3485,8 +3819,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 271,
     name: "June Buvette",
     address: "1900 Rue Centre",
-    lat: 45.4800,
-    lng: -73.5650,
+    lat: 45.48,
+    lng: -73.565,
     neighborhood: "Pointe-Saint-Charles",
     cuisineType: "Wine Bar",
     // type unknown
@@ -3503,10 +3837,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "00:00" },
       { day: 6, open: "17:00", close: "00:00" },
     ],
-    description:
-      "Welcoming terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse accueillante. Sources: Tastet.",
+    description: "Welcoming terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse accueillante. Sources: Tastet.",
   },
 
   // =============================================
@@ -3519,8 +3851,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 927,
     name: "Le Butterblume",
     address: "5836 Boulevard Saint-Laurent",
-    lat: 45.5380,
-    lng: -73.6020,
+    lat: 45.538,
+    lng: -73.602,
     neighborhood: "Villeray",
     cuisineType: "Café-Restaurant",
     terraceType: ["sidewalk"], // confirmed: "Terrace set up on Saint-Laurent Boulevard"
@@ -3538,8 +3870,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "10:00", close: "16:00" },
       { day: 6, open: "10:00", close: "16:00" },
     ],
-    description:
-      "Terrace set up on Saint-Laurent Boulevard. Sources: Tastet.",
+    description: "Terrace set up on Saint-Laurent Boulevard. Sources: Tastet.",
     descriptionFr:
       "Terrasse installée sur le Boulevard Saint-Laurent. Sources: Tastet.",
   },
@@ -3568,10 +3899,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "22:00" },
       { day: 6, open: "17:00", close: "22:00" },
     ],
-    description:
-      "Take-out counter with terrace. Sources: Tastet.",
-    descriptionFr:
-      "Comptoir à emporter avec terrasse. Sources: Tastet.",
+    description: "Take-out counter with terrace. Sources: Tastet.",
+    descriptionFr: "Comptoir à emporter avec terrasse. Sources: Tastet.",
   },
 
   // =============================================
@@ -3584,8 +3913,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1058,
     name: "Les Cavistes",
     address: "196 Rue Fleury O",
-    lat: 45.5530,
-    lng: -73.6540,
+    lat: 45.553,
+    lng: -73.654,
     neighborhood: "Ahuntsic",
     cuisineType: "Wine Bar",
     // type unknown — "Large terrace at corner" could be sidewalk but not confirmed
@@ -3594,7 +3923,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://restaurantlescavistes.com",
     instagram: "@lescavistes",
-    photos: ["/photos/116/main.webp", "/photos/116/5.webp", "/photos/116/6.webp"],
+    photos: [
+      "/photos/116/main.webp",
+      "/photos/116/5.webp",
+      "/photos/116/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "17:00", close: "21:00" },
       { day: 3, open: "11:30", close: "14:00" },
@@ -3605,10 +3938,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "22:00" },
       { day: 6, open: "17:00", close: "22:00" },
     ],
-    description:
-      "Large terrace at corner. Sources: Tastet.",
-    descriptionFr:
-      "Grande terrasse en coin. Sources: Tastet.",
+    description: "Large terrace at corner. Sources: Tastet.",
+    descriptionFr: "Grande terrasse en coin. Sources: Tastet.",
   },
 
   // =============================================
@@ -3621,8 +3952,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 194,
     name: "Moqueur",
     address: "1844 Rue Atateken",
-    lat: 45.5150,
-    lng: -73.5620,
+    lat: 45.515,
+    lng: -73.562,
     neighborhood: "The Village",
     cuisineType: "Cocktail Bar",
     terraceType: ["backyard"], // confirmed: "60-seat hidden terrace"
@@ -3631,7 +3962,11 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     instagram: "@moqueur.mtl",
-    photos: ["/photos/117/main.webp", "/photos/117/1.webp", "/photos/117/5.webp"],
+    photos: [
+      "/photos/117/main.webp",
+      "/photos/117/1.webp",
+      "/photos/117/5.webp",
+    ],
     openingPeriods: [],
     description:
       "A massive backyard terrace at this New Orleans-inspired bar from the team behind Midway and Marion. Perfectly frothy Ramos Gin Fizzes, stiff Sazeracs, baked oysters, and gumbo laced with cheese curds. Sources: MTL Blog, The Main, RestoMontreal.",
@@ -3645,8 +3980,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1168,
     name: "Bar Renard",
     address: "1272 Rue Sainte-Catherine E",
-    lat: 45.5150,
-    lng: -73.5610,
+    lat: 45.515,
+    lng: -73.561,
     neighborhood: "The Village",
     cuisineType: "Cocktail Bar",
     // type unknown — "Wooden terrace with charming lights" not specific
@@ -3665,8 +4000,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "15:00", close: "03:00" },
       { day: 6, open: "15:00", close: "03:00" },
     ],
-    description:
-      "Wooden terrace with charming lights. Sources: Tastet.",
+    description: "Wooden terrace with charming lights. Sources: Tastet.",
     descriptionFr:
       "Terrasse en bois avec lumières charmantes. Sources: Tastet.",
   },
@@ -3681,8 +4015,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 375,
     name: "Denise",
     address: "386 Avenue Beaumont",
-    lat: 45.5270,
-    lng: -73.6120,
+    lat: 45.527,
+    lng: -73.612,
     neighborhood: "Parc-Extension",
     cuisineType: "Wine Bar",
     // type unknown
@@ -3699,8 +4033,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:30", close: "23:00" },
       { day: 6, open: "17:30", close: "23:00" },
     ],
-    description:
-      "Cozy, colorful, and heated terrace. Sources: Tastet.",
+    description: "Cozy, colorful, and heated terrace. Sources: Tastet.",
     descriptionFr:
       "Terrasse confortable, colorée et chauffée. Sources: Tastet.",
   },
@@ -3727,7 +4060,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.marchedeseclusiers.com",
     instagram: "@marcheeclusiers",
-    photos: ["/photos/120/main.webp", "/photos/120/0.webp", "/photos/120/5.webp", "/photos/120/6.webp", "/photos/120/9.webp"],
+    photos: [
+      "/photos/120/main.webp",
+      "/photos/120/0.webp",
+      "/photos/120/5.webp",
+      "/photos/120/6.webp",
+      "/photos/120/9.webp",
+    ],
     openingPeriods: [],
     description:
       "Plant-lined terrace under green canopy on the waterfront. DJ Thursdays, seasonal menu. Capacity ~400 guests. Sources: Tourisme Montreal, RestoMontreal.",
@@ -3742,7 +4081,7 @@ export const terraces: Terrace[] = [
     name: "Pub BreWskey",
     address: "380 Rue Saint-Paul E",
     lat: 45.5065,
-    lng: -73.5510,
+    lng: -73.551,
     neighborhood: "Old Montreal",
     cuisineType: "Brewery / Pub",
     terraceType: ["sidewalk"], // confirmed: "Street-facing"
@@ -3774,7 +4113,7 @@ export const terraces: Terrace[] = [
     name: "Boqueria",
     address: "121 Rue de la Commune O",
     lat: 45.4985,
-    lng: -73.5540,
+    lng: -73.554,
     neighborhood: "Old Montreal",
     cuisineType: "Spanish / Tapas",
     covered: false,
@@ -3796,7 +4135,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 4148,
     name: "Maggie Oakes",
     address: "426 Place Jacques-Cartier",
-    lat: 45.5080,
+    lat: 45.508,
     lng: -73.5523,
     neighborhood: "Old Montreal",
     cuisineType: "Steakhouse",
@@ -3806,7 +4145,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://maggieoakes.com",
     instagram: "@maggieoakesmtl",
-    photos: ["/photos/123/main.webp", "/photos/123/1.webp", "/photos/123/3.webp", "/photos/123/7.webp"],
+    photos: [
+      "/photos/123/main.webp",
+      "/photos/123/1.webp",
+      "/photos/123/3.webp",
+      "/photos/123/7.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "07:30", close: "22:00" },
       { day: 1, open: "07:30", close: "22:00" },
@@ -3828,8 +4172,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1635,
     name: "Pincette",
     address: "94 Rue Saint-Paul E",
-    lat: 45.5060,
-    lng: -73.5520,
+    lat: 45.506,
+    lng: -73.552,
     neighborhood: "Old Montreal",
     cuisineType: "Seafood / Lobster",
     terraceType: ["sidewalk"], // confirmed: "Street-side"
@@ -3885,7 +4229,7 @@ export const terraces: Terrace[] = [
     name: "Modavie",
     address: "1 Rue Saint-Paul O",
     lat: 45.5035,
-    lng: -73.5540,
+    lng: -73.554,
     neighborhood: "Old Montreal",
     cuisineType: "Mediterranean",
     covered: false,
@@ -3903,10 +4247,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "23:00" },
       { day: 6, open: "10:00", close: "23:00" },
     ],
-    description:
-      "Terrace with live music. Sources: RestoMontreal.",
-    descriptionFr:
-      "Terrasse avec musique en direct. Sources: RestoMontreal.",
+    description: "Terrace with live music. Sources: RestoMontreal.",
+    descriptionFr: "Terrasse avec musique en direct. Sources: RestoMontreal.",
   },
   {
     id: "127",
@@ -3916,7 +4258,7 @@ export const terraces: Terrace[] = [
     name: "Kyo Bar Japonais",
     address: "711 Côte de la Place d'Armes",
     lat: 45.5045,
-    lng: -73.5570,
+    lng: -73.557,
     neighborhood: "Old Montreal",
     cuisineType: "Japanese",
     terraceType: ["sidewalk"], // confirmed: "Street patio"
@@ -3935,10 +4277,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:30", close: "23:00" },
       { day: 6, open: "17:00", close: "23:00" },
     ],
-    description:
-      "Street patio. Japanese cuisine. Sources: RestoMontreal.",
-    descriptionFr:
-      "Patio de rue. Cuisine japonaise. Sources: RestoMontreal.",
+    description: "Street patio. Japanese cuisine. Sources: RestoMontreal.",
+    descriptionFr: "Patio de rue. Cuisine japonaise. Sources: RestoMontreal.",
   },
   {
     id: "128",
@@ -3947,7 +4287,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2685,
     name: "Pangea",
     address: "104 Rue Saint-Paul E",
-    lat: 45.5060,
+    lat: 45.506,
     lng: -73.5518,
     neighborhood: "Old Montreal",
     cuisineType: "Bar / Lounge",
@@ -3994,8 +4334,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "12:00", close: "23:00" },
       { day: 6, open: "12:00", close: "23:00" },
     ],
-    description:
-      "Street terrace. DJ on some nights. Sources: RestoMontreal.",
+    description: "Street terrace. DJ on some nights. Sources: RestoMontreal.",
     descriptionFr:
       "Terrasse de rue. DJ certains soirs. Sources: RestoMontreal.",
   },
@@ -4009,7 +4348,7 @@ export const terraces: Terrace[] = [
     name: "Terrasse R",
     address: "1250 Boulevard Robert-Bourassa",
     lat: 45.5005,
-    lng: -73.5680,
+    lng: -73.568,
     neighborhood: "Downtown",
     cuisineType: "Fusion / Asian",
     terraceType: ["rooftop"], // confirmed: "Renaissance Montreal hotel rooftop"
@@ -4018,7 +4357,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://rterrasse.com/home/",
     instagram: "@terrassermontreal",
-    photos: ["/photos/130/main.webp", "/photos/130/2.webp", "/photos/130/4.webp", "/photos/130/5.webp", "/photos/130/6.webp"],
+    photos: [
+      "/photos/130/main.webp",
+      "/photos/130/2.webp",
+      "/photos/130/4.webp",
+      "/photos/130/5.webp",
+      "/photos/130/6.webp",
+    ],
     openingPeriods: [],
     description:
       "A two-story half-covered rooftop with a compact urban pool atop the Renaissance Montreal Hotel, steps from Place Ville-Marie. Asian fusion cuisine and signature cocktails with downtown skyline views. Open May–September. Sources: The Rooftop Guide, Marriott, RestoMontreal.",
@@ -4033,7 +4378,7 @@ export const terraces: Terrace[] = [
     name: "Emmanuelle",
     address: "2 Rue Sainte-Catherine E, 5th floor",
     lat: 45.5085,
-    lng: -73.5630,
+    lng: -73.563,
     neighborhood: "Quartier des Spectacles",
     cuisineType: "Contemporary",
     terraceType: ["rooftop"], // confirmed: "5th floor, four-season pergola"
@@ -4042,7 +4387,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.emmanuellelounge.com/home-en",
     instagram: "@emmanuelleloungemtl",
-    photos: ["/photos/131/main.webp", "/photos/131/3.webp", "/photos/131/4.webp", "/photos/131/8.webp"],
+    photos: [
+      "/photos/131/main.webp",
+      "/photos/131/3.webp",
+      "/photos/131/4.webp",
+      "/photos/131/8.webp",
+    ],
     openingPeriods: [],
     description:
       "3,500 sq ft rooftop with four-season pergola. Private salon available. Sources: Noovomoi, Tourisme Montreal.",
@@ -4065,7 +4415,12 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     instagram: "@terrassecielrose",
-    photos: ["/photos/132/main.webp", "/photos/132/2.webp", "/photos/132/5.webp", "/photos/132/8.webp"],
+    photos: [
+      "/photos/132/main.webp",
+      "/photos/132/2.webp",
+      "/photos/132/5.webp",
+      "/photos/132/8.webp",
+    ],
     openingPeriods: [],
     description:
       "Tulum-inspired rooftop terrace. Macramé aesthetic, tacos, cocktails. Sources: Noovomoi, Tourisme Montreal.",
@@ -4088,7 +4443,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://lepoispenche.com/",
     instagram: "@lepoispenche",
-    photos: ["/photos/133/main.webp", "/photos/133/1.webp", "/photos/133/4.webp", "/photos/133/6.webp"],
+    photos: [
+      "/photos/133/main.webp",
+      "/photos/133/1.webp",
+      "/photos/133/4.webp",
+      "/photos/133/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "10:30", close: "15:00" },
       { day: 0, open: "17:00", close: "22:00" },
@@ -4116,7 +4476,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 2466,
     name: "OSMO x MARUSAN",
     address: "51 Rue Sherbrooke O",
-    lat: 45.5090,
+    lat: 45.509,
     lng: -73.5695,
     neighborhood: "Downtown",
     cuisineType: "Japanese Café",
@@ -4148,8 +4508,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1955,
     name: "Le Balcon",
     address: "463 Rue Sainte-Catherine",
-    lat: 45.5070,
-    lng: -73.5670,
+    lat: 45.507,
+    lng: -73.567,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean",
     terraceType: ["rooftop"], // confirmed: "Rooftop"
@@ -4181,7 +4541,7 @@ export const terraces: Terrace[] = [
     name: "Brasseurs du Monde",
     address: "1567 Rue Saint-Denis",
     lat: 45.5135,
-    lng: -73.5640,
+    lng: -73.564,
     neighborhood: "Latin Quarter",
     cuisineType: "Brewery",
     terraceType: ["backyard"], // confirmed: "Back terrace (two terraces)"
@@ -4212,7 +4572,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 4612,
     name: "Le Saint-Bock",
     address: "1749 Rue Saint-Denis",
-    lat: 45.5150,
+    lat: 45.515,
     lng: -73.5645,
     neighborhood: "Latin Quarter",
     cuisineType: "Brewery / Pub",
@@ -4242,7 +4602,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 360,
     name: "Oncle Lee",
     address: "222 Avenue Laurier O",
-    lat: 45.5210,
+    lat: 45.521,
     lng: -73.5935,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Modern Chinese",
@@ -4277,7 +4637,7 @@ export const terraces: Terrace[] = [
     name: "Café Miracolo",
     address: "3891 Boulevard Saint-Laurent",
     lat: 45.5195,
-    lng: -73.5790,
+    lng: -73.579,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Italian",
     covered: true, // confirmed: "Covered"
@@ -4295,8 +4655,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:00", close: "00:00" },
       { day: 6, open: "17:00", close: "00:00" },
     ],
-    description:
-      "Covered terrace. Italian, fresh pasta. Sources: Tastet.",
+    description: "Covered terrace. Italian, fresh pasta. Sources: Tastet.",
     descriptionFr:
       "Terrasse couverte. Cuisine italienne, pâtes fraîches. Sources: Tastet.",
   },
@@ -4307,7 +4666,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1058,
     name: "La Prunelle",
     address: "327 Avenue Duluth E",
-    lat: 45.5170,
+    lat: 45.517,
     lng: -73.5745,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "French",
@@ -4316,7 +4675,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.restaurantlaprunelle.com/",
     instagram: "@restaurant_la_prunelle",
-    photos: ["/photos/141/main.webp", "/photos/141/3.webp", "/photos/141/7.webp", "/photos/141/8.webp"],
+    photos: [
+      "/photos/141/main.webp",
+      "/photos/141/3.webp",
+      "/photos/141/7.webp",
+      "/photos/141/8.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "17:30", close: "22:00" },
       { day: 1, open: "17:30", close: "22:00" },
@@ -4326,8 +4690,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:30", close: "22:30" },
       { day: 6, open: "17:30", close: "22:30" },
     ],
-    description:
-      "French-inspired. BYOW. Sources: Tastet.",
+    description: "French-inspired. BYOW. Sources: Tastet.",
     descriptionFr:
       "D'inspiration française. Apportez votre vin. Sources: Tastet.",
   },
@@ -4338,15 +4701,19 @@ export const terraces: Terrace[] = [
     googleReviewCount: 95,
     name: "Les Rites Berbères",
     address: "4697 Rue de Bullion",
-    lat: 45.5230,
-    lng: -73.5850,
+    lat: 45.523,
+    lng: -73.585,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Berber / North African",
     covered: false,
     dogFriendly: false,
     heated: false,
     website: "https://www.ritesberberes.com/",
-    photos: ["/photos/142/main.webp", "/photos/142/1.webp", "/photos/142/4.webp"],
+    photos: [
+      "/photos/142/main.webp",
+      "/photos/142/1.webp",
+      "/photos/142/4.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "17:00", close: "23:00" },
       { day: 2, open: "17:00", close: "23:00" },
@@ -4397,8 +4764,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 332,
     name: "Aux Quartiers Belle Gueule",
     address: "5579 Avenue Christophe-Colomb",
-    lat: 45.5260,
-    lng: -73.5840,
+    lat: 45.526,
+    lng: -73.584,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Brewery / Biergarten",
     terraceType: ["courtyard"], // confirmed: "Biergarten"
@@ -4407,7 +4774,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://brasseursrj.com/en/quartiers-belle-gueule/",
     instagram: "@auxquartiersbellegueule",
-    photos: ["/photos/145/main.webp", "/photos/145/1.webp", "/photos/145/3.webp"],
+    photos: [
+      "/photos/145/main.webp",
+      "/photos/145/1.webp",
+      "/photos/145/3.webp",
+    ],
     openingPeriods: [
       { day: 3, open: "16:00", close: "23:00" },
       { day: 4, open: "16:00", close: "23:00" },
@@ -4461,7 +4832,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 688,
     name: "Bar Mamie",
     address: "328 Rue Beaubien E",
-    lat: 45.5360,
+    lat: 45.536,
     lng: -73.5895,
     neighborhood: "Petite-Patrie",
     cuisineType: "Wine Bar",
@@ -4471,7 +4842,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.mamiemamiemamie.com",
     instagram: "@barmamie",
-    photos: ["/photos/147/main.webp", "/photos/147/1.webp", "/photos/147/2.webp"],
+    photos: [
+      "/photos/147/main.webp",
+      "/photos/147/1.webp",
+      "/photos/147/2.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "01:00" },
       { day: 1, open: "16:00", close: "01:00" },
@@ -4493,7 +4868,7 @@ export const terraces: Terrace[] = [
     name: "Buvette Beaubien",
     address: "211 Rue Beaubien E",
     lat: 45.5358,
-    lng: -73.5900,
+    lng: -73.59,
     neighborhood: "Petite-Patrie",
     cuisineType: "Wine Bar",
     covered: false,
@@ -4511,8 +4886,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "11:00", close: "23:00" },
       { day: 6, open: "10:00", close: "23:00" },
     ],
-    description:
-      "Greenery-filled terrace. Sharing platters. Sources: Tastet.",
+    description: "Greenery-filled terrace. Sharing platters. Sources: Tastet.",
     descriptionFr:
       "Terrasse verdoyante. Plateaux à partager. Sources : Tastet.",
   },
@@ -4533,7 +4907,13 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.barlevestiaire.com/",
     instagram: "@bar_le_vestiaire_bar_a_bieres",
-    photos: ["/photos/150/main.webp", "/photos/150/4.webp", "/photos/150/6.webp", "/photos/150/8.webp", "/photos/150/9.webp"],
+    photos: [
+      "/photos/150/main.webp",
+      "/photos/150/4.webp",
+      "/photos/150/6.webp",
+      "/photos/150/8.webp",
+      "/photos/150/9.webp",
+    ],
     openingPeriods: [
       { day: 1, open: "17:00", close: "01:00" },
       { day: 2, open: "17:00", close: "01:00" },
@@ -4554,8 +4934,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 520,
     name: "Café des Habitudes",
     address: "1104 Rue Saint-Zotique E",
-    lat: 45.5310,
-    lng: -73.5920,
+    lat: 45.531,
+    lng: -73.592,
     neighborhood: "Petite-Patrie",
     cuisineType: "Café",
     covered: false,
@@ -4585,8 +4965,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 299,
     name: "Café Pista",
     address: "2650 Rue Masson",
-    lat: 45.5380,
-    lng: -73.5790,
+    lat: 45.538,
+    lng: -73.579,
     neighborhood: "Rosemont",
     cuisineType: "Café",
     covered: false,
@@ -4604,8 +4984,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "07:30", close: "18:00" },
       { day: 6, open: "08:00", close: "18:00" },
     ],
-    description:
-      "Corner terrace. Artisanal roasting. Sources: Tastet.",
+    description: "Corner terrace. Artisanal roasting. Sources: Tastet.",
     descriptionFr:
       "Terrasse en coin. Torréfaction artisanale. Sources : Tastet.",
   },
@@ -4617,14 +4996,18 @@ export const terraces: Terrace[] = [
     name: "Fleurimont Café & Vin",
     address: "907 Boulevard Rosemont",
     lat: 45.5355,
-    lng: -73.5830,
+    lng: -73.583,
     neighborhood: "Rosemont",
     cuisineType: "Wine Bar / Café",
     covered: false,
     dogFriendly: false,
     heated: false,
     instagram: "@cafefleurimont",
-    photos: ["/photos/153/main.webp", "/photos/153/6.webp", "/photos/153/7.webp"],
+    photos: [
+      "/photos/153/main.webp",
+      "/photos/153/6.webp",
+      "/photos/153/7.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "09:00", close: "17:00" },
       { day: 1, open: "08:00", close: "17:00" },
@@ -4634,10 +5017,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "08:00", close: "17:00" },
       { day: 6, open: "09:00", close: "17:00" },
     ],
-    description:
-      "Small terrace. Micro-café-caviste. Sources: Tastet.",
-    descriptionFr:
-      "Petite terrasse. Micro-café-caviste. Sources : Tastet.",
+    description: "Small terrace. Micro-café-caviste. Sources: Tastet.",
+    descriptionFr: "Petite terrasse. Micro-café-caviste. Sources : Tastet.",
   },
   {
     id: "154",
@@ -4647,7 +5028,7 @@ export const terraces: Terrace[] = [
     name: "Bar Bello",
     address: "6740 Boulevard Saint-Laurent",
     lat: 45.5295,
-    lng: -73.6010,
+    lng: -73.601,
     neighborhood: "Little Italy",
     cuisineType: "Italian Aperitivo",
     covered: false,
@@ -4696,8 +5077,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "07:30", close: "19:30" },
       { day: 6, open: "07:30", close: "19:30" },
     ],
-    description:
-      "Street terrace. Italian pastries, gelato. Sources: Tastet.",
+    description: "Street terrace. Italian pastries, gelato. Sources: Tastet.",
     descriptionFr:
       "Terrasse sur rue. Pâtisseries italiennes, gelato. Sources : Tastet.",
   },
@@ -4709,7 +5089,7 @@ export const terraces: Terrace[] = [
     name: "Le Relais Boréale",
     address: "159 Rue Jean-Talon O",
     lat: 45.5328,
-    lng: -73.6140,
+    lng: -73.614,
     neighborhood: "Mile-Ex",
     cuisineType: "Brewery",
     covered: false,
@@ -4741,8 +5121,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 119,
     name: "SAE LOW",
     address: "426 Rue Faillon E",
-    lat: 45.5350,
-    lng: -73.6050,
+    lat: 45.535,
+    lng: -73.605,
     neighborhood: "Villeray",
     cuisineType: "Café-Bar / Asian",
     covered: false,
@@ -4770,7 +5150,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 269,
     name: "Buvette Pompette",
     address: "414 Rue Saint-Zotique E",
-    lat: 45.5310,
+    lat: 45.531,
     lng: -73.5955,
     neighborhood: "Villeray",
     cuisineType: "Spanish / Tapas",
@@ -4801,8 +5181,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 273,
     name: "Pub Arya",
     address: "434 Rue Saint-Zotique E",
-    lat: 45.5310,
-    lng: -73.5950,
+    lat: 45.531,
+    lng: -73.595,
     neighborhood: "Villeray",
     cuisineType: "Pub / Oyster Bar",
     covered: false,
@@ -4831,8 +5211,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 201,
     name: "SUPERNAT",
     address: "4316 Rue Sainte-Catherine E",
-    lat: 45.5340,
-    lng: -73.5480,
+    lat: 45.534,
+    lng: -73.548,
     neighborhood: "Hochelaga",
     cuisineType: "Wine Bar / Vietnamese",
     covered: false,
@@ -4860,8 +5240,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1170,
     name: "Labarake",
     address: "3165 Rue Rachel E",
-    lat: 45.5300,
-    lng: -73.5520,
+    lat: 45.53,
+    lng: -73.552,
     neighborhood: "Hochelaga",
     cuisineType: "Québécois",
     covered: false,
@@ -4897,7 +5277,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 401,
     name: "Mignon",
     address: "2523 Rue Notre-Dame O",
-    lat: 45.4800,
+    lat: 45.48,
     lng: -73.5858,
     neighborhood: "Little Burgundy",
     cuisineType: "Steakhouse",
@@ -4939,7 +5319,11 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://coffeepizzawine.com",
     instagram: "@elenamontreal",
-    photos: ["/photos/163/main.webp", "/photos/163/1.webp", "/photos/163/6.webp"],
+    photos: [
+      "/photos/163/main.webp",
+      "/photos/163/1.webp",
+      "/photos/163/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:30", close: "22:00" },
       { day: 1, open: "16:30", close: "22:00" },
@@ -5011,10 +5395,8 @@ export const terraces: Terrace[] = [
       { day: 5, open: "08:00", close: "15:00" },
       { day: 6, open: "09:00", close: "15:00" },
     ],
-    description:
-      "Wooden benches terrace. Sources: Tastet.",
-    descriptionFr:
-      "Terrasse avec bancs en bois. Sources : Tastet.",
+    description: "Wooden benches terrace. Sources: Tastet.",
+    descriptionFr: "Terrasse avec bancs en bois. Sources : Tastet.",
   },
   {
     id: "187",
@@ -5055,7 +5437,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1506,
     name: "Memento",
     address: "2471 Rue Saint-Patrick",
-    lat: 45.4780,
+    lat: 45.478,
     lng: -73.5665,
     neighborhood: "Pointe-Saint-Charles",
     cuisineType: "Brewery / Wine Bar",
@@ -5087,7 +5469,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 939,
     name: "BENELUX (Verdun)",
     address: "4026 Rue Wellington",
-    lat: 45.4590,
+    lat: 45.459,
     lng: -73.5685,
     neighborhood: "Verdun",
     cuisineType: "Brewery",
@@ -5097,7 +5479,13 @@ export const terraces: Terrace[] = [
     heated: true,
     website: "https://brasseriebenelux.com",
     instagram: "@benelux_brasserieartisanale",
-    photos: ["/photos/167/main.webp", "/photos/167/2.webp", "/photos/167/3.webp", "/photos/167/8.webp", "/photos/167/9.webp"],
+    photos: [
+      "/photos/167/main.webp",
+      "/photos/167/2.webp",
+      "/photos/167/3.webp",
+      "/photos/167/8.webp",
+      "/photos/167/9.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "14:00", close: "03:00" },
       { day: 1, open: "15:00", close: "03:00" },
@@ -5225,7 +5613,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.escondite.ca",
     instagram: "@escondite_mtl",
-    photos: ["/photos/195/main.webp", "/photos/195/0.webp", "/photos/195/1.webp", "/photos/195/6.webp"],
+    photos: [
+      "/photos/195/main.webp",
+      "/photos/195/0.webp",
+      "/photos/195/1.webp",
+      "/photos/195/6.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:00", close: "21:00" },
       { day: 2, open: "17:30", close: "21:00" },
@@ -5333,8 +5726,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "08:00", close: "19:00" },
       { day: 6, open: "09:00", close: "18:00" },
     ],
-    description:
-      "Sunlit terrace. Italian pastries. Sources: Tastet.",
+    description: "Sunlit terrace. Italian pastries. Sources: Tastet.",
     descriptionFr:
       "Terrasse ensoleillée. Pâtisseries italiennes. Sources : Tastet.",
   },
@@ -5381,7 +5773,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1387,
     name: "Le Boating Club",
     address: "30 Boulevard Curé-Labelle",
-    lat: 45.5460,
+    lat: 45.546,
     lng: -73.7485,
     neighborhood: "Laval",
     cuisineType: "Bistro",
@@ -5446,8 +5838,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1996,
     name: "Les Insulaires Microbrasseurs",
     address: "275 Boulevard de la Concorde E",
-    lat: 45.5630,
-    lng: -73.7350,
+    lat: 45.563,
+    lng: -73.735,
     neighborhood: "Laval",
     cuisineType: "Brewery",
     covered: false,
@@ -5478,7 +5870,7 @@ export const terraces: Terrace[] = [
     name: "Le Mitoyen",
     address: "652 Rue de la Place-Publique",
     lat: 45.4955,
-    lng: -73.8100,
+    lng: -73.81,
     neighborhood: "Laval",
     cuisineType: "French / Gastronomic",
     covered: false,
@@ -5512,7 +5904,7 @@ export const terraces: Terrace[] = [
     name: "Chez Vincent",
     address: "327 Rue Saint-Laurent O",
     lat: 45.5308,
-    lng: -73.5220,
+    lng: -73.522,
     neighborhood: "South Shore",
     cuisineType: "Bistro / Pub",
     covered: true,
@@ -5542,7 +5934,7 @@ export const terraces: Terrace[] = [
     name: "Bravi",
     address: "2794 Boulevard Jacques-Cartier E",
     lat: 45.5185,
-    lng: -73.4650,
+    lng: -73.465,
     neighborhood: "South Shore",
     cuisineType: "Italian",
     terraceType: ["backyard"],
@@ -5576,8 +5968,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1306,
     name: "Dirty D",
     address: "9330 Boulevard Leduc",
-    lat: 45.4510,
-    lng: -73.4620,
+    lat: 45.451,
+    lng: -73.462,
     neighborhood: "South Shore",
     cuisineType: "Mexican / Bar",
     covered: false,
@@ -5585,7 +5977,12 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://dirtydivebar.com",
     instagram: "@dirtydivebar",
-    photos: ["/photos/178/main.webp", "/photos/178/1.webp", "/photos/178/5.webp", "/photos/178/7.webp"],
+    photos: [
+      "/photos/178/main.webp",
+      "/photos/178/1.webp",
+      "/photos/178/5.webp",
+      "/photos/178/7.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "11:30", close: "03:00" },
       { day: 1, open: "11:30", close: "03:00" },
@@ -5644,7 +6041,7 @@ export const terraces: Terrace[] = [
     name: "Annie's Sur-le-Lac",
     address: "76 Rue Sainte-Anne",
     lat: 45.4082,
-    lng: -73.9580,
+    lng: -73.958,
     neighborhood: "West Island",
     cuisineType: "Canadian / Pub",
     terraceType: ["sidewalk"],
@@ -5653,7 +6050,14 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://annies.ca",
     instagram: "@annies_sur_le_lac",
-    photos: ["/photos/180/main.webp", "/photos/180/2.webp", "/photos/180/3.webp", "/photos/180/4.webp", "/photos/180/7.webp", "/photos/180/8.webp"],
+    photos: [
+      "/photos/180/main.webp",
+      "/photos/180/2.webp",
+      "/photos/180/3.webp",
+      "/photos/180/4.webp",
+      "/photos/180/7.webp",
+      "/photos/180/8.webp",
+    ],
     openingPeriods: [
       { day: 2, open: "11:30", close: "23:00" },
       { day: 3, open: "11:30", close: "23:00" },
@@ -5672,7 +6076,7 @@ export const terraces: Terrace[] = [
     name: "Olé Tapas",
     address: "132 Rue Sainte-Anne",
     lat: 45.4076,
-    lng: -73.9630,
+    lng: -73.963,
     neighborhood: "West Island",
     cuisineType: "Spanish / Tapas",
     terraceType: ["sidewalk"],
@@ -5698,7 +6102,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 273,
     name: "Delos Resto-Bar",
     address: "53A Rue Sainte-Anne",
-    lat: 45.4080,
+    lat: 45.408,
     lng: -73.9565,
     neighborhood: "West Island",
     cuisineType: "Greek",
@@ -5726,8 +6130,8 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1635,
     name: "Ye Olde Orchard Pub & Grill",
     address: "322 Chemin du Bord-du-Lac-Lakeshore",
-    lat: 45.4430,
-    lng: -73.8290,
+    lat: 45.443,
+    lng: -73.829,
     neighborhood: "West Island",
     cuisineType: "Pub / Grill",
     terraceType: ["sidewalk"],
@@ -5786,7 +6190,7 @@ export const terraces: Terrace[] = [
     name: "Bernies Pizza Martini Bar",
     address: "3627 Boulevard des Sources",
     lat: 45.4975,
-    lng: -73.8210,
+    lng: -73.821,
     neighborhood: "West Island",
     cuisineType: "Pizza / Bar",
     capacity: 80,
@@ -5815,7 +6219,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 646,
     name: "Restaurant Le Gourmand",
     address: "42 Rue Sainte-Anne",
-    lat: 45.4450,
+    lat: 45.445,
     lng: -73.8305,
     neighborhood: "West Island",
     cuisineType: "Contemporary French",
@@ -5862,9 +6266,7 @@ export const terraces: Terrace[] = [
     photos: ["/photos/188/main.webp", "/photos/188/2.webp"],
     seasonalOpen: "Spring",
     seasonalClose: "Fall",
-    openingPeriods: [
-      { day: 0, open: "10:00", close: "22:00" },
-    ],
+    openingPeriods: [{ day: 0, open: "10:00", close: "22:00" }],
     description:
       "Ceviche-focused seafood restaurant on Place Royale in Old Montreal with a sidewalk terrace open seasonally. Mediterranean and South American influences, fresh fish and shellfish preparations. Sources: seasaltmtl.com, Tourisme Montréal.",
     descriptionFr:
@@ -5889,7 +6291,8 @@ export const terraces: Terrace[] = [
     covered: false,
     dogFriendly: false,
     heated: false,
-    website: "https://restaurantmonza.com/en/locations/restaurant-montreal-downtown/",
+    website:
+      "https://restaurantmonza.com/en/locations/restaurant-montreal-downtown/",
     phone: "514-878-3400",
     instagram: "@enotecamonza",
     photos: ["/photos/189/main.webp"],
@@ -5914,7 +6317,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1177,
     name: "Enoteca Monza Pizzeria Moderna – Sherbrooke Est",
     address: "5660 Rue Sherbrooke E",
-    lat: 45.5724150,
+    lat: 45.572415,
     lng: -73.5487984,
     neighborhood: "Hochelaga",
     cuisineType: "Italian / Pizza",
@@ -5923,7 +6326,8 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: true,
     capacity: 100,
-    website: "https://restaurantmonza.com/en/locations/restaurant-montreal-sherbrooke-east/",
+    website:
+      "https://restaurantmonza.com/en/locations/restaurant-montreal-sherbrooke-east/",
     phone: "514-400-8822",
     instagram: "@enotecamonza",
     photos: [],
@@ -5981,7 +6385,7 @@ export const terraces: Terrace[] = [
     googleReviewCount: 1247,
     name: "Jellyfish",
     address: "626 Rue Marguerite-d'Youville",
-    lat: 45.5020,
+    lat: 45.502,
     lng: -73.5565,
     neighborhood: "Old Montreal",
     cuisineType: "Crudo & Charcoal",
@@ -6000,8 +6404,7 @@ export const terraces: Terrace[] = [
       { day: 5, open: "17:30", close: "23:00" },
       { day: 6, open: "17:30", close: "23:00" },
     ],
-    description:
-      "Terrace in prime Old Montreal setting. Sources: Tastet.",
+    description: "Terrace in prime Old Montreal setting. Sources: Tastet.",
     descriptionFr:
       "Terrasse idéalement située dans le Vieux-Montréal. Sources: Tastet.",
   },
