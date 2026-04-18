@@ -3,8 +3,10 @@
 Discover every terrace and patio in Montreal.
 
 **Production URL**: https://terrasseseason.com
+**Hosting**: Vercel (migrated from Netlify)
 
 ## Tech Stack
+
 - **Framework**: Next.js 16 (App Router, TypeScript)
 - **Styling**: Tailwind CSS v4, warm/earthy theme
 - **Fonts**: Playfair Display (display) + DM Sans (body) via Google Fonts
@@ -12,6 +14,7 @@ Discover every terrace and patio in Montreal.
 - **Data**: Static seed data (170 terraces), no database yet
 
 ## File Structure
+
 ```
 src/
 ├── app/
@@ -33,11 +36,13 @@ src/
 ```
 
 ## Commands
+
 - `npm run dev` — Start dev server
 - `npm run build` — Production build
 - `npm start` — Start production server
 
 ## Key Decisions
+
 - **Supabase is live** — Used for reviews. Plan: expand to submissions, PostGIS geo queries in v2.
 - **Data sourcing** — Terraces compiled from Time Out, Tastet, Cult MTL, Tourisme Montreal, Narcity, Daily Hive, OpenTable, Montreal Diaries, MTL Blog, The Rooftop Guide, experienceoldmontreal.com, and Eater Montreal. Cross-referenced across multiple lists. Sources from 2024-2025 preferred.
 - **Data integrity** — Optional fields (terraceType, capacity, openingHours, seasonalOpen/Close) are only set when confirmed by source articles. Boolean flags (heated, dogFriendly, covered) default to false and are only set true when explicitly confirmed. Missing data is hidden in the UI, never shown as zeros or defaults.
@@ -46,6 +51,7 @@ src/
 - **Warm earthy aesthetic** — Background #faf6f1, accent #c45d3e, with Playfair Display + DM Sans fonts.
 
 ## Data Conventions
+
 - Each terrace description cites its source publication
 - `terraceType` only set when source explicitly describes the terrace type
 - `heated`, `dogFriendly`, `covered` only `true` when confirmed by source or establishment
@@ -58,12 +64,14 @@ src/
 ## ⚠️ SECURITY
 
 ### Google API Key
+
 - The key lives ONLY in `.env.local` — this file is gitignored, never commit it
 - Used only for `scripts/fetch-hours.js` — hours data fetching via Google Places API
 - Restrict the key in Google Cloud Console to: Places API (New) only
 - Set `GOOGLE_PLACES_API_KEY` as an environment variable in Netlify
 
 ## Photos
+
 - All terrace photos are in `public/photos/{id}/` as WebP files, committed to git and served via Netlify CDN
 - No external photo service (Supabase Storage removed)
 - Street View removed — not used
@@ -79,6 +87,7 @@ Full schema in memory file `supabase_schema.md`. Tables:
 - **`terrace_events`** — analytics events (views, clicks) with `event_type`, `session_id`, `device_type`
 
 ## Planned V2 Features
+
 - Supabase backend with PostGIS for geo queries
 - Working submission form (currently logs to console)
 - Crowdsourced availability reporting
