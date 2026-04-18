@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { Terrace } from "@/lib/types";
@@ -95,6 +96,7 @@ function formatDate(dateStr: string, lang: string): string {
 
 export default function OpenPage() {
   const { t, lang } = useLang();
+  const router = useRouter();
   const [data, setData] = useState<SeasonData | null>(null);
 
   // Sort & filters
@@ -539,10 +541,7 @@ export default function OpenPage() {
                 <div className="absolute top-full mt-1.5 left-0 bg-white rounded-xl border border-border shadow-lg py-1.5 min-w-[190px] z-30">
                   {[
                     {
-                      label:
-                        lang === "fr"
-                          ? "Ouvert pour la saison"
-                          : "Open for the season",
+                      label: lang === "fr" ? "Ouvert maintenant" : "Open now",
                       checked: openForSeason,
                       toggle: () => setOpenForSeason((v) => !v),
                     },
@@ -618,7 +617,8 @@ export default function OpenPage() {
               return (
                 <div
                   key={terrace.id}
-                  className={`flex items-center gap-4 p-4 rounded-xl border transition-colors ${
+                  onClick={() => router.push(`/?terrace=${terrace.id}`)}
+                  className={`flex items-center gap-4 p-4 rounded-xl border transition-colors cursor-pointer hover:opacity-80 ${
                     status === "open"
                       ? "border-green-500/25 bg-green-500/[0.03]"
                       : status === "reported"
@@ -675,7 +675,10 @@ export default function OpenPage() {
 
                   {canUndo && (
                     <button
-                      onClick={() => handleUndo(terrace.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleUndo(terrace.id);
+                      }}
                       disabled={isUndoing}
                       className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50"
                     >

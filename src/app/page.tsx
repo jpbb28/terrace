@@ -389,6 +389,15 @@ export default function Home() {
     setSelectedId(id);
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("terrace");
+    if (id) {
+      openTerrace(id);
+      window.history.replaceState({}, "", "/");
+    }
+  }, [openTerrace]);
+
   const openFromCard = useCallback(
     (id: string) => {
       trackEvent(id, "card_click");
