@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import Link from "next/link";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
@@ -15,8 +15,62 @@ interface SeasonData {
   today: string;
 }
 
-type SortKey = "open_first" | "az" | "neighborhood";
+type SortKey = "opens_soonest" | "az" | "near_me";
 type StatusKey = "open" | "soon" | "reported" | "closed";
+
+const NEIGHBORHOODS = [
+  "Ahuntsic",
+  "Chinatown",
+  "Downtown",
+  "Griffintown",
+  "Hochelaga",
+  "Latin Quarter",
+  "Laval",
+  "Little Burgundy",
+  "Little Italy",
+  "Mile End",
+  "Mile-Ex",
+  "NDG",
+  "Old Montreal",
+  "Old Port",
+  "Outremont",
+  "Parc-Extension",
+  "Petite-Patrie",
+  "Plateau-Mont-Royal",
+  "Pointe-Saint-Charles",
+  "Quartier des Spectacles",
+  "Rosemont",
+  "Saint-Henri",
+  "South Shore",
+  "The Village",
+  "Verdun",
+  "Villeray",
+  "West Island",
+];
+
+const STATUS_ORDER: Record<StatusKey, number> = {
+  open: 0,
+  reported: 1,
+  soon: 2,
+  closed: 3,
+};
+
+function haversineKm(
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number,
+): number {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
 
 // Only called for terraces that are in the filtered list (have some signal)
 function getStatus(terraceId: string, data: SeasonData): StatusKey {
@@ -39,17 +93,23 @@ function formatDate(dateStr: string, lang: string): string {
   );
 }
 
-const STATUS_ORDER: Record<StatusKey, number> = {
-  open: 0,
-  reported: 1,
-  soon: 2,
-  closed: 3,
-};
-
 export default function OpenPage() {
   const { t, lang } = useLang();
   const [data, setData] = useState<SeasonData | null>(null);
-  const [sort, setSort] = useState<SortKey>("open_first");
+
+  // Sort & filters
+  const [sort, setSort] = useState<SortKey>("opens_soonest");
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState<string[]>(
+    [],
+  );
+  const [dogFriendly, setDogFriendly] = useState(false);
+  const [covered, setCovered] = useState(false);
+  const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
+  const [userLocation, setUserLocation] = useState<{
+    lat: number;
+    lng: number;
+  } | null>(null);
+  const [locating, setLocating] = useState(false);
 
   // Submission form
   const [formSearch, setFormSearch] = useState("");
@@ -59,13 +119,27 @@ export default function OpenPage() {
   const [customDate, setCustomDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  // Tracks which terraces the user submitted this session (for undo)
+  // Undo — persisted across sessions in localStorage
   const [undoable, setUndoable] = useState<Map<string, string>>(new Map());
   const [undoing, setUndoing] = useState<Set<string>>(new Set());
 
+  const neighborhoodRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Restore previous submissions for undo
+    try {
+      const saved = JSON.parse(
+        localStorage.getItem("submitted_dates") ?? "[]",
+      ) as string[];
+      const map = new Map<string, string>();
+      for (const id of saved) {
+        const match = terraces.find((x) => x.id === id);
+        if (match) map.set(id, match.name);
+      }
+      setUndoable(map);
+    } catch {}
+
     fetch("/api/open-reports")
       .then((r) => r.json())
       .then(setData);
@@ -73,6 +147,12 @@ export default function OpenPage() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
+      if (
+        neighborhoodRef.current &&
+        !neighborhoodRef.current.contains(e.target as Node)
+      ) {
+        setNeighborhoodOpen(false);
+      }
       if (formRef.current && !formRef.current.contains(e.target as Node)) {
         setFormDropdownOpen(false);
       }
@@ -80,6 +160,30 @@ export default function OpenPage() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleNearMe = useCallback(() => {
+    if (sort === "near_me") {
+      setSort("opens_soonest");
+      return;
+    }
+    if (userLocation) {
+      setSort("near_me");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLocation({
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+        });
+        setSort("near_me");
+        setLocating(false);
+      },
+      () => setLocating(false),
+      { timeout: 5000, maximumAge: 300000, enableHighAccuracy: false },
+    );
+  }, [sort, userLocation]);
 
   const formResults = useMemo(() => {
     if (formSearch.trim().length < 2) return [];
@@ -105,6 +209,7 @@ export default function OpenPage() {
     if (res.ok) {
       const tid = formTerrace.id;
       const tname = formTerrace.name;
+
       setData((prev) =>
         prev
           ? {
@@ -120,7 +225,20 @@ export default function OpenPage() {
             }
           : prev,
       );
+
       setUndoable((prev) => new Map(prev).set(tid, tname));
+      try {
+        const saved: string[] = JSON.parse(
+          localStorage.getItem("submitted_dates") ?? "[]",
+        );
+        if (!saved.includes(tid)) {
+          localStorage.setItem(
+            "submitted_dates",
+            JSON.stringify([...saved, tid]),
+          );
+        }
+      } catch {}
+
       setFormTerrace(null);
       setFormSearch("");
       setDateMode("today");
@@ -151,6 +269,14 @@ export default function OpenPage() {
         next.delete(terraceId);
         return next;
       });
+      try {
+        const remaining: string[] = (
+          JSON.parse(
+            localStorage.getItem("submitted_dates") ?? "[]",
+          ) as string[]
+        ).filter((id) => id !== terraceId);
+        localStorage.setItem("submitted_dates", JSON.stringify(remaining));
+      } catch {}
     }
 
     setUndoing((s) => {
@@ -160,18 +286,20 @@ export default function OpenPage() {
     });
   }
 
-  // Only show terraces that have some signal
-  const listedTerraces = useMemo(() => {
+  const sortedList = useMemo(() => {
     if (!data) return [];
-    return terraces.filter(
+
+    let list = terraces.filter(
       (t) => data.official[t.id] || (data.crowdsource[t.id] ?? 0) > 0,
     );
-  }, [data]);
 
-  const sortedList = useMemo(() => {
-    if (!data) return listedTerraces;
-    const list = [...listedTerraces];
-    if (sort === "open_first") {
+    if (selectedNeighborhoods.length > 0) {
+      list = list.filter((t) => selectedNeighborhoods.includes(t.neighborhood));
+    }
+    if (dogFriendly) list = list.filter((t) => t.dogFriendly);
+    if (covered) list = list.filter((t) => t.covered);
+
+    if (sort === "opens_soonest") {
       list.sort((a, b) => {
         const sa = STATUS_ORDER[getStatus(a.id, data)];
         const sb = STATUS_ORDER[getStatus(b.id, data)];
@@ -179,15 +307,38 @@ export default function OpenPage() {
       });
     } else if (sort === "az") {
       list.sort((a, b) => a.name.localeCompare(b.name));
-    } else {
-      list.sort(
-        (a, b) =>
-          a.neighborhood.localeCompare(b.neighborhood) ||
-          a.name.localeCompare(b.name),
-      );
+    } else if (sort === "near_me" && userLocation) {
+      list.sort((a, b) => {
+        const da = haversineKm(
+          userLocation.lat,
+          userLocation.lng,
+          a.lat,
+          a.lng,
+        );
+        const db = haversineKm(
+          userLocation.lat,
+          userLocation.lng,
+          b.lat,
+          b.lng,
+        );
+        return da - db;
+      });
     }
+
     return list;
-  }, [listedTerraces, sort, data]);
+  }, [data, selectedNeighborhoods, dogFriendly, covered, sort, userLocation]);
+
+  const pillClass = (active: boolean) =>
+    `shrink-0 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer whitespace-nowrap ${
+      active
+        ? "bg-foreground text-white border-foreground"
+        : "border-border text-muted hover:border-border-strong hover:text-foreground"
+    }`;
+
+  const activeFilterCount =
+    selectedNeighborhoods.length + (dogFriendly ? 1 : 0) + (covered ? 1 : 0);
+
+  const today = data?.today ?? "";
 
   const LogoIcon = () => (
     <svg
@@ -208,8 +359,6 @@ export default function OpenPage() {
     </svg>
   );
 
-  const today = data?.today ?? "";
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -218,7 +367,7 @@ export default function OpenPage() {
           href="/"
           className="text-muted hover:text-foreground text-sm transition-colors"
         >
-          {t.backToMap}
+          {lang === "fr" ? "← Accueil" : "← Back home"}
         </Link>
         <div className="flex items-center gap-2">
           <LogoIcon />
@@ -235,31 +384,135 @@ export default function OpenPage() {
           <p className="text-muted text-sm max-w-lg">{t.openPageSubtitle}</p>
         </div>
 
-        {/* Sort controls — only when there's something to sort */}
-        {sortedList.length > 0 && (
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <div className="flex rounded-lg border border-border overflow-hidden text-xs">
-              {(["open_first", "az", "neighborhood"] as SortKey[]).map(
-                (key) => {
-                  const labels: Record<SortKey, string> = {
-                    open_first: t.sortOpenFirst,
-                    az: t.sortAZ,
-                    neighborhood: t.sortNeighborhood,
-                  };
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => setSort(key)}
-                      className={`px-3 py-1.5 transition-colors cursor-pointer ${sort === key ? "bg-accent text-white" : "text-muted hover:text-foreground"}`}
+        {/* Sort + filters */}
+        <div className="space-y-3 mb-6">
+          {/* Sort row */}
+          <div className="flex rounded-lg border border-border overflow-hidden text-xs self-start w-fit">
+            {(
+              [
+                [
+                  "opens_soonest",
+                  lang === "fr" ? "Ouvre en premier" : "Opens soonest",
+                ],
+                ["az", "A–Z"],
+                [
+                  "near_me",
+                  locating
+                    ? lang === "fr"
+                      ? "Localisation…"
+                      : "Locating…"
+                    : lang === "fr"
+                      ? "Près de moi"
+                      : "Near me",
+                ],
+              ] as [SortKey, string][]
+            ).map(([key, label]) => (
+              <button
+                key={key}
+                onClick={key === "near_me" ? handleNearMe : () => setSort(key)}
+                className={`px-3 py-1.5 transition-colors cursor-pointer whitespace-nowrap ${sort === key ? "bg-accent text-white" : "text-muted hover:text-foreground"}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* Filter row */}
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Neighborhood dropdown */}
+            <div className="relative" ref={neighborhoodRef}>
+              <button
+                onClick={() => setNeighborhoodOpen((v) => !v)}
+                className={`flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer whitespace-nowrap ${
+                  selectedNeighborhoods.length > 0
+                    ? "bg-foreground text-white border-foreground"
+                    : "border-border text-muted hover:border-border-strong hover:text-foreground"
+                }`}
+              >
+                {selectedNeighborhoods.length === 0
+                  ? lang === "fr"
+                    ? "Tous les quartiers"
+                    : "All neighborhoods"
+                  : selectedNeighborhoods.length === 1
+                    ? selectedNeighborhoods[0]
+                    : `${selectedNeighborhoods.length} ${lang === "fr" ? "quartiers" : "neighborhoods"}`}
+                <svg
+                  className={`w-3 h-3 shrink-0 transition-transform ${neighborhoodOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {neighborhoodOpen && (
+                <div className="absolute top-full mt-1.5 left-0 bg-white rounded-xl border border-border shadow-lg py-1.5 min-w-[200px] max-h-60 overflow-y-auto z-30">
+                  {selectedNeighborhoods.length > 0 && (
+                    <div className="px-3 py-1.5 border-b border-border">
+                      <button
+                        onClick={() => setSelectedNeighborhoods([])}
+                        className="text-[11px] text-accent hover:underline cursor-pointer"
+                      >
+                        {lang === "fr" ? "Tout effacer" : "Clear all"}
+                      </button>
+                    </div>
+                  )}
+                  {NEIGHBORHOODS.map((n) => (
+                    <label
+                      key={n}
+                      className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors"
                     >
-                      {labels[key]}
-                    </button>
-                  );
-                },
+                      <input
+                        type="checkbox"
+                        checked={selectedNeighborhoods.includes(n)}
+                        onChange={() =>
+                          setSelectedNeighborhoods((prev) =>
+                            prev.includes(n)
+                              ? prev.filter((x) => x !== n)
+                              : [...prev, n],
+                          )
+                        }
+                        className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
+                      />
+                      <span className="text-sm text-foreground">{n}</span>
+                    </label>
+                  ))}
+                </div>
               )}
             </div>
+
+            <button
+              onClick={() => setDogFriendly((v) => !v)}
+              className={pillClass(dogFriendly)}
+            >
+              {t.dogFriendly}
+            </button>
+            <button
+              onClick={() => setCovered((v) => !v)}
+              className={pillClass(covered)}
+            >
+              {t.covered}
+            </button>
+
+            {activeFilterCount > 0 && (
+              <button
+                onClick={() => {
+                  setSelectedNeighborhoods([]);
+                  setDogFriendly(false);
+                  setCovered(false);
+                }}
+                className="text-xs text-muted hover:text-foreground transition-colors cursor-pointer"
+              >
+                {lang === "fr" ? "Effacer les filtres" : "Clear filters"}
+              </button>
+            )}
           </div>
-        )}
+        </div>
 
         {/* List */}
         {!data ? (
@@ -438,7 +691,8 @@ export default function OpenPage() {
                           ? "Chercher par nom..."
                           : "Search by name..."
                       }
-                      className="flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-light"
+                      className="flex-1 bg-transparent outline-none text-foreground placeholder:text-muted-light"
+                      style={{ fontSize: "16px" }}
                     />
                     {formSearch && (
                       <button
@@ -464,24 +718,36 @@ export default function OpenPage() {
 
                   {formDropdownOpen && formResults.length > 0 && (
                     <div className="absolute top-full mt-1.5 w-full bg-white rounded-xl border border-border shadow-lg z-20 overflow-hidden">
-                      {formResults.map((terrace) => (
-                        <button
-                          key={terrace.id}
-                          onClick={() => {
-                            setFormTerrace(terrace);
-                            setFormSearch("");
-                            setFormDropdownOpen(false);
-                          }}
-                          className="w-full flex items-center justify-between px-4 py-3 hover:bg-foreground/[0.04] transition-colors text-left cursor-pointer border-b border-border last:border-0"
-                        >
-                          <span className="text-sm font-medium">
-                            {terrace.name}
-                          </span>
-                          <span className="text-xs text-muted shrink-0 ml-2">
-                            {terrace.neighborhood}
-                          </span>
-                        </button>
-                      ))}
+                      {formResults.map((terrace) => {
+                        const existing = data?.official[terrace.id];
+                        return (
+                          <button
+                            key={terrace.id}
+                            onClick={() => {
+                              setFormTerrace(terrace);
+                              setFormSearch("");
+                              setFormDropdownOpen(false);
+                            }}
+                            className="w-full flex items-center justify-between px-4 py-3 hover:bg-foreground/[0.04] transition-colors text-left cursor-pointer border-b border-border last:border-0"
+                          >
+                            <div>
+                              <span className="text-sm font-medium block">
+                                {terrace.name}
+                              </span>
+                              <span className="text-xs text-muted">
+                                {terrace.neighborhood}
+                              </span>
+                            </div>
+                            {existing && (
+                              <span className="text-[10px] text-amber-600 shrink-0 ml-3 font-medium">
+                                {lang === "fr"
+                                  ? "Dates enregistrées"
+                                  : "Has dates"}
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
 
@@ -499,7 +765,7 @@ export default function OpenPage() {
             </div>
           </div>
 
-          {/* Step 2: date — only shown after a terrace is selected */}
+          {/* Step 2: date — shown after picking a terrace */}
           {formTerrace && (
             <>
               <div className="mb-5">
@@ -528,14 +794,39 @@ export default function OpenPage() {
                     {lang === "fr" ? "Choisir une date" : "Pick a date"}
                   </button>
                 </div>
+
                 {dateMode === "date" && (
-                  <input
-                    type="date"
-                    value={customDate}
-                    onChange={(e) => setCustomDate(e.target.value)}
-                    min={today}
-                    className="mt-3 block px-3 py-2 bg-white border border-border rounded-lg text-sm text-foreground outline-none focus:border-accent/50 transition-colors"
-                  />
+                  <div className="mt-3">
+                    <div className="relative inline-flex items-center">
+                      <svg
+                        className="absolute left-3 w-4 h-4 text-muted pointer-events-none"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      <input
+                        type="date"
+                        value={customDate}
+                        onChange={(e) => setCustomDate(e.target.value)}
+                        min={today}
+                        className="pl-10 pr-4 py-2.5 bg-white border border-border rounded-xl text-foreground outline-none focus:border-accent/50 transition-colors cursor-pointer"
+                        style={{ fontSize: "16px" }}
+                      />
+                    </div>
+                    {!customDate && (
+                      <p className="text-xs text-muted mt-2">
+                        {lang === "fr"
+                          ? "Appuyez sur le champ pour ouvrir le calendrier"
+                          : "Tap the field to open the calendar"}
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
 

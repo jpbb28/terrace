@@ -1012,14 +1012,16 @@ export default function Home() {
             </div>
           </div>
           {!selectedTerrace && (
-            <Link
-              href="/open"
-              className="-mx-4 flex items-center justify-center py-2 mt-2 mb-2 bg-green-700/[0.08] border-y border-green-700/15 text-[11px] font-medium text-green-800"
-            >
-              {lang === "fr"
-                ? "Terrasses ouvertes cette saison"
-                : "What's open this season?"}
-            </Link>
+            <div className="-mx-4 flex items-center justify-center py-2.5 mt-2 mb-2 bg-green-700/[0.07] border-y border-green-700/12">
+              <Link
+                href="/open"
+                className="px-4 py-1.5 rounded-full bg-green-700 text-white text-[11px] font-semibold shadow-sm"
+              >
+                {lang === "fr"
+                  ? "Terrasses ouvertes cette saison"
+                  : "What's open this season?"}
+              </Link>
+            </div>
           )}
           {!selectedTerrace && <FilterBar {...filterBarProps} />}
         </div>
