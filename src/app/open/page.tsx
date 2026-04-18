@@ -104,7 +104,9 @@ export default function OpenPage() {
   );
   const [dogFriendly, setDogFriendly] = useState(false);
   const [covered, setCovered] = useState(false);
+  const [openForSeason, setOpenForSeason] = useState(false);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
+  const [filtersDropdownOpen, setFiltersDropdownOpen] = useState(false);
   const [userLocation, setUserLocation] = useState<{
     lat: number;
     lng: number;
@@ -124,6 +126,7 @@ export default function OpenPage() {
   const [undoing, setUndoing] = useState<Set<string>>(new Set());
 
   const neighborhoodRef = useRef<HTMLDivElement>(null);
+  const filtersDropdownRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -152,6 +155,12 @@ export default function OpenPage() {
         !neighborhoodRef.current.contains(e.target as Node)
       ) {
         setNeighborhoodOpen(false);
+      }
+      if (
+        filtersDropdownRef.current &&
+        !filtersDropdownRef.current.contains(e.target as Node)
+      ) {
+        setFiltersDropdownOpen(false);
       }
       if (formRef.current && !formRef.current.contains(e.target as Node)) {
         setFormDropdownOpen(false);
@@ -296,6 +305,8 @@ export default function OpenPage() {
     if (selectedNeighborhoods.length > 0) {
       list = list.filter((t) => selectedNeighborhoods.includes(t.neighborhood));
     }
+    if (openForSeason)
+      list = list.filter((t) => getStatus(t.id, data) === "open");
     if (dogFriendly) list = list.filter((t) => t.dogFriendly);
     if (covered) list = list.filter((t) => t.covered);
 
@@ -326,17 +337,21 @@ export default function OpenPage() {
     }
 
     return list;
-  }, [data, selectedNeighborhoods, dogFriendly, covered, sort, userLocation]);
-
-  const pillClass = (active: boolean) =>
-    `shrink-0 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer whitespace-nowrap ${
-      active
-        ? "bg-foreground text-white border-foreground"
-        : "border-border text-muted hover:border-border-strong hover:text-foreground"
-    }`;
+  }, [
+    data,
+    selectedNeighborhoods,
+    openForSeason,
+    dogFriendly,
+    covered,
+    sort,
+    userLocation,
+  ]);
 
   const activeFilterCount =
-    selectedNeighborhoods.length + (dogFriendly ? 1 : 0) + (covered ? 1 : 0);
+    selectedNeighborhoods.length +
+    (openForSeason ? 1 : 0) +
+    (dogFriendly ? 1 : 0) +
+    (covered ? 1 : 0);
 
   const today = data?.today ?? "";
 
@@ -486,23 +501,84 @@ export default function OpenPage() {
               )}
             </div>
 
-            <button
-              onClick={() => setDogFriendly((v) => !v)}
-              className={pillClass(dogFriendly)}
-            >
-              {t.dogFriendly}
-            </button>
-            <button
-              onClick={() => setCovered((v) => !v)}
-              className={pillClass(covered)}
-            >
-              {t.covered}
-            </button>
+            {/* Filters dropdown: Open now · Dog-friendly · Covered */}
+            <div className="relative" ref={filtersDropdownRef}>
+              {(() => {
+                const count =
+                  (openForSeason ? 1 : 0) +
+                  (dogFriendly ? 1 : 0) +
+                  (covered ? 1 : 0);
+                return (
+                  <button
+                    onClick={() => setFiltersDropdownOpen((v) => !v)}
+                    className={`flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer whitespace-nowrap ${
+                      count > 0
+                        ? "bg-foreground text-white border-foreground"
+                        : "border-border text-muted hover:border-border-strong hover:text-foreground"
+                    }`}
+                  >
+                    {lang === "fr" ? "Filtres" : "Filters"}
+                    {count > 0 && ` (${count})`}
+                    <svg
+                      className={`w-3 h-3 shrink-0 transition-transform ${filtersDropdownOpen ? "rotate-180" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        d="M19 9l-7 7-7-7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                );
+              })()}
+              {filtersDropdownOpen && (
+                <div className="absolute top-full mt-1.5 left-0 bg-white rounded-xl border border-border shadow-lg py-1.5 min-w-[190px] z-30">
+                  {[
+                    {
+                      label:
+                        lang === "fr"
+                          ? "Ouvert pour la saison"
+                          : "Open for the season",
+                      checked: openForSeason,
+                      toggle: () => setOpenForSeason((v) => !v),
+                    },
+                    {
+                      label: t.dogFriendly,
+                      checked: dogFriendly,
+                      toggle: () => setDogFriendly((v) => !v),
+                    },
+                    {
+                      label: t.covered,
+                      checked: covered,
+                      toggle: () => setCovered((v) => !v),
+                    },
+                  ].map(({ label, checked, toggle }) => (
+                    <label
+                      key={label}
+                      className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={toggle}
+                        className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
+                      />
+                      <span className="text-sm text-foreground">{label}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {activeFilterCount > 0 && (
               <button
                 onClick={() => {
                   setSelectedNeighborhoods([]);
+                  setOpenForSeason(false);
                   setDogFriendly(false);
                   setCovered(false);
                 }}

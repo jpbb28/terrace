@@ -179,11 +179,9 @@ export default function Home() {
   const [desktopMapMounted, setDesktopMapMounted] = useState(false);
   const [mobileMapMounted, setMobileMapMounted] = useState(true);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
-  const [filtersDropdownOpen, setFiltersDropdownOpen] = useState(false);
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const neighborhoodDropdownRef = useRef<HTMLDivElement>(null);
-  const filtersDropdownRef = useRef<HTMLDivElement>(null);
   const savedScrollTop = useRef(0);
   const desktopListRef = useRef<HTMLDivElement>(null);
   const mobileListRef = useRef<HTMLDivElement>(null);
@@ -216,12 +214,6 @@ export default function Home() {
         !neighborhoodDropdownRef.current.contains(e.target as Node)
       ) {
         setNeighborhoodOpen(false);
-      }
-      if (
-        filtersDropdownRef.current &&
-        !filtersDropdownRef.current.contains(e.target as Node)
-      ) {
-        setFiltersDropdownOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -553,7 +545,7 @@ export default function Home() {
             >
               <button
                 onClick={() => setNeighborhoodOpen(!neighborhoodOpen)}
-                className={`flex items-center gap-1.5 px-4 h-full rounded-r-full text-sm whitespace-nowrap transition-colors cursor-pointer ${
+                className={`flex items-center gap-1.5 px-4 h-full border-r border-border text-sm whitespace-nowrap transition-colors cursor-pointer ${
                   neighborhoods.length > 0
                     ? "text-foreground font-medium"
                     : "text-muted hover:text-foreground"
@@ -607,6 +599,27 @@ export default function Home() {
                 </div>
               )}
             </div>
+
+            {/* Segment 3: Open now toggle */}
+            <button
+              onClick={() => setOpenNow(!openNow)}
+              className={`flex items-center gap-1.5 px-4 h-full rounded-r-full text-sm whitespace-nowrap transition-colors cursor-pointer ${
+                openNow
+                  ? "bg-accent text-white font-medium"
+                  : "text-muted hover:text-foreground"
+              }`}
+            >
+              {openNow && (
+                <svg
+                  className="w-3 h-3 shrink-0"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                >
+                  <circle cx="6" cy="6" r="3" />
+                </svg>
+              )}
+              {t.openNow}
+            </button>
           </div>
         </div>
 
@@ -689,74 +702,26 @@ export default function Home() {
           >
             {locating ? t.locating : t.nearMe}
           </button>
-          {/* Filters dropdown: Open now · Dog-friendly · Covered */}
-          <div className="relative" ref={filtersDropdownRef}>
-            {(() => {
-              const count =
-                (openNow ? 1 : 0) + (dogFriendly ? 1 : 0) + (covered ? 1 : 0);
-              const active = count > 0;
-              return (
-                <button
-                  onClick={() => setFiltersDropdownOpen((v) => !v)}
-                  className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 ${
-                    active
-                      ? "bg-accent text-white shadow-sm shadow-accent/30"
-                      : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
-                  }`}
-                >
-                  {lang === "fr" ? "Filtres" : "Filters"}
-                  {count > 0 && ` (${count})`}
-                  <svg
-                    className={`w-3 h-3 shrink-0 transition-transform ${filtersDropdownOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path
-                      d="M19 9l-7 7-7-7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              );
-            })()}
-            {filtersDropdownOpen && (
-              <div className="absolute top-full mt-2 left-0 bg-white rounded-2xl border border-border shadow-lg py-1.5 min-w-[180px] z-[1000]">
-                {[
-                  {
-                    label: t.openNow,
-                    checked: openNow,
-                    toggle: () => setOpenNow((v) => !v),
-                  },
-                  {
-                    label: t.dogFriendly,
-                    checked: dogFriendly,
-                    toggle: () => setDogFriendly((v) => !v),
-                  },
-                  {
-                    label: t.covered,
-                    checked: covered,
-                    toggle: () => setCovered((v) => !v),
-                  },
-                ].map(({ label, checked, toggle }) => (
-                  <label
-                    key={label}
-                    className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={checked}
-                      onChange={toggle}
-                      className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
-                    />
-                    <span className="text-sm text-foreground">{label}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
+          <button
+            onClick={() => setDogFriendly(!dogFriendly)}
+            className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+              dogFriendly
+                ? "bg-accent text-white shadow-sm shadow-accent/30"
+                : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
+            }`}
+          >
+            {t.dogFriendly}
+          </button>
+          <button
+            onClick={() => setCovered(!covered)}
+            className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+              covered
+                ? "bg-accent text-white shadow-sm shadow-accent/30"
+                : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
+            }`}
+          >
+            {t.covered}
+          </button>
         </div>
       </div>
 
