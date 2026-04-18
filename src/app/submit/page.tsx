@@ -52,8 +52,6 @@ const emptyForm = {
   website: "",
   instagram: "",
   phone: "",
-  seasonalOpen: "",
-  seasonalClose: "",
   description: "",
   submitterName: "",
   submitterEmail: "",
@@ -101,8 +99,6 @@ function SubmitPageContent() {
         website: editTerrace.website ?? "",
         instagram: editTerrace.instagram ?? "",
         phone: editTerrace.phone ?? "",
-        seasonalOpen: editTerrace.seasonalOpen ?? "",
-        seasonalClose: editTerrace.seasonalClose ?? "",
         description: editTerrace.description,
         submitterName: "",
         submitterEmail: "",
@@ -156,16 +152,6 @@ function SubmitPageContent() {
       ["website", editTerrace.website ?? null, form.website || null],
       ["instagram", editTerrace.instagram ?? null, form.instagram || null],
       ["phone", editTerrace.phone ?? null, form.phone || null],
-      [
-        "seasonalOpen",
-        editTerrace.seasonalOpen ?? null,
-        form.seasonalOpen || null,
-      ],
-      [
-        "seasonalClose",
-        editTerrace.seasonalClose ?? null,
-        form.seasonalClose || null,
-      ],
       ["description", editTerrace.description, form.description],
     ];
 
@@ -233,8 +219,6 @@ function SubmitPageContent() {
       opening_periods: toHourPeriods(hours).length
         ? toHourPeriods(hours)
         : null,
-      seasonal_open: form.seasonalOpen || null,
-      seasonal_close: form.seasonalClose || null,
       description: form.description || null,
       submitter_name: form.submitterName || null,
       submitter_email: form.submitterEmail || null,
@@ -257,20 +241,6 @@ function SubmitPageContent() {
       console.error("Submission error:", error);
       setState("error");
       return;
-    }
-
-    // If editing and opening date is set, push to live season dates table
-    if (isEdit && form.seasonalOpen) {
-      fetch("/api/season-dates", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          terraceId: editId,
-          openingDate: form.seasonalOpen,
-          closingDate: form.seasonalClose || null,
-          submitterEmail: form.submitterEmail || null,
-        }),
-      }).catch(() => {});
     }
 
     setState("success");
@@ -537,24 +507,6 @@ function SubmitPageContent() {
             </h2>
             <div className="space-y-4">
               <HoursEditor value={hours} onChange={setHours} />
-              <div className="grid grid-cols-2 gap-4">
-                <Field label={t.opensForSeason}>
-                  <input
-                    type="date"
-                    value={form.seasonalOpen}
-                    onChange={(e) => update("seasonalOpen", e.target.value)}
-                    className={inputClass}
-                  />
-                </Field>
-                <Field label={t.closesForSeason}>
-                  <input
-                    type="date"
-                    value={form.seasonalClose}
-                    onChange={(e) => update("seasonalClose", e.target.value)}
-                    className={inputClass}
-                  />
-                </Field>
-              </div>
             </div>
           </section>
 

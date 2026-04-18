@@ -3620,7 +3620,6 @@ export const terraces: Terrace[] = [
     website: "https://luluspastabar.com",
     instagram: "@luluspastabar",
     photos: [],
-    seasonalOpen: "2026-04-18",
     openingPeriods: [
       { day: 0, open: "13:00", close: "22:00" },
       { day: 1, open: "11:00", close: "22:00" },
@@ -3650,7 +3649,6 @@ export const terraces: Terrace[] = [
     website: "https://www.lebureaubartapas.com",
     instagram: "@lebureaubartapas",
     photos: [],
-    seasonalOpen: "2026-04-18",
     openingPeriods: [
       { day: 0, open: "16:00", close: "01:00" },
       { day: 2, open: "16:00", close: "03:00" },
@@ -6264,8 +6262,6 @@ export const terraces: Terrace[] = [
     phone: "438-533-0954",
     instagram: "@seasaltmtl",
     photos: ["/photos/188/main.webp", "/photos/188/2.webp"],
-    seasonalOpen: "Spring",
-    seasonalClose: "Fall",
     openingPeriods: [{ day: 0, open: "10:00", close: "22:00" }],
     description:
       "Ceviche-focused seafood restaurant on Place Royale in Old Montreal with a sidewalk terrace open seasonally. Mediterranean and South American influences, fresh fish and shellfish preparations. Sources: seasaltmtl.com, Tourisme Montréal.",

@@ -266,12 +266,6 @@ export default async function TerracePage({ params }: Props) {
             {terrace.capacity ? (
               <InfoItem label="Capacity" value={`${terrace.capacity} seats`} />
             ) : null}
-            {terrace.seasonalOpen && (
-              <InfoItem
-                label="Season"
-                value={`${terrace.seasonalOpen}${terrace.seasonalClose ? ` – ${terrace.seasonalClose}` : ""}`}
-              />
-            )}
           </div>
 
           {/* Hours */}

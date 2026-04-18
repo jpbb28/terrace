@@ -1,4 +1,10 @@
-export type TerraceType = "sidewalk" | "rooftop" | "backyard" | "courtyard" | "balcony" | "garden";
+export type TerraceType =
+  | "sidewalk"
+  | "rooftop"
+  | "backyard"
+  | "courtyard"
+  | "balcony"
+  | "garden";
 
 export type Neighborhood =
   | "Plateau-Mont-Royal"
@@ -30,9 +36,9 @@ export type Neighborhood =
   | "West Island";
 
 export interface HourPeriod {
-  day: number;    // 0 = Sunday, 1 = Monday, … 6 = Saturday
-  open: string;   // "HH:MM" 24-hour
-  close: string;  // "HH:MM" 24-hour (if < open, period runs overnight)
+  day: number; // 0 = Sunday, 1 = Monday, … 6 = Saturday
+  open: string; // "HH:MM" 24-hour
+  close: string; // "HH:MM" 24-hour (if < open, period runs overnight)
   is24h?: boolean; // true = open 24 hours (open/close times are irrelevant)
 }
 
@@ -53,12 +59,10 @@ export interface Terrace {
   instagram?: string;
   phone?: string;
   photos: string[];
-  seasonalOpen?: string;
-  seasonalClose?: string;
-  openingHours?: string;       // legacy display string
+  openingHours?: string; // legacy display string
   openingPeriods?: HourPeriod[]; // structured hours from Google Places
-  placeId?: string;            // Google Places ID for future refreshes
-  googleRating?: number;       // Fetched weekly via GitHub Actions
+  placeId?: string; // Google Places ID for future refreshes
+  googleRating?: number; // Fetched weekly via GitHub Actions
   googleReviewCount?: number;
   description: string;
   descriptionFr?: string;
