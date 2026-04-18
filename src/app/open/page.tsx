@@ -619,8 +619,8 @@ export default function OpenPage() {
           </h2>
           <p className="text-sm text-muted mb-6">
             {lang === "fr"
-              ? "Propriétaire ou visiteur — aidez la communauté en indiquant quand une terrasse ouvre."
-              : "Owner or visitor — help the community by reporting when a terrace opens."}
+              ? "Propriétaire ou visiteur — signalez si une terrasse est déjà ouverte ou indiquez sa prochaine date d'ouverture."
+              : "Owner or visitor — let us know if a place is already open or when it's opening."}
           </p>
 
           {/* Step 1: pick terrace */}
