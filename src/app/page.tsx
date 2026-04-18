@@ -488,6 +488,15 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Season open CTA */}
+        <Link
+          href="/open"
+          className="shrink-0 flex items-center gap-1.5 text-xs px-4 py-2 rounded-full bg-green-700/10 border border-green-700/20 text-green-700 hover:bg-green-700/15 transition-colors font-medium whitespace-nowrap"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse" />
+          {lang === "fr" ? "Ouvertures" : "What's open this season?"}
+        </Link>
+
         {/* Search pill */}
         <div className="flex-1 flex justify-center">
           <div className="relative flex items-stretch h-11 bg-white rounded-full border border-border-strong shadow-sm w-full max-w-2xl">
@@ -631,12 +640,6 @@ export default function Home() {
           </button>
           <div className="w-px h-4 bg-border shrink-0 ml-1" />
           <nav className="flex items-center gap-3">
-            <Link
-              href="/open"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              {lang === "fr" ? "Ouvertures" : "Open now"}
-            </Link>
             <Link
               href="/blog"
               className="text-xs text-muted hover:text-foreground transition-colors"
@@ -930,12 +933,6 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <Link
-                href="/open"
-                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
-              >
-                {lang === "fr" ? "Ouvertures" : "Open now"}
-              </Link>
-              <Link
                 href="/submit"
                 className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
               >
@@ -1015,6 +1012,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {!selectedTerrace && (
+            <Link
+              href="/open"
+              className="-mx-4 flex items-center justify-center gap-2 py-2 mt-2 mb-2 bg-green-500/[0.07] border-y border-green-500/15 text-[11px] font-medium text-green-700"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-green-600" />
+              {lang === "fr"
+                ? "Terrasses ouvertes cette saison"
+                : "What's open this season?"}
+            </Link>
+          )}
           {!selectedTerrace && <FilterBar {...filterBarProps} />}
         </div>
 

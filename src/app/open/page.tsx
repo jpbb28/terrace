@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
@@ -16,17 +16,20 @@ interface SeasonData {
 }
 
 type SortKey = "open_first" | "az" | "neighborhood";
-type StatusKey = "open" | "soon" | "closed" | "none";
+type StatusKey = "open" | "soon" | "reported" | "closed" | "none";
 
 function getStatus(terraceId: string, data: SeasonData | null): StatusKey {
   if (!data) return "none";
   const official = data.official[terraceId];
-  if (!official) return "none";
-  const { opening_date, closing_date } = official;
-  const today = data.today;
-  if (opening_date > today) return "soon";
-  if (closing_date && closing_date < today) return "closed";
-  return "open";
+  if (official) {
+    const { opening_date, closing_date } = official;
+    const today = data.today;
+    if (opening_date > today) return "soon";
+    if (closing_date && closing_date < today) return "closed";
+    return "open";
+  }
+  if ((data.crowdsource[terraceId] ?? 0) > 0) return "reported";
+  return "none";
 }
 
 function formatDate(dateStr: string, lang: string): string {
@@ -52,7 +55,12 @@ export default function OpenPage() {
   const [userConfirmed, setUserConfirmed] = useState<Set<string>>(new Set());
   const [confirming, setConfirming] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>("open_first");
-  const [officialOnly, setOfficialOnly] = useState(false);
+  const [reportSearch, setReportSearch] = useState("");
+  const [reportDropdownOpen, setReportDropdownOpen] = useState(false);
+  const [lastConfirmedName, setLastConfirmedName] = useState<string | null>(
+    null,
+  );
+  const reportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     try {
@@ -63,6 +71,16 @@ export default function OpenPage() {
     fetch("/api/open-reports")
       .then((r) => r.json())
       .then(setData);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (reportRef.current && !reportRef.current.contains(e.target as Node)) {
+        setReportDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   async function confirmOpen(terrace: Terrace) {
@@ -104,25 +122,42 @@ export default function OpenPage() {
     });
   }
 
-  const officialCount = data ? Object.keys(data.official).length : 0;
-
-  let list = [...terraces];
-
-  if (officialOnly) {
-    list = list.filter((t) => data?.official[t.id]);
+  async function handleReportSelect(terrace: Terrace) {
+    setReportSearch("");
+    setReportDropdownOpen(false);
+    await confirmOpen(terrace);
+    setLastConfirmedName(terrace.name);
+    setTimeout(() => setLastConfirmedName(null), 4000);
   }
 
+  const reportResults = useMemo(() => {
+    if (reportSearch.trim().length < 2) return [];
+    const q = reportSearch.toLowerCase();
+    return terraces
+      .filter(
+        (t) => !userConfirmed.has(t.id) && t.name.toLowerCase().includes(q),
+      )
+      .slice(0, 8);
+  }, [reportSearch, userConfirmed]);
+
+  const officialCount = data ? Object.keys(data.official).length : 0;
+
+  const statusOrder: Record<StatusKey, number> = {
+    open: 0,
+    reported: 1,
+    soon: 2,
+    closed: 3,
+    none: 4,
+  };
+
+  const list = [...terraces];
+
   if (sort === "open_first") {
-    const order: Record<StatusKey, number> = {
-      open: 0,
-      soon: 1,
-      closed: 2,
-      none: 3,
-    };
     list.sort((a, b) => {
       const sa = getStatus(a.id, data);
       const sb = getStatus(b.id, data);
-      if (order[sa] !== order[sb]) return order[sa] - order[sb];
+      if (statusOrder[sa] !== statusOrder[sb])
+        return statusOrder[sa] - statusOrder[sb];
       return a.name.localeCompare(b.name);
     });
   } else if (sort === "az") {
@@ -155,7 +190,7 @@ export default function OpenPage() {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b border-border px-6 py-4 flex items-center gap-4">
         <Link
@@ -188,7 +223,7 @@ export default function OpenPage() {
           )}
         </div>
 
-        {/* Controls */}
+        {/* Sort controls */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <div className="flex rounded-lg border border-border overflow-hidden text-xs">
             {(["open_first", "az", "neighborhood"] as SortKey[]).map((key) => {
@@ -208,12 +243,6 @@ export default function OpenPage() {
               );
             })}
           </div>
-          <button
-            onClick={() => setOfficialOnly((v) => !v)}
-            className={`px-3 py-1.5 rounded-lg border text-xs transition-colors cursor-pointer ${officialOnly ? "bg-accent/10 border-accent/30 text-accent" : "border-border text-muted hover:text-foreground"}`}
-          >
-            {t.confirmedOnlyFilter}
-          </button>
         </div>
 
         {/* List */}
@@ -230,8 +259,6 @@ export default function OpenPage() {
               const official = data.official[terrace.id];
               const csCount = data.crowdsource[terrace.id] ?? 0;
               const isConfirmed = userConfirmed.has(terrace.id);
-              const isConfirming = confirming.has(terrace.id);
-              const hasOfficialDates = !!official;
 
               return (
                 <div
@@ -239,7 +266,9 @@ export default function OpenPage() {
                   className={`flex items-center gap-4 p-4 rounded-xl border transition-colors ${
                     status === "open"
                       ? "border-green-500/25 bg-green-500/[0.03]"
-                      : "border-border bg-card"
+                      : status === "reported"
+                        ? "border-green-500/15 bg-green-500/[0.02]"
+                        : "border-border bg-card"
                   }`}
                 >
                   <div className="flex-1 min-w-0">
@@ -250,6 +279,11 @@ export default function OpenPage() {
                       {status === "open" && (
                         <span className="shrink-0 text-[10px] bg-green-500/15 text-green-700 px-2 py-0.5 rounded-full font-medium">
                           {t.openNowBadge}
+                        </span>
+                      )}
+                      {status === "reported" && (
+                        <span className="shrink-0 text-[10px] bg-green-500/10 text-green-600 px-2 py-0.5 rounded-full font-medium">
+                          {lang === "fr" ? "Signalé ouvert" : "Reported open"}
                         </span>
                       )}
                       {status === "soon" && (
@@ -269,14 +303,14 @@ export default function OpenPage() {
                       <span className="text-[11px] text-accent font-medium">
                         {terrace.neighborhood}
                       </span>
-                      {hasOfficialDates && (
+                      {official && (
                         <span className="text-[11px] text-muted">
                           · {formatDate(official.opening_date, lang)}
                           {official.closing_date &&
                             ` – ${formatDate(official.closing_date, lang)}`}
                         </span>
                       )}
-                      {!hasOfficialDates && csCount > 0 && (
+                      {!official && csCount > 0 && (
                         <span className="text-[11px] text-muted">
                           · {t.crowdsourceCount(csCount)}
                         </span>
@@ -284,38 +318,155 @@ export default function OpenPage() {
                     </div>
                   </div>
 
-                  {!hasOfficialDates &&
-                    (isConfirmed ? (
-                      <span className="shrink-0 text-xs text-green-600 font-medium flex items-center gap-1">
-                        <svg
-                          className="w-3.5 h-3.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2.5}
-                        >
-                          <path
-                            d="M5 13l4 4L19 7"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        {t.youConfirmed}
-                      </span>
-                    ) : (
-                      <button
-                        onClick={() => confirmOpen(terrace)}
-                        disabled={isConfirming}
-                        className="shrink-0 text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:border-green-500/40 hover:text-green-600 hover:bg-green-500/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  {isConfirmed && (
+                    <span className="shrink-0 text-xs text-green-600 font-medium flex items-center gap-1">
+                      <svg
+                        className="w-3.5 h-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
                       >
-                        {isConfirming ? "…" : t.confirmOpen}
-                      </button>
-                    ))}
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      {t.youConfirmed}
+                    </span>
+                  )}
                 </div>
               );
             })}
           </div>
         )}
+
+        {/* Crowdsource section */}
+        <div className="mt-12 pt-8 border-t-2 border-border">
+          <h2 className="font-display text-lg font-bold mb-1">
+            {lang === "fr"
+              ? "Vous avez vu une terrasse ouverte?"
+              : "Spotted an open terrace?"}
+          </h2>
+          <p className="text-sm text-muted mb-5">
+            {lang === "fr"
+              ? "Signalez-la pour aider la communauté — une confirmation par terrasse."
+              : "Report it to help others — one confirmation per terrace."}
+          </p>
+
+          <div ref={reportRef} className="relative">
+            <div className="flex items-center gap-2 bg-white border border-border rounded-xl px-4 h-11 focus-within:border-accent/50 transition-colors shadow-sm">
+              <svg
+                className="w-3.5 h-3.5 text-muted shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+              </svg>
+              <input
+                type="text"
+                value={reportSearch}
+                onChange={(e) => {
+                  setReportSearch(e.target.value);
+                  setReportDropdownOpen(true);
+                }}
+                onFocus={() =>
+                  reportSearch.trim().length >= 2 && setReportDropdownOpen(true)
+                }
+                placeholder={
+                  lang === "fr"
+                    ? "Chercher une terrasse..."
+                    : "Search for a terrace..."
+                }
+                className="flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-light"
+              />
+              {reportSearch && (
+                <button
+                  onClick={() => {
+                    setReportSearch("");
+                    setReportDropdownOpen(false);
+                  }}
+                  className="text-muted hover:text-foreground cursor-pointer transition-colors"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    strokeLinecap="round"
+                    className="w-3.5 h-3.5"
+                  >
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+
+            {reportDropdownOpen && reportResults.length > 0 && (
+              <div className="absolute top-full mt-1.5 w-full bg-white rounded-xl border border-border shadow-lg z-20 overflow-hidden">
+                {reportResults.map((terrace) => (
+                  <button
+                    key={terrace.id}
+                    onClick={() => handleReportSelect(terrace)}
+                    disabled={confirming.has(terrace.id)}
+                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-foreground/[0.04] transition-colors text-left cursor-pointer disabled:opacity-50 border-b border-border last:border-0"
+                  >
+                    <div>
+                      <span className="text-sm font-medium block">
+                        {terrace.name}
+                      </span>
+                      <span className="text-xs text-muted">
+                        {terrace.neighborhood}
+                      </span>
+                    </div>
+                    <span className="text-xs text-accent shrink-0 ml-3 font-medium">
+                      {confirming.has(terrace.id)
+                        ? "…"
+                        : lang === "fr"
+                          ? "Confirmer ouvert"
+                          : "Confirm open"}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {reportDropdownOpen &&
+              reportSearch.trim().length >= 2 &&
+              reportResults.length === 0 && (
+                <div className="absolute top-full mt-1.5 w-full bg-white rounded-xl border border-border shadow-lg z-20 px-4 py-3">
+                  <p className="text-sm text-muted">
+                    {lang === "fr" ? "Aucun résultat" : "No results"}
+                  </p>
+                </div>
+              )}
+          </div>
+
+          {lastConfirmedName && (
+            <p className="mt-3 text-sm text-green-600 font-medium flex items-center gap-1.5">
+              <svg
+                className="w-4 h-4 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {lang === "fr"
+                ? `Merci\u00a0! ${lastConfirmedName} a été signalé ouvert.`
+                : `Thanks! ${lastConfirmedName} has been reported as open.`}
+            </p>
+          )}
+        </div>
 
         {/* Owner CTA */}
         <div className="mt-10 p-5 rounded-xl border border-border bg-card text-center">
