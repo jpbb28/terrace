@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
+import { isOpenNow } from "@/lib/utils";
 import { Terrace } from "@/lib/types";
 
 interface SeasonData {
@@ -12,12 +13,11 @@ interface SeasonData {
     string,
     { opening_date: string; closing_date: string | null; updated_at: string }
   >;
-  crowdsource: Record<string, number>;
   today: string;
 }
 
 type SortKey = "opens_soonest" | "az" | "near_me";
-type StatusKey = "open" | "soon" | "reported" | "closed";
+type StatusKey = "open" | "soon" | "closed";
 
 const NEIGHBORHOODS = [
   "Ahuntsic",
@@ -51,9 +51,8 @@ const NEIGHBORHOODS = [
 
 const STATUS_ORDER: Record<StatusKey, number> = {
   open: 0,
-  reported: 1,
-  soon: 2,
-  closed: 3,
+  soon: 1,
+  closed: 2,
 };
 
 function haversineKm(
@@ -73,17 +72,12 @@ function haversineKm(
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// Only called for terraces that are in the filtered list (have some signal)
 function getStatus(terraceId: string, data: SeasonData): StatusKey {
-  const official = data.official[terraceId];
-  if (official) {
-    const { opening_date, closing_date } = official;
-    const today = data.today;
-    if (opening_date > today) return "soon";
-    if (closing_date && closing_date < today) return "closed";
-    return "open";
-  }
-  return "reported";
+  const { opening_date, closing_date } = data.official[terraceId];
+  const today = data.today;
+  if (opening_date > today) return "soon";
+  if (closing_date && closing_date < today) return "closed";
+  return "open";
 }
 
 function formatDate(dateStr: string, lang: string): string {
@@ -130,6 +124,7 @@ export default function OpenPage() {
   const neighborhoodRef = useRef<HTMLDivElement>(null);
   const filtersDropdownRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
+  const formSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Restore previous submissions for undo
@@ -144,6 +139,21 @@ export default function OpenPage() {
       }
       setUndoable(map);
     } catch {}
+
+    // Pre-fill form if ?report=<id>
+    const params = new URLSearchParams(window.location.search);
+    const reportId = params.get("report");
+    if (reportId) {
+      const match = terraces.find((x) => x.id === reportId);
+      if (match) {
+        setFormTerrace(match);
+        setTimeout(
+          () => formSectionRef.current?.scrollIntoView({ behavior: "smooth" }),
+          400,
+        );
+      }
+      window.history.replaceState({}, "", "/open");
+    }
 
     fetch("/api/open-reports")
       .then((r) => r.json())
@@ -300,15 +310,12 @@ export default function OpenPage() {
   const sortedList = useMemo(() => {
     if (!data) return [];
 
-    let list = terraces.filter(
-      (t) => data.official[t.id] || (data.crowdsource[t.id] ?? 0) > 0,
-    );
+    let list = terraces.filter((t) => data.official[t.id]);
 
     if (selectedNeighborhoods.length > 0) {
       list = list.filter((t) => selectedNeighborhoods.includes(t.neighborhood));
     }
-    if (openForSeason)
-      list = list.filter((t) => getStatus(t.id, data) === "open");
+    if (openForSeason) list = list.filter((t) => isOpenNow(t) === true);
     if (dogFriendly) list = list.filter((t) => t.dogFriendly);
     if (covered) list = list.filter((t) => t.covered);
 
@@ -589,110 +596,133 @@ export default function OpenPage() {
           </div>
         </div>
 
-        {/* List */}
-        {!data ? (
-          <div className="space-y-3 mb-12">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="h-16 rounded-xl bg-card animate-pulse" />
-            ))}
-          </div>
-        ) : sortedList.length === 0 ? (
-          <div className="py-10 text-center mb-12">
-            <p className="text-3xl mb-2">☀️</p>
-            <p className="text-sm text-muted">
-              {lang === "fr"
-                ? "Pas encore de terrasses signalées ouvertes. Soyez le premier!"
-                : "No terraces reported open yet. Be the first below!"}
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-2 mb-12">
-            {sortedList.map((terrace) => {
-              const status = getStatus(terrace.id, data);
-              const official = data.official[terrace.id];
-              const csCount = data.crowdsource[terrace.id] ?? 0;
-              const canUndo = undoable.has(terrace.id);
-              const isUndoing = undoing.has(terrace.id);
+        {/* Lists */}
+        {(() => {
+          const typeLabels: Record<string, string> = {
+            sidewalk: t.sidewalk,
+            rooftop: t.rooftop,
+            backyard: t.backyard,
+            courtyard: t.courtyard,
+            balcony: t.balcony,
+            garden: t.garden,
+          };
 
-              return (
-                <div
-                  key={terrace.id}
-                  onClick={() => router.push(`/?terrace=${terrace.id}`)}
-                  className={`flex items-center gap-4 p-4 rounded-xl border transition-colors cursor-pointer hover:opacity-80 ${
-                    status === "open"
-                      ? "border-green-500/25 bg-green-500/[0.03]"
-                      : status === "reported"
-                        ? "border-green-500/15 bg-green-500/[0.02]"
-                        : "border-border bg-card"
-                  }`}
-                >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-medium text-sm">
-                        {terrace.name}
-                      </span>
-                      {status === "open" && (
-                        <span className="shrink-0 text-[10px] bg-green-500/15 text-green-700 px-2 py-0.5 rounded-full font-medium">
-                          {t.openNowBadge}
-                        </span>
-                      )}
-                      {status === "reported" && (
-                        <span className="shrink-0 text-[10px] bg-green-500/10 text-green-600 px-2 py-0.5 rounded-full font-medium">
-                          {lang === "fr" ? "Signalé ouvert" : "Reported open"}
-                        </span>
-                      )}
-                      {status === "soon" && (
-                        <span className="shrink-0 text-[10px] bg-amber-500/15 text-amber-700 px-2 py-0.5 rounded-full font-medium">
-                          {t.openingSoonBadge(
-                            formatDate(official.opening_date, lang),
-                          )}
-                        </span>
-                      )}
-                      {status === "closed" && (
-                        <span className="shrink-0 text-[10px] bg-foreground/8 text-muted px-2 py-0.5 rounded-full font-medium">
-                          {t.closedBadge}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                      <span className="text-[11px] text-accent font-medium">
-                        {terrace.neighborhood}
-                      </span>
-                      {official && (
-                        <span className="text-[11px] text-muted">
-                          · {formatDate(official.opening_date, lang)}
-                          {official.closing_date &&
-                            ` – ${formatDate(official.closing_date, lang)}`}
-                        </span>
-                      )}
-                      {!official && csCount > 0 && (
-                        <span className="text-[11px] text-muted">
-                          · {t.crowdsourceCount(csCount)}
-                        </span>
-                      )}
-                    </div>
+          const renderCard = (terrace: (typeof sortedList)[0]) => {
+            const status = getStatus(terrace.id, data!);
+            const official = data!.official[terrace.id];
+            const canUndo = undoable.has(terrace.id);
+            const isUndoing = undoing.has(terrace.id);
+            const typeStr = terrace.terraceType
+              ?.map((tt) => typeLabels[tt] ?? tt)
+              .join(", ");
+
+            return (
+              <div
+                key={terrace.id}
+                onClick={() => router.push(`/?terrace=${terrace.id}`)}
+                className={`flex items-center gap-4 p-4 rounded-xl border transition-colors cursor-pointer hover:opacity-80 ${
+                  status === "open"
+                    ? "border-green-500/25 bg-green-500/[0.03]"
+                    : "border-border bg-card"
+                }`}
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-medium text-sm">{terrace.name}</span>
                   </div>
-
-                  {canUndo && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleUndo(terrace.id);
-                      }}
-                      disabled={isUndoing}
-                      className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50"
-                    >
-                      {isUndoing ? "…" : lang === "fr" ? "Annuler" : "Undo"}
-                    </button>
-                  )}
+                  <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                    <span className="text-[11px] text-accent font-medium">
+                      {terrace.neighborhood}
+                    </span>
+                    {typeStr && (
+                      <span className="text-[11px] text-muted">
+                        · {typeStr}
+                      </span>
+                    )}
+                    {official && official.opening_date > today && (
+                      <span className="text-[11px] text-muted">
+                        · {lang === "fr" ? "Ouvre le" : "Opens"}{" "}
+                        {formatDate(official.opening_date, lang)}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
-        )}
+                {canUndo && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleUndo(terrace.id);
+                    }}
+                    disabled={isUndoing}
+                    className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {isUndoing ? "…" : lang === "fr" ? "Annuler" : "Undo"}
+                  </button>
+                )}
+              </div>
+            );
+          };
+
+          if (!data) {
+            return (
+              <div className="space-y-3 mb-12">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-16 rounded-xl bg-card animate-pulse"
+                  />
+                ))}
+              </div>
+            );
+          }
+
+          const alreadyOpen = sortedList.filter((t) => {
+            const s = getStatus(t.id, data);
+            return s === "open";
+          });
+          const openingSoon = sortedList.filter(
+            (t) => getStatus(t.id, data) === "soon",
+          );
+
+          if (alreadyOpen.length === 0 && openingSoon.length === 0) {
+            return (
+              <div className="py-10 text-center mb-12">
+                <p className="text-3xl mb-2">☀️</p>
+                <p className="text-sm text-muted">
+                  {lang === "fr"
+                    ? "Pas encore de terrasses signalées ouvertes. Soyez le premier!"
+                    : "No terraces reported open yet. Be the first below!"}
+                </p>
+              </div>
+            );
+          }
+
+          return (
+            <div className="mb-12 space-y-8">
+              {alreadyOpen.length > 0 && (
+                <div>
+                  <h2 className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">
+                    {lang === "fr" ? "Déjà ouvertes" : "Already open"} (
+                    {alreadyOpen.length})
+                  </h2>
+                  <div className="space-y-2">{alreadyOpen.map(renderCard)}</div>
+                </div>
+              )}
+              {openingSoon.length > 0 && (
+                <div>
+                  <h2 className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">
+                    {lang === "fr" ? "Ouverture prochaine" : "Opening soon"} (
+                    {openingSoon.length})
+                  </h2>
+                  <div className="space-y-2">{openingSoon.map(renderCard)}</div>
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
         {/* Submit section */}
-        <div className="pt-8 border-t-2 border-border">
+        <div ref={formSectionRef} className="pt-8 border-t-2 border-border">
           <h2 className="font-display text-lg font-bold mb-1">
             {lang === "fr" ? "Signalez une ouverture" : "Report an opening"}
           </h2>

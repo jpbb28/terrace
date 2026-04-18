@@ -2152,6 +2152,7 @@ export const terraces: Terrace[] = [
     lng: -73.5792,
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Café / Urban Cafeteria",
+    terraceType: ["sidewalk"],
     covered: false,
     dogFriendly: false,
     heated: false,

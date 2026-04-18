@@ -26,54 +26,25 @@ export default function TerraceDetail({
   const { t, lang } = useLang();
   const [activePhoto, setActivePhoto] = useState(0);
   const [copied, setCopied] = useState(false);
-  const [openConfirmed, setOpenConfirmed] = useState(false);
-  const [openConfirming, setOpenConfirming] = useState(false);
+  const [seasonData, setSeasonData] = useState<
+    | {
+        opening_date: string;
+        closing_date: string | null;
+      }
+    | null
+    | "loading"
+  >("loading");
   const touchStartX = useRef(0);
 
   useEffect(() => {
     setActivePhoto(0);
-    setOpenConfirmed(false);
+    setSeasonData("loading");
     trackEvent(terrace.id, "view");
-    try {
-      const stored: string[] = JSON.parse(
-        localStorage.getItem("confirmed_open") ?? "[]",
-      );
-      setOpenConfirmed(stored.includes(terrace.id));
-    } catch {}
+    fetch(`/api/season-dates?terraceId=${encodeURIComponent(terrace.id)}`)
+      .then((r) => r.json())
+      .then(({ data }) => setSeasonData(data ?? null))
+      .catch(() => setSeasonData(null));
   }, [terrace.id]);
-
-  const handleConfirmOpen = useCallback(async () => {
-    if (openConfirming || openConfirmed) return;
-    setOpenConfirming(true);
-    let token = localStorage.getItem("review_token");
-    if (!token) {
-      token = crypto.randomUUID();
-      localStorage.setItem("review_token", token);
-    }
-    const today = new Date().toISOString().split("T")[0];
-    const res = await fetch("/api/open-reports", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        terraceId: terrace.id,
-        openingDate: today,
-        sessionId: token,
-      }),
-    });
-    if (res.ok) {
-      setOpenConfirmed(true);
-      try {
-        const stored: string[] = JSON.parse(
-          localStorage.getItem("confirmed_open") ?? "[]",
-        );
-        localStorage.setItem(
-          "confirmed_open",
-          JSON.stringify([...new Set([...stored, terrace.id])]),
-        );
-      } catch {}
-    }
-    setOpenConfirming(false);
-  }, [terrace.id, openConfirmed, openConfirming]);
 
   const typeLabels: Record<string, string> = {
     sidewalk: t.sidewalk,
@@ -403,51 +374,74 @@ export default function TerraceDetail({
           )}
         </div>
 
-        {/* Open confirmation */}
-        <div className="pb-4 border-b border-border flex items-center justify-between mb-4">
-          <div>
-            <p className="text-xs font-medium">
-              {lang === "fr"
-                ? "Cette terrasse est ouverte\u00a0?"
-                : "Is this terrace open for the season?"}
-            </p>
-            <p className="text-[11px] text-muted mt-0.5">
-              {lang === "fr"
-                ? "Aidez les visiteurs à planifier leur sortie."
-                : "Help others plan their visit."}
-            </p>
-          </div>
-          {openConfirmed ? (
-            <span className="shrink-0 text-xs text-green-600 font-medium flex items-center gap-1">
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
+        {/* Season status */}
+        {seasonData !== "loading" && (
+          <div className="pb-4 border-b border-border flex items-center justify-between mb-4">
+            {seasonData ? (
+              (() => {
+                const today = new Date().toISOString().split("T")[0];
+                const isOpen =
+                  seasonData.opening_date <= today &&
+                  (!seasonData.closing_date ||
+                    seasonData.closing_date >= today);
+                const openDate = new Date(
+                  seasonData.opening_date + "T12:00:00",
+                ).toLocaleDateString(lang === "fr" ? "fr-CA" : "en-CA", {
+                  month: "long",
+                  day: "numeric",
+                });
+                return isOpen ? (
+                  <span className="flex items-center gap-2 text-sm font-medium text-green-700">
+                    <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+                    {lang === "fr"
+                      ? "Ouverte cette saison"
+                      : "Open this season"}
+                  </span>
+                ) : (
+                  <span className="text-sm text-muted">
+                    {lang === "fr" ? "Ouvre le" : "Opens"} {openDate}
+                  </span>
+                );
+              })()
+            ) : (
+              <Link
+                href={`/open?report=${encodeURIComponent(terrace.id)}`}
+                className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors group"
               >
-                <path
-                  d="M5 13l4 4L19 7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              {lang === "fr" ? "Confirmé" : "Confirmed"}
-            </span>
-          ) : (
-            <button
-              onClick={handleConfirmOpen}
-              disabled={openConfirming}
-              className="shrink-0 text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:border-green-500/40 hover:text-green-600 hover:bg-green-500/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-            >
-              {openConfirming
-                ? "…"
-                : lang === "fr"
-                  ? "Confirmer l'ouverture"
-                  : "Confirm open"}
-            </button>
-          )}
-        </div>
+                <svg
+                  className="w-3.5 h-3.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 8v4m0 4h.01"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {lang === "fr"
+                  ? "Vous savez quand cette terrasse ouvre\u00a0?"
+                  : "Know when this terrace opens?"}
+                <svg
+                  className="w-3 h-3 shrink-0 group-hover:translate-x-0.5 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    d="M9 18l6-6-6-6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* Correction link */}
         <div className="pb-4 border-b border-border flex items-center justify-between mb-6">

@@ -10,6 +10,10 @@ terrace season
 
 
 
+**hamburger dropdown should have PWA instructions**
+
+
+
 regularly re-attempt to pull hours from google maps for anything that doesn't have hours? Maybe we should re-pull even for existing hour entries in case there are updates?
 
 
@@ -101,6 +105,4 @@ add share this terrace button on each terrace detail page
 **Cordialement,**
 
 **Jesse Bergman**
-
-
 

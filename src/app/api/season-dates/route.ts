@@ -7,6 +7,28 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_KEY!,
 );
 
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const terraceId = searchParams.get("terraceId");
+
+  if (!terraceId) {
+    return NextResponse.json({ error: "Missing terraceId" }, { status: 400 });
+  }
+
+  const { data, error } = await supabase
+    .from("terrace_season_dates")
+    .select("opening_date, closing_date")
+    .eq("terrace_id", terraceId)
+    .maybeSingle();
+
+  if (error) {
+    logError("GET /api/season-dates", error, { terraceId });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+
+  return NextResponse.json({ data: data ?? null });
+}
+
 export async function POST(req: NextRequest) {
   const { terraceId, openingDate, closingDate, submitterEmail } =
     await req.json();

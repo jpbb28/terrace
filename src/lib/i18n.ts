@@ -129,7 +129,7 @@ export const translations = {
     selectPlaceholder: "Select...",
     required: "*",
     // Open page
-    openPageTitle: "Terraces Open for the Season",
+    openPageTitle: "Terrace Openings this Season",
     openPageSubtitle:
       "See which Montreal terraces are open this season. Know a spot that's ready for summer? Let the community know.",
     confirmOpen: "Confirm open",
@@ -280,7 +280,7 @@ export const translations = {
     selectPlaceholder: "Choisir...",
     required: "*",
     // Open page
-    openPageTitle: "Terrasses ouvertes pour la saison",
+    openPageTitle: "Ouvertures de terrasses cette saison",
     openPageSubtitle:
       "Découvrez quelles terrasses sont ouvertes cette saison. Un endroit est déjà ouvert ou prêt pour l'été\u00a0? Faites-le savoir à la communauté.",
     confirmOpen: "Confirmer l'ouverture",
