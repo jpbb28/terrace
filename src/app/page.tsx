@@ -493,7 +493,9 @@ export default function Home() {
           href="/open"
           className="shrink-0 text-xs px-4 py-2 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors font-medium whitespace-nowrap shadow-sm"
         >
-          {lang === "fr" ? "Ouvertures" : "What's open this season?"}
+          {lang === "fr"
+            ? "Terrasses ouvertes cette saison"
+            : "What's open this season?"}
         </Link>
 
         {/* Search pill */}
@@ -1012,16 +1014,27 @@ export default function Home() {
             </div>
           </div>
           {!selectedTerrace && (
-            <div className="-mx-4 flex items-center justify-center py-2.5 mt-2 mb-2 bg-green-700/[0.07] border-y border-green-700/12">
-              <Link
-                href="/open"
-                className="px-4 py-1.5 rounded-full bg-green-700 text-white text-[11px] font-semibold shadow-sm"
+            <Link
+              href="/open"
+              className="-mx-4 flex items-center justify-center gap-1.5 py-1.5 mt-2 mb-2 bg-green-700/[0.07] border-y border-green-700/12 text-[11px] font-medium text-green-800"
+            >
+              {lang === "fr"
+                ? "Terrasses ouvertes cette saison"
+                : "What's open this season?"}
+              <svg
+                className="w-3 h-3 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
               >
-                {lang === "fr"
-                  ? "Terrasses ouvertes cette saison"
-                  : "What's open this season?"}
-              </Link>
-            </div>
+                <path
+                  d="M9 18l6-6-6-6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
           )}
           {!selectedTerrace && <FilterBar {...filterBarProps} />}
         </div>
