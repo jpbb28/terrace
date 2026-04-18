@@ -2158,7 +2158,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://miltonb.com",
     instagram: "@miltonbmtl",
-    photos: [],
+    photos: ["/photos/199/main.webp", "/photos/199/2.webp"],
     openingPeriods: [{ day: 0, open: "00:00", close: "00:00", is24h: true }],
     description:
       "Vibrant urban cafeteria open 24/7 at the corner of Avenue du Parc and Milton Street, established in 2017. Bubble tea, coffee, light fare, and a large terrace. Known for community and environmental stewardship. Sources: miltonb.com, Yelp.",
@@ -3673,7 +3673,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://www.lebureaubartapas.com",
     instagram: "@lebureaubartapas",
-    photos: [],
+    photos: ["/photos/198/main.webp", "/photos/198/2.webp"],
     openingPeriods: [
       { day: 0, open: "16:00", close: "00:00" },
       { day: 2, open: "16:00", close: "00:00" },
