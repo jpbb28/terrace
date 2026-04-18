@@ -2143,6 +2143,28 @@ export const terraces: Terrace[] = [
       "Lauréat du sondage Cult MTL Best of MTL 2025 pour la meilleure terrasse. DJ en direct, bières artisanales, ambiance énergique. Sources: Cult MTL, Montreal Diaries.",
   },
 
+  {
+    id: "199",
+    placeId: "ChIJKzvSy0kayUwRx4ZRGqFcoro",
+    name: "Milton B - Cafétéria urbaine",
+    address: "3498 Avenue du Parc",
+    lat: 45.5098,
+    lng: -73.5792,
+    neighborhood: "Plateau-Mont-Royal",
+    cuisineType: "Café / Urban Cafeteria",
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://miltonb.com",
+    instagram: "@miltonbmtl",
+    photos: [],
+    openingPeriods: [{ day: 0, open: "00:00", close: "00:00", is24h: true }],
+    description:
+      "Vibrant urban cafeteria open 24/7 at the corner of Avenue du Parc and Milton Street, established in 2017. Bubble tea, coffee, light fare, and a large terrace. Known for community and environmental stewardship. Sources: miltonb.com, Yelp.",
+    descriptionFr:
+      "Cafétéria urbaine animée ouverte 24h/24 au coin de l'avenue du Parc et de la rue Milton, fondée en 2017. Bubble tea, café, petite restauration et grande terrasse. Reconnue pour son engagement communautaire et environnemental. Sources: miltonb.com, Yelp.",
+  },
+
   // =============================================
   // MILE END
   // =============================================
@@ -3606,6 +3628,7 @@ export const terraces: Terrace[] = [
   },
   {
     id: "197",
+    placeId: "ChIJ_8TOXhEbyUwRb-OTr8uTyLw",
     name: "Lulu's Pasta Bar",
     address: "1346 Rue Notre-Dame O",
     lat: 45.4882,
@@ -3621,13 +3644,13 @@ export const terraces: Terrace[] = [
     instagram: "@luluspastabar",
     photos: [],
     openingPeriods: [
-      { day: 0, open: "13:00", close: "22:00" },
-      { day: 1, open: "11:00", close: "22:00" },
-      { day: 2, open: "11:00", close: "22:00" },
-      { day: 3, open: "11:00", close: "22:00" },
-      { day: 4, open: "11:00", close: "22:00" },
-      { day: 5, open: "11:00", close: "22:00" },
-      { day: 6, open: "11:00", close: "22:00" },
+      { day: 0, open: "13:00", close: "22:30" },
+      { day: 1, open: "11:00", close: "22:30" },
+      { day: 2, open: "11:00", close: "22:30" },
+      { day: 3, open: "11:00", close: "22:30" },
+      { day: 4, open: "11:00", close: "22:30" },
+      { day: 5, open: "11:00", close: "22:30" },
+      { day: 6, open: "11:00", close: "22:30" },
     ],
     description:
       "Build-your-own pasta bar concept from Jimmy Petropoulos and Anthy Siounis. 24-seat sidewalk terrace on Notre-Dame West in Griffintown. Sources: The Montrealer, MTL Blog.",
@@ -3636,6 +3659,7 @@ export const terraces: Terrace[] = [
   },
   {
     id: "198",
+    placeId: "ChIJqdhAZWQayUwRFXZA6Pxws48",
     name: "Le Bureau Bar Tapas",
     address: "1642 Rue Notre-Dame O",
     lat: 45.4872,
@@ -3650,12 +3674,12 @@ export const terraces: Terrace[] = [
     instagram: "@lebureaubartapas",
     photos: [],
     openingPeriods: [
-      { day: 0, open: "16:00", close: "01:00" },
-      { day: 2, open: "16:00", close: "03:00" },
-      { day: 3, open: "16:00", close: "03:00" },
-      { day: 4, open: "16:00", close: "03:00" },
-      { day: 5, open: "16:00", close: "03:00" },
-      { day: 6, open: "16:00", close: "03:00" },
+      { day: 0, open: "16:00", close: "00:00" },
+      { day: 2, open: "16:00", close: "00:00" },
+      { day: 3, open: "16:00", close: "00:00" },
+      { day: 4, open: "16:00", close: "01:00" },
+      { day: 5, open: "16:00", close: "01:00" },
+      { day: 6, open: "16:00", close: "01:00" },
     ],
     description:
       "One of the first bars to anchor Griffintown's emergence, open since 2012. Private-import wines, draft beers, cocktails, and Mediterranean-style tapas including saganaki, grilled octopus, and shrimp tacos. Set in a former antique shop with exposed brick and vintage lamps. Sources: The Main, Evendo, RestoMontreal.",
