@@ -74,10 +74,10 @@ export const translations = {
     heatedCheck: "Heated",
     openingHoursLabel: "Opening hours",
     openingHoursPlaceholder: "e.g. 11:30 AM \u2013 11:00 PM",
-    opensForSeason: "Opens for season",
-    opensForSeasonPlaceholder: "e.g. May or April 15",
-    closesForSeason: "Closes for season",
-    closesForSeasonPlaceholder: "e.g. October or Nov 1",
+    opensForSeason: "Opening date",
+    opensForSeasonPlaceholder: "",
+    closesForSeason: "Closing date",
+    closesForSeasonPlaceholder: "",
     uploadPhotos: "Upload photos of the terrace",
     filesSelected: (n: number) => `${n} file${n !== 1 ? "s" : ""} selected`,
     photoHint:
@@ -128,6 +128,28 @@ export const translations = {
     tryAgain: "Try again",
     selectPlaceholder: "Select...",
     required: "*",
+    // Open page
+    openPageTitle: "Terraces Open for the Season",
+    openPageSubtitle:
+      "See which Montreal terraces have opened. Know a spot that's back? Confirm it.",
+    confirmOpen: "Confirm open",
+    youConfirmed: "You confirmed",
+    officialDates: "Official dates",
+    openNowBadge: "Open",
+    openingSoonBadge: (date: string) => `Opens ${date}`,
+    closedBadge: "Closed for season",
+    crowdsourceCount: (n: number) => `${n} confirmation${n !== 1 ? "s" : ""}`,
+    noOfficialDates: "No dates yet",
+    sortOpenFirst: "Open first",
+    sortAZ: "A–Z",
+    sortNeighborhood: "Neighborhood",
+    confirmedOnlyFilter: "Official dates only",
+    officialCountLabel: (n: number) =>
+      `${n} terrace${n !== 1 ? "s" : ""} with official dates`,
+    ownerCta: "Own a terrace on this list?",
+    ownerCtaDesc:
+      "Set your opening and closing dates so visitors can find you.",
+    ownerCtaBtn: "Update your listing",
   },
   fr: {
     // Header
@@ -202,10 +224,10 @@ export const translations = {
     heatedCheck: "Chauff\u00E9e",
     openingHoursLabel: "Heures d\u2019ouverture",
     openingHoursPlaceholder: "ex. 11h30 \u2013 23h00",
-    opensForSeason: "Ouverture de saison",
-    opensForSeasonPlaceholder: "ex. mai ou 15 avril",
-    closesForSeason: "Fermeture de saison",
-    closesForSeasonPlaceholder: "ex. octobre ou 1er nov",
+    opensForSeason: "Date d'ouverture",
+    opensForSeasonPlaceholder: "",
+    closesForSeason: "Date de fermeture",
+    closesForSeasonPlaceholder: "",
     uploadPhotos: "T\u00E9l\u00E9verser des photos de la terrasse",
     filesSelected: (n: number) =>
       `${n} fichier${n !== 1 ? "s" : ""} s\u00E9lectionn\u00E9${n !== 1 ? "s" : ""}`,
@@ -257,6 +279,28 @@ export const translations = {
     tryAgain: "Réessayer",
     selectPlaceholder: "Choisir...",
     required: "*",
+    // Open page
+    openPageTitle: "Terrasses ouvertes pour la saison",
+    openPageSubtitle:
+      "Découvrez quelles terrasses ont ouvert. Vous savez qu'un endroit est ouvert\u00a0? Confirmez-le.",
+    confirmOpen: "Confirmer l'ouverture",
+    youConfirmed: "Vous avez confirmé",
+    officialDates: "Dates officielles",
+    openNowBadge: "Ouvert",
+    openingSoonBadge: (date: string) => `Ouvre le ${date}`,
+    closedBadge: "Fermé pour la saison",
+    crowdsourceCount: (n: number) => `${n} confirmation${n !== 1 ? "s" : ""}`,
+    noOfficialDates: "Pas encore de dates",
+    sortOpenFirst: "Ouvert d'abord",
+    sortAZ: "A–Z",
+    sortNeighborhood: "Quartier",
+    confirmedOnlyFilter: "Dates officielles seulement",
+    officialCountLabel: (n: number) =>
+      `${n} terrasse${n !== 1 ? "s" : ""} avec dates officielles`,
+    ownerCta: "Vous êtes propriétaire d'une terrasse\u00a0?",
+    ownerCtaDesc:
+      "Ajoutez vos dates d'ouverture et de fermeture pour que les visiteurs vous trouvent.",
+    ownerCtaBtn: "Mettre à jour votre fiche",
   },
 } as const;
 

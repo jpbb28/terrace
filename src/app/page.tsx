@@ -632,6 +632,12 @@ export default function Home() {
           <div className="w-px h-4 bg-border shrink-0 ml-1" />
           <nav className="flex items-center gap-3">
             <Link
+              href="/open"
+              className="text-xs text-muted hover:text-foreground transition-colors"
+            >
+              {lang === "fr" ? "Ouvertures" : "Open now"}
+            </Link>
+            <Link
               href="/blog"
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
@@ -923,6 +929,12 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              <Link
+                href="/open"
+                className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"
+              >
+                {lang === "fr" ? "Ouvertures" : "Open now"}
+              </Link>
               <Link
                 href="/submit"
                 className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-muted"

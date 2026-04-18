@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Terrace } from "@/lib/types";
@@ -26,12 +26,54 @@ export default function TerraceDetail({
   const { t, lang } = useLang();
   const [activePhoto, setActivePhoto] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [openConfirmed, setOpenConfirmed] = useState(false);
+  const [openConfirming, setOpenConfirming] = useState(false);
   const touchStartX = useRef(0);
 
   useEffect(() => {
     setActivePhoto(0);
+    setOpenConfirmed(false);
     trackEvent(terrace.id, "view");
+    try {
+      const stored: string[] = JSON.parse(
+        localStorage.getItem("confirmed_open") ?? "[]",
+      );
+      setOpenConfirmed(stored.includes(terrace.id));
+    } catch {}
   }, [terrace.id]);
+
+  const handleConfirmOpen = useCallback(async () => {
+    if (openConfirming || openConfirmed) return;
+    setOpenConfirming(true);
+    let token = localStorage.getItem("review_token");
+    if (!token) {
+      token = crypto.randomUUID();
+      localStorage.setItem("review_token", token);
+    }
+    const today = new Date().toISOString().split("T")[0];
+    const res = await fetch("/api/open-reports", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        terraceId: terrace.id,
+        openingDate: today,
+        sessionId: token,
+      }),
+    });
+    if (res.ok) {
+      setOpenConfirmed(true);
+      try {
+        const stored: string[] = JSON.parse(
+          localStorage.getItem("confirmed_open") ?? "[]",
+        );
+        localStorage.setItem(
+          "confirmed_open",
+          JSON.stringify([...new Set([...stored, terrace.id])]),
+        );
+      } catch {}
+    }
+    setOpenConfirming(false);
+  }, [terrace.id, openConfirmed, openConfirming]);
 
   const typeLabels: Record<string, string> = {
     sidewalk: t.sidewalk,
@@ -358,6 +400,52 @@ export default function TerraceDetail({
               </svg>
               {t.call}
             </a>
+          )}
+        </div>
+
+        {/* Open confirmation */}
+        <div className="pb-4 border-b border-border flex items-center justify-between mb-4">
+          <div>
+            <p className="text-xs font-medium">
+              {lang === "fr"
+                ? "Cette terrasse est ouverte\u00a0?"
+                : "Is this terrace open for the season?"}
+            </p>
+            <p className="text-[11px] text-muted mt-0.5">
+              {lang === "fr"
+                ? "Aidez les visiteurs à planifier leur sortie."
+                : "Help others plan their visit."}
+            </p>
+          </div>
+          {openConfirmed ? (
+            <span className="shrink-0 text-xs text-green-600 font-medium flex items-center gap-1">
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {lang === "fr" ? "Confirmé" : "Confirmed"}
+            </span>
+          ) : (
+            <button
+              onClick={handleConfirmOpen}
+              disabled={openConfirming}
+              className="shrink-0 text-xs px-3 py-1.5 rounded-lg border border-border text-muted hover:border-green-500/40 hover:text-green-600 hover:bg-green-500/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            >
+              {openConfirming
+                ? "…"
+                : lang === "fr"
+                  ? "Confirmer l'ouverture"
+                  : "Confirm open"}
+            </button>
           )}
         </div>
 

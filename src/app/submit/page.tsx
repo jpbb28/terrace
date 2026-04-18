@@ -242,15 +242,13 @@ function SubmitPageContent() {
     };
 
     const { error } = isEdit
-      ? await supabase
-          .from("corrections")
-          .insert({
-            ...shared,
-            terrace_id: editId,
-            terrace_name: editTerrace!.name,
-            changes: computeChanges(uploadedUrls),
-            photos: uploadedUrls,
-          })
+      ? await supabase.from("corrections").insert({
+          ...shared,
+          terrace_id: editId,
+          terrace_name: editTerrace!.name,
+          changes: computeChanges(uploadedUrls),
+          photos: uploadedUrls,
+        })
       : await supabase
           .from("submissions")
           .insert({ ...shared, photos: uploadedUrls });
@@ -259,6 +257,20 @@ function SubmitPageContent() {
       console.error("Submission error:", error);
       setState("error");
       return;
+    }
+
+    // If editing and opening date is set, push to live season dates table
+    if (isEdit && form.seasonalOpen) {
+      fetch("/api/season-dates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          terraceId: editId,
+          openingDate: form.seasonalOpen,
+          closingDate: form.seasonalClose || null,
+          submitterEmail: form.submitterEmail || null,
+        }),
+      }).catch(() => {});
     }
 
     setState("success");
@@ -528,19 +540,17 @@ function SubmitPageContent() {
               <div className="grid grid-cols-2 gap-4">
                 <Field label={t.opensForSeason}>
                   <input
-                    type="text"
+                    type="date"
                     value={form.seasonalOpen}
                     onChange={(e) => update("seasonalOpen", e.target.value)}
-                    placeholder={t.opensForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
                 <Field label={t.closesForSeason}>
                   <input
-                    type="text"
+                    type="date"
                     value={form.seasonalClose}
                     onChange={(e) => update("seasonalClose", e.target.value)}
-                    placeholder={t.closesForSeasonPlaceholder}
                     className={inputClass}
                   />
                 </Field>
