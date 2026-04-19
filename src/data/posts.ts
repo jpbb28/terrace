@@ -26,13 +26,13 @@ export const posts: Post[] = [
       "Most terraces start opening in May, some earlier if the weather plays along. Here's what the season actually looks like, month by month, and why September deserves more attention than it gets.",
     descriptionFr:
       "La plupart des terrasses ouvrent en mai, certaines avant si la météo coopère. Voici à quoi ressemble vraiment la saison, mois par mois, et pourquoi septembre mérite plus d'attention qu'on lui en donne.",
-    date: "March 15, 2026",
-    dateFr: "15 mars 2026",
-    dateIso: "2026-03-15",
+    date: "April 18, 2026",
+    dateFr: "18 avril 2026",
+    dateIso: "2026-04-18",
     content: [
       {
         t: "p",
-        text: "Sometime in May. Most places aim for the Victoria Day long weekend, the third Monday of the month, but it's not a hard rule. Some open earlier if the weather cooperates. Some drag their feet into June.",
+        text: "April, if the weather plays along. This year the third week of April hit 22 degrees and chairs were already out on the sidewalk. Most places still aim for the Victoria Day long weekend, the third Monday of May, but it's not a hard rule. Some drag their feet into June.",
       },
       {
         t: "p",
@@ -44,28 +44,23 @@ export const posts: Post[] = [
       },
       {
         t: "p",
-        text: "The season runs longer than you'd think. Heated covered places push well into October. Some technically never close. But the real season is June through September. The season of lingering. Of staying for another drink because why would you go inside.",
-      },
-      {
-        t: "p",
-        text: "Opening dates shift every year depending on the weather, the owner, the permits. Some places announce on Instagram in late April. Some just put the chairs out one morning. We track what we know, and owners and visitors can submit opening dates directly. If you know a place is open, it takes thirty seconds.",
-      },
-      {
-        t: "callout",
-        text: "Track which Montreal terraces are open this season. Dates come from owners and people who've been there.",
-        href: "/open",
-        label: "Terrace openings this season",
+        text: "The season runs longer than you'd think. Heated covered places push well into October. The real season is June through September. The season of lingering. Of staying for another drink because why would you go inside. Opening dates move every year. We compile what we know from owners and visitors who report them directly. [See what's open this season.](/open)",
       },
       { t: "divider" },
       {
         t: "labeled",
+        name: "April",
+        text: "Earlier than people expect. A warm stretch in April is all it takes for some places to get the chairs out. Don't count on it, but don't be surprised either.",
+      },
+      {
+        t: "labeled",
         name: "May",
-        text: "The first wave. Most places open sometime this month, with hours that start conservative. Lunch before dinner, dinner before late night. Bring a layer in the evening. The sun drops and the temperature follows, faster than you expect.",
+        text: "The first real wave. Most places open sometime this month, hours starting conservative and expanding as the weather holds. Worth noting: this year the Formula 1 Grand Prix falls in May, which means the city fills up earlier than usual. Plan accordingly. Bring a layer in the evening regardless. The sun drops and the temperature follows, faster than you expect.",
       },
       {
         t: "labeled",
         name: "June",
-        text: "This is the good one. Still cool enough to be comfortable, warm enough to stay. The tourists haven't arrived in force yet. You can get a seat somewhere popular without planning your entire evening around it. The city is in that brief collective exhale after winter. Go now, before everyone else figures it out.",
+        text: "The season is properly underway and the city knows it. Tourists are here, in numbers. The terraces are full on weekends. You can still get a seat at a good place if you show up early or go on a weeknight. It's worth it. The light in June in Montréal is something.",
       },
       {
         t: "labeled",
@@ -80,46 +75,41 @@ export const posts: Post[] = [
       {
         t: "labeled",
         name: "October",
-        text: "Wind-down. Heated and covered spots hold on; most sidewalk and rooftop terraces close somewhere between Thanksgiving and Halloween. Call ahead if you're going somewhere specific. Don't just show up.",
+        text: "Wind-down. Heated and covered spots hold on. Most sidewalk and rooftop terraces close somewhere between Thanksgiving and Halloween. Call ahead if you're going somewhere specific. Don't just show up.",
       },
     ],
     contentFr: [
       {
         t: "p",
-        text: "Quelque part en mai. La plupart des terrasses visent la Fête de la Reine, le troisième lundi du mois, mais c'est pas une règle absolue. Certains ouvrent avant si la météo coopère. D'autres traînent jusqu'en juin.",
+        text: "Avril, si la météo coopère. Cette année, la troisième semaine d'avril a frisé les 22 degrés et des chaises étaient déjà sorties sur les trottoirs. La plupart des endroits visent quand même le week-end de la Fête de la Reine, le troisième lundi de mai. Mais c'est pas gravé dans la pierre. Certains traînent encore en juin.",
       },
       {
         t: "p",
-        text: "Mais il y a un jour où ça bascule. Les proprios traînent leurs tables à 7h du matin. Et bientôt, les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin à midi. La saison a commencé.",
+        text: "Mais il y a un jour où ça bascule. Les proprios sortent leurs tables à 7h du matin. Et bientôt les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin à midi. C'est parti.",
       },
       {
         t: "p",
-        text: "Ce que les gens des villes chaudes saisissent pas, c'est ce que ça représente. On l'a gagné. Chaque matin de février à gratter le char à -25, chaque mars où on pensait que c'était fini et on a pris une autre tempête dans la face. C'est la facture. La terrasse, c'est le remboursement.",
+        text: "Ce que les gens des villes chaudes comprennent pas, c'est ce que ça représente. On l'a mérité. Chaque matin de février à gratter le char à -25, chaque mars où on croyait que c'était fini et on a pris une autre tempête dans la face. C'est la facture. La terrasse, c'est le remboursement.",
       },
       {
         t: "p",
-        text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. Certains ferment techniquement jamais. Mais la vraie saison, c'est juin à septembre. La saison où on reste pour un autre verre juste parce que rentrer, ça a pas de bon sens.",
-      },
-      {
-        t: "p",
-        text: "Les dates bougent d'une année à l'autre. La météo joue un rôle. Le proprio aussi. Les permis de terrasse arrivent quand ils arrivent. Certains placent une annonce sur Instagram fin avril. D'autres poussent les chaises dehors un mardi matin sans prévenir personne. On compile ce qu'on sait, et les propriétaires comme les visiteurs peuvent soumettre les dates directement. Une minute, pas plus.",
-      },
-      {
-        t: "callout",
-        text: "Les terrasses ouvertes cette saison à Montréal. Les dates sont soumises par les propriétaires et les gens qui y sont allés.",
-        href: "/open",
-        label: "Ouvertures de terrasses cette saison",
+        text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. La vraie saison, c'est juin à septembre. Celle où on reste parce que la nuit est bonne et que rentrer, ça a juste pas de sens. Les dates d'ouverture bougent chaque année selon la météo, le proprio, les permis. On compile ce qu'on sait à partir de ce que les propriétaires et les visiteurs nous rapportent. [Ce qui est ouvert cette saison.](/open)",
       },
       { t: "divider" },
       {
         t: "labeled",
+        name: "Avril",
+        text: "Plus tôt que les gens pensent. Une belle semaine en avril suffit pour que certains sortent les chaises. Compte pas dessus, mais sois pas surpris non plus.",
+      },
+      {
+        t: "labeled",
         name: "Mai",
-        text: "La première vague. La plupart des endroits ouvrent quelque part dans le mois, avec des heures conservatrices au départ. Dîner avant le souper, souper avant le soir. Prends une veste. Le soleil tombe vite et la température suit.",
+        text: "La première vraie vague. La plupart des endroits ouvrent quelque part dans le mois, avec des heures qui s'élargissent à mesure que la météo tient. À noter cette année: le Grand Prix de Formule 1 tombe en mai, ce qui veut dire que la ville se remplit plus tôt que d'habitude. Planifie en conséquence. Et prends une veste le soir de toute façon. Le soleil tombe vite et la température suit.",
       },
       {
         t: "labeled",
         name: "Juin",
-        text: "Le bon mois. Assez frais pour être confortable, assez chaud pour rester. Les touristes sont pas encore arrivés en masse. On peut trouver une table quelque part de bien sans planifier toute sa soirée autour. Vas-y maintenant.",
+        text: "La saison est lancée pour vrai, et la ville le sait. Les touristes sont là, en nombre. Les terrasses sont pleines les fins de semaine. On peut encore trouver une table quelque part de bien si on arrive tôt ou si on sort en semaine. Ça vaut le coup. La lumière de juin à Montréal, c'est quelque chose.",
       },
       {
         t: "labeled",
@@ -129,12 +119,12 @@ export const posts: Post[] = [
       {
         t: "labeled",
         name: "Septembre",
-        text: "Si t'as le choix d'un seul mois parfait en terrasse à Montréal, c'est celui-là. Chaud le jour, frais le soir, et on peut enfin s'entendre parler. Les foules d'août disparaissent. Les habitués reviennent. La ville recommence à vivre.",
+        text: "Si t'as le choix d'un seul mois parfait en terrasse à Montréal, c'est celui-là. Chaud le jour, frais le soir, et on peut enfin s'entendre parler. Les foules d'août disparaissent. Les habitués reviennent. La ville arrête de performer et recommence à vivre.",
       },
       {
         t: "labeled",
         name: "Octobre",
-        text: "La descente. Les spots chauffés et couverts tiennent bon, mais la plupart des terrasses de trottoir et de rooftop ferment quelque part entre l'Action de grâce et l'Halloween. Appelle avant de te déplacer.",
+        text: "La descente. Les spots chauffés et couverts tiennent bon. La plupart des terrasses de trottoir et de rooftop ferment quelque part entre l'Action de grâce et l'Halloween. Appelle avant de te déplacer. Débarque pas là sans savoir.",
       },
     ],
   },

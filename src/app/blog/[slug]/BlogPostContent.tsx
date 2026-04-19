@@ -6,6 +6,28 @@ import type { Post, Block } from "@/data/posts";
 
 const loraStyle = { fontFamily: "var(--font-lora)" } as const;
 
+function renderInline(text: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    parts.push(
+      <Link
+        key={match.index}
+        href={match[2]}
+        className="text-accent underline underline-offset-2 hover:text-accent-hover transition-colors"
+      >
+        {match[1]}
+      </Link>,
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length > 1 ? parts : text;
+}
+
 function Divider({ i }: { i: number }) {
   return (
     <div key={i} className="my-14 flex items-center justify-center gap-3">
@@ -36,7 +58,7 @@ function LabeledBlock({
         className="text-[16px] leading-[1.8] text-foreground/75"
         style={loraStyle}
       >
-        {block.text}
+        {renderInline(block.text)}
       </p>
     </div>
   );
@@ -58,7 +80,7 @@ function Paragraph({
         className="text-[17px] leading-[1.85] text-foreground/80 mb-6 [&::first-letter]:float-left [&::first-letter]:font-display [&::first-letter]:text-[4.2rem] [&::first-letter]:font-bold [&::first-letter]:text-accent [&::first-letter]:leading-[0.82] [&::first-letter]:mr-2 [&::first-letter]:mt-1"
         style={loraStyle}
       >
-        {block.text}
+        {renderInline(block.text)}
       </p>
     );
   }
@@ -68,7 +90,7 @@ function Paragraph({
       className="text-[17px] leading-[1.85] text-foreground/80 mb-6"
       style={loraStyle}
     >
-      {block.text}
+      {renderInline(block.text)}
     </p>
   );
 }
@@ -155,11 +177,13 @@ export default function BlogPostContent({ post }: { post: Post }) {
       <footer className="mt-16">
         <div className="h-px bg-border mb-10" />
         <Link
-          href="/"
+          href="/open"
           className="group flex items-center justify-between py-5 px-6 rounded-xl border border-border hover:border-accent/50 hover:bg-accent-soft transition-all duration-200"
         >
           <span className="font-display text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-            {lang === "fr" ? "Trouver une terrasse" : "Find a terrace"}
+            {lang === "fr"
+              ? "Trouver une terrasse ouverte"
+              : "Find an open terrace"}
           </span>
           <svg
             className="w-5 h-5 text-accent transition-transform duration-200 group-hover:translate-x-1"
