@@ -609,9 +609,14 @@ function SubmitPageContent() {
               <div className="grid grid-cols-2 gap-4">
                 <Field label={t.websiteLabel}>
                   <input
-                    type="url"
+                    type="text"
                     value={form.website}
                     onChange={(e) => update("website", e.target.value)}
+                    onBlur={(e) => {
+                      const v = e.target.value.trim();
+                      if (v && !/^https?:\/\//i.test(v))
+                        update("website", `https://${v}`);
+                    }}
                     placeholder="https://..."
                     className={inputClass}
                   />
