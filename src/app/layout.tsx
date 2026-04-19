@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import { slugify } from "@/lib/utils";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import PWAAutoUpdate from "@/components/PWAAutoUpdate";
 import "./globals.css";
 
 const playfair = Playfair_Display({
