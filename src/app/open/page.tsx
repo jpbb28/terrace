@@ -958,6 +958,25 @@ export default function OpenPage() {
             </>
           )}
         </div>
+
+        {/* Not in list CTA */}
+        <p className="text-sm text-muted mt-8 pb-10">
+          {lang === "fr" ? (
+            <>
+              La terrasse n&apos;est pas dans la liste ?{" "}
+              <Link href="/submit" className="text-accent hover:underline">
+                Soumettez-la ici.
+              </Link>
+            </>
+          ) : (
+            <>
+              Don&apos;t see a terrace in our list?{" "}
+              <Link href="/submit" className="text-accent hover:underline">
+                Submit it here.
+              </Link>
+            </>
+          )}
+        </p>
       </div>
     </div>
   );
