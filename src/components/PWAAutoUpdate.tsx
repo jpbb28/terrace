@@ -8,8 +8,6 @@ export default function PWAAutoUpdate() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
 
-    const pageLoadTime = Date.now();
-
     navigator.serviceWorker.ready.then((registration) => {
       registration.addEventListener("updatefound", () => {
         const installing = registration.installing;
@@ -17,8 +15,7 @@ export default function PWAAutoUpdate() {
         installing.addEventListener("statechange", () => {
           if (
             installing.state === "installed" &&
-            navigator.serviceWorker.controller &&
-            Date.now() - pageLoadTime > 30_000
+            navigator.serviceWorker.controller
           ) {
             setWaitingSW(installing);
           }
