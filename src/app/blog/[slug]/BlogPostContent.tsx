@@ -73,10 +73,46 @@ function Paragraph({
   );
 }
 
+function CalloutBlock({
+  block,
+  i,
+}: {
+  block: Extract<Block, { t: "callout" }>;
+  i: number;
+}) {
+  return (
+    <Link
+      key={i}
+      href={block.href}
+      className="group my-8 flex items-center justify-between gap-4 rounded-xl border border-accent/25 bg-accent-soft px-5 py-4 transition-colors hover:border-accent/50 hover:bg-accent/10"
+    >
+      <div>
+        <p className="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold mb-1">
+          {block.label}
+        </p>
+        <p className="text-sm text-foreground/70" style={loraStyle}>
+          {block.text}
+        </p>
+      </div>
+      <svg
+        className="w-4 h-4 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-0.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </Link>
+  );
+}
+
 function renderBlock(block: Block, i: number, firstPIdx: number) {
   if (block.t === "divider") return <Divider key={i} i={i} />;
   if (block.t === "labeled")
     return <LabeledBlock key={i} block={block} i={i} />;
+  if (block.t === "callout")
+    return <CalloutBlock key={i} block={block} i={i} />;
   return <Paragraph key={i} block={block} dropCap={i === firstPIdx} i={i} />;
 }
 

@@ -1,7 +1,8 @@
 export type Block =
   | { t: "p"; text: string }
   | { t: "labeled"; name: string; text: string }
-  | { t: "divider" };
+  | { t: "divider" }
+  | { t: "callout"; text: string; href: string; label: string };
 
 export type Post = {
   slug: string;
@@ -44,6 +45,16 @@ export const posts: Post[] = [
       {
         t: "p",
         text: "The season runs longer than you'd think. Heated covered places push well into October. Some technically never close. But the real season is June through September. The season of lingering. Of staying for another drink because why would you go inside.",
+      },
+      {
+        t: "p",
+        text: "Opening dates shift every year depending on the weather, the owner, the permits. Some places announce on Instagram in late April. Some just put the chairs out one morning. We track what we know, and owners and visitors can submit opening dates directly. If you know a place is open, it takes thirty seconds.",
+      },
+      {
+        t: "callout",
+        text: "Track which Montreal terraces are open this season. Dates come from owners and people who've been there.",
+        href: "/open",
+        label: "Terrace openings this season",
       },
       { t: "divider" },
       {
@@ -88,6 +99,16 @@ export const posts: Post[] = [
       {
         t: "p",
         text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. Certains ferment techniquement jamais. Mais la vraie saison, c'est juin à septembre. La saison où on reste pour un autre verre juste parce que rentrer, ça a pas de bon sens.",
+      },
+      {
+        t: "p",
+        text: "Les dates bougent d'une année à l'autre. La météo joue un rôle. Le proprio aussi. Les permis de terrasse arrivent quand ils arrivent. Certains placent une annonce sur Instagram fin avril. D'autres poussent les chaises dehors un mardi matin sans prévenir personne. On compile ce qu'on sait, et les propriétaires comme les visiteurs peuvent soumettre les dates directement. Une minute, pas plus.",
+      },
+      {
+        t: "callout",
+        text: "Les terrasses ouvertes cette saison à Montréal. Les dates sont soumises par les propriétaires et les gens qui y sont allés.",
+        href: "/open",
+        label: "Ouvertures de terrasses cette saison",
       },
       { t: "divider" },
       {
