@@ -29,7 +29,9 @@ export default function PWAAutoUpdate() {
 
   function handleUpdate() {
     if (!waitingSW) return;
-    // Tell the waiting SW to skip waiting and activate immediately.
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      window.location.reload();
+    });
     waitingSW.postMessage({ type: "SKIP_WAITING" });
   }
 
