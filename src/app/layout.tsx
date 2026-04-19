@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 import { slugify } from "@/lib/utils";
-import PWAAutoUpdate from "@/components/PWAAutoUpdate";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import "./globals.css";
 

@@ -54,5 +54,16 @@ export default withPWA({
   workboxOptions: {
     clientsClaim: true,
     disableDevLogs: true,
+    runtimeCaching: [
+      {
+        urlPattern: ({ request }: { request: Request }) =>
+          request.mode === "navigate",
+        handler: "NetworkFirst",
+        options: {
+          cacheName: "pages",
+          networkTimeoutSeconds: 3,
+        },
+      },
+    ],
   },
 })(nextConfig);

@@ -32,11 +32,11 @@ export const posts: Post[] = [
     content: [
       {
         t: "p",
-        text: "April, if the weather plays along. This year the third week of April hit 22 degrees and chairs were already out on the sidewalk. Most places still aim for the Victoria Day long weekend, the third Monday of May, but it's not a hard rule. Some drag their feet into June.",
+        text: "There's no hard rule. I wish we had a better answer for you but if you've lived through a few Montreal springs, you wouldn't expect one. Most places aim for somewhere in May, but Mother Nature ultimately decides. This year the third week of April hit 22 degrees on a Saturday and we saw a handful of terraces coming alive.",
       },
       {
         t: "p",
-        text: "But there's a day when it tips. Café owners drag out tables at 7am. Soon enough, every sidewalk on Saint-Laurent has people sitting on it, still wearing jackets, ordering wine at noon. The season has started.",
+        text: "There's always that day when it tips. Café owners drag out tables at 7am. Soon enough, every sidewalk on Saint-Laurent has people sitting on it, possibly still wearing jackets, ordering wine at noon. The season has started. Since that timing varies by establishment and moves every year, we compile reports from owners and patrons and [list them here](/open).",
       },
       {
         t: "p",
@@ -44,7 +44,7 @@ export const posts: Post[] = [
       },
       {
         t: "p",
-        text: "The season runs longer than you'd think. Heated covered places push well into October. The real season is June through September. The season of lingering. Of staying for another drink because why would you go inside. Opening dates move every year. We compile what we know from owners and visitors who report them directly. [See what's open this season.](/open)",
+        text: "The season runs longer than you'd think. Heated covered places push well into October. The real season is June through September. The season of lingering. Of staying for another drink because why would you go inside. ",
       },
       { t: "divider" },
       {
@@ -81,11 +81,11 @@ export const posts: Post[] = [
     contentFr: [
       {
         t: "p",
-        text: "Avril, si la météo coopère. Cette année, la troisième semaine d'avril a frisé les 22 degrés et des chaises étaient déjà sorties sur les trottoirs. La plupart des endroits visent quand même le week-end de la Fête de la Reine, le troisième lundi de mai. Mais c'est pas gravé dans la pierre. Certains traînent encore en juin.",
+        text: "Y'a pas de règle fixe. Si t'as vécu quelques printemps montréalais, tu t'en doutais déjà. La plupart des endroits visent quelque part en mai, mais c'est la météo qui a le dernier mot. Cette année, la troisième semaine d'avril a frappé à 22 degrés un samedi, et on a vu une poignée de terrasses se réveiller.",
       },
       {
         t: "p",
-        text: "Mais il y a un jour où ça bascule. Les proprios sortent leurs tables à 7h du matin. Et bientôt les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin à midi. C'est parti.",
+        text: "Il y a toujours ce jour où ça bascule. Les proprios sortent leurs tables à 7h du matin. Bientôt les trottoirs de Saint-Laurent sont pleins de monde encore en manteau, qui commandent du vin à midi. La saison est commencée. Comme les dates varient d'un endroit à l'autre et bougent chaque année, on compile ce que les propriétaires et les clients nous rapportent et on [les liste ici](/open).",
       },
       {
         t: "p",
@@ -93,7 +93,7 @@ export const posts: Post[] = [
       },
       {
         t: "p",
-        text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. La vraie saison, c'est juin à septembre. Celle où on reste parce que la nuit est bonne et que rentrer, ça a juste pas de sens. Les dates d'ouverture bougent chaque année selon la météo, le proprio, les permis. On compile ce qu'on sait à partir de ce que les propriétaires et les visiteurs nous rapportent. [Ce qui est ouvert cette saison.](/open)",
+        text: "Ça dure plus longtemps qu'on pense. Les endroits couverts et chauffés tiennent jusqu'en octobre. La vraie saison, c'est juin à septembre. Celle où on reste parce que la nuit est bonne et que rentrer, ça a juste pas de sens.",
       },
       { t: "divider" },
       {

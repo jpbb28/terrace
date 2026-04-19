@@ -8,11 +8,6 @@ export default function PWAAutoUpdate() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
 
-    // Once the new SW takes control, reload to apply the update.
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
-      window.location.reload();
-    });
-
     navigator.serviceWorker.ready.then((registration) => {
       // A new SW may already be waiting (e.g. page was open during deploy).
       if (registration.waiting) {
