@@ -1,12 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { type, table, record } = await req.json();
+  const body = await req.json();
+  console.log("[submit webhook] payload:", JSON.stringify(body));
 
-  if (type !== "INSERT") return NextResponse.json({ ok: true });
+  const { type, table, record } = body;
+
+  if (type !== "INSERT") {
+    console.log("[submit webhook] skipping, type =", type);
+    return NextResponse.json({ ok: true });
+  }
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-  if (!webhookUrl) return NextResponse.json({ ok: true });
+  if (!webhookUrl) {
+    console.log("[submit webhook] DISCORD_WEBHOOK_URL not set");
+    return NextResponse.json({ ok: true });
+  }
 
   let message: string;
 
