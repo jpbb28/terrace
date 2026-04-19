@@ -57,6 +57,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid input" }, { status: 400 });
   }
 
+  const token = crypto.randomUUID();
+
   const { error } = await supabase.from("terrace_season_dates").upsert(
     {
       terrace_id: terraceId,
@@ -64,6 +66,7 @@ export async function POST(req: NextRequest) {
       closing_date: closingDate || null,
       submitter_email: submitterEmail || null,
       updated_at: new Date().toISOString(),
+      undo_token: token,
     },
     { onConflict: "terrace_id" },
   );
@@ -81,15 +84,36 @@ export async function POST(req: NextRequest) {
     (submitterEmail ? `\n**From:** ${submitterEmail}` : "");
   await notifyDiscord(msg);
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, token });
 }
 
 export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const terraceId = searchParams.get("terraceId");
+  const token = searchParams.get("token");
 
-  if (!terraceId || typeof terraceId !== "string") {
+  if (
+    !terraceId ||
+    typeof terraceId !== "string" ||
+    !token ||
+    typeof token !== "string"
+  ) {
     return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+  }
+
+  const { data: row, error: fetchError } = await supabase
+    .from("terrace_season_dates")
+    .select("undo_token")
+    .eq("terrace_id", terraceId)
+    .maybeSingle();
+
+  if (fetchError) {
+    logError("DELETE /api/season-dates fetch", fetchError, { terraceId });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+
+  if (!row || row.undo_token !== token) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
   const { error } = await supabase

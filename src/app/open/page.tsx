@@ -118,8 +118,12 @@ export default function OpenPage() {
   const [submitting, setSubmitting] = useState(false);
 
   // Undo — persisted across sessions in localStorage
+  // undoable: terraceId → terraceName (controls button visibility)
+  // undoTokens: terraceId → undo_token (required by DELETE API)
   const [undoable, setUndoable] = useState<Map<string, string>>(new Map());
+  const [undoTokens, setUndoTokens] = useState<Map<string, string>>(new Map());
   const [undoing, setUndoing] = useState<Set<string>>(new Set());
+  const [undoFailed, setUndoFailed] = useState<Set<string>>(new Set());
 
   const neighborhoodRef = useRef<HTMLDivElement>(null);
   const filtersDropdownRef = useRef<HTMLDivElement>(null);
@@ -128,16 +132,26 @@ export default function OpenPage() {
 
   useEffect(() => {
     // Restore previous submissions for undo
+    // localStorage format: { [terraceId]: token }
     try {
-      const saved = JSON.parse(
-        localStorage.getItem("submitted_dates") ?? "[]",
-      ) as string[];
-      const map = new Map<string, string>();
-      for (const id of saved) {
-        const match = terraces.find((x) => x.id === id);
-        if (match) map.set(id, match.name);
+      const raw = localStorage.getItem("submitted_dates");
+      const saved = JSON.parse(raw ?? "{}");
+      // Discard old array format (no tokens, can't undo securely)
+      if (Array.isArray(saved)) {
+        localStorage.removeItem("submitted_dates");
+      } else if (saved && typeof saved === "object") {
+        const names = new Map<string, string>();
+        const tokens = new Map<string, string>();
+        for (const [id, token] of Object.entries(saved)) {
+          const match = terraces.find((x) => x.id === id);
+          if (match && typeof token === "string") {
+            names.set(id, match.name);
+            tokens.set(id, token);
+          }
+        }
+        setUndoable(names);
+        setUndoTokens(tokens);
       }
-      setUndoable(map);
     } catch {}
 
     // Pre-fill form if ?report=<id>
@@ -228,6 +242,7 @@ export default function OpenPage() {
     });
 
     if (res.ok) {
+      const { token } = await res.json();
       const tid = formTerrace.id;
       const tname = formTerrace.name;
 
@@ -248,17 +263,17 @@ export default function OpenPage() {
       );
 
       setUndoable((prev) => new Map(prev).set(tid, tname));
-      try {
-        const saved: string[] = JSON.parse(
-          localStorage.getItem("submitted_dates") ?? "[]",
-        );
-        if (!saved.includes(tid)) {
-          localStorage.setItem(
-            "submitted_dates",
-            JSON.stringify([...saved, tid]),
+      if (token) {
+        setUndoTokens((prev) => new Map(prev).set(tid, token));
+        try {
+          const saved = JSON.parse(
+            localStorage.getItem("submitted_dates") ?? "{}",
           );
-        }
-      } catch {}
+          const next = Array.isArray(saved) ? {} : saved;
+          next[tid] = token;
+          localStorage.setItem("submitted_dates", JSON.stringify(next));
+        } catch {}
+      }
 
       setFormTerrace(null);
       setFormSearch("");
@@ -272,9 +287,25 @@ export default function OpenPage() {
   async function handleUndo(terraceId: string) {
     if (undoing.has(terraceId)) return;
     setUndoing((s) => new Set(s).add(terraceId));
+    setUndoFailed((s) => {
+      const n = new Set(s);
+      n.delete(terraceId);
+      return n;
+    });
+
+    const token = undoTokens.get(terraceId);
+    if (!token) {
+      setUndoFailed((s) => new Set(s).add(terraceId));
+      setUndoing((s) => {
+        const n = new Set(s);
+        n.delete(terraceId);
+        return n;
+      });
+      return;
+    }
 
     const res = await fetch(
-      `/api/season-dates?terraceId=${encodeURIComponent(terraceId)}`,
+      `/api/season-dates?terraceId=${encodeURIComponent(terraceId)}&token=${encodeURIComponent(token)}`,
       { method: "DELETE" },
     );
 
@@ -290,14 +321,22 @@ export default function OpenPage() {
         next.delete(terraceId);
         return next;
       });
+      setUndoTokens((prev) => {
+        const next = new Map(prev);
+        next.delete(terraceId);
+        return next;
+      });
       try {
-        const remaining: string[] = (
-          JSON.parse(
-            localStorage.getItem("submitted_dates") ?? "[]",
-          ) as string[]
-        ).filter((id) => id !== terraceId);
-        localStorage.setItem("submitted_dates", JSON.stringify(remaining));
+        const saved = JSON.parse(
+          localStorage.getItem("submitted_dates") ?? "{}",
+        );
+        if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+          delete saved[terraceId];
+          localStorage.setItem("submitted_dates", JSON.stringify(saved));
+        }
       } catch {}
+    } else {
+      setUndoFailed((s) => new Set(s).add(terraceId));
     }
 
     setUndoing((s) => {
@@ -614,6 +653,7 @@ export default function OpenPage() {
             const official = data!.official[terrace.id];
             const canUndo = undoable.has(terrace.id);
             const isUndoing = undoing.has(terrace.id);
+            const undoError = undoFailed.has(terrace.id);
             const openNow = isOpenNow(terrace) === true;
             const types = terrace.terraceType ?? [];
 
@@ -663,9 +703,17 @@ export default function OpenPage() {
                       handleUndo(terrace.id);
                     }}
                     disabled={isUndoing}
-                    className="shrink-0 text-xs text-muted hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50 mt-0.5"
+                    className={`shrink-0 text-xs transition-colors cursor-pointer disabled:opacity-50 mt-0.5 ${undoError ? "text-red-500" : "text-muted hover:text-red-500"}`}
                   >
-                    {isUndoing ? "…" : lang === "fr" ? "Annuler" : "Undo"}
+                    {isUndoing
+                      ? "…"
+                      : undoError
+                        ? lang === "fr"
+                          ? "Échec"
+                          : "Failed"
+                        : lang === "fr"
+                          ? "Annuler"
+                          : "Undo"}
                   </button>
                 )}
               </div>
