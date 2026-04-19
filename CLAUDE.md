@@ -2,6 +2,11 @@
 
 Discover every terrace and patio in Montreal.
 
+## Git / Deployment Rules
+
+- **Never push to git unless explicitly asked.** Each push triggers a Vercel production build.
+- **Batch commits** — complete all related changes before committing. Don't commit after each small fix.
+
 **Production URL**: https://terrasseseason.com
 **Hosting**: Vercel (migrated from Netlify)
 
