@@ -1,6 +1,17 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 import { logError } from "@/lib/logger";
+import { terraces } from "@/data/terraces";
+
+async function notifyDiscord(message: string) {
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhookUrl) return;
+  await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: message }),
+  });
+}
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -61,6 +72,14 @@ export async function POST(req: NextRequest) {
     logError("POST /api/season-dates", error, { terraceId });
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
+
+  const terraceName =
+    terraces.find((t) => t.id === terraceId)?.name ?? terraceId;
+  const msg =
+    `**Opening date reported**\n**Terrace:** ${terraceName}\n**Opens:** ${openingDate}` +
+    (closingDate ? `\n**Closes:** ${closingDate}` : "") +
+    (submitterEmail ? `\n**From:** ${submitterEmail}` : "");
+  await notifyDiscord(msg);
 
   return NextResponse.json({ ok: true });
 }

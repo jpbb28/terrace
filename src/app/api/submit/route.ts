@@ -1,37 +1,81 @@
 import { NextRequest, NextResponse } from "next/server";
 
+function line(label: string, value: unknown): string {
+  if (value === null || value === undefined || value === "" || value === false)
+    return "";
+  if (Array.isArray(value) && value.length === 0) return "";
+  const display = Array.isArray(value) ? value.join(", ") : String(value);
+  return `\n**${label}:** ${display}`;
+}
+
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  console.log("[submit webhook] payload:", JSON.stringify(body));
+  const { type, table, record } = await req.json();
 
-  const { type, table, record } = body;
-
-  if (type !== "INSERT") {
-    console.log("[submit webhook] skipping, type =", type);
-    return NextResponse.json({ ok: true });
-  }
+  if (type !== "INSERT") return NextResponse.json({ ok: true });
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.log("[submit webhook] DISCORD_WEBHOOK_URL not set");
-    return NextResponse.json({ ok: true });
-  }
+  if (!webhookUrl) return NextResponse.json({ ok: true });
 
   let message: string;
 
   if (table === "submissions") {
-    const who = [record.submitter_name, record.submitter_email]
+    const flags = [
+      record.covered && "covered",
+      record.dog_friendly && "dog-friendly",
+      record.heated && "heated",
+    ]
       .filter(Boolean)
-      .join(" — ");
-    message = `**New terrace submission**\n**Name:** ${record.name}\n**Neighborhood:** ${record.neighborhood ?? "—"}\n**Address:** ${record.address}${who ? `\n**From:** ${who}` : ""}`;
+      .join(", ");
+
+    message =
+      `**New terrace submission**` +
+      line("Name", record.name) +
+      line("Address", record.address) +
+      line("Neighborhood", record.neighborhood) +
+      line("Type", record.terrace_type) +
+      line("Cuisine", record.cuisine_type) +
+      line("Capacity", record.capacity) +
+      (flags ? `\n**Features:** ${flags}` : "") +
+      line("Season open", record.seasonal_open) +
+      line("Season close", record.seasonal_close) +
+      line("Website", record.website) +
+      line("Instagram", record.instagram) +
+      line("Phone", record.phone) +
+      line("Description", record.description) +
+      line(
+        "Photos",
+        record.photos?.length ? `${record.photos.length} uploaded` : null,
+      ) +
+      line(
+        "From",
+        [record.submitter_name, record.submitter_email, record.submitter_role]
+          .filter(Boolean)
+          .join(" — "),
+      );
   } else if (table === "corrections") {
     const changedFields = record.changes
       ? Object.keys(record.changes).join(", ")
       : "—";
-    const who = [record.submitter_name, record.submitter_email]
-      .filter(Boolean)
-      .join(" — ");
-    message = `**New correction**\n**Terrace:** ${record.terrace_name}\n**Changed:** ${changedFields}${who ? `\n**From:** ${who}` : ""}`;
+
+    message =
+      `**New correction — ${record.terrace_name}**` +
+      line("Changed fields", changedFields) +
+      line("Address", record.address) +
+      line("Neighborhood", record.neighborhood) +
+      line("Website", record.website) +
+      line("Instagram", record.instagram) +
+      line("Phone", record.phone) +
+      line("Description", record.description) +
+      line(
+        "Photos",
+        record.photos?.length ? `${record.photos.length} uploaded` : null,
+      ) +
+      line(
+        "From",
+        [record.submitter_name, record.submitter_email, record.submitter_role]
+          .filter(Boolean)
+          .join(" — "),
+      );
   } else {
     return NextResponse.json({ ok: true });
   }
