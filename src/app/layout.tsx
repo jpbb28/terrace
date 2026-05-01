@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     images: [
       {
-        url: "/og-v2.jpg",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Terrasse Season – Montréal's Essential Terrace Guide",
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     title: "Terrasse Season – Montréal's Essential Terrace Guide",
     description:
       "The most complete guide to terraces and patios in Montréal — filter by rooftop, dog-friendly, covered, open now, and more.",
-    images: ["/og-v2.jpg"],
+    images: ["/og.png"],
   },
   manifest: "/manifest.json",
   icons: {
