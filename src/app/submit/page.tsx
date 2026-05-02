@@ -505,6 +505,9 @@ function SubmitPageContent() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
               {t.hoursSection}
             </h2>
+            <p className="text-xs text-muted mb-4 italic">
+              {t.terraceHoursSubmitNote}
+            </p>
             <div className="space-y-4">
               <HoursEditor value={hours} onChange={setHours} />
             </div>

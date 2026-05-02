@@ -66,6 +66,50 @@ src/
 - `openingPeriods` — structured hours from Google Places API (`{day, open, close}[]`); populated via `node scripts/fetch-hours.js` then `node scripts/apply-hours.js`. Re-run seasonally (winter/summer hours differ). `placeId` stored per terrace to enable cheap future refreshes.
 - `openingHours` — legacy display string, kept for terraces not yet in Places data
 
+### Terrace hours vs indoor hours (Montreal bylaw)
+
+Stored hours are **terrace** hours, NOT the establishment's indoor hours. Montreal city bylaws cap when patios on public/private property may operate:
+
+- **Public property (sidewalks/roads)**: Sun–Wed 7 AM–11 PM; Thu–Sat 7 AM–midnight
+- **Private property (courtyards/backyards)**: 7 AM–11 PM
+
+**Rules when populating `openingPeriods`:**
+
+1. If a user submission specifies an earlier close time than Google Places, **trust the submission** — the operator knows their own terrace hours. Google reports indoor/establishment hours.
+2. Any close time strictly past midnight (`01:00`–`06:59` overnight) must be capped to `"23:30"`. The bulk fix is `node scripts/cap-terrace-hours.cjs` (idempotent — re-run any time).
+3. Don't write descriptions that mention specific late closing times like "until 3 AM" — those refer to indoor hours and contradict our terrace data.
+
+The hours UI (TerraceDetail expanded panel and the `/terraces/[slug]` SEO page) shows the note: _"Terrace hours per Montreal city bylaws. Indoor hours may differ."_
+
+## Adding New Listings — Workflow
+
+When the user pastes pending submissions (JSON from the `submissions` table) for verification + add, follow this workflow. **JSON is the preferred input format** (CSV/SQL require escaping for multi-line French descriptions; JSON is most token-efficient).
+
+**Pin coordinates: always source from Google Places API by `placeId`, never geocode from the address string.** Hand-typed or geocoded coords cause the pin-misplacement bug fixed in 8af4e15.
+
+### Pipeline
+
+1. Save the pasted JSON to `scripts/submissions-input.json`.
+2. Run `node scripts/verify-submissions.cjs` — for each submission, calls `places:searchText` and writes `scripts/submissions-verified.json` with submitter data, Google data, and a `recommended_opening_periods` field that has already been capped to terrace-bylaw hours and merged with any earlier submitter close times. Flags include `street_number_mismatch`, `no_match`, `hours_capped`, `submitter_earlier_day_N`.
+3. Review `submissions-verified.json`. Investigate any flags before proceeding (manually correct the `name`/`address` or skip the entry).
+4. Append entries to `src/data/terraces.ts`. Use the next sequential `id` (currently up through 207). For each entry:
+   - **Always from Google**: `placeId`, `lat`, `lng`, `googleRating`, `googleReviewCount`
+   - **`openingPeriods`**: copy from `recommended_opening_periods` in the verified JSON (already merged + capped). Don't write descriptions that name specific late close times like "until 3 AM" — those refer to indoor hours.
+   - **Always from submitter**: `terraceType`, `capacity`, `covered`, `dogFriendly`, `heated`, `instagram`, raw `description`
+   - **Prefer submitter, fall back to Google**: `name`, `address` (use submitter's intent unless Google's canonical version is clearly more correct), `website` (skip if Google only has a Facebook/Instagram URL)
+   - **Translate**: produce both `description` (EN) and `descriptionFr`. Cite source as `"Sources: User submission."`
+   - **Photos**: if a submission includes a photo URL, download to `public/photos/{id}/main.{ext}` then run `node scripts/convert-to-webp.js` (handles JPG; for PNG use a sharp one-liner). Set `photos: ["/photos/{id}/main.webp"]`.
+5. Run `npx tsc --noEmit -p tsconfig.json` to confirm types.
+6. Run `node scripts/approve-submissions.cjs` — flips the `status` of every UUID in `submissions-input.json` from `pending` to `approved`.
+7. Leave the input/verified JSON files untracked (they're scratch). Don't commit them.
+
+### Helper scripts
+
+- `scripts/verify-submissions.cjs` — runs Google Places lookup + diff against submitter data
+- `scripts/approve-submissions.cjs` — marks the batch as approved in Supabase
+- `scripts/fetch-coords.js` — re-fetches `lat`/`lng` for every terrace by `placeId` (audit pass). Run periodically to catch any drift.
+- `scripts/verify-placeids.js` — sanity-checks that each stored `placeId` still resolves to the same business name/address
+
 ## ⚠️ SECURITY
 
 ### Google API Key

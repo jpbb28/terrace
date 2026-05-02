@@ -583,6 +583,9 @@ function HoursItem({ terrace }: { terrace: Terrace }) {
               </span>
             </div>
           ))}
+          <p className="text-[11px] text-muted italic pt-2 mt-1 border-t border-border">
+            {t.terraceHoursNote}
+          </p>
         </div>
       )}
     </div>

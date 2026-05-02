@@ -272,7 +272,7 @@ export default async function TerracePage({ params }: Props) {
           {hoursLines.length > 0 && (
             <div className="mb-6 p-4 rounded-xl bg-foreground/[0.03] border border-border">
               <p className="text-[10px] uppercase tracking-wider text-muted mb-2.5 font-medium">
-                Hours
+                Terrace Hours
               </p>
               <div className="space-y-1">
                 {hoursLines.map((line) => (
@@ -281,6 +281,9 @@ export default async function TerracePage({ params }: Props) {
                   </p>
                 ))}
               </div>
+              <p className="text-[11px] text-muted italic mt-3 pt-3 border-t border-border">
+                Terrace hours per Montreal city bylaws. Indoor hours may differ.
+              </p>
             </div>
           )}
           {!hoursLines.length && terrace.openingHours && (

@@ -124,6 +124,10 @@ export const translations = {
     openLabel: "Open",
     closedLabel: "Closed",
     open24h: "Open 24 hours",
+    terraceHoursNote:
+      "Terrace hours per Montreal city bylaws. Indoor hours may differ.",
+    terraceHoursSubmitNote:
+      "Please enter the terrace's hours, not the establishment's indoor hours. Montreal bylaws limit terrace hours to 11 PM (Sun–Wed) or midnight (Thu–Sat) on public sidewalks, and 11 PM on private property.",
     submitError: "Something went wrong. Please try again.",
     tryAgain: "Try again",
     selectPlaceholder: "Select...",
@@ -275,6 +279,10 @@ export const translations = {
     openLabel: "Ouvert",
     closedLabel: "Fermé",
     open24h: "Ouvert 24h/24",
+    terraceHoursNote:
+      "Heures de terrasse selon les règlements municipaux de Montréal. Les heures d'ouverture intérieures peuvent différer.",
+    terraceHoursSubmitNote:
+      "Veuillez indiquer les heures de la terrasse, pas les heures d'ouverture intérieures de l'établissement. Les règlements de Montréal limitent les heures de terrasse à 23 h (dim–mer) ou minuit (jeu–sam) sur les trottoirs publics, et 23 h sur propriété privée.",
     submitError: "Une erreur s'est produite. Veuillez réessayer.",
     tryAgain: "Réessayer",
     selectPlaceholder: "Choisir...",
