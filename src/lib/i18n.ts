@@ -244,7 +244,7 @@ export const translations = {
     yourNameLabel: "Votre nom",
     yourNamePlaceholder: "Optionnel",
     yourEmailLabel: "Votre courriel",
-    yourEmailPlaceholder: "Pour qu\u2019on puisse vous rejoindre",
+    yourEmailPlaceholder: "Si on a des questions",
     capacityPlaceholder: "ex. 40",
     yourRoleLabel: "Votre r\u00F4le",
     preferNotSay: "Pr\u00E9f\u00E8re ne pas dire",
