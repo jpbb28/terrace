@@ -53,6 +53,8 @@ const emptyForm = {
   instagram: "",
   phone: "",
   description: "",
+  seasonalOpen: "",
+  seasonalClose: "",
   submitterName: "",
   submitterEmail: "",
   submitterRole: "",
@@ -100,6 +102,8 @@ function SubmitPageContent() {
         instagram: editTerrace.instagram ?? "",
         phone: editTerrace.phone ?? "",
         description: editTerrace.description,
+        seasonalOpen: "",
+        seasonalClose: "",
         submitterName: "",
         submitterEmail: "",
         submitterRole: "",
@@ -219,6 +223,8 @@ function SubmitPageContent() {
       opening_periods: toHourPeriods(hours).length
         ? toHourPeriods(hours)
         : null,
+      seasonal_open: form.seasonalOpen || null,
+      seasonal_close: form.seasonalClose || null,
       description: form.description || null,
       submitter_name: form.submitterName || null,
       submitter_email: form.submitterEmail || null,
@@ -505,6 +511,24 @@ function SubmitPageContent() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
               {t.hoursSection}
             </h2>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <Field label={t.opensForSeason}>
+                <input
+                  type="date"
+                  value={form.seasonalOpen}
+                  onChange={(e) => update("seasonalOpen", e.target.value)}
+                  className={inputClass}
+                />
+              </Field>
+              <Field label={t.closesForSeason}>
+                <input
+                  type="date"
+                  value={form.seasonalClose}
+                  onChange={(e) => update("seasonalClose", e.target.value)}
+                  className={inputClass}
+                />
+              </Field>
+            </div>
             <p className="text-xs text-muted mb-4 italic">
               {t.terraceHoursSubmitNote}
             </p>

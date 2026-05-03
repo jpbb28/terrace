@@ -90,7 +90,7 @@ export const translations = {
     yourNameLabel: "Your name",
     yourNamePlaceholder: "Optional",
     yourEmailLabel: "Your email",
-    yourEmailPlaceholder: "So we can follow up",
+    yourEmailPlaceholder: "In case we need to follow up",
     capacityPlaceholder: "e.g. 40",
     yourRoleLabel: "Your role",
     preferNotSay: "Prefer not to say",
