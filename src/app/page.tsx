@@ -165,11 +165,13 @@ export default function Home() {
   const [locateTrigger, setLocateTrigger] = useState(0);
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [desktopMapMounted, setDesktopMapMounted] = useState(false);
   const [mobileMapMounted, setMobileMapMounted] = useState(true);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
   const neighborhoodDropdownRef = useRef<HTMLDivElement>(null);
   const savedScrollTop = useRef(0);
   const desktopListRef = useRef<HTMLDivElement>(null);
@@ -197,6 +199,12 @@ export default function Home() {
         !mobileMenuRef.current.contains(e.target as Node)
       ) {
         setMobileMenuOpen(false);
+      }
+      if (
+        desktopMenuRef.current &&
+        !desktopMenuRef.current.contains(e.target as Node)
+      ) {
+        setDesktopMenuOpen(false);
       }
       if (
         neighborhoodDropdownRef.current &&
@@ -638,26 +646,50 @@ export default function Home() {
             {lang === "en" ? "Français" : "English"}
           </button>
           <div className="w-px h-4 bg-border shrink-0 ml-1" />
-          <nav className="flex items-center gap-3">
-            <Link
-              href="/blog"
-              className="text-xs text-muted hover:text-foreground transition-colors"
+          <a
+            href="https://instagram.com/terrasseseason"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-muted hover:text-foreground transition-colors whitespace-nowrap"
+          >
+            @terrasseseason
+          </a>
+          <div className="relative" ref={desktopMenuRef}>
+            <button
+              onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
+              className="w-6 h-6 flex flex-col items-center justify-center gap-[3.5px] text-muted hover:text-foreground transition-colors cursor-pointer"
+              aria-label="Menu"
             >
-              {lang === "fr" ? "Notes" : "Blog"}
-            </Link>
-            <Link
-              href="/about"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              {lang === "fr" ? "À propos" : "About"}
-            </Link>
-            <Link
-              href="/faq"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              FAQ
-            </Link>
-          </nav>
+              <span className="w-3.5 h-px bg-current rounded-full" />
+              <span className="w-3.5 h-px bg-current rounded-full" />
+              <span className="w-3.5 h-px bg-current rounded-full" />
+            </button>
+            {desktopMenuOpen && (
+              <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
+                <Link
+                  href="/blog"
+                  onClick={() => setDesktopMenuOpen(false)}
+                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                >
+                  {lang === "fr" ? "Notes" : "Blog"}
+                </Link>
+                <Link
+                  href="/about"
+                  onClick={() => setDesktopMenuOpen(false)}
+                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                >
+                  {lang === "fr" ? "À propos" : "About"}
+                </Link>
+                <Link
+                  href="/faq"
+                  onClick={() => setDesktopMenuOpen(false)}
+                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
+                >
+                  FAQ
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -954,7 +986,17 @@ export default function Home() {
                   <span className="w-4 h-px bg-current rounded-full" />
                 </button>
                 {mobileMenuOpen && (
-                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
+                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[140px] z-50">
+                    <a
+                      href="https://instagram.com/terrasseseason"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-xs text-accent font-medium hover:bg-foreground/[0.04] transition-colors"
+                    >
+                      @terrasseseason
+                    </a>
+                    <div className="my-1 border-t border-border" />
                     <Link
                       href="/blog"
                       onClick={() => setMobileMenuOpen(false)}
