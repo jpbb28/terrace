@@ -5672,8 +5672,9 @@ export const terraces: Terrace[] = [
     dogFriendly: false,
     heated: false,
     website: "https://labetise.com/en/",
-    instagram: "@labetiseverdun",
-    photos: [],
+    instagram: "@labetise",
+    phone: "514-750-8288",
+    photos: ["/photos/194/main.webp"],
     openingPeriods: [
       { day: 1, open: "17:00", close: "22:00" },
       { day: 2, open: "17:00", close: "22:00" },
@@ -6720,5 +6721,39 @@ export const terraces: Terrace[] = [
       "Medieval-themed inn with backyard, courtyard, and garden terraces serving period dinners and live performances. Sources: User submission.",
     descriptionFr:
       "Auberge médiévale avec terrasses arrière-cour, cour intérieure et jardin proposant des soupers d'époque et des spectacles. Sources : Soumission d'utilisateur.",
+  },
+
+  // LATIN QUARTER
+  {
+    id: "208",
+    placeId: "ChIJD9mWCU0ayUwR_cRwhTUnfos",
+    googleRating: 4.2,
+    googleReviewCount: 2320,
+    name: "Pub Le Sainte-Élisabeth",
+    address: "1412 Rue Ste-Élisabeth",
+    lat: 45.5123179,
+    lng: -73.5622678,
+    neighborhood: "Latin Quarter",
+    cuisineType: "Pub",
+    terraceType: ["backyard", "courtyard"],
+    covered: false,
+    dogFriendly: true,
+    heated: false,
+    website: "https://pubsteeli.com/",
+    phone: "514-833-0866",
+    photos: [],
+    openingPeriods: [
+      { day: 0, open: "14:30", close: "22:00" },
+      { day: 1, open: "16:00", close: "23:30" },
+      { day: 2, open: "16:00", close: "23:30" },
+      { day: 3, open: "14:30", close: "23:30" },
+      { day: 4, open: "14:30", close: "23:30" },
+      { day: 5, open: "14:30", close: "23:30" },
+      { day: 6, open: "14:30", close: "23:30" },
+    ],
+    description:
+      "Montreal pub with a sprawling hidden backyard and courtyard terrace tucked off Rue Sainte-Élisabeth in the Latin Quarter. Dog-friendly. Sources: User submission.",
+    descriptionFr:
+      "Pub montréalais avec une grande terrasse en arrière-cour et cour intérieure cachée, nichée rue Sainte-Élisabeth dans le Quartier Latin. Chiens bienvenus. Sources : Soumission d'utilisateur.",
   },
 ];
