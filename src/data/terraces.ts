@@ -1184,7 +1184,7 @@ export const terraces: Terrace[] = [
     lng: -73.5698492,
     neighborhood: "Downtown",
     cuisineType: "French",
-    terraceType: ["sidewalk"],
+    terraceType: ["courtyard"],
     covered: false,
     dogFriendly: false,
     heated: false,
