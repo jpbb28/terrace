@@ -4342,12 +4342,13 @@ export const terraces: Terrace[] = [
     placeId: "ChIJW6T5-yMbyUwRLWIrtNTBSaw",
     googleRating: 4.3,
     googleReviewCount: 2716,
-    name: "Pangea",
+    name: "Pangea Restaurant & Bar",
     address: "104 Rue Saint-Paul E",
     lat: 45.5066641,
     lng: -73.5528626,
     neighborhood: "Old Montreal",
     cuisineType: "Bar / Lounge",
+    terraceType: ["sidewalk", "courtyard"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -4361,9 +4362,9 @@ export const terraces: Terrace[] = [
       { day: 6, open: "12:00", close: "23:30" },
     ],
     description:
-      "South Beach aesthetic, 2nd-floor lounge. Sources: Noovomoi, Tourisme Montreal.",
+      "Three terraces: a sidewalk patio and a two-floor interior terrace. Sources: Noovomoi, Tourisme Montreal, establishment.",
     descriptionFr:
-      "Esthétique South Beach, salon au 2e étage. Sources: Noovomoi, Tourisme Montreal.",
+      "Trois terrasses : un patio sur trottoir et une terrasse intérieure sur deux étages. Sources: Noovomoi, Tourisme Montréal, établissement.",
   },
   {
     id: "129",
