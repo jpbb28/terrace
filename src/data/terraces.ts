@@ -1548,7 +1548,7 @@ export const terraces: Terrace[] = [
     description:
       "Charming café and Italian sandwich counter with bright, modern decor. Sources: Tastet.",
     descriptionFr:
-      "Charmant café et comptoir à sandwichs italiens avec un décor lumineux et moderne. Sources : Tastet.",
+      "Charmant café et comptoir de sandwichs italiens, au décor lumineux et moderne. Sources : Tastet.",
   },
 
   // =============================================
