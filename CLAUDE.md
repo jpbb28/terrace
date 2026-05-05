@@ -119,6 +119,12 @@ When the user pastes pending submissions (JSON from the `submissions` table) for
 - Restrict the key in Google Cloud Console to: Places API (New) only
 - Set `GOOGLE_PLACES_API_KEY` as an environment variable in Netlify
 
+### Discord Bot
+
+- `DISCORD_BOT_TOKEN`, `DISCORD_PUBLIC_KEY`, `DISCORD_APPROVAL_CHANNEL_ID` live ONLY in `.env.local` + Vercel — never commit
+- The Public Key is used to verify Ed25519 signatures on incoming Discord interactions; without it, the interactions endpoint rejects all requests as unauthenticated
+- The bot token grants full message-posting rights on the channel. Reset it in the Developer Portal if exposed
+
 ## Photos
 
 - All terrace photos are in `public/photos/{id}/` as WebP files, committed to git and served via Netlify CDN
@@ -134,6 +140,36 @@ Full schema in memory file `supabase_schema.md`. Tables:
 - **`submissions`** — new terrace suggestions from the submit form
 - **`corrections`** — edit suggestions for existing terraces (includes `changes` jsonb diff and `terrace_id`)
 - **`terrace_events`** — analytics events (views, clicks) with `event_type`, `session_id`, `device_type`
+- **`terrace_season_dates`** — canonical "what the public sees". One row per terrace, `terrace_id` PK. Only ever written by the approval action, never directly by submissions.
+- **`terrace_season_date_submissions`** — append-only moderation queue. UUID PK, `terrace_id` indexed (not unique). One row per submission with `status` (`pending`/`approved`/`rejected`/`withdrawn`), `submitter_email`, `submitter_id` (anonymous browser UUID), `decided_at`, `decided_by`, `discord_message_id`, `undo_token`.
+
+## Opening date approval flow
+
+Submissions from the `/open` page no longer go live immediately. Pipeline:
+
+1. Visitor submits an opening date → `POST /api/season-dates` inserts a fresh row in `terrace_season_date_submissions` with `status='pending'`. The canonical `terrace_season_dates` table is untouched.
+2. The endpoint queries existing canonical + other pending submissions for the same terrace, then posts an approval message to the admin Discord channel via the **Bot API** with green Approve / red Reject buttons. The message includes any conflicts (currently-live differs / other pending exists / same submitter vs different) so the admin can decide at a glance. The Resend email also goes out for paper-trail backup.
+3. Admin clicks a button → Discord POSTs to `/api/discord/interactions`. The route verifies the Ed25519 signature, looks up the submission by UUID from the `custom_id`, updates `status`/`decided_at`/`decided_by`, and on **approve** also upserts the canonical row from the submission's data. The original Discord message is edited to remove buttons + show "Approved/Rejected by {user}".
+4. `GET /api/open-reports` reads the canonical table directly. No filtering needed; pending/rejected/withdrawn rows live in the queue and never touch canonical.
+
+**Submitter identity**: every browser persists a UUID at `localStorage.terrace_submitter_id` and sends it with each submission. Lets the Discord message tag conflicts as "same submitter resubmitting" vs "different person disagrees" without requiring login or email.
+
+**Submitter undo** (`DELETE /api/season-dates?token=…`) marks the queue row as `withdrawn` (audit-preserving). If the withdrawn submission was the source of the live canonical row, the API recomputes canonical from the next-most-recent approved submission for that terrace, or removes canonical entirely if there isn't one.
+
+**Stale Discord buttons**: each Discord message references a specific submission UUID, so resubmissions always create a new row with new buttons. Old buttons either still work (against the original submission) or fall through to "already decided" — they never accidentally affect a different row.
+
+### Discord setup (one-time)
+
+Done at https://discord.com/developers/applications:
+
+1. Create a new Application (separate from any other bots).
+2. Bot tab → reset token → save as `DISCORD_BOT_TOKEN`.
+3. General Information → copy Public Key as `DISCORD_PUBLIC_KEY`.
+4. General Information → set **Interactions Endpoint URL** = `https://terrasseseason.com/api/discord/interactions`. Discord pings the URL once on save; our route responds to type-1 PINGs. Save will fail if the route is not yet deployed.
+5. OAuth2 → URL Generator → scopes `bot`, permissions `Send Messages` + `View Channel`. Use the generated URL to invite the bot to the admin server.
+6. Right-click the approval channel → Copy Channel ID → save as `DISCORD_APPROVAL_CHANNEL_ID`.
+
+All four env vars (`DISCORD_BOT_TOKEN`, `DISCORD_PUBLIC_KEY`, `DISCORD_APPROVAL_CHANNEL_ID`, plus the existing `DISCORD_WEBHOOK_URL` which still drives generic notifications) need to be set in `.env.local` and in Vercel.
 
 ## Planned V2 Features
 

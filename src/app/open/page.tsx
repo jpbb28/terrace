@@ -80,6 +80,21 @@ function getStatus(terraceId: string, data: SeasonData): StatusKey {
   return "open";
 }
 
+// Persistent anonymous submitter ID. Stable per browser, sent with every
+// season-date submission so the admin can tell "same person re-submitted" from
+// "different person disagrees" in the Discord approval message.
+function getOrCreateSubmitterId(): string {
+  try {
+    const stored = localStorage.getItem("terrace_submitter_id");
+    if (stored) return stored;
+    const id = crypto.randomUUID();
+    localStorage.setItem("terrace_submitter_id", id);
+    return id;
+  } catch {
+    return crypto.randomUUID();
+  }
+}
+
 function formatDate(dateStr: string, lang: string): string {
   const [y, m, d] = dateStr.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString(
@@ -238,7 +253,11 @@ export default function OpenPage() {
     const res = await fetch("/api/season-dates", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ terraceId: formTerrace.id, openingDate }),
+      body: JSON.stringify({
+        terraceId: formTerrace.id,
+        openingDate,
+        submitterId: getOrCreateSubmitterId(),
+      }),
     });
 
     if (res.ok) {
@@ -305,7 +324,7 @@ export default function OpenPage() {
     }
 
     const res = await fetch(
-      `/api/season-dates?terraceId=${encodeURIComponent(terraceId)}&token=${encodeURIComponent(token)}`,
+      `/api/season-dates?token=${encodeURIComponent(token)}`,
       { method: "DELETE" },
     );
 

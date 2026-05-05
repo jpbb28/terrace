@@ -10,6 +10,9 @@ const supabase = createClient(
 export async function GET() {
   const today = new Date().toISOString().split("T")[0];
 
+  // Canonical table holds only approved live data — submissions queue (and
+  // any pending/rejected/withdrawn rows) lives in terrace_season_date_submissions
+  // and is not read here.
   const { data, error } = await supabase
     .from("terrace_season_dates")
     .select("terrace_id, opening_date, closing_date, updated_at");
