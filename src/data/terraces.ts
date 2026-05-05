@@ -1545,8 +1545,10 @@ export const terraces: Terrace[] = [
       { day: 5, open: "08:00", close: "21:00" },
       { day: 6, open: "08:00", close: "21:00" },
     ],
-    description: "",
-    descriptionFr: "",
+    description:
+      "Charming café and Italian sandwich counter with bright, modern decor. Sources: Tastet.",
+    descriptionFr:
+      "Charmant café et comptoir à sandwichs italiens avec un décor lumineux et moderne. Sources : Tastet.",
   },
 
   // =============================================
