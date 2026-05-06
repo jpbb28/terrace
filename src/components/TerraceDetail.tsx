@@ -53,6 +53,7 @@ export default function TerraceDetail({
     courtyard: t.courtyard,
     balcony: t.balcony,
     garden: t.garden,
+    plaza: t.plaza,
   };
 
   return (

@@ -136,6 +136,7 @@ export default function FilterBar({
     { value: "courtyard", label: t.courtyard },
     { value: "balcony", label: t.balcony },
     { value: "garden", label: t.garden },
+    { value: "plaza", label: t.plaza },
   ];
 
   const neighborhoodLabel =

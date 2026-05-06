@@ -34,6 +34,7 @@ export default function TerraceCard({
     courtyard: { label: t.courtyard, color: "bg-accent-soft text-accent" },
     balcony: { label: t.balcony, color: "bg-warm-soft text-warm" },
     garden: { label: t.garden, color: "bg-olive-soft text-olive" },
+    plaza: { label: t.plaza, color: "bg-accent-soft text-accent" },
   };
 
   const typeInfos =

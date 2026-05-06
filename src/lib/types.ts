@@ -4,7 +4,8 @@ export type TerraceType =
   | "backyard"
   | "courtyard"
   | "balcony"
-  | "garden";
+  | "garden"
+  | "plaza";
 
 export type Neighborhood =
   | "Plateau-Mont-Royal"

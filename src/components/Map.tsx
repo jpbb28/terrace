@@ -116,6 +116,7 @@ const terraceTypeLabel: Record<string, string> = {
   courtyard: "Courtyard",
   balcony: "Balcony",
   garden: "Garden",
+  plaza: "Plaza",
 };
 
 function StarRating({ rating }: { rating: number }) {

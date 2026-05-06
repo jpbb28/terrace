@@ -24,6 +24,7 @@ export const translations = {
     courtyard: "Courtyard",
     balcony: "Balcony",
     garden: "Garden",
+    plaza: "Plaza",
     // TerraceCard
     seats: (n: number) => `~${n} seats`,
     dogsOk: "\uD83D\uDC36 Dogs OK",
@@ -177,6 +178,7 @@ export const translations = {
     courtyard: "Cour int\u00E9rieure",
     balcony: "Balcon",
     garden: "Jardin",
+    plaza: "Esplanade",
     // TerraceCard
     seats: (n: number) => `~${n} places`,
     dogsOk: "\uD83D\uDC36 Chiens OK",

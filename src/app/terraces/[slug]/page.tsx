@@ -16,6 +16,7 @@ const TYPE_LABELS: Record<string, string> = {
   courtyard: "Courtyard",
   balcony: "Balcony",
   garden: "Garden",
+  plaza: "Plaza",
 };
 
 const SCHEMA_DAYS = [
