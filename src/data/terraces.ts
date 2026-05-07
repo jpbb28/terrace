@@ -1148,7 +1148,7 @@ export const terraces: Terrace[] = [
     lng: -73.5681384,
     neighborhood: "Downtown",
     cuisineType: "Mediterranean",
-    // type unknown — "hidden terrace" could be many things
+    terraceType: ["sidewalk", "courtyard"],
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1169,9 +1169,9 @@ export const terraces: Terrace[] = [
       { day: 6, open: "17:00", close: "00:00" },
     ],
     description:
-      "Hidden terrace on Saint-Alexandre Street. Shared dishes concept. Sources: Tourisme Montreal, Tastet.",
+      "Mediterranean restaurant on Saint-Alexandre Street with two terraces: a sidewalk terrace and a courtyard. Shared plates concept with cocktails, ceviche, and tacos. Sources: Tourisme Montreal, Tastet.",
     descriptionFr:
-      "Terrasse cachée sur la rue Saint-Alexandre. Concept de plats à partager. Sources: Tourisme Montreal, Tastet.",
+      "Restaurant méditerranéen sur la rue Saint-Alexandre avec deux terrasses : une terrasse sur trottoir et une cour intérieure. Concept de plats à partager avec cocktails, ceviche et tacos. Sources: Tourisme Montreal, Tastet.",
   },
   {
     id: "34",
