@@ -265,21 +265,10 @@ export default function OpenPage() {
       const tid = formTerrace.id;
       const tname = formTerrace.name;
 
-      setData((prev) =>
-        prev
-          ? {
-              ...prev,
-              official: {
-                ...prev.official,
-                [tid]: {
-                  opening_date: openingDate,
-                  closing_date: null,
-                  updated_at: new Date().toISOString(),
-                },
-              },
-            }
-          : prev,
-      );
+      // Don't optimistically push into data.official — the row is pending
+      // admin approval and shouldn't appear in the live "Already open" /
+      // "Opening soon" lists. The pending-submissions banner above the form
+      // gives the user feedback + an undo button until approval lands.
 
       setUndoable((prev) => new Map(prev).set(tid, tname));
       if (token) {
@@ -298,6 +287,11 @@ export default function OpenPage() {
       setFormSearch("");
       setDateMode("today");
       setCustomDate("");
+
+      // Scroll to the top so the visitor sees the pending banner.
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
     }
 
     setSubmitting(false);
@@ -420,6 +414,19 @@ export default function OpenPage() {
     (dogFriendly ? 1 : 0) +
     (covered ? 1 : 0);
 
+  // Pending submissions = entries the visitor submitted (we have their token in
+  // localStorage) that aren't yet in the live canonical data. Shown as a banner
+  // so the visitor knows the submission was received and can withdraw it
+  // before approval.
+  const pendingSubmissions = useMemo(() => {
+    if (!data) return [];
+    const result: { id: string; name: string }[] = [];
+    for (const [id, name] of undoable.entries()) {
+      if (!data.official[id]) result.push({ id, name });
+    }
+    return result;
+  }, [data, undoable]);
+
   const today = data?.today ?? "";
 
   const LogoIcon = () => (
@@ -467,6 +474,56 @@ export default function OpenPage() {
           </h1>
           <p className="text-muted text-sm max-w-lg">{t.openPageSubtitle}</p>
         </div>
+
+        {/* Pending submissions banner */}
+        {pendingSubmissions.length > 0 && (
+          <div className="mb-6 space-y-2">
+            {pendingSubmissions.map((p) => {
+              const isUndoing = undoing.has(p.id);
+              const undoError = undoFailed.has(p.id);
+              return (
+                <div
+                  key={p.id}
+                  className="rounded-xl bg-amber-500/[0.08] border border-amber-500/30 p-4 flex items-start gap-3"
+                >
+                  <span className="text-base leading-none mt-0.5">⏳</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-foreground mb-0.5">
+                      {lang === "fr" ? "Merci ! " : "Thanks! "}
+                      {lang === "fr" ? (
+                        <>
+                          Votre soumission pour <strong>{p.name}</strong> est en
+                          attente d&apos;approbation et apparaîtra ici une fois
+                          validée.
+                        </>
+                      ) : (
+                        <>
+                          Your submission for <strong>{p.name}</strong> is
+                          pending review and will appear here once approved.
+                        </>
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleUndo(p.id)}
+                    disabled={isUndoing}
+                    className={`shrink-0 text-xs transition-colors cursor-pointer disabled:opacity-50 ${undoError ? "text-red-500" : "text-muted hover:text-red-500"}`}
+                  >
+                    {isUndoing
+                      ? "…"
+                      : undoError
+                        ? lang === "fr"
+                          ? "Échec"
+                          : "Failed"
+                        : lang === "fr"
+                          ? "Retirer"
+                          : "Withdraw"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Sort + filters */}
         <div className="space-y-3 mb-6">

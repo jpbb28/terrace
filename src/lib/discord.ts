@@ -37,7 +37,22 @@ export async function sendBotMessage(
 ): Promise<string | null> {
   const token = process.env.DISCORD_BOT_TOKEN;
   const channel = process.env.DISCORD_APPROVAL_CHANNEL_ID;
-  if (!token || !channel) return null;
+  if (!token || !channel) {
+    const missing = [
+      !token && "DISCORD_BOT_TOKEN",
+      !channel && "DISCORD_APPROVAL_CHANNEL_ID",
+    ]
+      .filter(Boolean)
+      .join(", ");
+    console.error(
+      JSON.stringify({
+        level: "error",
+        context: "discord.sendBotMessage",
+        message: `Missing env: ${missing}. Bot message not sent.`,
+      }),
+    );
+    return null;
+  }
 
   const res = await fetch(`${DISCORD_API}/channels/${channel}/messages`, {
     method: "POST",

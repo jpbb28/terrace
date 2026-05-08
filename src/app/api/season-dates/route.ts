@@ -140,34 +140,37 @@ export async function POST(req: NextRequest) {
   const body =
     lines.join("\n") + (warnings.length ? `\n\n${warnings.join("\n")}` : "");
 
-  const [messageId] = await Promise.all([
-    sendBotMessage({
-      content: body,
-      components: [
-        {
-          type: 1,
-          components: [
-            {
-              type: 2,
-              style: 3, // SUCCESS / green
-              label: "Approve",
-              custom_id: `approve_seasondatesub_${submission.id}`,
-              emoji: { name: "✅" },
-            },
-            {
-              type: 2,
-              style: 4, // DANGER / red
-              label: "Reject",
-              custom_id: `reject_seasondatesub_${submission.id}`,
-              emoji: { name: "❌" },
-            },
-          ],
-        },
-      ],
-    }),
-    // Email keeps going out as a non-Discord paper trail.
-    notify(body),
-  ]);
+  // Try the bot first (it carries the action buttons). If that succeeds, fall
+  // back to email-only via notify() so we don't post a duplicate plain-text
+  // message via the legacy webhook. If the bot fails (env vars missing, bot
+  // not in channel, etc.), notify() still posts via the webhook so the admin
+  // at least sees something — they can then check Vercel logs to fix the bot.
+  const messageId = await sendBotMessage({
+    content: body,
+    components: [
+      {
+        type: 1,
+        components: [
+          {
+            type: 2,
+            style: 3, // SUCCESS / green
+            label: "Approve",
+            custom_id: `approve_seasondatesub_${submission.id}`,
+            emoji: { name: "✅" },
+          },
+          {
+            type: 2,
+            style: 4, // DANGER / red
+            label: "Reject",
+            custom_id: `reject_seasondatesub_${submission.id}`,
+            emoji: { name: "❌" },
+          },
+        ],
+      },
+    ],
+  });
+
+  await notify(body, { skipWebhook: messageId !== null });
 
   if (messageId) {
     await supabase

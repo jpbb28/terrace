@@ -11,12 +11,22 @@ function toSubject(markdown: string): string {
   return firstLine.replace(/\*\*/g, "").trim();
 }
 
-export async function notify(message: string): Promise<void> {
+interface NotifyOptions {
+  // Skip the Discord webhook send. Used by the season-date approval flow
+  // when the bot has already posted the (richer) message with buttons, so we
+  // don't end up with two near-identical messages in the same channel.
+  skipWebhook?: boolean;
+}
+
+export async function notify(
+  message: string,
+  options: NotifyOptions = {},
+): Promise<void> {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   const resendKey = process.env.RESEND_API_KEY;
 
   await Promise.all([
-    webhookUrl
+    webhookUrl && !options.skipWebhook
       ? fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
