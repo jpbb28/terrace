@@ -132,6 +132,16 @@ export default function OpenPage() {
   const [customDate, setCustomDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  // Toast that fires after a successful submission. `terraceName`/`terraceId`
+  // identify which submission it's for (so the Withdraw button knows what to
+  // undo). `visible` drives the opacity transition; we keep the toast in the
+  // DOM briefly after fade so the transition completes.
+  const [toast, setToast] = useState<{
+    terraceId: string;
+    terraceName: string;
+    visible: boolean;
+  } | null>(null);
+
   // Undo — persisted across sessions in localStorage
   // undoable: terraceId → terraceName (controls button visibility)
   // undoTokens: terraceId → undo_token (required by DELETE API)
@@ -288,10 +298,15 @@ export default function OpenPage() {
       setDateMode("today");
       setCustomDate("");
 
-      // Scroll to the top so the visitor sees the pending banner.
+      // Show the confirmation toast, then fade it out after 6s and unmount
+      // shortly after the fade so it doesn't linger in the DOM.
+      setToast({ terraceId: tid, terraceName: tname, visible: true });
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 100);
+        setToast((prev) => (prev ? { ...prev, visible: false } : prev));
+      }, 6000);
+      setTimeout(() => {
+        setToast((prev) => (prev?.terraceId === tid ? null : prev));
+      }, 6500);
     }
 
     setSubmitting(false);
@@ -414,19 +429,6 @@ export default function OpenPage() {
     (dogFriendly ? 1 : 0) +
     (covered ? 1 : 0);
 
-  // Pending submissions = entries the visitor submitted (we have their token in
-  // localStorage) that aren't yet in the live canonical data. Shown as a banner
-  // so the visitor knows the submission was received and can withdraw it
-  // before approval.
-  const pendingSubmissions = useMemo(() => {
-    if (!data) return [];
-    const result: { id: string; name: string }[] = [];
-    for (const [id, name] of undoable.entries()) {
-      if (!data.official[id]) result.push({ id, name });
-    }
-    return result;
-  }, [data, undoable]);
-
   const today = data?.today ?? "";
 
   const LogoIcon = () => (
@@ -450,6 +452,42 @@ export default function OpenPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Submission confirmation toast */}
+      {toast && (
+        <div
+          className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
+            toast.visible ? "opacity-100" : "opacity-0"
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="flex items-center gap-3 bg-foreground text-white px-4 py-3 rounded-lg shadow-lg max-w-md">
+            <span className="text-base leading-none">✅</span>
+            <p className="text-sm flex-1">
+              {lang === "fr" ? (
+                <>
+                  Merci ! Votre soumission pour{" "}
+                  <strong>{toast.terraceName}</strong> sera publiée après
+                  approbation.
+                </>
+              ) : (
+                <>
+                  Thanks! Your submission for{" "}
+                  <strong>{toast.terraceName}</strong> will appear here once
+                  approved.
+                </>
+              )}
+            </p>
+            <button
+              onClick={() => handleUndo(toast.terraceId)}
+              className="text-xs underline whitespace-nowrap hover:text-red-300 transition-colors cursor-pointer"
+            >
+              {lang === "fr" ? "Retirer" : "Withdraw"}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="border-b border-border px-6 py-4 flex items-center gap-4">
         <Link
@@ -474,56 +512,6 @@ export default function OpenPage() {
           </h1>
           <p className="text-muted text-sm max-w-lg">{t.openPageSubtitle}</p>
         </div>
-
-        {/* Pending submissions banner */}
-        {pendingSubmissions.length > 0 && (
-          <div className="mb-6 space-y-2">
-            {pendingSubmissions.map((p) => {
-              const isUndoing = undoing.has(p.id);
-              const undoError = undoFailed.has(p.id);
-              return (
-                <div
-                  key={p.id}
-                  className="rounded-xl bg-amber-500/[0.08] border border-amber-500/30 p-4 flex items-start gap-3"
-                >
-                  <span className="text-base leading-none mt-0.5">⏳</span>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-foreground mb-0.5">
-                      {lang === "fr" ? "Merci ! " : "Thanks! "}
-                      {lang === "fr" ? (
-                        <>
-                          Votre soumission pour <strong>{p.name}</strong> est en
-                          attente d&apos;approbation et apparaîtra ici une fois
-                          validée.
-                        </>
-                      ) : (
-                        <>
-                          Your submission for <strong>{p.name}</strong> is
-                          pending review and will appear here once approved.
-                        </>
-                      )}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => handleUndo(p.id)}
-                    disabled={isUndoing}
-                    className={`shrink-0 text-xs transition-colors cursor-pointer disabled:opacity-50 ${undoError ? "text-red-500" : "text-muted hover:text-red-500"}`}
-                  >
-                    {isUndoing
-                      ? "…"
-                      : undoError
-                        ? lang === "fr"
-                          ? "Échec"
-                          : "Failed"
-                        : lang === "fr"
-                          ? "Retirer"
-                          : "Withdraw"}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        )}
 
         {/* Sort + filters */}
         <div className="space-y-3 mb-6">
