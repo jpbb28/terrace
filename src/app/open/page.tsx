@@ -452,18 +452,20 @@ export default function OpenPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Submission confirmation toast */}
+      {/* Submission confirmation toast. Centered on mobile and desktop;
+          width caps at max-w-md but always leaves 1rem of viewport gutter
+          so the toast can't overflow on narrow screens. */}
       {toast && (
         <div
-          className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
+          className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-md transition-opacity duration-500 ${
             toast.visible ? "opacity-100" : "opacity-0"
           }`}
           role="status"
           aria-live="polite"
         >
-          <div className="flex items-center gap-3 bg-foreground text-white px-4 py-3 rounded-lg shadow-lg max-w-md">
-            <span className="text-base leading-none">✅</span>
-            <p className="text-sm flex-1">
+          <div className="flex items-center gap-3 bg-foreground text-white px-4 py-3 rounded-lg shadow-lg">
+            <span className="text-base leading-none shrink-0">✅</span>
+            <p className="text-sm flex-1 min-w-0">
               {lang === "fr" ? (
                 <>
                   Merci ! Votre soumission pour{" "}
@@ -480,7 +482,7 @@ export default function OpenPage() {
             </p>
             <button
               onClick={() => handleUndo(toast.terraceId)}
-              className="text-xs underline whitespace-nowrap hover:text-red-300 transition-colors cursor-pointer"
+              className="text-xs underline whitespace-nowrap hover:text-red-300 transition-colors cursor-pointer shrink-0"
             >
               {lang === "fr" ? "Retirer" : "Withdraw"}
             </button>
