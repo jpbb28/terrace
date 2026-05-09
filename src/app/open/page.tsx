@@ -452,12 +452,12 @@ export default function OpenPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Submission confirmation toast. Centered on mobile and desktop;
-          width caps at max-w-md but always leaves 1rem of viewport gutter
-          so the toast can't overflow on narrow screens. */}
+      {/* Submission confirmation toast. Centered both horizontally and
+          vertically in the viewport. Width caps at max-w-md but always
+          leaves 1rem of gutter so it can't overflow narrow screens. */}
       {toast && (
         <div
-          className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-md transition-opacity duration-500 ${
+          className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-2rem)] max-w-md transition-opacity duration-500 ${
             toast.visible ? "opacity-100" : "opacity-0"
           }`}
           role="status"
