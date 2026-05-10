@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import withPWA from "@ducanh2912/next-pwa";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://terrasseseason.com";
@@ -45,7 +46,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withPWA({
+const pwaConfig = withPWA({
   dest: "public",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
@@ -67,3 +68,12 @@ export default withPWA({
     ],
   },
 })(nextConfig);
+
+export default withSentryConfig(pwaConfig, {
+  org: "jpbb",
+  project: "javascript-nextjs",
+  silent: true,
+  sourcemaps: { disable: true },
+  disableLogger: true,
+  automaticVercelMonitors: true,
+});
