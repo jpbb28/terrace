@@ -143,6 +143,8 @@ Full schema in memory file `supabase_schema.md`. Tables:
 - **`terrace_season_dates`** — canonical "what the public sees". One row per terrace, `terrace_id` PK. Only ever written by the approval action, never directly by submissions.
 - **`terrace_season_date_submissions`** — append-only moderation queue. UUID PK, `terrace_id` indexed (not unique). One row per submission with `status` (`pending`/`approved`/`rejected`/`withdrawn`), `submitter_email`, `submitter_id` (anonymous browser UUID), `decided_at`, `decided_by`, `discord_message_id`, `undo_token`.
 
+**Denormalized `terrace_name`**: every terrace_id-keyed table (`reviews`, `terrace_events`, `terrace_season_dates`, `terrace_season_date_submissions`, plus the existing `corrections.terrace_name`) carries a copy of the terrace's display name so rows can be scanned in the Supabase dashboard without cross-referencing `src/data/terraces.ts`. Each insert site looks the name up inline via `terraces.find((t) => t.id === id)?.name ?? id`. If a name is renamed in `terraces.ts`, run `node scripts/backfill-terrace-names.cjs` to update existing rows.
+
 ## Opening date approval flow
 
 Submissions from the `/open` page no longer go live immediately. Pipeline:

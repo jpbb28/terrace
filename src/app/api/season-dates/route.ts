@@ -57,10 +57,14 @@ export async function POST(req: NextRequest) {
 
   // Always a fresh row in the queue. The canonical /open data isn't touched
   // until the admin approves via Discord.
+  const terraceName =
+    terraces.find((t) => t.id === terraceId)?.name ?? terraceId;
+
   const { data: submission, error: insertError } = await supabase
     .from("terrace_season_date_submissions")
     .insert({
       terrace_id: terraceId,
+      terrace_name: terraceName,
       opening_date: openingDate,
       closing_date: closingDate || null,
       submitter_email: submitterEmail || null,
@@ -96,8 +100,6 @@ export async function POST(req: NextRequest) {
   const canonical = canonicalRes.data;
   const otherPending = otherPendingRes.data ?? [];
 
-  const terraceName =
-    terraces.find((t) => t.id === terraceId)?.name ?? terraceId;
   const submitterTag = submitterId
     ? `\`${submitterId.slice(0, 8)}\``
     : "anonymous";
@@ -250,6 +252,9 @@ export async function DELETE(req: NextRequest) {
       await supabase.from("terrace_season_dates").upsert(
         {
           terrace_id: submission.terrace_id,
+          terrace_name:
+            terraces.find((t) => t.id === submission.terrace_id)?.name ??
+            submission.terrace_id,
           opening_date: nextApproved.opening_date,
           closing_date: nextApproved.closing_date,
           updated_at: nextApproved.decided_at ?? new Date().toISOString(),

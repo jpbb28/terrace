@@ -127,12 +127,17 @@ async function handleButton(interaction: DiscordInteraction) {
     return ephemeral(`Database error: ${updateError.message}`);
   }
 
+  const terraceName =
+    terraces.find((t) => t.id === submission.terrace_id)?.name ??
+    submission.terrace_id;
+
   if (action === "approve") {
     const { error: upsertError } = await supabase
       .from("terrace_season_dates")
       .upsert(
         {
           terrace_id: submission.terrace_id,
+          terrace_name: terraceName,
           opening_date: submission.opening_date,
           closing_date: submission.closing_date,
           updated_at: decidedAt,
@@ -150,9 +155,6 @@ async function handleButton(interaction: DiscordInteraction) {
     }
   }
 
-  const terraceName =
-    terraces.find((t) => t.id === submission.terrace_id)?.name ??
-    submission.terrace_id;
   const verb = action === "approve" ? "Approved" : "Rejected";
   const icon = action === "approve" ? "✅" : "❌";
   const stamp = decidedAt.replace("T", " ").slice(0, 16);

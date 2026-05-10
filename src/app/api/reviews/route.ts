@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 import { rateLimit } from "@/lib/ratelimit";
 import { logError } from "@/lib/logger";
+import { terraces } from "@/data/terraces";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -31,6 +32,7 @@ export async function POST(req: NextRequest) {
 
   const { error } = await supabase.from("reviews").insert({
     terrace_id: terraceId,
+    terrace_name: terraces.find((t) => t.id === terraceId)?.name ?? terraceId,
     rating,
     text: text?.trim() || null,
     token,

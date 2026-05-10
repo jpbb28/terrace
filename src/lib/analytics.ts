@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { terraces } from "@/data/terraces";
 
 type EventType =
   | "view"
@@ -26,6 +27,7 @@ export function trackEvent(terraceId: string, eventType: EventType) {
     .from("terrace_events")
     .insert({
       terrace_id: terraceId,
+      terrace_name: terraces.find((t) => t.id === terraceId)?.name ?? terraceId,
       event_type: eventType,
       session_id: getSessionId(),
       device_type,
