@@ -4,8 +4,11 @@ import { posts } from "@/data/posts";
 import { slugify } from "@/lib/utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const buildDate = new Date();
+
   const terracePages: MetadataRoute.Sitemap = terraces.map((t) => ({
     url: `https://terrasseseason.com/terraces/${slugify(t.name)}`,
+    lastModified: buildDate,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -20,23 +23,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://terrasseseason.com",
-      lastModified: new Date(),
+      lastModified: buildDate,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: "https://terrasseseason.com/blog",
-      lastModified: new Date(),
+      lastModified: buildDate,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: "https://terrasseseason.com/faq",
+      lastModified: buildDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: "https://terrasseseason.com/about",
+      lastModified: buildDate,
       changeFrequency: "monthly",
       priority: 0.5,
     },

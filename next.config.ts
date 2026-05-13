@@ -24,6 +24,20 @@ const apiCorsHeaders = [
 
 const nextConfig: NextConfig = {
   turbopack: {},
+  async redirects() {
+    return [
+      {
+        source: "/terraces/moqueur",
+        destination: "/terraces/terrasse-chez-miller",
+        permanent: true,
+      },
+      {
+        source: "/terraces/pangea",
+        destination: "/terraces/pangea-restaurant-bar",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -71,9 +85,8 @@ const pwaConfig = withPWA({
 
 export default withSentryConfig(pwaConfig, {
   org: "jpbb",
-  project: "javascript-nextjs",
+  project: "terrace-season",
   silent: true,
-  sourcemaps: { disable: true },
   disableLogger: true,
   automaticVercelMonitors: true,
 });
