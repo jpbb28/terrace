@@ -173,29 +173,55 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
 
       {/* Terrace Season reviews block */}
       <div>
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-[11px] font-medium uppercase tracking-wide text-muted">
-            {lang === "fr" ? "Ce que disent nos utilisateurs" : "What our users say about the terrace"}
+        <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-2">
+          {lang === "fr" ? "Ce que disent nos utilisateurs" : "What our users say about the terrace"}
+        </p>
+
+        {avg !== null && count > 0 && (
+          <div className="inline-flex items-center gap-2">
+            <span className="text-sm font-semibold">{avg.toFixed(1)}</span>
+            <Stars value={Math.round(avg)} />
+            <span className="text-xs text-muted">({count})</span>
+          </div>
+        )}
+
+        {/* Reviews list */}
+        {loading ? (
+          <p className="text-xs text-muted mt-3">{lang === "fr" ? "Chargement..." : "Loading..."}</p>
+        ) : reviews.length === 0 ? (
+          <p className="text-xs text-muted mt-2">
+            {lang === "fr" ? "Aucun avis pour l'instant. Soyez le premier !" : "No reviews yet. Be the first!"}
           </p>
-          {avg !== null && count > 0 && (
-            <div className="flex items-center gap-2">
-              <Stars value={Math.round(avg)} />
-              <span className="text-xs text-muted">{avg.toFixed(1)} ({count})</span>
-            </div>
-          )}
-        </div>
+        ) : (
+          <div className="space-y-3 mt-3">
+            {reviews.map((r) => (
+              <div key={r.id} className="rounded-xl bg-foreground/[0.03] border border-border p-3">
+                <div className="flex items-center justify-between mb-1">
+                  <Stars value={r.rating} />
+                  <span className="text-[10px] text-muted">{timeAgo(r.created_at, lang)}</span>
+                </div>
+                {r.text && (
+                  <p className="text-sm text-foreground/75 leading-relaxed">{r.text}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Submission form */}
         {submitted ? (
-          <p className="text-sm text-green-700 font-medium mb-4">
+          <p className="text-sm text-green-700 font-medium mt-4">
             {lang === "fr" ? "Merci pour votre avis !" : "Thanks for your review!"}
           </p>
         ) : alreadyReviewed ? (
-          <p className="text-xs text-muted mb-4">
+          <p className="text-xs text-muted mt-4">
             {lang === "fr" ? "Vous avez déjà évalué cette terrasse." : "You've already reviewed this terrace."}
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="mb-4">
+          <form onSubmit={handleSubmit} className="mt-4 rounded-xl border border-border-strong p-4">
+            <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-3">
+              {lang === "fr" ? "Laissez votre avis" : "Leave a review"}
+            </p>
             <div className="flex items-center gap-3 mb-3">
               <Stars value={rating} interactive onChange={setRating} />
               {rating > 0 && (
@@ -210,7 +236,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
               placeholder={lang === "fr" ? "L'ambiance, le confort, la vue... (optionnel)" : "Vibe, comfort, view, shade... (optional)"}
               rows={2}
               maxLength={500}
-              className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-foreground/[0.02] resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
+              className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-background resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
             />
             {error && <p className="text-xs text-red-500 mb-2">{error}</p>}
             <button
@@ -223,29 +249,6 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
                 : lang === "fr" ? "Soumettre" : "Submit"}
             </button>
           </form>
-        )}
-
-        {/* Reviews list */}
-        {loading ? (
-          <p className="text-xs text-muted">{lang === "fr" ? "Chargement..." : "Loading..."}</p>
-        ) : reviews.length === 0 ? (
-          <p className="text-xs text-muted">
-            {lang === "fr" ? "Aucun avis pour l'instant. Soyez le premier !" : "No reviews yet. Be the first!"}
-          </p>
-        ) : (
-          <div className="space-y-3">
-            {reviews.map((r) => (
-              <div key={r.id} className="rounded-xl bg-foreground/[0.03] border border-border p-3">
-                <div className="flex items-center justify-between mb-1">
-                  <Stars value={r.rating} />
-                  <span className="text-[10px] text-muted">{timeAgo(r.created_at, lang)}</span>
-                </div>
-                {r.text && (
-                  <p className="text-sm text-foreground/75 leading-relaxed">{r.text}</p>
-                )}
-              </div>
-            ))}
-          </div>
         )}
       </div>
 
