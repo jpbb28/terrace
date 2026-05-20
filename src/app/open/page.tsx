@@ -197,10 +197,11 @@ export default function OpenPage() {
       const match = terraces.find((x) => x.id === reportId);
       if (match) {
         setFormTerrace(match);
-        setTimeout(
-          () => formSectionRef.current?.scrollIntoView({ behavior: "smooth" }),
-          400,
-        );
+        setTimeout(() => {
+          formSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+          setFormPopping(true);
+          setTimeout(() => setFormPopping(false), 700);
+        }, 400);
       }
       window.history.replaceState({}, "", "/open");
     }
