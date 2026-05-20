@@ -2259,9 +2259,7 @@ export const terraces: Terrace[] = [
     website: "https://miltonb.com",
     instagram: "@miltonbmtl",
     photos: ["/photos/199/main.webp", "/photos/199/2.webp"],
-    openingPeriods: [
-      { day: 0, open: "00:00", close: "00:00", is24h: true },
-    ],
+    openingPeriods: [{ day: 0, open: "00:00", close: "00:00", is24h: true }],
     description:
       "Vibrant urban cafeteria open 24/7 at the corner of Avenue du Parc and Milton Street, established in 2017. Bubble tea, coffee, light fare, and a large terrace. Known for community and environmental stewardship. Sources: miltonb.com, Yelp.",
     descriptionFr:
@@ -6473,9 +6471,7 @@ export const terraces: Terrace[] = [
     phone: "438-533-0954",
     instagram: "@seasaltmtl",
     photos: ["/photos/188/main.webp", "/photos/188/2.webp"],
-    openingPeriods: [
-      { day: 0, open: "10:00", close: "22:00" },
-    ],
+    openingPeriods: [{ day: 0, open: "10:00", close: "22:00" }],
     description:
       "Ceviche-focused seafood restaurant on Place Royale in Old Montreal with a sidewalk terrace open seasonally. Mediterranean and South American influences, fresh fish and shellfish preparations. Sources: seasaltmtl.com, Tourisme Montréal.",
     descriptionFr:
@@ -6939,5 +6935,75 @@ export const terraces: Terrace[] = [
       "The newest BreWskey space on Saint-Paul Est, opened in 2023, with two summer terraces facing both Rue Saint-Paul and Rue de la Commune in a beer-garden style. Open kitchen, smokehouse menu, boutique, and 50 indoor seats. Sources: BreWskey, RestoMontreal.",
     descriptionFr:
       "Dernier-né du complexe BreWskey (2023), sur la rue Saint-Paul Est, avec deux terrasses estivales en mode beer garden donnant sur Saint-Paul et de la Commune. Cuisine ouverte, fumoir, boutique et 50 places en salle. Sources : BreWskey, RestoMontreal.",
+  },
+
+  // VERDUN / LASALLE
+  {
+    id: "212",
+    placeId: "ChIJ8Q9ZdBIRyUwRTFGyuzBsBow",
+    googleRating: 4.3,
+    googleReviewCount: 2048,
+    name: "Brasserie des Rapides",
+    address: "7852 Bd Champlain, LaSalle",
+    lat: 45.4266917,
+    lng: -73.609975,
+    neighborhood: "Verdun",
+    cuisineType: "Pub, Italian",
+    terraceType: ["sidewalk", "courtyard"],
+    capacity: 80,
+    covered: true,
+    dogFriendly: true,
+    heated: false,
+    website: "https://www.brasseriedesrapides.com",
+    instagram: "@brasseriedesrapides",
+    phone: "514-595-3197",
+    photos: ["/photos/212/main.webp"],
+    openingPeriods: [
+      { day: 0, open: "08:00", close: "23:00" },
+      { day: 1, open: "07:00", close: "23:00" },
+      { day: 2, open: "07:00", close: "23:00" },
+      { day: 3, open: "07:00", close: "23:00" },
+      { day: 4, open: "07:00", close: "23:00" },
+      { day: 5, open: "07:00", close: "23:00" },
+      { day: 6, open: "08:00", close: "23:00" },
+    ],
+    description:
+      "Sunny, lively riverside terrace at Place LaSalle facing the Lachine Rapids, with TVs, music, and umbrellas. Sources: User submission.",
+    descriptionFr:
+      "Terrasse ensoleillée et animée au bord du fleuve, à Place LaSalle face aux rapides de Lachine, avec téléviseurs, musique et parasols. Sources : Soumission d'utilisateur.",
+  },
+
+  // NDG / CÔTE-DES-NEIGES
+  {
+    id: "213",
+    placeId: "ChIJu0CVtuYZyUwRMeGkdSKJ8cI",
+    googleRating: 4.1,
+    googleReviewCount: 8001,
+    name: "Duc de Lorraine",
+    address: "5002 Chem. de la Côte-des-Neiges",
+    lat: 45.494514,
+    lng: -73.618396,
+    neighborhood: "NDG",
+    cuisineType: "Pâtisserie / Café",
+    terraceType: ["sidewalk"],
+    capacity: 120,
+    covered: true,
+    dogFriendly: true,
+    heated: true,
+    website: "http://www.ducdelorraine.ca/",
+    photos: ["/photos/213/main.webp"],
+    openingPeriods: [
+      { day: 0, open: "06:00", close: "23:00" },
+      { day: 1, open: "06:00", close: "23:00" },
+      { day: 2, open: "06:00", close: "23:00" },
+      { day: 3, open: "06:00", close: "23:00" },
+      { day: 4, open: "06:00", close: "23:00" },
+      { day: 5, open: "06:00", close: "23:00" },
+      { day: 6, open: "06:00", close: "23:00" },
+    ],
+    description:
+      "Classic French pâtisserie and café across from Saint Joseph's Oratory, with a pedestrianized street and terrace seating along the front and side of the building. Sources: User submission.",
+    descriptionFr:
+      "Pâtisserie-café française classique en face de l'Oratoire Saint-Joseph, avec rue piétonne et terrasse à l'avant et sur le côté de l'établissement. Sources : Soumission d'utilisateur.",
   },
 ];
