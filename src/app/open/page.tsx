@@ -150,10 +150,21 @@ export default function OpenPage() {
   const [undoing, setUndoing] = useState<Set<string>>(new Set());
   const [undoFailed, setUndoFailed] = useState<Set<string>>(new Set());
 
+  const [formPopping, setFormPopping] = useState(false);
+
   const neighborhoodRef = useRef<HTMLDivElement>(null);
   const filtersDropdownRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const formSectionRef = useRef<HTMLDivElement>(null);
+
+  function scrollToForm() {
+    formSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    setFormPopping(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setFormPopping(true));
+    });
+    setTimeout(() => setFormPopping(false), 700);
+  }
 
   useEffect(() => {
     // Restore previous submissions for undo
@@ -515,9 +526,7 @@ export default function OpenPage() {
           <p className="text-muted text-sm max-w-lg">
             {t.openPageSubtitle}{" "}
             <button
-              onClick={() =>
-                formSectionRef.current?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={scrollToForm}
               className="text-accent font-semibold hover:underline cursor-pointer"
             >
               {t.openPageSubtitleCta}
@@ -855,7 +864,10 @@ export default function OpenPage() {
         })()}
 
         {/* Submit section */}
-        <div ref={formSectionRef} className="pt-8 border-t-2 border-border">
+        <div
+          ref={formSectionRef}
+          className={`mt-8 rounded-2xl border-2 border-accent/25 bg-accent/[0.04] p-6 shadow-sm ${formPopping ? "section-pop" : ""}`}
+        >
           <h2 className="font-display text-lg font-bold mb-1">
             {lang === "fr" ? "Signalez une ouverture" : "Report an opening"}
           </h2>
