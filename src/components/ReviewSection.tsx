@@ -220,7 +220,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
         ) : (
           <form onSubmit={handleSubmit} className="mt-4 rounded-xl border border-border-strong p-4">
             <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-3">
-              {lang === "fr" ? "Laissez votre avis" : "Leave a review"}
+              {lang === "fr" ? "Laissez votre avis" : "Review this terrace"}
             </p>
             <div className="flex items-center gap-3 mb-3">
               <Stars value={rating} interactive onChange={setRating} />
