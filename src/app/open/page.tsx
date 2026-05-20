@@ -512,7 +512,17 @@ export default function OpenPage() {
           <h1 className="font-display text-3xl font-bold mb-3">
             {t.openPageTitle}
           </h1>
-          <p className="text-muted text-sm max-w-lg">{t.openPageSubtitle}</p>
+          <p className="text-muted text-sm max-w-lg">
+            {t.openPageSubtitle}{" "}
+            <button
+              onClick={() =>
+                formSectionRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="text-accent font-semibold hover:underline cursor-pointer"
+            >
+              {t.openPageSubtitleCta}
+            </button>
+          </p>
         </div>
 
         {/* Sort + filters */}

@@ -136,7 +136,8 @@ export const translations = {
     // Open page
     openPageTitle: "Terrace Openings this Season",
     openPageSubtitle:
-      "See which Montreal terraces are open this season. Know a spot that's ready for summer? Let the community know.",
+      "See which Montreal terraces are open this season. Know a spot that's ready for summer?",
+    openPageSubtitleCta: "Let the community know.",
     confirmOpen: "Confirm open",
     youConfirmed: "You confirmed",
     officialDates: "Official dates",
@@ -291,7 +292,8 @@ export const translations = {
     // Open page
     openPageTitle: "Ouvertures de terrasses cette saison",
     openPageSubtitle:
-      "Découvrez quelles terrasses sont ouvertes cette saison. Un endroit est déjà ouvert ou prêt pour l'été\u00a0? Faites-le savoir à la communauté.",
+      "Découvrez quelles terrasses sont ouvertes cette saison. Un endroit est déjà ouvert ou prêt pour l'été\u00a0?",
+    openPageSubtitleCta: "Faites-le savoir à la communauté.",
     confirmOpen: "Confirmer l'ouverture",
     youConfirmed: "Vous avez confirmé",
     officialDates: "Dates officielles",
