@@ -294,6 +294,18 @@ body {
   border-color: var(--accent);
 }
 
+/* ── Section pop highlight ── */
+@keyframes sectionPop {
+  0%   { transform: scale(1);     box-shadow: 0 0 0 0   rgba(196, 93, 62, 0); }
+  25%  { transform: scale(1.012); box-shadow: 0 0 0 8px rgba(196, 93, 62, 0.18); }
+  65%  { transform: scale(1.004); box-shadow: 0 0 0 4px rgba(196, 93, 62, 0.08); }
+  100% { transform: scale(1);     box-shadow: 0 0 0 0   rgba(196, 93, 62, 0); }
+}
+
+.section-pop {
+  animation: sectionPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
 /* ── Detail panel slide-in ── */
 @keyframes slideInRight {
   from {
