@@ -145,6 +145,8 @@ Full schema in memory file `supabase_schema.md`. Tables:
 
 **Denormalized `terrace_name`**: every terrace_id-keyed table (`reviews`, `terrace_events`, `terrace_season_dates`, `terrace_season_date_submissions`, plus the existing `corrections.terrace_name`) carries a copy of the terrace's display name so rows can be scanned in the Supabase dashboard without cross-referencing `src/data/terraces.ts`. Each insert site looks the name up inline via `terraces.find((t) => t.id === id)?.name ?? id`. If a name is renamed in `terraces.ts`, run `node scripts/backfill-terrace-names.cjs` to update existing rows.
 
+**Data API grants (new tables)**: as of Oct 30 2026 Supabase no longer auto-grants anon/authenticated access on `public` tables. Every new table that should be reachable via supabase-js / PostgREST needs an explicit `GRANT ... TO anon, authenticated, service_role` in the same migration that creates it. Pattern lives in `supabase/migrations/20260515000000_explicit_data_api_grants.sql`. If a route returns PostgREST error code `42501`, a grant is missing.
+
 ## Opening date approval flow
 
 Submissions from the `/open` page no longer go live immediately. Pipeline:
