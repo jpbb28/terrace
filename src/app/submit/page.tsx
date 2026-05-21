@@ -539,9 +539,12 @@ function SubmitPageContent() {
 
           {/* Images */}
           <section id="photos">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-2">
               {t.photosSection}
             </h2>
+            <p className="text-xs text-muted mb-4 italic">
+              {t.photosSubmitNote}
+            </p>
             <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
               <svg
                 className="w-7 h-7 text-muted"

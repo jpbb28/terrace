@@ -56,7 +56,9 @@ export const translations = {
     terraceInfoSection: "Terrace Info",
     featuresSection: "Features",
     hoursSection: "Hours & Season (optional)",
-    photosSection: "Photos (optional)",
+    photosSection: "Photos (highly recommended)",
+    photosSubmitNote:
+      "Optional, but a good photo goes a long way. People want to see the vibe.",
     contactSection: "Contact (optional)",
     aboutYouSection: "About you",
     namePlaceholder: "e.g. Caf\u00E9 Olimpico",
@@ -211,7 +213,9 @@ export const translations = {
     terraceInfoSection: "Informations",
     featuresSection: "Caract\u00E9ristiques",
     hoursSection: "Horaires et saison (optionnel)",
-    photosSection: "Photos (optionnel)",
+    photosSection: "Photos (fortement recommandé)",
+    photosSubmitNote:
+      "Optionnel, mais une bonne photo fait toute la différence. Les gens veulent voir l’ambiance.",
     contactSection: "Contact (optionnel)",
     aboutYouSection: "\u00C0 propos de vous",
     namePlaceholder: "ex. Caf\u00E9 Olimpico",
