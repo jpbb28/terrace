@@ -17,7 +17,11 @@ interface Props {
   googleReviewCount?: number;
 }
 
-function Stars({ value, interactive = false, onChange }: {
+function Stars({
+  value,
+  interactive = false,
+  onChange,
+}: {
   value: number;
   interactive?: boolean;
   onChange?: (v: number) => void;
@@ -36,7 +40,9 @@ function Stars({ value, interactive = false, onChange }: {
           onMouseEnter={() => interactive && setHovered(star)}
           onMouseLeave={() => interactive && setHovered(0)}
           className={interactive ? "cursor-pointer" : "cursor-default"}
-          aria-label={interactive ? `${star} star${star !== 1 ? "s" : ""}` : undefined}
+          aria-label={
+            interactive ? `${star} star${star !== 1 ? "s" : ""}` : undefined
+          }
         >
           <svg
             className={`w-5 h-5 transition-colors ${active >= star ? "text-amber-400" : "text-foreground/15"}`}
@@ -58,11 +64,19 @@ function timeAgo(dateStr: string, lang: string): string {
   if (days === 1) return lang === "fr" ? "hier" : "yesterday";
   if (days < 30) return lang === "fr" ? `il y a ${days} j` : `${days}d ago`;
   const months = Math.floor(days / 30);
-  if (months < 12) return lang === "fr" ? `il y a ${months} mois` : `${months}mo ago`;
-  return lang === "fr" ? `il y a ${Math.floor(months / 12)} an` : `${Math.floor(months / 12)}y ago`;
+  if (months < 12)
+    return lang === "fr" ? `il y a ${months} mois` : `${months}mo ago`;
+  return lang === "fr"
+    ? `il y a ${Math.floor(months / 12)} an`
+    : `${Math.floor(months / 12)}y ago`;
 }
 
-export default function ReviewSection({ terraceId, placeId, googleRating, googleReviewCount }: Props) {
+export default function ReviewSection({
+  terraceId,
+  placeId,
+  googleRating,
+  googleReviewCount,
+}: Props) {
   const { lang } = useLang();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [avg, setAvg] = useState<number | null>(null);
@@ -102,6 +116,7 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
         setAvg(d.avg ?? null);
         setCount(d.count ?? 0);
       })
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, [terraceId, lsKey]);
 
@@ -114,7 +129,12 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
     const res = await fetch("/api/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ terraceId, rating, text, token: getOrCreateToken() }),
+      body: JSON.stringify({
+        terraceId,
+        rating,
+        text,
+        token: getOrCreateToken(),
+      }),
     });
 
     if (res.ok) {
@@ -127,14 +147,19 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
           setReviews(d.reviews ?? []);
           setAvg(d.avg ?? null);
           setCount(d.count ?? 0);
-        });
+        })
+        .catch(() => {});
     } else {
       const d = await res.json();
       if (d.error === "already_reviewed") {
         localStorage.setItem(lsKey, "1");
         setAlreadyReviewed(true);
       } else {
-        setError(lang === "fr" ? "Une erreur s'est produite." : "Something went wrong.");
+        setError(
+          lang === "fr"
+            ? "Une erreur s'est produite."
+            : "Something went wrong.",
+        );
       }
     }
     setSubmitting(false);
@@ -142,7 +167,6 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
 
   return (
     <div className="pt-5 border-t border-border space-y-5">
-
       {/* Google rating block */}
       {placeId && googleRating && (
         <div>
@@ -155,8 +179,12 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 group"
           >
-            <svg className="w-3.5 h-3.5 text-[#4285F4] shrink-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/>
+            <svg
+              className="w-3.5 h-3.5 text-[#4285F4] shrink-0"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z" />
             </svg>
             <span className="text-sm font-semibold group-hover:text-accent transition-colors">
               {googleRating.toFixed(1)}
@@ -174,7 +202,9 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
       {/* Terrace Season reviews block */}
       <div>
         <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-2">
-          {lang === "fr" ? "Ce que disent nos utilisateurs" : "What our users say about the terrace"}
+          {lang === "fr"
+            ? "Ce que disent nos utilisateurs"
+            : "What our users say about the terrace"}
         </p>
 
         {avg !== null && count > 0 && (
@@ -187,21 +217,32 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
 
         {/* Reviews list */}
         {loading ? (
-          <p className="text-xs text-muted mt-3">{lang === "fr" ? "Chargement..." : "Loading..."}</p>
+          <p className="text-xs text-muted mt-3">
+            {lang === "fr" ? "Chargement..." : "Loading..."}
+          </p>
         ) : reviews.length === 0 ? (
           <p className="text-xs text-muted mt-2">
-            {lang === "fr" ? "Aucun avis pour l'instant. Soyez le premier !" : "No reviews yet. Be the first!"}
+            {lang === "fr"
+              ? "Aucun avis pour l'instant. Soyez le premier !"
+              : "No reviews yet. Be the first!"}
           </p>
         ) : (
           <div className="space-y-3 mt-3">
             {reviews.map((r) => (
-              <div key={r.id} className="rounded-xl bg-foreground/[0.03] border border-border p-3">
+              <div
+                key={r.id}
+                className="rounded-xl bg-foreground/[0.03] border border-border p-3"
+              >
                 <div className="flex items-center justify-between mb-1">
                   <Stars value={r.rating} />
-                  <span className="text-[10px] text-muted">{timeAgo(r.created_at, lang)}</span>
+                  <span className="text-[10px] text-muted">
+                    {timeAgo(r.created_at, lang)}
+                  </span>
                 </div>
                 {r.text && (
-                  <p className="text-sm text-foreground/75 leading-relaxed">{r.text}</p>
+                  <p className="text-sm text-foreground/75 leading-relaxed">
+                    {r.text}
+                  </p>
                 )}
               </div>
             ))}
@@ -211,14 +252,21 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
         {/* Submission form */}
         {submitted ? (
           <p className="text-sm text-green-700 font-medium mt-4">
-            {lang === "fr" ? "Merci pour votre avis !" : "Thanks for your review!"}
+            {lang === "fr"
+              ? "Merci pour votre avis !"
+              : "Thanks for your review!"}
           </p>
         ) : alreadyReviewed ? (
           <p className="text-xs text-muted mt-4">
-            {lang === "fr" ? "Vous avez déjà évalué cette terrasse." : "You've already reviewed this terrace."}
+            {lang === "fr"
+              ? "Vous avez déjà évalué cette terrasse."
+              : "You've already reviewed this terrace."}
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-4 rounded-xl border border-border-strong p-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-4 rounded-xl border border-border-strong p-4"
+          >
             <p className="text-[11px] font-medium uppercase tracking-wide text-muted mb-3">
               {lang === "fr" ? "Laissez votre avis" : "Review this terrace"}
             </p>
@@ -226,14 +274,27 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
               <Stars value={rating} interactive onChange={setRating} />
               {rating > 0 && (
                 <span className="text-xs text-muted">
-                  {["", lang === "fr" ? "Décevant" : "Poor", lang === "fr" ? "Passable" : "Fair", lang === "fr" ? "Bien" : "Good", lang === "fr" ? "Très bien" : "Very good", lang === "fr" ? "Excellent" : "Excellent"][rating]}
+                  {
+                    [
+                      "",
+                      lang === "fr" ? "Décevant" : "Poor",
+                      lang === "fr" ? "Passable" : "Fair",
+                      lang === "fr" ? "Bien" : "Good",
+                      lang === "fr" ? "Très bien" : "Very good",
+                      lang === "fr" ? "Excellent" : "Excellent",
+                    ][rating]
+                  }
                 </span>
               )}
             </div>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder={lang === "fr" ? "L'ambiance, le confort, la vue... (optionnel)" : "Vibe, comfort, view, shade... (optional)"}
+              placeholder={
+                lang === "fr"
+                  ? "L'ambiance, le confort, la vue... (optionnel)"
+                  : "Vibe, comfort, view, shade... (optional)"
+              }
               rows={2}
               maxLength={500}
               className="w-full text-sm px-3 py-2 rounded-xl border border-border bg-background resize-none focus:outline-none focus:ring-1 focus:ring-accent/40 placeholder:text-muted/50 mb-2"
@@ -245,13 +306,16 @@ export default function ReviewSection({ terraceId, placeId, googleRating, google
               className="px-4 py-2 text-sm font-medium bg-accent text-white rounded-xl hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {submitting
-                ? lang === "fr" ? "En cours..." : "Submitting..."
-                : lang === "fr" ? "Soumettre" : "Submit"}
+                ? lang === "fr"
+                  ? "En cours..."
+                  : "Submitting..."
+                : lang === "fr"
+                  ? "Soumettre"
+                  : "Submit"}
             </button>
           </form>
         )}
       </div>
-
     </div>
   );
 }
