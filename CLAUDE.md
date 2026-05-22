@@ -98,7 +98,7 @@ When the user pastes pending submissions (JSON from the `submissions` table) for
    - **Always from submitter**: `terraceType`, `capacity`, `covered`, `dogFriendly`, `heated`, `instagram`, raw `description`
    - **Prefer submitter, fall back to Google**: `name`, `address` (use submitter's intent unless Google's canonical version is clearly more correct), `website` (skip if Google only has a Facebook/Instagram URL)
    - **Translate**: produce both `description` (EN) and `descriptionFr`. Cite source as `"Sources: User submission."`
-   - **Photos**: if a submission includes a photo URL, download to `public/photos/{id}/main.{ext}` then run `node scripts/convert-to-webp.js` (handles JPG; for PNG use a sharp one-liner). Set `photos: ["/photos/{id}/main.webp"]`.
+   - **Photos**: download **every** photo from the submission (the site has an image carousel — single-photo entries look bare). Save the first as `public/photos/{id}/main.{ext}` and the rest as `2.{ext}`, `3.{ext}`, etc. Run `node scripts/convert-to-webp.js` (handles JPG; PNG/WebP can be kept as-is). Populate `photos: ["/photos/{id}/main.webp", "/photos/{id}/2.webp", ...]` with the full list.
 5. Run `npx tsc --noEmit -p tsconfig.json` to confirm types.
 6. Run `node scripts/approve-submissions.cjs` — flips the `status` of every UUID in `submissions-input.json` from `pending` to `approved`.
 7. Leave the input/verified JSON files untracked (they're scratch). Don't commit them.

@@ -7093,7 +7093,13 @@ export const terraces: Terrace[] = [
     website: "https://www.restaurantlacatrina.ca",
     instagram: "@lacatrina_mtl",
     phone: "514-543-7172",
-    photos: ["/photos/216/main.webp"],
+    photos: [
+      "/photos/216/main.webp",
+      "/photos/216/2.webp",
+      "/photos/216/3.webp",
+      "/photos/216/4.webp",
+      "/photos/216/5.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "20:00" },
       { day: 1, open: "12:00", close: "22:00" },
@@ -7128,7 +7134,12 @@ export const terraces: Terrace[] = [
     website: "https://www.nomaimtl.ca/",
     instagram: "@nomai_mtl",
     phone: "514-419-4193",
-    photos: ["/photos/217/main.webp"],
+    photos: [
+      "/photos/217/main.webp",
+      "/photos/217/2.webp",
+      "/photos/217/3.webp",
+      "/photos/217/4.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "08:00", close: "20:00" },
       { day: 3, open: "08:00", close: "21:30" },
