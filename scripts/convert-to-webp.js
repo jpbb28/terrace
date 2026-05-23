@@ -38,7 +38,7 @@ async function main() {
     const dest = src.replace(/\.(jpg|jpeg)$/i, ".webp");
     try {
       const srcSize = fs.statSync(src).size;
-      await sharp(src).webp({ quality: 90 }).toFile(dest);
+      await sharp(src).rotate().webp({ quality: 90 }).toFile(dest);
       const destSize = fs.statSync(dest).size;
       savedBytes += srcSize - destSize;
       fs.unlinkSync(src);
