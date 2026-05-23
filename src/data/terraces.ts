@@ -6991,7 +6991,12 @@ export const terraces: Terrace[] = [
     dogFriendly: true,
     heated: true,
     website: "http://www.ducdelorraine.ca/",
-    photos: ["/photos/213/main.webp"],
+    photos: [
+      "/photos/213/main.webp",
+      "/photos/213/2.webp",
+      "/photos/213/3.webp",
+      "/photos/213/4.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "06:00", close: "23:00" },
       { day: 1, open: "06:00", close: "23:00" },
@@ -7027,7 +7032,11 @@ export const terraces: Terrace[] = [
     website: "https://mentheetcouscous.ca/fr/",
     instagram: "@Menthecouscous",
     phone: "514-842-3717",
-    photos: ["/photos/214/main.webp"],
+    photos: [
+      "/photos/214/main.webp",
+      "/photos/214/2.webp",
+      "/photos/214/3.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "17:00", close: "22:30" },
       { day: 1, open: "17:00", close: "22:30" },
