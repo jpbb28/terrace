@@ -94,6 +94,15 @@ function FlyTo({
     try {
       map.stop();
       map.invalidateSize();
+      const size = map.getSize();
+      if (
+        !size ||
+        !isFinite(size.x) ||
+        !isFinite(size.y) ||
+        size.x === 0 ||
+        size.y === 0
+      )
+        return;
       if (panelOffset) {
         const pt = map.project(center, zoom);
         const adjusted = map.unproject(L.point(pt.x + panelOffset, pt.y), zoom);

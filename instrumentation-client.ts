@@ -5,6 +5,7 @@ Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   tracesSampleRate: 1.0,
   debug: false,
+  ignoreErrors: [/Invalid LatLng object/],
 });
 
 if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
