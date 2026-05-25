@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
+import { TerraceType, TERRACE_TYPES } from "@/lib/types";
 import HoursEditor, {
   DayHours,
   defaultHours,
@@ -72,14 +73,15 @@ function SubmitPageContent() {
 
   const { t } = useLang();
 
-  const terraceTypes = [
-    { value: "sidewalk", label: t.sidewalkFull },
-    { value: "rooftop", label: t.rooftop },
-    { value: "backyard", label: t.backyardFull },
-    { value: "courtyard", label: t.courtyardFull },
-    { value: "balcony", label: t.balcony },
-    { value: "garden", label: t.garden },
-  ];
+  const submitLabels: Partial<Record<TerraceType, string>> = {
+    sidewalk: t.sidewalkFull,
+    backyard: t.backyardFull,
+    courtyard: t.courtyardFull,
+  };
+  const terraceTypes = TERRACE_TYPES.map((value) => ({
+    value,
+    label: submitLabels[value] ?? t[value],
+  }));
 
   const [state, setState] = useState<FormState>("idle");
   const [form, setForm] = useState({ ...emptyForm });

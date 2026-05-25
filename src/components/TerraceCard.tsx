@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Terrace } from "@/lib/types";
+import { Terrace, TerraceType } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
 import { slugify } from "@/lib/utils";
@@ -27,7 +27,7 @@ export default function TerraceCard({
 }: TerraceCardProps) {
   const { t, lang } = useLang();
 
-  const typeConfig: Record<string, { label: string; color: string }> = {
+  const typeConfig: Record<TerraceType, { label: string; color: string }> = {
     sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive" },
     rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm" },
     backyard: { label: t.backyard, color: "bg-olive-soft text-olive" },

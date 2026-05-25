@@ -1,11 +1,14 @@
-export type TerraceType =
-  | "sidewalk"
-  | "rooftop"
-  | "backyard"
-  | "courtyard"
-  | "balcony"
-  | "garden"
-  | "plaza";
+export const TERRACE_TYPES = [
+  "sidewalk",
+  "rooftop",
+  "backyard",
+  "courtyard",
+  "balcony",
+  "garden",
+  "plaza",
+] as const;
+
+export type TerraceType = (typeof TERRACE_TYPES)[number];
 
 export type Neighborhood =
   | "Plateau-Mont-Royal"
