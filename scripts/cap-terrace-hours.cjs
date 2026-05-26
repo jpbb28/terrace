@@ -1,4 +1,4 @@
-// Cap any post-midnight close times to "23:30" — Montreal terrace hour rules.
+// Cap any post-midnight close times to "23:00" — Montreal terrace hour rules.
 // A period is "post-midnight" when:
 //   close < open  AND  close != "00:00"
 // (close == "00:00" means closes exactly at midnight, which is allowed.)
@@ -25,8 +25,8 @@ const out = src.replace(periodRe, (m, day, open, close, is24h) => {
   const closeMin = toMin(close);
   if (closeMin >= openMin) return m;
   changed++;
-  return `{ day: ${day}, open: "${open}", close: "23:30" }`;
+  return `{ day: ${day}, open: "${open}", close: "23:00" }`;
 });
 
 fs.writeFileSync(FILE, out);
-console.log(`Capped ${changed} period(s) to 23:30`);
+console.log(`Capped ${changed} period(s) to 23:00`);

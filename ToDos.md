@@ -6,11 +6,15 @@ terrace season
 
 
 
-**wire up discord for submissions/corrections**
+wire up discord for submissions/corrections
 
 
 
-**hamburger dropdown should have PWA instructions**
+**the corrections discord messages/emails need to show every submitted correction (we show what was corrected but not always the info itself such as the hours.** 
+
+
+
+**can the emails have accept buttons as well? Or URL?**
 
 
 
@@ -22,11 +26,11 @@ OG image
 
 
 
-**fix image resolution**
+fix image resolution
 
 
 
-**a bunch of terrace types unset**
+a bunch of terrace types unset
 
 
 
@@ -46,7 +50,7 @@ check verdun spots that were added - run photos script for these and all recent 
 
 
 
-**make a cloudflare email and add contact info**
+make a cloudflare email and add contact info
 
 
 

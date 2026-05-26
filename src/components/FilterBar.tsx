@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Neighborhood, TerraceType } from "@/lib/types";
+import { Neighborhood, TerraceType, TERRACE_TYPES } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
+
+type SortBy = "recommended" | "rating" | "distance";
 
 const neighborhoods: Neighborhood[] = [
   "Ahuntsic",
@@ -45,15 +47,15 @@ interface FilterBarProps {
   onDogFriendlyChange: (v: boolean) => void;
   covered: boolean;
   onCoveredChange: (v: boolean) => void;
+  heated: boolean;
+  onHeatedChange: (v: boolean) => void;
   openNow: boolean;
   onOpenNowChange: (v: boolean) => void;
-  sortByDistance: boolean;
-  onSortByDistanceChange: () => void;
+  sortBy: SortBy;
+  onSortChange: (s: SortBy) => void;
   locating: boolean;
   resultCount: number;
   mobileView?: "map" | "list";
-  onLocateOnMap?: () => void;
-  mapLocating?: boolean;
 }
 
 export default function FilterBar({
@@ -67,27 +69,27 @@ export default function FilterBar({
   onDogFriendlyChange,
   covered,
   onCoveredChange,
+  heated,
+  onHeatedChange,
   openNow,
   onOpenNowChange,
-  sortByDistance,
-  onSortByDistanceChange,
+  sortBy,
+  onSortChange,
   locating,
   resultCount,
   mobileView,
-  onLocateOnMap,
-  mapLocating,
 }: FilterBarProps) {
   const { t } = useLang();
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
   const [typeOpen, setTypeOpen] = useState(false);
-  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
 
   // Desktop neighborhood ref
   const neighborhoodRef = useRef<HTMLDivElement>(null);
   // Mobile neighborhood ref (same state, different DOM position)
   const neighborhoodMobileRef = useRef<HTMLDivElement>(null);
   const typeRef = useRef<HTMLDivElement>(null);
-  const filtersRef = useRef<HTMLDivElement>(null);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -102,11 +104,8 @@ export default function FilterBar({
       if (typeRef.current && !typeRef.current.contains(e.target as Node)) {
         setTypeOpen(false);
       }
-      if (
-        filtersRef.current &&
-        !filtersRef.current.contains(e.target as Node)
-      ) {
-        setFiltersOpen(false);
+      if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
+        setSortOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -129,15 +128,8 @@ export default function FilterBar({
     );
   };
 
-  const terraceTypes: { value: TerraceType; label: string }[] = [
-    { value: "sidewalk", label: t.sidewalk },
-    { value: "rooftop", label: t.rooftop },
-    { value: "backyard", label: t.backyard },
-    { value: "courtyard", label: t.courtyard },
-    { value: "balcony", label: t.balcony },
-    { value: "garden", label: t.garden },
-    { value: "plaza", label: t.plaza },
-  ];
+  const terraceTypes: { value: TerraceType; label: string }[] =
+    TERRACE_TYPES.map((value) => ({ value, label: t[value] }));
 
   const neighborhoodLabel =
     selectedNeighborhoods.length === 0
@@ -146,23 +138,30 @@ export default function FilterBar({
         ? selectedNeighborhoods[0]
         : `${selectedNeighborhoods.length} ${t.neighborhoods}`;
 
-  const typeLabel =
-    selectedTypes.length === 0
-      ? t.allTypes
-      : selectedTypes.length === 1
-        ? (terraceTypes.find((tt) => tt.value === selectedTypes[0])?.label ??
-          selectedTypes[0])
-        : `${selectedTypes.length} ${t.types}`;
-
-  const activeFilterCount = [
-    openNow,
-    dogFriendly,
-    covered,
-    mobileView !== "map" && sortByDistance,
-  ].filter(Boolean).length;
+  const totalFilterCount =
+    selectedTypes.length +
+    (openNow ? 1 : 0) +
+    (dogFriendly ? 1 : 0) +
+    (covered ? 1 : 0) +
+    (heated ? 1 : 0);
 
   const filtersLabel =
-    activeFilterCount > 0 ? `${t.filters} (${activeFilterCount})` : t.filters;
+    totalFilterCount === 0 ? t.filters : `${t.filters} (${totalFilterCount})`;
+
+  const clearAllFilters = () => {
+    onTypesChange([]);
+    if (openNow) onOpenNowChange(false);
+    if (dogFriendly) onDogFriendlyChange(false);
+    if (covered) onCoveredChange(false);
+    if (heated) onHeatedChange(false);
+  };
+
+  const sortLabel =
+    sortBy === "rating"
+      ? t.sortRating
+      : sortBy === "distance"
+        ? t.sortDistance
+        : t.sortRecommended;
 
   // Shared neighborhood dropdown content
   const neighborhoodDropdown = (
@@ -199,7 +198,7 @@ export default function FilterBar({
       onClick={() => {
         setNeighborhoodOpen(!neighborhoodOpen);
         setTypeOpen(false);
-        setFiltersOpen(false);
+        setSortOpen(false);
       }}
       className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
         selectedNeighborhoods.length > 0
@@ -268,7 +267,7 @@ export default function FilterBar({
               onClick={() => {
                 setNeighborhoodOpen(!neighborhoodOpen);
                 setTypeOpen(false);
-                setFiltersOpen(false);
+                setSortOpen(false);
               }}
               className={`flex items-center gap-1 px-3 py-2.5 text-xs cursor-pointer transition-colors ${
                 selectedNeighborhoods.length > 0
@@ -358,21 +357,21 @@ export default function FilterBar({
           </div>
         )}
 
-        {/* Type dropdown — mobile only */}
+        {/* Combined Filters dropdown (types + features) — mobile only */}
         <div className="relative flex-1 md:hidden" ref={typeRef}>
           <button
             onClick={() => {
               setTypeOpen(!typeOpen);
               setNeighborhoodOpen(false);
-              setFiltersOpen(false);
+              setSortOpen(false);
             }}
             className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
-              selectedTypes.length > 0
+              totalFilterCount > 0
                 ? "border-accent text-foreground font-medium"
                 : "border-border text-muted hover:border-border-strong"
             }`}
           >
-            <span className="truncate">{typeLabel}</span>
+            <span className="truncate">{filtersLabel}</span>
             <svg
               className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${typeOpen ? "rotate-180" : ""}`}
               fill="none"
@@ -388,17 +387,20 @@ export default function FilterBar({
             </svg>
           </button>
           {typeOpen && (
-            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg overflow-hidden">
-              {selectedTypes.length > 0 && (
+            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg overflow-hidden max-h-[70vh] overflow-y-auto">
+              {totalFilterCount > 0 && (
                 <div className="px-3 py-2 border-b border-border">
                   <button
-                    onClick={() => onTypesChange([])}
+                    onClick={clearAllFilters}
                     className="text-[11px] text-accent hover:underline cursor-pointer"
                   >
                     {t.clearAll}
                   </button>
                 </div>
               )}
+              <div className="px-3 pt-2 pb-1 text-[10px] font-semibold text-muted uppercase tracking-wider">
+                Type
+              </div>
               {terraceTypes.map((tt) => (
                 <label
                   key={tt.value}
@@ -413,56 +415,9 @@ export default function FilterBar({
                   <span className="text-xs text-foreground">{tt.label}</span>
                 </label>
               ))}
-            </div>
-          )}
-        </div>
-
-        {/* Filters dropdown — mobile only */}
-        <div className="relative flex-1 md:hidden" ref={filtersRef}>
-          <button
-            onClick={() => {
-              setFiltersOpen(!filtersOpen);
-              setTypeOpen(false);
-              setNeighborhoodOpen(false);
-            }}
-            className={`w-full flex items-center justify-between px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all ${
-              activeFilterCount > 0
-                ? "border-accent text-foreground font-medium"
-                : "border-border text-muted hover:border-border-strong"
-            }`}
-          >
-            <span className="truncate">{filtersLabel}</span>
-            <svg
-              className={`w-3 h-3 shrink-0 ml-1 transition-transform duration-150 ${filtersOpen ? "rotate-180" : ""}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                d="M19 9l-7 7-7-7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          {filtersOpen && (
-            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg overflow-hidden">
-              {activeFilterCount > 0 && (
-                <div className="px-3 py-2 border-b border-border">
-                  <button
-                    onClick={() => {
-                      if (openNow) onOpenNowChange(false);
-                      if (dogFriendly) onDogFriendlyChange(false);
-                      if (covered) onCoveredChange(false);
-                      if (sortByDistance) onSortByDistanceChange();
-                    }}
-                    className="text-[11px] text-accent hover:underline cursor-pointer"
-                  >
-                    {t.clearAll}
-                  </button>
-                </div>
-              )}
+              <div className="px-3 pt-3 pb-1 text-[10px] font-semibold text-muted uppercase tracking-wider border-t border-border mt-1">
+                {t.filters}
+              </div>
               <label className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
                 <input
                   type="checkbox"
@@ -490,94 +445,113 @@ export default function FilterBar({
                 />
                 <span className="text-xs text-foreground">{t.covered}</span>
               </label>
-              <label
-                className={`flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors ${(mobileView === "map" ? (mapLocating ?? false) : locating) ? "opacity-50 cursor-default pointer-events-none" : ""}`}
-              >
+              <label className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
                 <input
                   type="checkbox"
-                  checked={mobileView !== "map" && sortByDistance}
-                  onChange={() => {
-                    if (mobileView === "map") {
-                      onLocateOnMap?.();
-                    } else {
-                      onSortByDistanceChange();
-                    }
-                  }}
+                  checked={heated}
+                  onChange={() => onHeatedChange(!heated)}
                   className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
                 />
-                <span className="text-xs text-foreground">
-                  {(mobileView === "map" ? (mapLocating ?? false) : locating)
-                    ? t.locating
-                    : t.nearMe}
-                </span>
+                <span className="text-xs text-foreground">{t.heated}</span>
               </label>
             </div>
           )}
         </div>
 
+        {/* Sort dropdown — mobile only */}
+        {mobileView !== "map" && (
+          <div className="relative flex-1 md:hidden" ref={sortRef}>
+            <button
+              onClick={() => {
+                setSortOpen(!sortOpen);
+                setTypeOpen(false);
+                setNeighborhoodOpen(false);
+              }}
+              disabled={locating}
+              className={`w-full flex items-center justify-between gap-1 px-3 py-2 bg-white/60 border rounded-xl text-xs cursor-pointer transition-all disabled:opacity-50 disabled:cursor-default ${
+                sortBy !== "recommended"
+                  ? "border-accent text-foreground font-medium"
+                  : "border-border text-muted hover:border-border-strong"
+              }`}
+            >
+              <span className="flex items-center gap-1.5 min-w-0">
+                <svg
+                  className="w-3.5 h-3.5 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                >
+                  <path d="M3 6h18" />
+                  <path d="M6 12h12" />
+                  <path d="M9 18h6" />
+                </svg>
+                <span className="truncate">
+                  {locating && sortBy === "distance" ? t.locating : sortLabel}
+                </span>
+              </span>
+              <svg
+                className={`w-3 h-3 shrink-0 transition-transform duration-150 ${sortOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  d="M19 9l-7 7-7-7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            {sortOpen && (
+              <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-white border border-border rounded-xl shadow-lg overflow-hidden py-1">
+                {(
+                  [
+                    { value: "recommended", label: t.sortRecommended },
+                    { value: "rating", label: t.sortRating },
+                    { value: "distance", label: t.sortDistance },
+                  ] as { value: SortBy; label: string }[]
+                ).map(({ value, label }) => (
+                  <button
+                    key={value}
+                    onClick={() => {
+                      setSortOpen(false);
+                      onSortChange(value);
+                    }}
+                    className={`w-full flex items-center justify-between px-3 py-2 text-xs hover:bg-foreground/[0.04] transition-colors cursor-pointer ${
+                      sortBy === value
+                        ? "text-accent font-medium"
+                        : "text-foreground"
+                    }`}
+                  >
+                    <span>{label}</span>
+                    {sortBy === value && (
+                      <svg
+                        className="w-3 h-3 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
         <span className="text-[11px] font-medium text-muted tabular-nums shrink-0">
           {t.spots(resultCount)}
         </span>
-      </div>
-
-      {/* Type toggle pills — desktop only */}
-      <div className="hidden md:flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
-        {terraceTypes.map((tt) => (
-          <button
-            key={tt.value}
-            onClick={() => toggleType(tt.value)}
-            className={`shrink-0 text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
-              selectedTypes.includes(tt.value)
-                ? "bg-accent text-white border-accent"
-                : "border-border bg-white/40 text-muted hover:text-foreground hover:border-border-strong"
-            }`}
-          >
-            {tt.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Attribute filter pills — desktop only */}
-      <div className="hidden md:flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
-        {[
-          {
-            label: locating ? t.locating : t.nearMe,
-            active: sortByDistance,
-            onClick: onSortByDistanceChange,
-            disabled: locating,
-          },
-          {
-            label: t.openNow,
-            active: openNow,
-            onClick: () => onOpenNowChange(!openNow),
-            disabled: false,
-          },
-          {
-            label: t.dogFriendly,
-            active: dogFriendly,
-            onClick: () => onDogFriendlyChange(!dogFriendly),
-            disabled: false,
-          },
-          {
-            label: t.covered,
-            active: covered,
-            onClick: () => onCoveredChange(!covered),
-            disabled: false,
-          },
-        ].map(({ label, active, onClick, disabled }) => (
-          <button
-            key={label}
-            onClick={onClick}
-            disabled={disabled}
-            className={`filter-pill shrink-0 whitespace-nowrap text-[11px] font-medium px-2.5 py-1 rounded-full border cursor-pointer transition-colors ${
-              active
-                ? "active"
-                : "border-border bg-white/40 text-muted hover:text-foreground hover:border-border-strong"
-            } disabled:opacity-50 disabled:cursor-default`}
-          >
-            {label}
-          </button>
-        ))}
       </div>
     </div>
   );

@@ -9,7 +9,9 @@ const RESULTS_FILE = path.join(ROOT, "scripts", "ratings-results.json");
 const TERRACES_FILE = path.join(ROOT, "src", "data", "terraces.ts");
 
 if (!fs.existsSync(RESULTS_FILE)) {
-  console.error("ratings-results.json not found. Run fetch-ratings.js first.");
+  console.error(
+    "ratings-results.json not found. Run refresh-google-data.js first.",
+  );
   process.exit(1);
 }
 
@@ -27,17 +29,20 @@ for (const [id, data] of Object.entries(results)) {
   // Remove existing googleRating / googleReviewCount lines for this terrace
   src = src.replace(
     new RegExp(`(id:\\s*"${id}"[\\s\\S]*?)\\n    googleRating:[^\\n]+`, "m"),
-    "$1"
+    "$1",
   );
   src = src.replace(
-    new RegExp(`(id:\\s*"${id}"[\\s\\S]*?)\\n    googleReviewCount:[^\\n]+`, "m"),
-    "$1"
+    new RegExp(
+      `(id:\\s*"${id}"[\\s\\S]*?)\\n    googleReviewCount:[^\\n]+`,
+      "m",
+    ),
+    "$1",
   );
 
   // Insert after placeId line
   src = src.replace(
     new RegExp(`(id:\\s*"${id}"[\\s\\S]*?placeId:\\s*"[^"]+",)(\\r?\\n)`, "m"),
-    `$1$2    googleRating: ${rating},\n    googleReviewCount: ${count},\n`
+    `$1$2    googleRating: ${rating},\n    googleReviewCount: ${count},\n`,
   );
 
   updated++;

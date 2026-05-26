@@ -238,9 +238,13 @@
       }
 
       /* ── Print ── */
+      @page {
+        margin: 48px 56px;
+      }
       @media print {
         body {
-          padding: 28px 40px;
+          padding: 0;
+          max-width: none;
         }
         .header {
           page-break-inside: avoid;
@@ -295,7 +299,7 @@
     <div class="headline-block">
       <h1>Montréal Finally Has a Terrace Map</h1>
       <p class="deck">
-        Terrasse Season is a free, bilingual directory of 190+ terraces, patios,
+        Terrasse Season is a free, bilingual directory of 200+ terraces, patios,
         and rooftops across Montréal, searchable by neighbourhood, type, and
         features. Ready for the 2026 season.
       </p>
@@ -310,10 +314,10 @@
       </p>
       <p>
         The problem isn't a lack of coverage. There's plenty of that. It's that
-        a magazine article can't tell you what's open right now, what's walkable
-        from where you're standing, whether there's a covered option because the
+        a blog post can't tell you what's open right now, what's walkable from
+        where you're standing, whether there's a covered option because the
         forecast looks uncertain, or whether a spot you had in mind has even
-        opened for the season yet. You can't filter a magazine article.
+        opened for the season yet. You can't filter a blog post.
       </p>
       <p>
         Google Maps isn't much help either. Unless a place literally has
@@ -329,7 +333,7 @@
       <h2>What It Does</h2>
       <ul>
         <li>
-          <strong>190+ terraces</strong> across 24 Montréal neighbourhoods, from
+          <strong>200+ terraces</strong> across 24 Montréal neighbourhoods, from
           Old Montréal to Ahuntsic to NDG
         </li>
         <li>
@@ -341,8 +345,14 @@
           open based on live hours. Useful when you're deciding on the spot.
         </li>
         <li>
+          <strong>"What's open this season?"</strong>: shows which terraces are
+          confirmed open for the season. Useful in April and May, when some
+          spots set up at the first sign of sun while others aren't ready yet.
+        </li>
+        <li>
           <strong>Filters</strong> by neighbourhood, terrace type (rooftop,
-          patio, backyard), dog-friendly, covered, and heated
+          sidewalk, backyard, courtyard, balcony, garden, plaza), dog-friendly,
+          covered, and heated
         </li>
         <li><strong>Sort by distance</strong> from your location</li>
         <li>
@@ -368,7 +378,7 @@
         </tr>
         <tr>
           <td>Listings</td>
-          <td>190+ terraces</td>
+          <td>200+ terraces</td>
         </tr>
         <tr>
           <td>Neighbourhoods</td>
@@ -383,16 +393,14 @@
           <td>Free, no account required</td>
         </tr>
         <tr>
-          <td>Submissions</td>
-          <td>Open — suggest a spot or correction at terrasseseason.com</td>
-        </tr>
-        <tr>
           <td>Hours data</td>
           <td>Google Places, updated each season</td>
         </tr>
         <tr>
           <td>Terrace types</td>
-          <td>Rooftop, patio, backyard, terrace</td>
+          <td>
+            Rooftop, sidewalk, backyard, courtyard, balcony, garden, plaza
+          </td>
         </tr>
       </table>
     </section>
@@ -402,18 +410,18 @@
       <h2>The Data</h2>
       <p>
         Montréal's food and lifestyle press covers terraces well every season.
-        Time Out, Tastet, Cult MTL, Narcity, Daily Hive, Eater Montréal,
-        Montreal Diaries, MTL Blog, and others put real editorial effort into
-        the standout spots. A great editorial list and a useful directory solve
-        different problems, though. Terrasse Season is built to solve the second
-        one: a complete, searchable resource covering the full range of the
-        city's terraces, not just a season's highlights.
+        Time Out, Tastet, Cult MTL, Narcity, Daily Hive, Montreal Diaries, MTL
+        Blog, and others put real editorial effort into the standout spots. A
+        great editorial list and a useful directory solve different problems,
+        though. Terrasse Season is built to solve the second one: a complete,
+        searchable resource covering the full range of the city's terraces, not
+        just a season's highlights.
       </p>
       <p>
         Every listing is verified before it goes in. Features like covered,
         heated, and dog-friendly are only shown when confirmed. If something
-        isn't listed, it means we don't have a confirmed source yet, not that the
-        answer is no. Hours come from Google Places and are refreshed before
+        isn't listed, it means we don't have a confirmed source yet, not that
+        the answer is no. Hours come from Google Places and are refreshed before
         each season. Anyone can suggest a missing spot or flag a correction
         directly through the site; every submission is reviewed before
         publishing.
@@ -531,12 +539,69 @@
     <section>
       <h2>About Terrasse Season</h2>
       <p>
-        Terrasse Season is a one-person project, built by a Montréaler who
-        got tired of the same problem every spring: wanting to sit outside
-        somewhere new and having no good way to find it. Montréal's terrace
-        season runs about five months. It starts fast and ends before you're
-        ready. This felt like something the city was missing. Anyone can suggest
-        a missing terrace or flag a correction directly through the site.
+        Terrasse Season is a local project, built by a Montréaler who got tired
+        of the same problem every spring: wanting to sit outside somewhere new
+        and having no good way to find it. Montréal's terrace season runs about
+        five months. It starts fast and ends before you're ready. This felt like
+        something the city was missing. Anyone can suggest a missing terrace or
+        flag a correction directly through the site.
+      </p>
+    </section>
+
+    <!-- Ready-to-Use Article -->
+    <section>
+      <h2>Ready-to-Use Article</h2>
+      <p style="font-size: 8.5pt; color: var(--muted); margin-bottom: 14px">
+        Free to publish as-is or adapt. Credit: Terrasse Season /
+        terrasseseason.com
+      </p>
+
+      <p style="font-size: 10pt; font-weight: 500; margin-bottom: 2px">
+        Terrasse Season Is the Montreal Terrace Map We've All Needed
+      </p>
+      <p style="font-size: 8.5pt; color: var(--muted); margin-bottom: 14px">
+        ~340 words &nbsp;&bull;&nbsp; Lifestyle / City / Food &amp; Drink
+      </p>
+
+      <p>
+        Montreal has something like a hundred different "best terrace" lists.
+        What it has not had, until now, is a single place to actually find one.
+      </p>
+      <p>
+        Terrasse Season launched ahead of the 2026 patio season as a free,
+        searchable directory of more than 200 terraces, patios, and rooftops
+        across 24 Montreal neighbourhoods. The site does what no best-of list
+        can: filter by what you actually need right now. Dog-friendly? Covered,
+        in case it rains? Open at 3 p.m. on a Tuesday in Rosemont? You can
+        search for all of that.
+      </p>
+      <p>
+        The tool is built around a map. Every listing sits on it, pinned to the
+        right address. A sidebar lets you browse without clicking around. The
+        "open right now" filter is the one that makes the most sense when you're
+        already out the door: it cuts the full directory down to only the places
+        that are actually open at that moment, based on real hours from Google
+        Places, updated before each season. A second button, "What's open this
+        season?", shows which terraces are confirmed open for the year, a useful
+        check in April and May, when some spots set up at the first sign of sun
+        while others aren't ready yet.
+      </p>
+      <p>
+        The data behind it is more careful than most. Features like covered
+        seating, heated spaces, and dog-friendly policies are only listed when a
+        source confirms them. If a field is blank, it means there is no
+        confirmed information yet, not that the answer is no. Anyone can flag a
+        correction or suggest a missing spot directly through the site, and
+        every submission gets reviewed before it goes live.
+      </p>
+      <p>
+        It is a local project, built by a Montrealer who got tired of the same
+        problem every spring. The season runs about five months. It starts fast
+        and ends before you are ready, and every warm weekend counts. The site
+        is bilingual and does not require an account.
+      </p>
+      <p>
+        <a href="https://terrasseseason.com">terrasseseason.com</a>
       </p>
     </section>
 
@@ -552,22 +617,7 @@
           <div class="label">Website</div>
           <a href="https://terrasseseason.com">terrasseseason.com</a>
         </div>
-        <div>
-          <div class="label">Submit a terrace</div>
-          <a href="https://terrasseseason.com/submit"
-            >terrasseseason.com/submit</a
-          >
-        </div>
-        <div>
-          <div class="label">Screenshots</div>
-          <span>Available on request</span>
-        </div>
       </div>
-    </div>
-
-    <div class="footer">
-      Terrasse Season is free to cover, link to, and share. &nbsp;|&nbsp;
-      hello@terrasseseason.com
     </div>
   </body>
 </html>

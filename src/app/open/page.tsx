@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
-import { isOpenNow } from "@/lib/utils";
+import { isOpenNow, uuid } from "@/lib/utils";
 import { Terrace } from "@/lib/types";
 
 interface SeasonData {
@@ -87,11 +87,11 @@ function getOrCreateSubmitterId(): string {
   try {
     const stored = localStorage.getItem("terrace_submitter_id");
     if (stored) return stored;
-    const id = crypto.randomUUID();
+    const id = uuid();
     localStorage.setItem("terrace_submitter_id", id);
     return id;
   } catch {
-    return crypto.randomUUID();
+    return uuid();
   }
 }
 
@@ -150,10 +150,21 @@ export default function OpenPage() {
   const [undoing, setUndoing] = useState<Set<string>>(new Set());
   const [undoFailed, setUndoFailed] = useState<Set<string>>(new Set());
 
+  const [formPopping, setFormPopping] = useState(false);
+
   const neighborhoodRef = useRef<HTMLDivElement>(null);
   const filtersDropdownRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const formSectionRef = useRef<HTMLDivElement>(null);
+
+  function scrollToForm() {
+    formSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    setFormPopping(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setFormPopping(true));
+    });
+    setTimeout(() => setFormPopping(false), 700);
+  }
 
   useEffect(() => {
     // Restore previous submissions for undo
@@ -512,7 +523,15 @@ export default function OpenPage() {
           <h1 className="font-display text-3xl font-bold mb-3">
             {t.openPageTitle}
           </h1>
-          <p className="text-muted text-sm max-w-lg">{t.openPageSubtitle}</p>
+          <p className="text-muted text-sm max-w-lg">
+            {t.openPageSubtitle}{" "}
+            <button
+              onClick={scrollToForm}
+              className="text-accent font-semibold hover:underline cursor-pointer"
+            >
+              {t.openPageSubtitleCta}
+            </button>
+          </p>
         </div>
 
         {/* Sort + filters */}
@@ -845,7 +864,10 @@ export default function OpenPage() {
         })()}
 
         {/* Submit section */}
-        <div ref={formSectionRef} className="pt-8 border-t-2 border-border">
+        <div
+          ref={formSectionRef}
+          className={`mt-8 rounded-2xl border-2 border-accent/25 bg-accent/[0.04] p-6 shadow-sm ${formPopping ? "section-pop" : ""}`}
+        >
           <h2 className="font-display text-lg font-bold mb-1">
             {lang === "fr" ? "Signalez une ouverture" : "Report an opening"}
           </h2>

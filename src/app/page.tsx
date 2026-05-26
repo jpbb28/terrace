@@ -8,9 +8,22 @@ import FilterBar from "@/components/FilterBar";
 import { isOpenNow } from "@/lib/utils";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
+import FavoritesTray from "@/components/FavoritesTray";
+import { useFavorites } from "@/lib/favorites";
 import { useLang } from "@/lib/LanguageContext";
 import { trackEvent } from "@/lib/analytics";
-import { TerraceType } from "@/lib/types";
+import { Terrace, TerraceType, TERRACE_TYPES } from "@/lib/types";
+
+type SortBy = "recommended" | "rating" | "distance";
+
+function bayesianRating(t: Terrace): number {
+  if (!t.googleRating || !t.googleReviewCount) return -Infinity;
+  const m = 4.0;
+  const C = 50;
+  return (
+    (t.googleRating * t.googleReviewCount + m * C) / (t.googleReviewCount + C)
+  );
+}
 
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
@@ -142,11 +155,14 @@ const LogoIcon = () => (
 
 export default function Home() {
   const { lang, setLang, t } = useLang();
+  const { count: favCount } = useFavorites();
+  const [favOpen, setFavOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
   const [terraceTypes, setTerraceTypes] = useState<string[]>([]);
   const [dogFriendly, setDogFriendly] = useState(false);
   const [covered, setCovered] = useState(false);
+  const [heated, setHeated] = useState(false);
   const [openNow, setOpenNow] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -158,7 +174,9 @@ export default function Home() {
     lat: number;
     lng: number;
   } | null>(null);
-  const [sortByDistance, setSortByDistance] = useState(false);
+  const [sortBy, setSortBy] = useState<SortBy>("recommended");
+  const [sortMenuOpen, setSortMenuOpen] = useState(false);
+  const sortMenuRef = useRef<HTMLDivElement>(null);
   const [locating, setLocating] = useState(false);
   const [locatedAt, setLocatedAt] = useState<[number, number] | null>(null);
   const [mapLocating, setMapLocating] = useState(false);
@@ -212,6 +230,12 @@ export default function Home() {
       ) {
         setNeighborhoodOpen(false);
       }
+      if (
+        sortMenuRef.current &&
+        !sortMenuRef.current.contains(e.target as Node)
+      ) {
+        setSortMenuOpen(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -229,46 +253,43 @@ export default function Home() {
     );
   }, []);
 
-  const terraceTypesList: { value: TerraceType; label: string }[] = [
-    { value: "sidewalk", label: t.sidewalk },
-    { value: "rooftop", label: t.rooftop },
-    { value: "backyard", label: t.backyard },
-    { value: "courtyard", label: t.courtyard },
-    { value: "balcony", label: t.balcony },
-    { value: "garden", label: t.garden },
-  ];
+  const terraceTypesList: { value: TerraceType; label: string }[] =
+    TERRACE_TYPES.map((value) => ({ value, label: t[value] }));
 
-  const typeLabel =
-    terraceTypes.length === 0
-      ? t.allTypes
-      : terraceTypes.length === 1
-        ? (terraceTypesList.find((tt) => tt.value === terraceTypes[0])?.label ??
-          terraceTypes[0])
-        : `${terraceTypes.length} ${t.types}`;
-
-  const handleSortByDistance = useCallback(() => {
-    if (sortByDistance) {
-      setSortByDistance(false);
-      return;
-    }
-    if (userLocation) {
-      setSortByDistance(true);
-      return;
-    }
-    setLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setUserLocation({
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        });
-        setSortByDistance(true);
-        setLocating(false);
-      },
-      () => setLocating(false),
-      { timeout: 5000, maximumAge: 300000, enableHighAccuracy: false },
-    );
-  }, [sortByDistance, userLocation]);
+  const handleSortChange = useCallback(
+    (value: SortBy) => {
+      setSortMenuOpen(false);
+      if (value !== "distance") {
+        setSortBy(value);
+        return;
+      }
+      if (userLocation) {
+        setSortBy("distance");
+        return;
+      }
+      setLocating(true);
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          setUserLocation({
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude,
+          });
+          setSortBy("distance");
+          setLocating(false);
+        },
+        (err) => {
+          console.error(
+            "[geolocation] distance sort failed:",
+            err.code,
+            err.message,
+          );
+          setLocating(false);
+        },
+        { timeout: 10000, maximumAge: 300000, enableHighAccuracy: false },
+      );
+    },
+    [userLocation],
+  );
 
   const handleLocateOnMap = useCallback(() => {
     if (mapLocating) return;
@@ -287,11 +308,16 @@ export default function Home() {
         navigator.geolocation.clearWatch(watchId);
         done(pos);
       },
-      () => {
+      (err) => {
+        console.error(
+          "[geolocation] locate-on-map failed:",
+          err.code,
+          err.message,
+        );
         navigator.geolocation.clearWatch(watchId);
         done();
       },
-      { timeout: 6000, maximumAge: 60000, enableHighAccuracy: false },
+      { timeout: 10000, maximumAge: 60000, enableHighAccuracy: false },
     );
   }, [mapLocating]);
 
@@ -326,33 +352,41 @@ export default function Home() {
           return false;
         if (dogFriendly && !t.dogFriendly) return false;
         if (covered && !t.covered) return false;
+        if (heated && !t.heated) return false;
         if (openNow && isOpenNow(t) !== true) return false;
         return true;
       });
 
-    if (sortByDistance && userLocation) {
-      const withDist = scored.map(({ terrace: t }) => ({
-        t,
-        dist: haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng),
-      }));
-      withDist.sort((a, b) => a.dist - b.dist);
-      return withDist.map(({ t, dist }) => ({ terrace: t, distance: dist }));
+    const withDist = scored.map(({ terrace: t, score }) => ({
+      terrace: t,
+      score,
+      distance: userLocation
+        ? haversineKm(userLocation.lat, userLocation.lng, t.lat, t.lng)
+        : undefined,
+    }));
+
+    if (sortBy === "distance" && userLocation) {
+      withDist.sort(
+        (a, b) => (a.distance ?? Infinity) - (b.distance ?? Infinity),
+      );
+    } else if (sortBy === "rating") {
+      withDist.sort(
+        (a, b) => bayesianRating(b.terrace) - bayesianRating(a.terrace),
+      );
+    } else if (search) {
+      withDist.sort((a, b) => a.score - b.score);
     }
 
-    if (search) scored.sort((a, b) => a.score - b.score);
-
-    return scored.map(({ terrace: t }) => ({
-      terrace: t,
-      distance: undefined,
-    }));
+    return withDist.map(({ terrace, distance }) => ({ terrace, distance }));
   }, [
     search,
     neighborhoods,
     terraceTypes,
     dogFriendly,
     covered,
+    heated,
     openNow,
-    sortByDistance,
+    sortBy,
     userLocation,
   ]);
 
@@ -454,24 +488,16 @@ export default function Home() {
     onDogFriendlyChange: setDogFriendly,
     covered,
     onCoveredChange: setCovered,
+    heated,
+    onHeatedChange: setHeated,
     openNow,
     onOpenNowChange: setOpenNow,
-    sortByDistance,
-    onSortByDistanceChange: handleSortByDistance,
+    sortBy,
+    onSortChange: handleSortChange,
     locating,
     resultCount: filteredWithDistance.length,
     mobileView,
-    onLocateOnMap: handleLocateOnMap,
-    mapLocating,
   };
-
-  // Shared pill class helper
-  const pillClass = (active: boolean) =>
-    `shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full border transition-colors whitespace-nowrap ${
-      active
-        ? "bg-foreground text-white border-foreground"
-        : "border-border text-muted bg-white/40 hover:border-border-strong hover:text-foreground"
-    }`;
 
   return (
     <main className="h-[100dvh] flex flex-col overflow-hidden bg-background">
@@ -666,6 +692,16 @@ export default function Home() {
             </button>
             {desktopMenuOpen && (
               <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
+                <button
+                  onClick={() => {
+                    setDesktopMenuOpen(false);
+                    setFavOpen(true);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+                >
+                  {favCount > 0 ? t.myListCount(favCount) : t.myList}
+                </button>
+                <div className="my-1 border-t border-border" />
                 <Link
                   href="/blog"
                   onClick={() => setDesktopMenuOpen(false)}
@@ -694,67 +730,50 @@ export default function Home() {
       </header>
 
       {/* ══ Desktop Filter Bar ══ */}
-      <div className="hidden md:flex shrink-0 border-b border-border bg-background items-stretch justify-center px-6">
-        {/* Terrace type group */}
-        <div className="flex items-center gap-1.5 py-2.5 pr-5">
-          <span className="text-[10px] font-semibold text-muted-light uppercase tracking-wider shrink-0 mr-1">
-            {lang === "fr" ? "Type" : "Type"}
-          </span>
-          {terraceTypesList.map((tt) => (
-            <button
-              key={tt.value}
-              onClick={() => toggleType(tt.value)}
-              className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
-                terraceTypes.includes(tt.value)
-                  ? "bg-accent text-white shadow-sm shadow-accent/30"
-                  : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
-              }`}
-            >
-              {tt.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Full-height divider */}
-        <div className="w-px bg-border self-stretch" />
-
-        {/* Attribute filter group */}
-        <div className="flex items-center gap-1.5 py-2.5 pl-5">
-          <span className="text-[10px] font-semibold text-muted-light uppercase tracking-wider shrink-0 mr-1">
-            {lang === "fr" ? "Filtres" : "Filters"}
-          </span>
+      <div className="hidden md:flex shrink-0 border-b border-border bg-background items-center justify-center gap-1.5 py-2.5 px-6">
+        {terraceTypesList.map((tt) => (
           <button
-            onClick={handleSortByDistance}
-            disabled={locating}
-            className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer disabled:opacity-50 disabled:cursor-default ${
-              sortByDistance
-                ? "bg-accent text-white shadow-sm shadow-accent/30"
-                : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
-            }`}
-          >
-            {locating ? t.locating : t.nearMe}
-          </button>
-          <button
-            onClick={() => setDogFriendly(!dogFriendly)}
+            key={tt.value}
+            onClick={() => toggleType(tt.value)}
             className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
-              dogFriendly
+              terraceTypes.includes(tt.value)
                 ? "bg-accent text-white shadow-sm shadow-accent/30"
                 : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
             }`}
           >
-            {t.dogFriendly}
+            {tt.label}
           </button>
-          <button
-            onClick={() => setCovered(!covered)}
-            className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
-              covered
-                ? "bg-accent text-white shadow-sm shadow-accent/30"
-                : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
-            }`}
-          >
-            {t.covered}
-          </button>
-        </div>
+        ))}
+        <button
+          onClick={() => setDogFriendly(!dogFriendly)}
+          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+            dogFriendly
+              ? "bg-accent text-white shadow-sm shadow-accent/30"
+              : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
+          }`}
+        >
+          {t.dogFriendly}
+        </button>
+        <button
+          onClick={() => setCovered(!covered)}
+          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+            covered
+              ? "bg-accent text-white shadow-sm shadow-accent/30"
+              : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
+          }`}
+        >
+          {t.covered}
+        </button>
+        <button
+          onClick={() => setHeated(!heated)}
+          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+            heated
+              ? "bg-accent text-white shadow-sm shadow-accent/30"
+              : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
+          }`}
+        >
+          {t.heated}
+        </button>
       </div>
 
       {/* ══ Desktop Content ══ */}
@@ -768,9 +787,97 @@ export default function Home() {
           className="overflow-y-auto overflow-x-hidden border-r border-border"
         >
           <div className="p-4 pb-8">
-            <p className="text-[11px] text-muted mb-3 px-0.5">
-              {t.spots(filteredWithDistance.length)}
-            </p>
+            <div className="flex items-center justify-between mb-3 px-0.5">
+              <p className="text-[11px] text-muted">
+                {t.spots(filteredWithDistance.length)}
+              </p>
+              <div className="relative" ref={sortMenuRef}>
+                <button
+                  onClick={() => setSortMenuOpen(!sortMenuOpen)}
+                  disabled={locating}
+                  className="flex items-center gap-1 text-[11px] text-muted hover:text-foreground transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
+                >
+                  <span>{t.sortBy}:</span>
+                  <span className="font-medium text-foreground">
+                    {locating && sortBy === "distance"
+                      ? t.locating
+                      : sortBy === "rating"
+                        ? t.sortRating
+                        : sortBy === "distance"
+                          ? t.sortDistance
+                          : t.sortRecommended}
+                  </span>
+                  <svg
+                    className={`w-3 h-3 shrink-0 transition-transform duration-150 ${sortMenuOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      d="M19 9l-7 7-7-7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                {sortMenuOpen && (
+                  <div className="absolute z-50 top-full mt-1 right-0 min-w-[160px] bg-white border border-border rounded-xl shadow-lg py-1 overflow-hidden">
+                    {(
+                      [
+                        { value: "recommended", label: t.sortRecommended },
+                        { value: "rating", label: t.sortRating },
+                        { value: "distance", label: t.sortDistance },
+                      ] as { value: SortBy; label: string }[]
+                    ).map(({ value, label }) => (
+                      <button
+                        key={value}
+                        onClick={() => handleSortChange(value)}
+                        className={`w-full flex items-center justify-between px-3 py-2 text-xs hover:bg-foreground/[0.04] transition-colors cursor-pointer ${
+                          sortBy === value
+                            ? "text-accent font-medium"
+                            : "text-foreground"
+                        }`}
+                      >
+                        <span>{label}</span>
+                        {sortBy === value && (
+                          <svg
+                            className="w-3 h-3 shrink-0"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2.5}
+                          >
+                            <path
+                              d="M5 13l4 4L19 7"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+            {locating && (
+              <div className="mb-3 flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/[0.06] px-3 py-2 text-[11px] text-accent">
+                <svg
+                  className="w-3.5 h-3.5 shrink-0 animate-spin"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>{t.locatingMessage}</span>
+              </div>
+            )}
             {filteredWithDistance.length === 0 ? (
               <div className="text-center py-16">
                 <p className="text-3xl mb-2">&#9789;</p>
@@ -987,6 +1094,16 @@ export default function Home() {
                 </button>
                 {mobileMenuOpen && (
                   <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[140px] z-50">
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setFavOpen(true);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+                    >
+                      {favCount > 0 ? t.myListCount(favCount) : t.myList}
+                    </button>
+                    <div className="my-1 border-t border-border" />
                     <a
                       href="https://instagram.com/terrasseseason"
                       target="_blank"
@@ -1148,6 +1265,23 @@ export default function Home() {
                     : "opacity-0 z-0 pointer-events-none"
                 }`}
               >
+                {locating && (
+                  <div className="mb-2 flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/[0.06] px-3 py-2 text-[11px] text-accent">
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 animate-spin"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <span>{t.locatingMessage}</span>
+                  </div>
+                )}
                 {filteredWithDistance.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-3xl mb-2">&#9789;</p>
@@ -1269,6 +1403,13 @@ export default function Home() {
           </>
         )}
       </div>
+
+      <FavoritesTray
+        open={favOpen}
+        onOpenChange={setFavOpen}
+        hidden={!!selectedId}
+        onSelect={openTerrace}
+      />
     </main>
   );
 }

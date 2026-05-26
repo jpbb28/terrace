@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
+import { FavoritesProvider } from "@/lib/favorites";
 import { terraces } from "@/data/terraces";
 import { slugify } from "@/lib/utils";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -245,7 +246,9 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
         <ErrorBoundary>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <FavoritesProvider>{children}</FavoritesProvider>
+          </LanguageProvider>
         </ErrorBoundary>
         <Analytics />
       </body>

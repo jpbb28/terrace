@@ -15,6 +15,8 @@ export const translations = {
     dogFriendly: "🐶 Dog-friendly",
     covered: "☂️ Covered",
     locating: "Locating\u2026",
+    locatingMessage:
+      "Locating you to sort by distance\u2026 this can take a few seconds.",
     nearMe: "\uD83D\uDCCD Near me",
     spots: (n: number) => `${n} spot${n !== 1 ? "s" : ""}`,
     // Terrace types
@@ -56,7 +58,9 @@ export const translations = {
     terraceInfoSection: "Terrace Info",
     featuresSection: "Features",
     hoursSection: "Hours & Season (optional)",
-    photosSection: "Photos (optional)",
+    photosSection: "Photos (highly recommended)",
+    photosSubmitNote:
+      "Optional, but a good photo goes a long way. People want to see the vibe.",
     contactSection: "Contact (optional)",
     aboutYouSection: "About you",
     namePlaceholder: "e.g. Caf\u00E9 Olimpico",
@@ -117,6 +121,10 @@ export const translations = {
     courtyardFull: "Courtyard",
     openNow: "🟢 Open now",
     filters: "Filters",
+    sortBy: "Sort",
+    sortRecommended: "Recommended",
+    sortRating: "Popular",
+    sortDistance: "Distance",
     clearAll: "Clear all",
     neighborhoods: "neighborhoods",
     types: "types",
@@ -136,7 +144,8 @@ export const translations = {
     // Open page
     openPageTitle: "Terrace Openings this Season",
     openPageSubtitle:
-      "See which Montreal terraces are open this season. Know a spot that's ready for summer? Let the community know.",
+      "See which Montreal terraces are open this season. Know a spot that's ready for summer?",
+    openPageSubtitleCta: "Let the community know.",
     confirmOpen: "Confirm open",
     youConfirmed: "You confirmed",
     officialDates: "Official dates",
@@ -154,6 +163,30 @@ export const translations = {
     ownerCtaDesc:
       "Set your opening and closing dates so visitors can find you.",
     ownerCtaBtn: "Update your listing",
+    // Favorites & shared lists
+    saveToList: "Save to my list",
+    removeFromList: "Remove from my list",
+    myList: "My list",
+    myListCount: (n: number) => `My list (${n})`,
+    myListEmpty: "Tap the heart on any terrace to save it here.",
+    shareList: "Share list",
+    shareListNameLabel: "Name this list (optional)",
+    shareListNamePlaceholder: "e.g. Date-night terraces",
+    createShareLink: "Create share link",
+    creatingLink: "Creating link…",
+    linkCopied: "Link copied!",
+    copyLink: "Copy link",
+    clearList: "Clear list",
+    clearListConfirm: "Remove all saved terraces?",
+    removeFromListShort: "Remove",
+    saveAllToList: (n: number) => `Save all ${n} to my list`,
+    allSaved: "All saved to your list",
+    // Shared list (receiver) page
+    sharedListHeading: (n: number) =>
+      `A list of ${n} terrace${n !== 1 ? "s" : ""}`,
+    sharedListIntro: "Someone shared these Montréal terraces with you.",
+    sharedListEmpty: "This list is empty or could not be found.",
+    browseAllTerraces: "Browse all terraces",
   },
   fr: {
     // Header
@@ -169,6 +202,8 @@ export const translations = {
     dogFriendly: "🐶 Chien accepté",
     covered: "☂️ Couvert",
     locating: "Localisation\u2026",
+    locatingMessage:
+      "Localisation en cours pour trier par distance\u2026 cela peut prendre quelques secondes.",
     nearMe: "\uD83D\uDCCD Pr\u00E8s de moi",
     spots: (n: number) => `${n} terrasse${n !== 1 ? "s" : ""}`,
     // Terrace types
@@ -210,7 +245,9 @@ export const translations = {
     terraceInfoSection: "Informations",
     featuresSection: "Caract\u00E9ristiques",
     hoursSection: "Horaires et saison (optionnel)",
-    photosSection: "Photos (optionnel)",
+    photosSection: "Photos (fortement recommandé)",
+    photosSubmitNote:
+      "Optionnel, mais une bonne photo fait toute la différence. Les gens veulent voir l’ambiance.",
     contactSection: "Contact (optionnel)",
     aboutYouSection: "\u00C0 propos de vous",
     namePlaceholder: "ex. Caf\u00E9 Olimpico",
@@ -272,6 +309,10 @@ export const translations = {
     courtyardFull: "Cour int\u00E9rieure",
     openNow: "🟢 Ouvert maintenant",
     filters: "Filtres",
+    sortBy: "Trier",
+    sortRecommended: "Recommandé",
+    sortRating: "Populaires",
+    sortDistance: "Distance",
     clearAll: "Tout effacer",
     neighborhoods: "quartiers",
     types: "types",
@@ -291,7 +332,8 @@ export const translations = {
     // Open page
     openPageTitle: "Ouvertures de terrasses cette saison",
     openPageSubtitle:
-      "Découvrez quelles terrasses sont ouvertes cette saison. Un endroit est déjà ouvert ou prêt pour l'été\u00a0? Faites-le savoir à la communauté.",
+      "Découvrez quelles terrasses sont ouvertes cette saison. Un endroit est déjà ouvert ou prêt pour l'été\u00a0?",
+    openPageSubtitleCta: "Faites-le savoir à la communauté.",
     confirmOpen: "Confirmer l'ouverture",
     youConfirmed: "Vous avez confirmé",
     officialDates: "Dates officielles",
@@ -309,6 +351,31 @@ export const translations = {
     ownerCtaDesc:
       "Ajoutez vos dates d'ouverture et de fermeture pour que les visiteurs vous trouvent.",
     ownerCtaBtn: "Mettre à jour votre fiche",
+    // Favorites & shared lists
+    saveToList: "Ajouter à ma liste",
+    removeFromList: "Retirer de ma liste",
+    myList: "Ma liste",
+    myListCount: (n: number) => `Ma liste (${n})`,
+    myListEmpty: "Touchez le cœur sur une terrasse pour l'ajouter ici.",
+    shareList: "Partager la liste",
+    shareListNameLabel: "Nommer cette liste (optionnel)",
+    shareListNamePlaceholder: "ex. Terrasses pour un souper en amoureux",
+    createShareLink: "Créer un lien de partage",
+    creatingLink: "Création du lien…",
+    linkCopied: "Lien copié !",
+    copyLink: "Copier le lien",
+    clearList: "Vider la liste",
+    clearListConfirm: "Retirer toutes les terrasses enregistrées ?",
+    removeFromListShort: "Retirer",
+    saveAllToList: (n: number) => `Tout ajouter à ma liste (${n})`,
+    allSaved: "Ajouté à votre liste",
+    // Shared list (receiver) page
+    sharedListHeading: (n: number) =>
+      `Une liste de ${n} terrasse${n !== 1 ? "s" : ""}`,
+    sharedListIntro:
+      "Quelqu'un a partagé ces terrasses montréalaises avec vous.",
+    sharedListEmpty: "Cette liste est vide ou introuvable.",
+    browseAllTerraces: "Voir toutes les terrasses",
   },
 } as const;
 

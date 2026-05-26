@@ -6,6 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
+import { uuid } from "@/lib/utils";
+import { TerraceType, TERRACE_TYPES } from "@/lib/types";
 import HoursEditor, {
   DayHours,
   defaultHours,
@@ -72,14 +74,15 @@ function SubmitPageContent() {
 
   const { t } = useLang();
 
-  const terraceTypes = [
-    { value: "sidewalk", label: t.sidewalkFull },
-    { value: "rooftop", label: t.rooftop },
-    { value: "backyard", label: t.backyardFull },
-    { value: "courtyard", label: t.courtyardFull },
-    { value: "balcony", label: t.balcony },
-    { value: "garden", label: t.garden },
-  ];
+  const submitLabels: Partial<Record<TerraceType, string>> = {
+    sidewalk: t.sidewalkFull,
+    backyard: t.backyardFull,
+    courtyard: t.courtyardFull,
+  };
+  const terraceTypes = TERRACE_TYPES.map((value) => ({
+    value,
+    label: submitLabels[value] ?? t[value],
+  }));
 
   const [state, setState] = useState<FormState>("idle");
   const [form, setForm] = useState({ ...emptyForm });
@@ -189,11 +192,10 @@ function SubmitPageContent() {
         .replace(/^-|-$/g, "");
       const folder = isEdit
         ? `corrections/${editId}`
-        : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
+        : `submissions/${slug}-${uuid().slice(0, 8)}`;
       for (const [i, file] of images.entries()) {
         const ext = file.name.split(".").pop() ?? "jpg";
-        const filename =
-          i === 0 ? `main.${ext}` : `${crypto.randomUUID()}.${ext}`;
+        const filename = i === 0 ? `main.${ext}` : `${uuid()}.${ext}`;
         const path = `${folder}/${filename}`;
         const { error: uploadError } = await supabase.storage
           .from("photos")
@@ -539,9 +541,12 @@ function SubmitPageContent() {
 
           {/* Images */}
           <section id="photos">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-2">
               {t.photosSection}
             </h2>
+            <p className="text-xs text-muted mb-4 italic">
+              {t.photosSubmitNote}
+            </p>
             <label className="flex flex-col items-center justify-center gap-2 w-full py-8 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-accent/50 transition-colors text-center">
               <svg
                 className="w-7 h-7 text-muted"

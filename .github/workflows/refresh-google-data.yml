@@ -2,8 +2,8 @@ name: Refresh Google Data
 
 on:
   schedule:
-    - cron: "0 6 * * 1"  # Every Monday at 6am UTC
-  workflow_dispatch:       # Allow manual trigger from GitHub UI
+    - cron: "0 6 1,15 * *" # Biweekly: 1st & 15th at 6am UTC (~every 14 days)
+  workflow_dispatch: # Allow manual trigger from GitHub UI
 
 permissions:
   contents: write
@@ -23,9 +23,7 @@ jobs:
       - name: Fetch ratings and hours from Google Places API
         env:
           GOOGLE_PLACES_API_KEY_UNRESTRICTED: ${{ secrets.GOOGLE_PLACES_API_KEY_UNRESTRICTED }}
-        run: |
-          node scripts/fetch-ratings.js
-          node scripts/refresh-hours.js
+        run: node scripts/refresh-google-data.js
 
       - name: Apply ratings to terraces.ts
         run: node scripts/apply-ratings.js

@@ -3,10 +3,11 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Terrace } from "@/lib/types";
+import { Terrace, TerraceType } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
 import { cuisineTypeFR } from "@/lib/i18n";
 import { slugify } from "@/lib/utils";
+import FavoriteButton from "@/components/FavoriteButton";
 
 interface TerraceCardProps {
   terrace: Terrace;
@@ -27,7 +28,7 @@ export default function TerraceCard({
 }: TerraceCardProps) {
   const { t, lang } = useLang();
 
-  const typeConfig: Record<string, { label: string; color: string }> = {
+  const typeConfig: Record<TerraceType, { label: string; color: string }> = {
     sidewalk: { label: t.sidewalk, color: "bg-olive-soft text-olive" },
     rooftop: { label: t.rooftop, color: "bg-warm-soft text-warm" },
     backyard: { label: t.backyard, color: "bg-olive-soft text-olive" },
@@ -46,7 +47,7 @@ export default function TerraceCard({
 
   if (compact) {
     return (
-      <>
+      <div className="relative">
         <a
           href={`/terraces/${slugify(terrace.name)}`}
           className="sr-only"
@@ -55,6 +56,9 @@ export default function TerraceCard({
         >
           {terrace.name}
         </a>
+        <div className="absolute top-2 right-2 z-[5]">
+          <FavoriteButton id={terrace.id} overlay />
+        </div>
         <button
           onClick={onClick}
           className={`w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
@@ -201,13 +205,13 @@ export default function TerraceCard({
             </div>
           </div>
         </button>
-      </>
+      </div>
     );
   }
 
   // ── Full card (mobile list view) ──
   return (
-    <>
+    <div className="relative">
       <a
         href={`/terraces/${slugify(terrace.name)}`}
         className="sr-only"
@@ -216,6 +220,9 @@ export default function TerraceCard({
       >
         {terrace.name}
       </a>
+      <div className="absolute top-2.5 right-2.5 z-[5]">
+        <FavoriteButton id={terrace.id} overlay />
+      </div>
       <button
         onClick={onClick}
         className={`w-full text-left rounded-xl border transition-all duration-200 cursor-pointer group overflow-hidden ${
@@ -304,16 +311,17 @@ export default function TerraceCard({
             )}
           </div>
 
-          <div className="flex items-center justify-between mb-2">
-            <p className="text-xs text-muted">{terrace.neighborhood}</p>
+          <p className="text-xs text-muted mb-2">
+            {terrace.neighborhood}
             {distance !== undefined && (
-              <span className="text-[10px] font-medium text-accent shrink-0 ml-2">
+              <span className="text-accent font-medium">
+                {" · "}
                 {distance < 1
                   ? `${Math.round(distance * 1000)} m`
                   : `${distance.toFixed(1)} km`}
               </span>
             )}
-          </div>
+          </p>
 
           <p className="text-xs text-foreground/60 mb-3 line-clamp-2 leading-relaxed">
             {lang === "fr" && terrace.descriptionFr
@@ -345,6 +353,6 @@ export default function TerraceCard({
           </div>
         </div>
       </button>
-    </>
+    </div>
   );
 }
