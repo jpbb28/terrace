@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { uuid } from "./utils";
 import { terraces } from "@/data/terraces";
 
 type EventType =
@@ -14,7 +15,7 @@ type EventType =
 function getSessionId(): string {
   let id = sessionStorage.getItem("ts_session");
   if (!id) {
-    id = crypto.randomUUID();
+    id = uuid();
     sessionStorage.setItem("ts_session", id);
   }
   return id;

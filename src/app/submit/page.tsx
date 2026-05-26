@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
+import { uuid } from "@/lib/utils";
 import { TerraceType, TERRACE_TYPES } from "@/lib/types";
 import HoursEditor, {
   DayHours,
@@ -191,11 +192,10 @@ function SubmitPageContent() {
         .replace(/^-|-$/g, "");
       const folder = isEdit
         ? `corrections/${editId}`
-        : `submissions/${slug}-${crypto.randomUUID().slice(0, 8)}`;
+        : `submissions/${slug}-${uuid().slice(0, 8)}`;
       for (const [i, file] of images.entries()) {
         const ext = file.name.split(".").pop() ?? "jpg";
-        const filename =
-          i === 0 ? `main.${ext}` : `${crypto.randomUUID()}.${ext}`;
+        const filename = i === 0 ? `main.${ext}` : `${uuid()}.${ext}`;
         const path = `${folder}/${filename}`;
         const { error: uploadError } = await supabase.storage
           .from("photos")

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLang } from "@/lib/LanguageContext";
+import { uuid } from "@/lib/utils";
 
 interface Review {
   id: string;
@@ -95,7 +96,7 @@ export default function ReviewSection({
   function getOrCreateToken(): string {
     let token = localStorage.getItem(tokenKey);
     if (!token) {
-      token = crypto.randomUUID();
+      token = uuid();
       localStorage.setItem(tokenKey, token);
     }
     return token;

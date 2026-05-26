@@ -11,6 +11,41 @@ export function slugify(name: string): string {
 }
 
 /**
+ * Generate a UUID v4. `crypto.randomUUID()` only exists in a secure context
+ * (HTTPS or localhost), so it's undefined when the dev server is reached over a
+ * plain-HTTP LAN IP, and on some older mobile browsers. Fall back to
+ * `crypto.getRandomValues` (available without a secure context), then Math.random.
+ */
+export function uuid(): string {
+  try {
+    if (
+      typeof crypto !== "undefined" &&
+      typeof crypto.randomUUID === "function"
+    ) {
+      return crypto.randomUUID();
+    }
+  } catch {
+    // fall through
+  }
+
+  const bytes = new Uint8Array(16);
+  if (
+    typeof crypto !== "undefined" &&
+    typeof crypto.getRandomValues === "function"
+  ) {
+    crypto.getRandomValues(bytes);
+  } else {
+    for (let i = 0; i < 16; i++) bytes[i] = Math.floor(Math.random() * 256);
+  }
+  bytes[6] = (bytes[6] & 0x0f) | 0x40; // version 4
+  bytes[8] = (bytes[8] & 0x3f) | 0x80; // variant 10
+  const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, "0"));
+  return `${hex.slice(0, 4).join("")}-${hex.slice(4, 6).join("")}-${hex
+    .slice(6, 8)
+    .join("")}-${hex.slice(8, 10).join("")}-${hex.slice(10, 16).join("")}`;
+}
+
+/**
  * Returns true if the terrace is currently open, false if closed,
  * or null if no structured hours data is available.
  * Uses Montreal timezone (America/Toronto).
@@ -20,7 +55,7 @@ export function isOpenNow(terrace: Terrace): boolean | null {
 
   // Get current local time in Montreal
   const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" })
+    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" }),
   );
   const todayDay = now.getDay(); // 0=Sun … 6=Sat
   const nowMin = now.getHours() * 60 + now.getMinutes();
@@ -56,14 +91,32 @@ export function isOpenNow(terrace: Terrace): boolean | null {
 
 const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const DAY_NAMES_FR = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-const FULL_DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const FULL_DAY_NAMES_FR = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+const FULL_DAY_NAMES = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const FULL_DAY_NAMES_FR = [
+  "Dimanche",
+  "Lundi",
+  "Mardi",
+  "Mercredi",
+  "Jeudi",
+  "Vendredi",
+  "Samedi",
+];
 
 function fmt(t: string) {
   const [h, m] = t.split(":").map(Number);
   const suffix = h >= 12 ? "PM" : "AM";
   const hour = h % 12 || 12;
-  return m === 0 ? `${hour} ${suffix}` : `${hour}:${String(m).padStart(2, "0")} ${suffix}`;
+  return m === 0
+    ? `${hour} ${suffix}`
+    : `${hour}:${String(m).padStart(2, "0")} ${suffix}`;
 }
 
 function fmtMin(min: number): string {
@@ -81,7 +134,10 @@ interface HoursStatus {
 /**
  * Returns Google Maps-style status: open/closed, qualifier text, and today's hours.
  */
-export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus | null {
+export function getHoursStatus(
+  terrace: Terrace,
+  lang: Lang = "en",
+): HoursStatus | null {
   const periods = terrace.openingPeriods;
   if (!periods?.length) return null;
 
@@ -96,7 +152,7 @@ export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus
   }
 
   const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" })
+    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" }),
   );
   const todayDay = now.getDay();
   const nowMin = now.getHours() * 60 + now.getMinutes();
@@ -118,14 +174,26 @@ export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus
 
     if (p.day === todayDay) {
       if (!overnight && nowMin >= openMin && nowMin < closeMin) {
-        return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
+        return {
+          open: true,
+          qualifier: `${closesStr} ${fmtMin(closeMin)}`,
+          todayHours,
+        };
       }
       if (overnight && nowMin >= openMin) {
-        return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
+        return {
+          open: true,
+          qualifier: `${closesStr} ${fmtMin(closeMin)}`,
+          todayHours,
+        };
       }
     }
     if (p.day === yesterdayDay && overnight && nowMin < closeMin) {
-      return { open: true, qualifier: `${closesStr} ${fmtMin(closeMin)}`, todayHours };
+      return {
+        open: true,
+        qualifier: `${closesStr} ${fmtMin(closeMin)}`,
+        todayHours,
+      };
     }
   }
 
@@ -142,7 +210,11 @@ export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus
     });
 
   if (sortedLaterToday.length > 0) {
-    return { open: false, qualifier: `${opensStr} ${fmt(sortedLaterToday[0].open)}`, todayHours };
+    return {
+      open: false,
+      qualifier: `${opensStr} ${fmt(sortedLaterToday[0].open)}`,
+      todayHours,
+    };
   }
 
   for (let i = 1; i <= 7; i++) {
@@ -156,7 +228,11 @@ export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus
       });
     if (nextPeriods.length > 0) {
       const dayLabel = i === 1 ? "" : ` ${dayNames[nextDay]}`;
-      return { open: false, qualifier: `${opensStr} ${fmt(nextPeriods[0].open)}${dayLabel}`, todayHours };
+      return {
+        open: false,
+        qualifier: `${opensStr} ${fmt(nextPeriods[0].open)}${dayLabel}`,
+        todayHours,
+      };
     }
   }
 
@@ -168,7 +244,7 @@ export function getHoursStatus(terrace: Terrace, lang: Lang = "en"): HoursStatus
  */
 export function getDaysSchedule(
   periods: Terrace["openingPeriods"],
-  lang: Lang = "en"
+  lang: Lang = "en",
 ): { dayName: string; hours: string; isToday: boolean; isClosed: boolean }[] {
   if (!periods?.length) return [];
 
@@ -177,7 +253,7 @@ export function getDaysSchedule(
   const fullDayNames = lang === "fr" ? FULL_DAY_NAMES_FR : FULL_DAY_NAMES;
 
   const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" })
+    new Date().toLocaleString("en-US", { timeZone: "America/Toronto" }),
   );
   const todayDay = now.getDay();
 
@@ -233,7 +309,11 @@ export function formatHours(periods: Terrace["openingPeriods"]): string[] {
       .join(", ");
 
     const last = ordered[ordered.length - 1];
-    if (last && last.label === label && last.days[last.days.length - 1] === d - 1) {
+    if (
+      last &&
+      last.label === label &&
+      last.days[last.days.length - 1] === d - 1
+    ) {
       last.days.push(d);
     } else {
       ordered.push({ days: [d], label });

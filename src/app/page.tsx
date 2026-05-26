@@ -8,6 +8,8 @@ import FilterBar from "@/components/FilterBar";
 import { isOpenNow } from "@/lib/utils";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
+import FavoritesTray from "@/components/FavoritesTray";
+import { useFavorites } from "@/lib/favorites";
 import { useLang } from "@/lib/LanguageContext";
 import { trackEvent } from "@/lib/analytics";
 import { Terrace, TerraceType, TERRACE_TYPES } from "@/lib/types";
@@ -153,6 +155,8 @@ const LogoIcon = () => (
 
 export default function Home() {
   const { lang, setLang, t } = useLang();
+  const { count: favCount } = useFavorites();
+  const [favOpen, setFavOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
   const [terraceTypes, setTerraceTypes] = useState<string[]>([]);
@@ -688,6 +692,16 @@ export default function Home() {
             </button>
             {desktopMenuOpen && (
               <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
+                <button
+                  onClick={() => {
+                    setDesktopMenuOpen(false);
+                    setFavOpen(true);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+                >
+                  {favCount > 0 ? t.myListCount(favCount) : t.myList}
+                </button>
+                <div className="my-1 border-t border-border" />
                 <Link
                   href="/blog"
                   onClick={() => setDesktopMenuOpen(false)}
@@ -847,6 +861,23 @@ export default function Home() {
                 )}
               </div>
             </div>
+            {locating && (
+              <div className="mb-3 flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/[0.06] px-3 py-2 text-[11px] text-accent">
+                <svg
+                  className="w-3.5 h-3.5 shrink-0 animate-spin"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>{t.locatingMessage}</span>
+              </div>
+            )}
             {filteredWithDistance.length === 0 ? (
               <div className="text-center py-16">
                 <p className="text-3xl mb-2">&#9789;</p>
@@ -1063,6 +1094,16 @@ export default function Home() {
                 </button>
                 {mobileMenuOpen && (
                   <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[140px] z-50">
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setFavOpen(true);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+                    >
+                      {favCount > 0 ? t.myListCount(favCount) : t.myList}
+                    </button>
+                    <div className="my-1 border-t border-border" />
                     <a
                       href="https://instagram.com/terrasseseason"
                       target="_blank"
@@ -1224,6 +1265,23 @@ export default function Home() {
                     : "opacity-0 z-0 pointer-events-none"
                 }`}
               >
+                {locating && (
+                  <div className="mb-2 flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/[0.06] px-3 py-2 text-[11px] text-accent">
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 animate-spin"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <span>{t.locatingMessage}</span>
+                  </div>
+                )}
                 {filteredWithDistance.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-3xl mb-2">&#9789;</p>
@@ -1345,6 +1403,13 @@ export default function Home() {
           </>
         )}
       </div>
+
+      <FavoritesTray
+        open={favOpen}
+        onOpenChange={setFavOpen}
+        hidden={!!selectedId}
+        onSelect={openTerrace}
+      />
     </main>
   );
 }

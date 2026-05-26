@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { terraces } from "@/data/terraces";
 import { useLang } from "@/lib/LanguageContext";
-import { isOpenNow } from "@/lib/utils";
+import { isOpenNow, uuid } from "@/lib/utils";
 import { Terrace } from "@/lib/types";
 
 interface SeasonData {
@@ -87,11 +87,11 @@ function getOrCreateSubmitterId(): string {
   try {
     const stored = localStorage.getItem("terrace_submitter_id");
     if (stored) return stored;
-    const id = crypto.randomUUID();
+    const id = uuid();
     localStorage.setItem("terrace_submitter_id", id);
     return id;
   } catch {
-    return crypto.randomUUID();
+    return uuid();
   }
 }
 

@@ -9,6 +9,7 @@ import { cuisineTypeFR } from "@/lib/i18n";
 import { getHoursStatus, getDaysSchedule, slugify } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import ReviewSection from "@/components/ReviewSection";
+import FavoriteButton from "@/components/FavoriteButton";
 
 interface TerraceDetailProps {
   terrace: Terrace;
@@ -101,57 +102,60 @@ export default function TerraceDetail({
               {backLabel ?? t.backToList}
             </button>
           )}
-          <button
-            onClick={() => {
-              trackEvent(terrace.id, "share");
-              const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
-              if (navigator.share) {
-                navigator.share({ title: terrace.name, url });
-              } else {
-                navigator.clipboard.writeText(url).then(() => {
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
-                });
-              }
-            }}
-            className="flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1 hover:bg-accent/10 transition-colors cursor-pointer"
-          >
-            {copied ? (
-              <>
-                <svg
-                  className="w-4 h-4 text-accent"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    d="M5 13l4 4L19 7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="text-accent">Copied!</span>
-              </>
-            ) : (
-              <>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Share
-              </>
-            )}
-          </button>
+          <div className="flex items-center gap-2">
+            <FavoriteButton id={terrace.id} />
+            <button
+              onClick={() => {
+                trackEvent(terrace.id, "share");
+                const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
+                if (navigator.share) {
+                  navigator.share({ title: terrace.name, url });
+                } else {
+                  navigator.clipboard.writeText(url).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  });
+                }
+              }}
+              className="flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1 hover:bg-accent/10 transition-colors cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <svg
+                    className="w-4 h-4 text-accent"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      d="M5 13l4 4L19 7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="text-accent">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Share
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Photo gallery */}
