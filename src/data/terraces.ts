@@ -16,7 +16,7 @@ export const terraces: Terrace[] = [
     neighborhood: "Old Montreal",
     cuisineType: "Contemporary",
     terraceType: ["rooftop"], // confirmed: "rooftop bar on Hotel Nelligan"
-    capacity: 80,
+    capacity: 175,
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -1079,7 +1079,7 @@ export const terraces: Terrace[] = [
     neighborhood: "Downtown",
     cuisineType: "Wine Bar / Restaurant",
     terraceType: ["sidewalk"], // user confirmed sidewalk, not courtyard
-    capacity: 50,
+    capacity: 20,
     covered: false,
     dogFriendly: false,
     heated: false,
@@ -7000,7 +7000,7 @@ export const terraces: Terrace[] = [
     neighborhood: "NDG",
     cuisineType: "Pâtisserie / Café",
     terraceType: ["sidewalk"],
-    capacity: 120,
+    capacity: 100,
     covered: true,
     dogFriendly: true,
     heated: true,
