@@ -84,19 +84,61 @@ function buildPeriodsStr(periods) {
   return `[\n${items},\n    ]`;
 }
 
-// Montreal terrace-hour cap: a close that wraps past midnight (close < open,
-// and not exactly midnight) is illegal for a terrace, so clamp it to 23:00 —
-// the 11 PM limit most boroughs enforce. Mirrors scripts/cap-terrace-hours.cjs.
-function capPeriods(periods) {
+// Montreal terrace-hour cap, with owner-hour protection.
+//
+// A Google close that wraps past midnight (close < open, not exactly midnight)
+// is the establishment's INDOOR closing time — never a legal terrace close. For
+// any day where Google's hours wrap like that:
+//   - if we already store hours for that day, those were curated by a human
+//     (a submission / owner) and are strictly more reliable than capped indoor
+//     hours, so we keep the stored period verbatim;
+//   - otherwise we clamp the close to 23:00 (the 11 PM bylaw backstop).
+// Days where Google reports a normal, non-wrapping close are trusted and
+// updated as usual, so genuine hour changes still flow through. Mirrors the
+// clamp in scripts/cap-terrace-hours.cjs, plus the stored-hours preservation.
+function capPeriods(googlePeriods, storedPeriods = []) {
   const toMin = (s) => {
     const [h, m] = s.split(":").map(Number);
     return h * 60 + m;
   };
-  return periods.map((p) => {
-    if (p.is24h || p.close === "00:00") return p;
-    if (toMin(p.close) >= toMin(p.open)) return p;
-    return { ...p, close: "23:00" };
-  });
+  const wraps = (p) =>
+    !p.is24h && p.close !== "00:00" && toMin(p.close) < toMin(p.open);
+
+  const storedByDay = {};
+  for (const p of storedPeriods) {
+    if (!storedByDay[p.day]) storedByDay[p.day] = [];
+    storedByDay[p.day].push(p);
+  }
+  const googleByDay = {};
+  const dayOrder = [];
+  for (const p of googlePeriods) {
+    if (!googleByDay[p.day]) {
+      googleByDay[p.day] = [];
+      dayOrder.push(p.day);
+    }
+    googleByDay[p.day].push(p);
+  }
+
+  const out = [];
+  for (const day of dayOrder) {
+    const gperiods = googleByDay[day];
+    const needsCap = gperiods.some(wraps);
+    if (needsCap && storedByDay[day] && storedByDay[day].length) {
+      // Google only knows indoor hours for this day — keep curated terrace hours.
+      for (const sp of storedByDay[day]) {
+        out.push(
+          sp.is24h
+            ? { day: sp.day, open: sp.open, close: sp.close, is24h: true }
+            : { day: sp.day, open: sp.open, close: sp.close },
+        );
+      }
+    } else {
+      for (const gp of gperiods) {
+        out.push(wraps(gp) ? { ...gp, close: "23:00" } : gp);
+      }
+    }
+  }
+  return out;
 }
 
 // Order-insensitive canonical form, for detecting whether hours actually
@@ -161,11 +203,11 @@ async function main() {
     // --- hours (capped to bylaw, written inline only when actually changed) ---
     const hours = data.regularOpeningHours ?? null;
     if (hours) {
-      const periods = capPeriods(parsePeriods(hours));
       const { periods: current, hasOpeningPeriods } = existingPeriods(
         src,
         terrace.id,
       );
+      const periods = capPeriods(parsePeriods(hours), current);
 
       if (hasOpeningPeriods && periodsKey(periods) === periodsKey(current)) {
         hoursUnchanged++;
