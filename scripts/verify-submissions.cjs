@@ -78,7 +78,7 @@ const toMin = (s) => {
   return h * 60 + m;
 };
 
-// Cap any post-midnight close (overnight that ends past 00:00) to "23:30".
+// Cap any post-midnight close (overnight that ends past 00:00) to "23:00".
 // Mirrors scripts/cap-terrace-hours.cjs.
 function capPeriods(periods) {
   if (!periods) return periods;
@@ -88,7 +88,7 @@ function capPeriods(periods) {
     if (p.close === "00:00") return p;
     if (toMin(p.close) >= toMin(p.open)) return p;
     capped = true;
-    return { day: p.day, open: p.open, close: "23:30" };
+    return { day: p.day, open: p.open, close: "23:00" };
   });
   return { periods: out, capped };
 }

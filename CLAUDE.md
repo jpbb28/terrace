@@ -66,17 +66,26 @@ src/
 - `openingPeriods` — structured hours from Google Places API (`{day, open, close}[]`); populated via `node scripts/fetch-hours.js` then `node scripts/apply-hours.js`. Re-run seasonally (winter/summer hours differ). `placeId` stored per terrace to enable cheap future refreshes.
 - `openingHours` — legacy display string, kept for terraces not yet in Places data
 
+### Automated refresh (`.github/workflows/refresh-google-data.yml`)
+
+- Runs biweekly (cron `0 6 1,15 * *` — 1st & 15th, 6am UTC) plus manual `workflow_dispatch`. Calls `node scripts/refresh-google-data.js` then `node scripts/apply-ratings.js`, commits with `[skip ci]`.
+- `scripts/refresh-google-data.js` makes **one** Place Details call per terrace (`rating,userRatingCount,regularOpeningHours`), writing hours inline into `terraces.ts` and ratings to `scripts/ratings-results.json`. It replaced the old `fetch-ratings.js` + `refresh-hours.js`, which made two billable Enterprise calls per terrace — the main Places API cost driver. Keep it to one call per terrace.
+- Hours are capped to bylaw inline (same rule as `scripts/cap-terrace-hours.cjs`) before being written, and a terrace's `openingPeriods` is only rewritten when the capped result differs from what's stored — so unchanged terraces produce no diff. The API call still happens for every terrace (needed to detect changes); change-detection only avoids file churn, it doesn't reduce cost.
+
 ### Terrace hours vs indoor hours (Montreal bylaw)
 
-Stored hours are **terrace** hours, NOT the establishment's indoor hours. Montreal city bylaws cap when patios on public/private property may operate:
+Stored hours are **terrace** hours, NOT the establishment's indoor hours. Montreal regulates terrace hours, but there is **no single citywide closing time** — the rules are set per **borough (arrondissement)** and apply to _all_ commercial terraces, whether on public property (sidewalks/roads, governed by the public-domain occupation rules) or private property (courtyards/backyards, governed by Urban Planning By-law 01-274). The common patterns:
 
-- **Public property (sidewalks/roads)**: Sun–Wed 7 AM–11 PM; Thu–Sat 7 AM–midnight
-- **Private property (courtyards/backyards)**: 7 AM–11 PM
+- **Most boroughs**: a flat **7 AM–11 PM** every day, for both public and private terraces.
+- **Some boroughs** (e.g. CDN–NDG, Rosemont) allow **midnight Thu–Sat**; Le Sud-Ouest allows midnight Fri–Sat.
+- **A few are stricter** (Outremont 10 PM, Verdun 9 PM in most areas).
+
+We don't model per-borough rules. Instead we apply a single conservative backstop: **11 PM (`23:00`)** — accurate for the majority of boroughs, and at most ~1h early for the few that permit midnight. This only ever clamps obviously-illegal post-midnight closes (indoor hours leaking in); it is not a faithful encoding of every borough's rule.
 
 **Rules when populating `openingPeriods`:**
 
 1. If a user submission specifies an earlier close time than Google Places, **trust the submission** — the operator knows their own terrace hours. Google reports indoor/establishment hours.
-2. Any close time strictly past midnight (`01:00`–`06:59` overnight) must be capped to `"23:30"`. The bulk fix is `node scripts/cap-terrace-hours.cjs` (idempotent — re-run any time).
+2. Any close time that wraps past midnight (close earlier than open, and not exactly `00:00`) must be capped to `"23:00"`. The bulk fix is `node scripts/cap-terrace-hours.cjs` (idempotent — re-run any time); `verify-submissions.cjs` and `refresh-google-data.js` apply the same rule inline.
 3. Don't write descriptions that mention specific late closing times like "until 3 AM" — those refer to indoor hours and contradict our terrace data.
 
 The hours UI (TerraceDetail expanded panel and the `/terraces/[slug]` SEO page) shows the note: _"Terrace hours per Montreal city bylaws. Indoor hours may differ."_
@@ -142,10 +151,11 @@ Full schema in memory file `supabase_schema.md`. Tables:
 - **`terrace_events`** — analytics events (views, clicks) with `event_type`, `session_id`, `device_type`
 - **`terrace_season_dates`** — canonical "what the public sees". One row per terrace, `terrace_id` PK. Only ever written by the approval action, never directly by submissions.
 - **`terrace_season_date_submissions`** — append-only moderation queue. UUID PK, `terrace_id` indexed (not unique). One row per submission with `status` (`pending`/`approved`/`rejected`/`withdrawn`), `submitter_email`, `submitter_id` (anonymous browser UUID), `decided_at`, `decided_by`, `discord_message_id`, `undo_token`.
+- **`shared_lists`** — anonymous shareable favourite lists. `slug` text PK (short random base62), `terrace_ids` jsonb (immutable snapshot of saved ids), optional `title`, `created_at`. Written by `POST /api/lists`, read by the `/list/[slug]` server page. Service-role only (no anon grants) — see Favorites & Shareable Lists below.
 
 **Denormalized `terrace_name`**: every terrace_id-keyed table (`reviews`, `terrace_events`, `terrace_season_dates`, `terrace_season_date_submissions`, plus the existing `corrections.terrace_name`) carries a copy of the terrace's display name so rows can be scanned in the Supabase dashboard without cross-referencing `src/data/terraces.ts`. Each insert site looks the name up inline via `terraces.find((t) => t.id === id)?.name ?? id`. If a name is renamed in `terraces.ts`, run `node scripts/backfill-terrace-names.cjs` to update existing rows.
 
-**Data API grants (new tables)**: as of Oct 30 2026 Supabase no longer auto-grants anon/authenticated access on `public` tables. Every new table that should be reachable via supabase-js / PostgREST needs an explicit `GRANT ... TO anon, authenticated, service_role` in the same migration that creates it. Pattern lives in `supabase/migrations/20260515000000_explicit_data_api_grants.sql`. If a route returns PostgREST error code `42501`, a grant is missing.
+**Data API grants (new tables)**: as of Oct 30 2026 Supabase no longer auto-grants anon/authenticated access on `public` tables. Every new table that should be reachable via supabase-js / PostgREST needs an explicit `GRANT ... TO anon, authenticated, service_role` in the same migration that creates it. Pattern lives in `supabase/migrations/20260515000000_explicit_data_api_grants.sql`. If a route returns PostgREST error code `42501`, a grant is missing. `shared_lists` (migration `20260525000000_shared_lists.sql`) is the locked-down variant: RLS enabled, **no** anon/authenticated grants, `grant all ... to service_role` only — both create and read go through server code using `SUPABASE_SERVICE_KEY` (`src/lib/supabaseAdmin.ts`).
 
 ## Opening date approval flow
 
@@ -175,11 +185,22 @@ Done at https://discord.com/developers/applications:
 
 All four env vars (`DISCORD_BOT_TOKEN`, `DISCORD_PUBLIC_KEY`, `DISCORD_APPROVAL_CHANNEL_ID`, plus the existing `DISCORD_WEBHOOK_URL` which still drives generic notifications) need to be set in `.env.local` and in Vercel.
 
+## Favorites & Shareable Lists
+
+No-account feature for saving terraces and sharing a curated list.
+
+- **Personal favourites** live in `localStorage.terrace_favorites` (a JSON array of terrace ids). No Supabase persistence and no auth — the per-browser `terrace_submitter_id` UUID is also localStorage-bound, so server sync would buy nothing without real accounts. State is exposed via `FavoritesProvider` / `useFavorites()` (`src/lib/favorites.tsx`), wrapped in `layout.tsx` next to `LanguageProvider`. The provider has a `hydrated` flag to avoid SSR flicker and syncs across tabs via the `storage` event.
+- **Heart toggle**: `src/components/FavoriteButton.tsx` (`overlay` variant for photo corners, bordered variant for the detail header). Added to `TerraceCard` (both compact + full — the card root is a `<button>`, so the heart is rendered as an absolutely-positioned **sibling** wrapped in a `relative` div, never nested inside the card button) and to the `TerraceDetail` header.
+- **"My list" tray**: `src/components/FavoritesTray.tsx` — a floating pill (bottom-left to avoid the map's bottom-right locate control) with a count badge, opening a slide-up sheet (mobile) / floating panel (desktop). Lists saved terraces, remove + clear, and the share flow. Mounted in `page.tsx` only, hidden when a terrace detail is open (`hidden={!!selectedId}`) since the detail has its own heart.
+- **Sharing**: tray → optional title → `POST /api/lists` (`src/app/api/lists/route.ts`, service role) validates ids against `terraces` (drops unknowns, caps at 50), generates a 7-char base62 slug, retries on PK collision, returns `{ slug }`. Client builds `/list/{slug}`, fires `navigator.share` on mobile + copy-to-clipboard. Lists are **immutable snapshots**; re-sharing makes a new slug.
+- **Receiver view**: `/list/[slug]` (`src/app/list/[slug]/page.tsx`, server component, `noindex`) fetches the row via `supabaseAdmin`, resolves ids against static `terraces`, and renders `src/components/SharedListView.tsx` (client) — banner + "Save all to my list" (`addMany`, union/merge) + mini Leaflet map + compact card grid. Empty/missing slug renders a friendly not-found state.
+- i18n strings under the `// Favorites & shared lists` comment in `src/lib/i18n.ts`.
+
 ## Planned V2 Features
 
 - Supabase backend with PostGIS for geo queries
 - Working submission form (currently logs to console)
 - Crowdsourced availability reporting
-- User accounts + favorites
+- ~~User accounts + favorites~~ — favourites shipped (localStorage); accounts deferred (no demand yet, see Favorites & Shareable Lists)
 - "Notify me when terrace opens for season"
 - Proper geocoding for lat/lng coordinates
