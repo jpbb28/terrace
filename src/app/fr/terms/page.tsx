@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
-import TermsContent from "./TermsContent";
+import TermsContent from "@/app/terms/TermsContent";
 
 export const metadata: Metadata = {
-  title: "Terms & Disclaimer – Terrasse Season",
-  description: "Terms of use and accuracy disclaimer for Terrasse Season.",
+  title: "Conditions et avertissement – Terrasse Season",
+  description:
+    "Conditions d'utilisation et avertissement sur l'exactitude des données de Terrasse Season.",
   alternates: {
-    canonical: "https://terrasseseason.com/terms",
+    canonical: "https://terrasseseason.com/fr/terms",
     languages: {
       "en-CA": "https://terrasseseason.com/terms",
       "fr-CA": "https://terrasseseason.com/fr/terms",
@@ -15,10 +16,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TermsPage() {
+export default function TermsPageFr() {
   return (
     <div className="min-h-screen bg-background">
-      <SiteNav pageLang="en" altHref="/fr/terms" />
+      <SiteNav back="/fr" pageLang="fr" altHref="/terms" />
       <TermsContent />
     </div>
   );

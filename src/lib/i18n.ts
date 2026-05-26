@@ -381,6 +381,23 @@ export const translations = {
 
 export type Translations = typeof translations.en;
 
+// French display names for neighborhoods with a standard French form. Anything
+// not listed keeps its English name — either because it's identical (Outremont,
+// Verdun, Griffintown, Villeray, Rosemont…) or because the English term is the
+// one francophones actually use (West Island, NDG). Display only: the
+// Neighborhood data values stay English (they're filter keys).
+export const neighborhoodFR: Record<string, string> = {
+  Downtown: "Centre-ville",
+  "Old Montreal": "Vieux-Montréal",
+  "Old Port": "Vieux-Port",
+  "Latin Quarter": "Quartier latin",
+  "Little Burgundy": "Petite-Bourgogne",
+  "Little Italy": "Petite-Italie",
+  Chinatown: "Quartier chinois",
+  "The Village": "Le Village",
+  "South Shore": "Rive-Sud",
+};
+
 export const cuisineTypeFR: Record<string, string> = {
   Afghan: "Afghan",
   "American Bistro": "Bistro américain",

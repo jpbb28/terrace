@@ -23,15 +23,20 @@ Discover every terrace and patio in Montreal.
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout, fonts, metadata
+│   ├── layout.tsx          # Root layout, fonts, metadata (html lang="en")
 │   ├── page.tsx            # Main page (map + sidebar + mobile tabs)
 │   ├── globals.css         # Global styles, CSS variables, Leaflet theme
+│   ├── sitemap.ts          # XML sitemap (EN + FR terrace URLs w/ hreflang)
+│   ├── terraces/[slug]/    # English terrace SEO page (page.tsx, thin)
+│   ├── fr/terraces/[slug]/ # French terrace SEO page (page.tsx, thin)
 │   └── submit/
 │       └── page.tsx        # "Suggest a terrace" submission form
 ├── components/
 │   ├── Map.tsx             # Leaflet map (client-only, dynamic import)
 │   ├── TerraceCard.tsx     # List item card
 │   ├── TerraceDetail.tsx   # Detail overlay panel
+│   ├── TerracePageView.tsx # Shared bilingual terrace-page body + SEO builders
+│   ├── SiteNav.tsx         # Top nav + language toggle (link on slug pages)
 │   └── FilterBar.tsx       # Search + filters (24 neighborhoods)
 ├── data/
 │   └── terraces.ts         # Seed data (180 Montreal terraces, sourced from 12+ publications)
@@ -54,6 +59,31 @@ src/
 - **Leaflet over Mapbox** — Free, no API key needed, sepia theme via CSS filter.
 - **Dynamic import for Map** — Leaflet requires `window`, so SSR is disabled for the Map component.
 - **Warm earthy aesthetic** — Background #faf6f1, accent #c45d3e, with Playfair Display + DM Sans fonts.
+
+## Bilingual SEO (URL-based i18n)
+
+**Language follows the URL.** English lives at the root, French under `/fr` (chosen default: English is x-default, matching where the terrace pages started). Every indexable page has a crawlable EN + FR URL:
+
+| EN                         | FR                                  | Renderer                                                                          |
+| -------------------------- | ----------------------------------- | --------------------------------------------------------------------------------- |
+| `/`                        | `/fr`                               | `app/page.tsx` (client `Home`); `/fr/page.tsx` re-renders it with French metadata |
+| `/terraces/[slug]`         | `/fr/terraces/[slug]`               | `components/TerracePageView.tsx` (+ `buildTerraceMetadata`/`buildTerraceJsonLd`)  |
+| `/blog`, `/blog/[slug]`    | `/fr/blog`, `/fr/blog/[slug]`       | `BlogIndexContent` / `BlogPostContent` + `lib/blogSeo.ts` builders                |
+| `/about`, `/faq`, `/terms` | `/fr/about`, `/fr/faq`, `/fr/terms` | shared `*Content` client components                                               |
+
+**How the language is fixed per route:** `LanguageProvider` takes `initialLang` (default `"en"`) and no longer reads `localStorage` — language is purely route-derived. `src/app/fr/layout.tsx` wraps all `/fr/*` routes in a nested `<LanguageProvider initialLang="fr">`, so every child (including shared client content components) server-renders French. The root tree renders English. This fixed a latent bug where the provider defaulted to `"fr"` and served French HTML to crawlers on English URLs.
+
+**Functional pages** `/submit` and `/open` stay single-URL (not `/fr`-routed) — they're forms, not SEO targets. They render English by default with an in-page toggle. Internal links to them are never `/fr`-prefixed.
+
+**Conventions / gotchas:**
+
+- **hreflang** via `alternates.languages` (`en-CA`, `fr-CA`, `x-default` → EN) on every page's metadata; each canonicals to itself. The homepage's hreflang lives in the root layout metadata. Next renders the tag as `hrefLang` (camelCase) — valid, HTML attrs are case-insensitive.
+- **`<html lang>` stays `en`** (single root layout; reading `headers()` there would deopt static generation site-wide). FR pages scope language with a wrapper `<div lang="fr-CA">` where it matters (terrace pages). Google uses hreflang, not the `lang` attribute, for language targeting.
+- **Locale-aware internal links**: on French pages, SEO links are prefixed with `/fr` (homepage uses a `localizePath` helper; `BlogIndexContent`/`FaqContent` use a local `lp()`; `SiteNav` takes `pageLang` + `altHref` so the language button is a `<Link>` to the other-language URL).
+- **FAQ data lives in `src/data/faqs.ts`** (plain module, not `"use client"`) so both the client `FaqContent` and the server FAQ pages can import the real arrays for `FAQPage` JSON-LD. Importing data out of a `"use client"` module into a server component yields client-reference proxies, not values (this broke the build once).
+- **Sitemap** (`sitemap.ts`) emits EN+FR for every page via a `pair()` helper, each with `xhtml:link` alternates.
+- **Translations** reuse `src/lib/i18n.ts` (`translations`, `cuisineTypeFR`, `neighborhoodFR`). `formatHours(periods, lang)` localizes day names; time-of-day stays AM/PM to match the app.
+- **Neighborhoods** display in French via `neighborhoodFR` (Downtown→Centre-ville, etc.). Display only — `Neighborhood` data values stay English (filter keys + `?neighborhood=` URLs). No-standard-form or anglo-preferred names (West Island, NDG) fall back to English.
 
 ## Data Conventions
 

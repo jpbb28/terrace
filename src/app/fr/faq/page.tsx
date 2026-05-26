@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
-import FaqContent from "./FaqContent";
-import { faqsEn } from "@/data/faqs";
+import FaqContent from "@/app/faq/FaqContent";
+import { faqsFr } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "FAQ – Terrasse Season",
   description:
-    "Common questions about Montréal terrace season: when they open, dog-friendly rules, heated terraces, how the hours work, and more.",
+    "Questions fréquentes sur la saison des terrasses à Montréal : quand elles ouvrent, les chiens, les terrasses chauffées, le fonctionnement des horaires et plus.",
   alternates: {
-    canonical: "https://terrasseseason.com/faq",
+    canonical: "https://terrasseseason.com/fr/faq",
     languages: {
       "en-CA": "https://terrasseseason.com/faq",
       "fr-CA": "https://terrasseseason.com/fr/faq",
@@ -17,24 +17,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "FAQ – Terrasse Season",
-    description: "Common questions about Montréal terrace season.",
-    url: "https://terrasseseason.com/faq",
-    locale: "en_CA",
+    description: "Questions fréquentes sur la saison des terrasses à Montréal.",
+    url: "https://terrasseseason.com/fr/faq",
+    locale: "fr_CA",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  inLanguage: "en-CA",
-  mainEntity: faqsEn.map((faq) => ({
+  inLanguage: "fr-CA",
+  mainEntity: faqsFr.map((faq) => ({
     "@type": "Question",
     name: faq.q,
     acceptedAnswer: { "@type": "Answer", text: faq.a },
   })),
 };
 
-export default function FaqPage() {
+export default function FaqPageFr() {
   return (
     <>
       <script
@@ -42,7 +42,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="min-h-screen bg-background">
-        <SiteNav pageLang="en" altHref="/fr/faq" />
+        <SiteNav back="/fr" pageLang="fr" altHref="/faq" />
         <FaqContent />
       </div>
     </>

@@ -1,19 +1,40 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
+import Logo from "@/components/Logo";
+import NavMenu from "@/components/NavMenu";
 import { useLang } from "@/lib/LanguageContext";
+import type { Lang } from "@/lib/i18n";
 
 export default function SiteNav({
   back = "/",
   backLabel = "All terraces",
   backLabelFr = "Toutes les terrasses",
+  pageLang,
+  altHref,
 }: {
   back?: string;
   backLabel?: string;
   backLabelFr?: string;
+  // When set (locale-routed pages like /terraces/[slug] and /fr/...), the
+  // language button navigates to `altHref` (the other-language URL) instead of
+  // flipping client state, and the client language is synced to the page.
+  pageLang?: Lang;
+  altHref?: string;
 }) {
   const { lang, setLang } = useLang();
-  const label = lang === "fr" ? backLabelFr : backLabel;
+  const effLang = pageLang ?? lang;
+  const label = effLang === "fr" ? backLabelFr : backLabel;
+  const home = effLang === "fr" ? "/fr" : "/";
+
+  // Keep the client-side language in sync with a URL-routed page's locale, so
+  // returning to the homepage (and localStorage) reflects the chosen language.
+  useEffect(() => {
+    if (pageLang) setLang(pageLang);
+    // setLang is recreated each render; intentionally only re-run on pageLang.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageLang]);
 
   return (
     <nav className="border-b border-border px-5 py-3.5 flex items-center justify-between">
@@ -37,28 +58,29 @@ export default function SiteNav({
         {label}
       </Link>
       <div className="flex items-center gap-3">
-        <button
-          onClick={() => setLang(lang === "en" ? "fr" : "en")}
-          className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide"
-        >
-          {lang === "en" ? "FR" : "EN"}
-        </button>
-        <Link href="/" className="flex items-center gap-2 group">
-          <svg className="w-5 h-5 shrink-0" viewBox="0 0 32 32" fill="none">
-            <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
-            <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
-            <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
-            <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
-            <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
-            <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e" />
-            <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
-            <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
-            <circle cx="16" cy="16" r="6" fill="#c45d3e" />
-          </svg>
+        {pageLang && altHref ? (
+          <Link
+            href={altHref}
+            hrefLang={pageLang === "en" ? "fr" : "en"}
+            className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide"
+          >
+            {pageLang === "en" ? "FR" : "EN"}
+          </Link>
+        ) : (
+          <button
+            onClick={() => setLang(lang === "en" ? "fr" : "en")}
+            className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide"
+          >
+            {lang === "en" ? "FR" : "EN"}
+          </button>
+        )}
+        <Link href={home} className="flex items-center gap-2 group">
+          <Logo className="w-5 h-5 shrink-0" />
           <span className="font-display text-sm font-bold tracking-tight group-hover:text-accent transition-colors">
             Terrasse Season
           </span>
         </Link>
+        <NavMenu lang={effLang} size="sm" showMap />
       </div>
     </nav>
   );

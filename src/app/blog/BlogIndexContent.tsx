@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLang } from "@/lib/LanguageContext";
+import { localize } from "@/lib/localize";
 import { posts } from "@/data/posts";
 
 const loraStyle = { fontFamily: "var(--font-lora)" } as const;
@@ -22,12 +23,13 @@ function Ornament() {
 
 export default function BlogIndexContent() {
   const { lang } = useLang();
+  // Keep links within the current locale's route tree.
+  const lp = (p: string) => localize(lang, p);
 
   const [featured, ...rest] = posts;
 
   return (
     <div className="max-w-[680px] mx-auto px-5 py-16">
-
       {/* Masthead */}
       <header className="mb-12">
         <p className="text-[10px] uppercase tracking-[0.22em] text-accent font-semibold mb-5">
@@ -40,7 +42,10 @@ export default function BlogIndexContent() {
           <div className="h-px w-10 bg-accent" />
           <div className="h-px flex-1 bg-border" />
         </div>
-        <p className="mt-5 text-[16px] leading-[1.8] text-foreground/60" style={loraStyle}>
+        <p
+          className="mt-5 text-[16px] leading-[1.8] text-foreground/60"
+          style={loraStyle}
+        >
           {lang === "fr"
             ? "Guides et portraits de quartiers pour la saison de terrasse à Montréal."
             : "Guides and neighbourhood portraits for Montréal terrace season."}
@@ -49,7 +54,7 @@ export default function BlogIndexContent() {
 
       {/* Featured post */}
       <Link
-        href={`/blog/${featured.slug}`}
+        href={lp(`/blog/${featured.slug}`)}
         className="group block relative overflow-hidden rounded-2xl border border-border bg-card hover:border-accent/40 hover:bg-card-hover transition-all duration-300 p-8 md:p-10"
       >
         {/* Large background number */}
@@ -68,7 +73,10 @@ export default function BlogIndexContent() {
           {lang === "fr" ? featured.titleFr : featured.title}
         </h2>
 
-        <p className="text-[16px] leading-[1.8] text-foreground/65 mb-6" style={loraStyle}>
+        <p
+          className="text-[16px] leading-[1.8] text-foreground/65 mb-6"
+          style={loraStyle}
+        >
           {lang === "fr" ? featured.descriptionFr : featured.description}
         </p>
 
@@ -81,7 +89,11 @@ export default function BlogIndexContent() {
             stroke="currentColor"
             strokeWidth={2.5}
           >
-            <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </span>
       </Link>
@@ -93,7 +105,7 @@ export default function BlogIndexContent() {
         {rest.map((post, idx) => (
           <div key={post.slug}>
             <Link
-              href={`/blog/${post.slug}`}
+              href={lp(`/blog/${post.slug}`)}
               className="group flex gap-6 md:gap-8 py-8 transition-all duration-200"
             >
               {/* Number column */}
@@ -111,7 +123,10 @@ export default function BlogIndexContent() {
                 <h2 className="font-display text-[1.35rem] font-bold leading-[1.2] text-foreground group-hover:text-accent transition-colors duration-200 mb-3">
                   {lang === "fr" ? post.titleFr : post.title}
                 </h2>
-                <p className="text-[15px] leading-[1.75] text-foreground/60" style={loraStyle}>
+                <p
+                  className="text-[15px] leading-[1.75] text-foreground/60"
+                  style={loraStyle}
+                >
                   {lang === "fr" ? post.descriptionFr : post.description}
                 </p>
                 <span className="inline-flex items-center gap-1.5 mt-4 text-[10px] uppercase tracking-widest text-accent/70 group-hover:text-accent font-semibold transition-colors duration-200">
@@ -123,15 +138,17 @@ export default function BlogIndexContent() {
                     stroke="currentColor"
                     strokeWidth={2.5}
                   >
-                    <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M9 5l7 7-7 7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </span>
               </div>
             </Link>
 
-            {idx < rest.length - 1 && (
-              <div className="h-px bg-border" />
-            )}
+            {idx < rest.length - 1 && <div className="h-px bg-border" />}
           </div>
         ))}
       </div>
@@ -140,7 +157,7 @@ export default function BlogIndexContent() {
       <div className="mt-14">
         <div className="h-px bg-border mb-10" />
         <Link
-          href="/"
+          href={lang === "fr" ? "/fr" : "/"}
           className="group flex items-center justify-between py-5 px-6 rounded-xl border border-border hover:border-accent/50 hover:bg-accent-soft transition-all duration-200"
         >
           <span className="font-display text-xl font-bold text-foreground group-hover:text-accent transition-colors">
@@ -153,7 +170,11 @@ export default function BlogIndexContent() {
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </Link>
       </div>

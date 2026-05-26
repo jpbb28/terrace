@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
-import AboutContent from "./AboutContent";
+import AboutContent from "@/app/about/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About – Terrasse Season",
+  title: "À propos – Terrasse Season",
   description:
-    "Terrasse Season is a directory of outdoor dining spots across Montréal. Who built it, how the data works, and how to contribute.",
+    "Terrasse Season est un répertoire des terrasses et patios de Montréal. Qui l'a créé, comment fonctionnent les données, et comment contribuer.",
   alternates: {
-    canonical: "https://terrasseseason.com/about",
+    canonical: "https://terrasseseason.com/fr/about",
     languages: {
       "en-CA": "https://terrasseseason.com/about",
       "fr-CA": "https://terrasseseason.com/fr/about",
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default function AboutPageFr() {
   return (
     <div className="min-h-screen bg-background">
-      <SiteNav pageLang="en" altHref="/fr/about" />
+      <SiteNav back="/fr" pageLang="fr" altHref="/about" />
       <AboutContent />
     </div>
   );

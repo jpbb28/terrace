@@ -286,11 +286,17 @@ export function getDaysSchedule(
  * Returns a human-readable summary of opening hours grouped by consecutive
  * same-schedule days, e.g. "Mon–Fri: 5 PM – 11 PM".
  */
-export function formatHours(periods: Terrace["openingPeriods"]): string[] {
+export function formatHours(
+  periods: Terrace["openingPeriods"],
+  lang: Lang = "en",
+): string[] {
   if (!periods?.length) return [];
 
+  const dayNames = lang === "fr" ? DAY_NAMES_FR : DAY_NAMES;
+
   // If any period is 24/7, short-circuit
-  if (periods.some((p) => p.is24h)) return ["Open 24 hours"];
+  if (periods.some((p) => p.is24h))
+    return [lang === "fr" ? "Ouvert 24h/24" : "Open 24 hours"];
 
   // Group by schedule string so consecutive days with identical hours merge
   type DayEntry = { day: number; open: string; close: string };
@@ -323,8 +329,8 @@ export function formatHours(periods: Terrace["openingPeriods"]): string[] {
   return ordered.map(({ days, label }) => {
     const dayStr =
       days.length === 1
-        ? DAY_NAMES[days[0]]
-        : `${DAY_NAMES[days[0]]}–${DAY_NAMES[days[days.length - 1]]}`;
+        ? dayNames[days[0]]
+        : `${dayNames[days[0]]}–${dayNames[days[days.length - 1]]}`;
     return `${dayStr}: ${label}`;
   });
 }

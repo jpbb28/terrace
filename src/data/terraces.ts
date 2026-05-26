@@ -7302,7 +7302,7 @@ export const terraces: Terrace[] = [
     heated: false,
     website: "https://tommycafe.ca/en/locations/mcgill-downtown",
     instagram: "@tommycafe_cathcart",
-    photos: [],
+    photos: ["/photos/221/main.webp", "/photos/221/2.webp"],
     openingPeriods: [
       { day: 0, open: "08:00", close: "18:00" },
       { day: 1, open: "07:00", close: "18:00" },

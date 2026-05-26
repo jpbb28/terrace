@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
 import { posts, getPost } from "@/data/posts";
 import { buildBlogPostMetadata, buildBlogPostJsonLd } from "@/lib/blogSeo";
-import BlogPostContent from "./BlogPostContent";
+import BlogPostContent from "@/app/blog/[slug]/BlogPostContent";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,15 +15,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return buildBlogPostMetadata(post, "en");
+  return buildBlogPostMetadata(post, "fr");
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPostFr({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
 
-  const jsonLd = buildBlogPostJsonLd(post, "en");
+  const jsonLd = buildBlogPostJsonLd(post, "fr");
 
   return (
     <>
@@ -33,11 +33,11 @@ export default async function BlogPost({ params }: Props) {
       />
       <div className="min-h-screen bg-background">
         <SiteNav
-          back="/blog"
+          back="/fr/blog"
           backLabel="Notes"
           backLabelFr="Notes"
-          pageLang="en"
-          altHref={`/fr/blog/${slug}`}
+          pageLang="fr"
+          altHref={`/blog/${slug}`}
         />
         <BlogPostContent post={post} />
       </div>

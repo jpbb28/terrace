@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const terrace = terraces.find((t) => slugify(t.name) === slug);
   if (!terrace) return {};
-  return buildTerraceMetadata(terrace, slug, "en");
+  return buildTerraceMetadata(terrace, slug, "fr");
 }
 
-export default async function TerracePage({ params }: Props) {
+export default async function TerracePageFr({ params }: Props) {
   const { slug } = await params;
   const terrace = terraces.find((t) => slugify(t.name) === slug);
   if (!terrace) notFound();
-  return <TerracePageView terrace={terrace} slug={slug} lang="en" />;
+  return <TerracePageView terrace={terrace} slug={slug} lang="fr" />;
 }

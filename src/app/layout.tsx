@@ -77,6 +77,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "https://terrasseseason.com",
+    languages: {
+      "en-CA": "https://terrasseseason.com",
+      "fr-CA": "https://terrasseseason.com/fr",
+      "x-default": "https://terrasseseason.com",
+    },
   },
   openGraph: {
     url: "https://terrasseseason.com",

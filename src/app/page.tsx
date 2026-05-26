@@ -9,8 +9,11 @@ import { isOpenNow } from "@/lib/utils";
 import TerraceCard from "@/components/TerraceCard";
 import TerraceDetail from "@/components/TerraceDetail";
 import FavoritesTray from "@/components/FavoritesTray";
+import Logo from "@/components/Logo";
+import NavMenu from "@/components/NavMenu";
 import { useFavorites } from "@/lib/favorites";
 import { useLang } from "@/lib/LanguageContext";
+import { localize } from "@/lib/localize";
 import { trackEvent } from "@/lib/analytics";
 import { Terrace, TerraceType, TERRACE_TYPES } from "@/lib/types";
 
@@ -134,27 +137,14 @@ function LocateOverlayButton({
   );
 }
 
-const LogoIcon = () => (
-  <svg
-    className="w-7 h-7 shrink-0"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
-    <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
-    <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
-    <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
-    <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
-    <polygon points="26.6,26.6 21.8,23.6 24.2,21.2" fill="#c45d3e" />
-    <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
-    <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
-    <circle cx="16" cy="16" r="6" fill="#c45d3e" />
-  </svg>
-);
-
 export default function Home() {
-  const { lang, setLang, t } = useLang();
+  const { lang, t } = useLang();
+  // Language follows the URL: English at "/", French at "/fr". The toggle
+  // navigates between the two; internal SEO links are prefixed with /fr in
+  // French so the user (and crawlers) stay within the French route tree.
+  // Functional pages (/submit, /open) stay single-URL with their own toggle.
+  const localizePath = (p: string) => localize(lang, p);
+  const otherLangHref = lang === "fr" ? "/" : "/fr";
   const { count: favCount } = useFavorites();
   const [favOpen, setFavOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -182,14 +172,10 @@ export default function Home() {
   const [mapLocating, setMapLocating] = useState(false);
   const [locateTrigger, setLocateTrigger] = useState(0);
   const [allCardsLoaded, setAllCardsLoaded] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [desktopMapMounted, setDesktopMapMounted] = useState(false);
   const [mobileMapMounted, setMobileMapMounted] = useState(true);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
 
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const desktopMenuRef = useRef<HTMLDivElement>(null);
   const neighborhoodDropdownRef = useRef<HTMLDivElement>(null);
   const savedScrollTop = useRef(0);
   const desktopListRef = useRef<HTMLDivElement>(null);
@@ -212,18 +198,6 @@ export default function Home() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(e.target as Node)
-      ) {
-        setMobileMenuOpen(false);
-      }
-      if (
-        desktopMenuRef.current &&
-        !desktopMenuRef.current.contains(e.target as Node)
-      ) {
-        setDesktopMenuOpen(false);
-      }
       if (
         neighborhoodDropdownRef.current &&
         !neighborhoodDropdownRef.current.contains(e.target as Node)
@@ -502,14 +476,17 @@ export default function Home() {
   return (
     <main className="h-[100dvh] flex flex-col overflow-hidden bg-background">
       {/* ══ Desktop Header ══ */}
-      <header className="hidden md:flex relative shrink-0 items-center gap-4 px-6 h-16 bg-background border-b border-border z-[1000]">
+      <header className="hidden md:flex relative shrink-0 items-center gap-4 px-6 h-16 bg-background border-b border-border z-[1100]">
         {/* Logo */}
-        <div className="flex items-start gap-2.5 shrink-0">
+        <Link
+          href={lang === "fr" ? "/fr" : "/"}
+          className="flex items-start gap-2.5 shrink-0 group"
+        >
           <div className="mt-[3px]">
-            <LogoIcon />
+            <Logo className="w-7 h-7 shrink-0" />
           </div>
           <div>
-            <h1 className="font-display text-lg font-bold tracking-tight leading-none">
+            <h1 className="font-display text-lg font-bold tracking-tight leading-none group-hover:text-accent transition-colors">
               Terrasse Season
             </h1>
             <p className="text-[10px] text-muted tracking-wide mt-0.5">
@@ -518,7 +495,7 @@ export default function Home() {
                 : "Montreal's terrace guide"}
             </p>
           </div>
-        </div>
+        </Link>
 
         {/* Season open CTA */}
         <Link
@@ -665,12 +642,13 @@ export default function Home() {
           >
             {lang === "fr" ? "Soumettre une terrasse" : "Submit a terrace"}
           </Link>
-          <button
-            onClick={() => setLang(lang === "en" ? "fr" : "en")}
+          <Link
+            href={otherLangHref}
+            hrefLang={lang === "en" ? "fr" : "en"}
             className="text-[11px] px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent hover:bg-accent hover:text-white transition-all font-semibold tracking-wide cursor-pointer"
           >
             {lang === "en" ? "Français" : "English"}
-          </button>
+          </Link>
           <div className="w-px h-4 bg-border shrink-0 ml-1" />
           <a
             href="https://instagram.com/terrasseseason"
@@ -680,52 +658,21 @@ export default function Home() {
           >
             @terrasseseason
           </a>
-          <div className="relative" ref={desktopMenuRef}>
-            <button
-              onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
-              className="w-6 h-6 flex flex-col items-center justify-center gap-[3.5px] text-muted hover:text-foreground transition-colors cursor-pointer"
-              aria-label="Menu"
-            >
-              <span className="w-3.5 h-px bg-current rounded-full" />
-              <span className="w-3.5 h-px bg-current rounded-full" />
-              <span className="w-3.5 h-px bg-current rounded-full" />
-            </button>
-            {desktopMenuOpen && (
-              <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[120px] z-50">
-                <button
-                  onClick={() => {
-                    setDesktopMenuOpen(false);
-                    setFavOpen(true);
-                  }}
-                  className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
-                >
-                  {favCount > 0 ? t.myListCount(favCount) : t.myList}
-                </button>
-                <div className="my-1 border-t border-border" />
-                <Link
-                  href="/blog"
-                  onClick={() => setDesktopMenuOpen(false)}
-                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                >
-                  {lang === "fr" ? "Notes" : "Blog"}
-                </Link>
-                <Link
-                  href="/about"
-                  onClick={() => setDesktopMenuOpen(false)}
-                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                >
-                  {lang === "fr" ? "À propos" : "About"}
-                </Link>
-                <Link
-                  href="/faq"
-                  onClick={() => setDesktopMenuOpen(false)}
-                  className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                >
-                  FAQ
-                </Link>
-              </div>
+          <NavMenu
+            lang={lang}
+            size="sm"
+            renderTop={(close) => (
+              <button
+                onClick={() => {
+                  close();
+                  setFavOpen(true);
+                }}
+                className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+              >
+                {favCount > 0 ? t.myListCount(favCount) : t.myList}
+              </button>
             )}
-          </div>
+          />
         </div>
       </header>
 
@@ -973,25 +920,25 @@ export default function Home() {
           {/* Footer links — bottom of card grid */}
           <div className="border-t border-border px-5 py-3 flex items-center gap-4">
             <Link
-              href="/blog"
+              href={localizePath("/blog")}
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
               {lang === "fr" ? "Notes" : "Blog"}
             </Link>
             <Link
-              href="/about"
+              href={localizePath("/about")}
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
               {lang === "fr" ? "À propos" : "About"}
             </Link>
             <Link
-              href="/faq"
+              href={localizePath("/faq")}
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
               FAQ
             </Link>
             <Link
-              href="/terms"
+              href={localizePath("/terms")}
               className="text-xs text-muted hover:text-foreground transition-colors ml-auto"
             >
               {lang === "fr" ? "Conditions" : "Terms"}
@@ -1038,26 +985,11 @@ export default function Home() {
         {/* Mobile header */}
         <div className="shrink-0 px-4 pt-3 pb-2 bg-background border-b border-border">
           <div className="flex items-center justify-between mb-2.5">
-            <div className="flex items-center gap-2">
-              <svg
-                className="w-6 h-6 shrink-0"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polygon points="16,1 14,8 18,8" fill="#c45d3e" />
-                <polygon points="16,31 14,24 18,24" fill="#c45d3e" />
-                <polygon points="1,16 8,14 8,18" fill="#c45d3e" />
-                <polygon points="31,16 24,14 24,18" fill="#c45d3e" />
-                <polygon points="5.4,5.4 10.2,8.4 7.8,10.8" fill="#c45d3e" />
-                <polygon
-                  points="26.6,26.6 21.8,23.6 24.2,21.2"
-                  fill="#c45d3e"
-                />
-                <polygon points="26.6,5.4 23.6,10.2 21.2,7.8" fill="#c45d3e" />
-                <polygon points="5.4,26.6 8.4,21.8 10.8,24.2" fill="#c45d3e" />
-                <circle cx="16" cy="16" r="6" fill="#c45d3e" />
-              </svg>
+            <Link
+              href={lang === "fr" ? "/fr" : "/"}
+              className="flex items-center gap-2"
+            >
+              <Logo className="w-6 h-6 shrink-0" />
               <div>
                 <h1 className="font-display text-base font-bold tracking-tight leading-none">
                   Terrasse Season
@@ -1068,7 +1000,7 @@ export default function Home() {
                     : "Montreal's terrace guide"}
                 </p>
               </div>
-            </div>
+            </Link>
             <div className="flex items-center gap-2">
               <Link
                 href="/submit"
@@ -1076,27 +1008,21 @@ export default function Home() {
               >
                 {t.submit}
               </Link>
-              <button
-                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+              <Link
+                href={otherLangHref}
+                hrefLang={lang === "en" ? "fr" : "en"}
                 className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide cursor-pointer"
               >
                 {lang === "en" ? "FR" : "EN"}
-              </button>
-              <div className="relative" ref={mobileMenuRef}>
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="w-7 h-7 flex flex-col items-center justify-center gap-[4px] text-muted hover:text-foreground transition-colors cursor-pointer"
-                  aria-label="Menu"
-                >
-                  <span className="w-4 h-px bg-current rounded-full" />
-                  <span className="w-4 h-px bg-current rounded-full" />
-                  <span className="w-4 h-px bg-current rounded-full" />
-                </button>
-                {mobileMenuOpen && (
-                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-xl shadow-lg py-1 min-w-[140px] z-50">
+              </Link>
+              <NavMenu
+                lang={lang}
+                size="md"
+                renderTop={(close) => (
+                  <>
                     <button
                       onClick={() => {
-                        setMobileMenuOpen(false);
+                        close();
                         setFavOpen(true);
                       }}
                       className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
@@ -1108,43 +1034,14 @@ export default function Home() {
                       href="https://instagram.com/terrasseseason"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={close}
                       className="block px-4 py-2 text-xs text-accent font-medium hover:bg-foreground/[0.04] transition-colors"
                     >
                       @terrasseseason
                     </a>
-                    <div className="my-1 border-t border-border" />
-                    <Link
-                      href="/blog"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                    >
-                      {lang === "fr" ? "Notes" : "Blog"}
-                    </Link>
-                    <Link
-                      href="/about"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                    >
-                      {lang === "fr" ? "À propos" : "About"}
-                    </Link>
-                    <Link
-                      href="/faq"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                    >
-                      FAQ
-                    </Link>
-                    <Link
-                      href="/terms"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors"
-                    >
-                      {lang === "fr" ? "Conditions" : "Terms"}
-                    </Link>
-                  </div>
+                  </>
                 )}
-              </div>
+              />
             </div>
           </div>
           {!selectedTerrace && (
