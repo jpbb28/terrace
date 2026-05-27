@@ -76,11 +76,15 @@ export default function NavMenu({
               <div className="my-1 border-t border-border" />
             </>
           )}
+          <Link href="/open" onClick={close} className={item}>
+            {lang === "fr" ? "Cette saison" : "This season"}
+          </Link>
           {showMap && (
             <Link href={lp("/")} onClick={close} className={item}>
               {lang === "fr" ? "Carte" : "Map"}
             </Link>
           )}
+          <div className="my-1 border-t border-border" />
           <Link href={lp("/blog")} onClick={close} className={item}>
             {lang === "fr" ? "Notes" : "Blog"}
           </Link>
