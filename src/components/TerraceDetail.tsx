@@ -109,12 +109,15 @@ export default function TerraceDetail({
                 trackEvent(terrace.id, "share");
                 const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
                 if (navigator.share) {
-                  navigator.share({ title: terrace.name, url });
+                  navigator.share({ title: terrace.name, url }).catch(() => {});
                 } else {
-                  navigator.clipboard.writeText(url).then(() => {
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                  });
+                  navigator.clipboard
+                    .writeText(url)
+                    .then(() => {
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    })
+                    .catch(() => {});
                 }
               }}
               className="flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1 hover:bg-accent/10 transition-colors cursor-pointer"
