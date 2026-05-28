@@ -3,6 +3,8 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
+import { PawPrint, Umbrella, Flame } from "lucide-react";
 import { terraces } from "@/data/terraces";
 import FilterBar from "@/components/FilterBar";
 import { isOpenNow } from "@/lib/utils";
@@ -14,8 +16,12 @@ import NavMenu from "@/components/NavMenu";
 import { useFavorites } from "@/lib/favorites";
 import { useLang } from "@/lib/LanguageContext";
 import { localize } from "@/lib/localize";
+import { neighborhoodFR } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 import { Terrace, TerraceType, TERRACE_TYPES } from "@/lib/types";
+
+const nbhdLabel = (n: string, lang: string) =>
+  lang === "fr" ? (neighborhoodFR[n] ?? n) : n;
 
 type SortBy = "recommended" | "rating" | "distance";
 
@@ -565,7 +571,7 @@ export default function Home() {
                 {neighborhoods.length === 0
                   ? t.allNeighborhoods
                   : neighborhoods.length === 1
-                    ? neighborhoods[0]
+                    ? nbhdLabel(neighborhoods[0], lang)
                     : `${neighborhoods.length} ${t.neighborhoods}`}
                 <svg
                   className={`w-3 h-3 shrink-0 transition-transform duration-150 ${neighborhoodOpen ? "rotate-180" : ""}`}
@@ -604,7 +610,9 @@ export default function Home() {
                         onChange={() => toggleNeighborhood(n)}
                         className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
                       />
-                      <span className="text-sm text-foreground">{n}</span>
+                      <span className="text-sm text-foreground">
+                        {nbhdLabel(n, lang)}
+                      </span>
                     </label>
                   ))}
                 </div>
@@ -636,6 +644,24 @@ export default function Home() {
 
         {/* Actions */}
         <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[11px] text-muted hover:text-foreground transition-colors whitespace-nowrap"
+          >
+            <span className="hidden lg:inline">
+              {lang === "fr" ? "Vu sur" : "As seen in"}
+            </span>
+            <Image
+              src="/mtlbloglogo.png"
+              alt="MTL Blog"
+              width={500}
+              height={378}
+              className="h-5 w-auto"
+            />
+          </a>
+          <div className="w-px h-4 bg-border shrink-0" />
           <Link
             href="/submit"
             className="text-xs px-4 py-1.5 rounded-full bg-accent text-white hover:bg-accent-hover transition-colors font-medium whitespace-nowrap"
@@ -645,32 +671,35 @@ export default function Home() {
           <Link
             href={otherLangHref}
             hrefLang={lang === "en" ? "fr" : "en"}
-            className="text-[11px] px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent hover:bg-accent hover:text-white transition-all font-semibold tracking-wide cursor-pointer"
+            className="text-[11px] text-muted hover:text-foreground hover:underline transition-colors font-semibold tracking-wide cursor-pointer"
           >
-            {lang === "en" ? "Français" : "English"}
+            {lang === "en" ? "FR" : "EN"}
           </Link>
-          <div className="w-px h-4 bg-border shrink-0 ml-1" />
-          <a
-            href="https://instagram.com/terrasseseason"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted hover:text-foreground transition-colors whitespace-nowrap"
-          >
-            @terrasseseason
-          </a>
           <NavMenu
             lang={lang}
             size="sm"
             renderTop={(close) => (
-              <button
-                onClick={() => {
-                  close();
-                  setFavOpen(true);
-                }}
-                className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
-              >
-                {favCount > 0 ? t.myListCount(favCount) : t.myList}
-              </button>
+              <>
+                <button
+                  onClick={() => {
+                    close();
+                    setFavOpen(true);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-xs text-foreground hover:bg-foreground/[0.04] transition-colors cursor-pointer"
+                >
+                  {favCount > 0 ? t.myListCount(favCount) : t.myList}
+                </button>
+                <div className="my-1 border-t border-border" />
+                <a
+                  href="https://instagram.com/terrasseseason"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={close}
+                  className="block px-4 py-2 text-xs text-accent font-medium hover:bg-foreground/[0.04] transition-colors"
+                >
+                  @terrasseseason
+                </a>
+              </>
             )}
           />
         </div>
@@ -693,32 +722,35 @@ export default function Home() {
         ))}
         <button
           onClick={() => setDogFriendly(!dogFriendly)}
-          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+          className={`inline-flex items-center gap-1.5 shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
             dogFriendly
               ? "bg-accent text-white shadow-sm shadow-accent/30"
               : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
           }`}
         >
+          <PawPrint className="w-3.5 h-3.5" strokeWidth={2} />
           {t.dogFriendly}
         </button>
         <button
           onClick={() => setCovered(!covered)}
-          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+          className={`inline-flex items-center gap-1.5 shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
             covered
               ? "bg-accent text-white shadow-sm shadow-accent/30"
               : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
           }`}
         >
+          <Umbrella className="w-3.5 h-3.5" strokeWidth={2} />
           {t.covered}
         </button>
         <button
           onClick={() => setHeated(!heated)}
-          className={`shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
+          className={`inline-flex items-center gap-1.5 shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
             heated
               ? "bg-accent text-white shadow-sm shadow-accent/30"
               : "bg-[#ede8e0] text-muted hover:bg-[#e4ddd4] hover:text-foreground"
           }`}
         >
+          <Flame className="w-3.5 h-3.5" strokeWidth={2} />
           {t.heated}
         </button>
       </div>
@@ -923,7 +955,7 @@ export default function Home() {
               href={localizePath("/blog")}
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
-              {lang === "fr" ? "Notes" : "Blog"}
+              {lang === "fr" ? "Le blogue" : "Blog"}
             </Link>
             <Link
               href={localizePath("/about")}
@@ -943,6 +975,18 @@ export default function Home() {
             >
               {lang === "fr" ? "Conditions" : "Terms"}
             </Link>
+          </div>
+
+          {/* Press credit */}
+          <div className="border-t border-border px-5 py-2.5">
+            <a
+              href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-muted hover:text-accent transition-colors"
+            >
+              {lang === "fr" ? "Vu sur MTL Blog ↗" : "Featured in MTL Blog ↗"}
+            </a>
           </div>
         </div>
 
@@ -1011,7 +1055,7 @@ export default function Home() {
               <Link
                 href={otherLangHref}
                 hrefLang={lang === "en" ? "fr" : "en"}
-                className="text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide cursor-pointer"
+                className="text-[11px] px-1.5 py-1 text-muted hover:text-foreground hover:underline transition-colors font-semibold tracking-wide cursor-pointer"
               >
                 {lang === "en" ? "FR" : "EN"}
               </Link>
@@ -1263,6 +1307,16 @@ export default function Home() {
                           </p>
                         </>
                       )}
+                      <a
+                        href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-[10px] text-muted hover:text-accent transition-colors"
+                      >
+                        {lang === "fr"
+                          ? "Vu sur MTL Blog ↗"
+                          : "Featured in MTL Blog ↗"}
+                      </a>
                     </div>
                   </>
                 )}

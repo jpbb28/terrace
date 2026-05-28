@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import ContactBlock from "@/components/ContactBlock";
 import { useLang } from "@/lib/LanguageContext";
 import { terraces } from "@/data/terraces";
 
@@ -18,7 +20,7 @@ export default function AboutContent() {
           Terrasse Season
         </h1>
 
-        <div className="prose-like space-y-5 text-base text-foreground/80 leading-relaxed">
+        <div className="prose-like font-reading space-y-5 text-base text-foreground/80 leading-relaxed">
           <p>
             Terrasse Season est un répertoire de spots de bouffe en plein air à
             Montréal : terrasses, patios, rooftops et cours arrière dans les 24
@@ -43,6 +45,33 @@ export default function AboutContent() {
             les restos pivotent, les proprios changent d&apos;idée sur les
             chiens. On met à jour aussi souvent qu&apos;on peut.
           </p>
+
+          <div className="not-prose rounded-xl border border-border bg-accent-soft/50 px-5 py-4">
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <p className="text-[11px] uppercase tracking-widest text-accent font-medium">
+                Dans les médias
+              </p>
+              <Image
+                src="/mtlbloglogo.png"
+                alt="MTL Blog"
+                width={500}
+                height={378}
+                className="h-8 w-auto"
+              />
+            </div>
+            <blockquote className="text-[15px] italic text-foreground/75 leading-relaxed">
+              &ldquo;This new Montreal restaurant terrasse map has 200+ spots
+              and it works better than Google Maps&rdquo;
+            </blockquote>
+            <a
+              href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 text-sm font-medium text-accent hover:underline"
+            >
+              MTL Blog, mai 2026
+            </a>
+          </div>
 
           <hr className="border-border my-8" />
 
@@ -98,20 +127,7 @@ export default function AboutContent() {
 
           <hr className="border-border my-8" />
 
-          <p className="text-sm text-muted">
-            Questions ou commentaires? Écris-nous à{" "}
-            <a
-              href="mailto:hello@terrasseseason.com"
-              className="text-accent hover:underline"
-            >
-              hello@terrasseseason.com
-            </a>{" "}
-            ou utilise{" "}
-            <Link href="/submit" className="text-accent hover:underline">
-              le formulaire de suggestion
-            </Link>
-            .
-          </p>
+          <ContactBlock />
         </div>
       </div>
     );
@@ -148,6 +164,33 @@ export default function AboutContent() {
           restaurants pivot, owners change their minds about dogs. We update as
           often as we can.
         </p>
+
+        <div className="not-prose rounded-xl border border-border bg-accent-soft/50 px-5 py-4">
+          <div className="flex items-center justify-between gap-3 mb-3">
+            <p className="text-[11px] uppercase tracking-widest text-accent font-medium">
+              In the press
+            </p>
+            <Image
+              src="/mtlbloglogo.png"
+              alt="MTL Blog"
+              width={500}
+              height={378}
+              className="h-8 w-auto"
+            />
+          </div>
+          <blockquote className="text-[15px] italic text-foreground/75 leading-relaxed">
+            &ldquo;This new Montreal restaurant terrasse map has 200+ spots and
+            it works better than Google Maps&rdquo;
+          </blockquote>
+          <a
+            href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm font-medium text-accent hover:underline"
+          >
+            MTL Blog, May 2026
+          </a>
+        </div>
 
         <hr className="border-border my-8" />
 
@@ -200,20 +243,7 @@ export default function AboutContent() {
 
         <hr className="border-border my-8" />
 
-        <p className="text-sm text-muted">
-          Questions or feedback? Email{" "}
-          <a
-            href="mailto:hello@terrasseseason.com"
-            className="text-accent hover:underline"
-          >
-            hello@terrasseseason.com
-          </a>{" "}
-          or use{" "}
-          <Link href="/submit" className="text-accent hover:underline">
-            the suggest form
-          </Link>
-          .
-        </p>
+        <ContactBlock />
       </div>
     </div>
   );

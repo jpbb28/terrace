@@ -22,7 +22,10 @@ const indexLanguages = () => ({
   "x-default": blogIndexUrl("en"),
 });
 
-const INDEX_TITLE = "Notes – Terrasse Season";
+const INDEX_TITLE = {
+  en: "Notes – Terrasse Season",
+  fr: "Le blogue – Terrasse Season",
+};
 const INDEX_DESC = {
   en: "Guides, neighbourhood breakdowns, and everything else worth knowing about Montréal terrace season.",
   fr: "Guides, portraits de quartiers et tout ce qu'il faut savoir sur la saison des terrasses à Montréal.",
@@ -81,11 +84,11 @@ export function buildBlogIndexMetadata(lang: Lang): Metadata {
   const description = INDEX_DESC[lang];
   const url = blogIndexUrl(lang);
   return {
-    title: INDEX_TITLE,
+    title: INDEX_TITLE[lang],
     description,
     alternates: { canonical: url, languages: indexLanguages() },
     openGraph: {
-      title: INDEX_TITLE,
+      title: INDEX_TITLE[lang],
       description,
       url,
       locale: lang === "fr" ? "fr_CA" : "en_CA",
@@ -97,7 +100,7 @@ export function buildBlogIndexJsonLd(posts: Post[], lang: Lang) {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: INDEX_TITLE,
+    name: INDEX_TITLE[lang],
     description: INDEX_DESC[lang],
     inLanguage: lang === "fr" ? "fr-CA" : "en-CA",
     url: blogIndexUrl(lang),

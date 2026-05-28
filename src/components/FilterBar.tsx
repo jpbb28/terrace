@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Neighborhood, TerraceType, TERRACE_TYPES } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
+import { neighborhoodFR } from "@/lib/i18n";
+import { Clock, PawPrint, Umbrella, Flame } from "lucide-react";
 
 type SortBy = "recommended" | "rating" | "distance";
 
@@ -79,7 +81,8 @@ export default function FilterBar({
   resultCount,
   mobileView,
 }: FilterBarProps) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const nbhd = (n: string) => (lang === "fr" ? (neighborhoodFR[n] ?? n) : n);
   const [neighborhoodOpen, setNeighborhoodOpen] = useState(false);
   const [typeOpen, setTypeOpen] = useState(false);
   const [sortOpen, setSortOpen] = useState(false);
@@ -135,7 +138,7 @@ export default function FilterBar({
     selectedNeighborhoods.length === 0
       ? t.allNeighborhoods
       : selectedNeighborhoods.length === 1
-        ? selectedNeighborhoods[0]
+        ? nbhd(selectedNeighborhoods[0])
         : `${selectedNeighborhoods.length} ${t.neighborhoods}`;
 
   const totalFilterCount =
@@ -187,7 +190,7 @@ export default function FilterBar({
             onChange={() => toggleNeighborhood(n)}
             className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
           />
-          <span className="text-xs text-foreground">{n}</span>
+          <span className="text-xs text-foreground">{nbhd(n)}</span>
         </label>
       ))}
     </>
@@ -425,6 +428,10 @@ export default function FilterBar({
                   onChange={() => onOpenNowChange(!openNow)}
                   className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
                 />
+                <Clock
+                  className="w-3.5 h-3.5 text-muted shrink-0"
+                  strokeWidth={2}
+                />
                 <span className="text-xs text-foreground">{t.openNow}</span>
               </label>
               <label className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
@@ -433,6 +440,10 @@ export default function FilterBar({
                   checked={dogFriendly}
                   onChange={() => onDogFriendlyChange(!dogFriendly)}
                   className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
+                />
+                <PawPrint
+                  className="w-3.5 h-3.5 text-muted shrink-0"
+                  strokeWidth={2}
                 />
                 <span className="text-xs text-foreground">{t.dogFriendly}</span>
               </label>
@@ -443,6 +454,10 @@ export default function FilterBar({
                   onChange={() => onCoveredChange(!covered)}
                   className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
                 />
+                <Umbrella
+                  className="w-3.5 h-3.5 text-muted shrink-0"
+                  strokeWidth={2}
+                />
                 <span className="text-xs text-foreground">{t.covered}</span>
               </label>
               <label className="flex items-center gap-2.5 px-3 py-2 hover:bg-foreground/[0.04] cursor-pointer transition-colors">
@@ -451,6 +466,10 @@ export default function FilterBar({
                   checked={heated}
                   onChange={() => onHeatedChange(!heated)}
                   className="accent-[#c45d3e] w-3.5 h-3.5 shrink-0"
+                />
+                <Flame
+                  className="w-3.5 h-3.5 text-muted shrink-0"
+                  strokeWidth={2}
                 />
                 <span className="text-xs text-foreground">{t.heated}</span>
               </label>

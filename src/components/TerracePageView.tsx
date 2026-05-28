@@ -350,12 +350,12 @@ export default function TerracePageView({
             {terrace.address}, Montréal, QC
           </p>
 
-          <p className="text-base text-foreground/80 leading-relaxed mb-4">
+          <p className="font-reading text-base text-foreground/80 leading-relaxed mb-4">
             {primary}
           </p>
 
           {secondary && (
-            <p className="text-sm text-foreground/50 leading-relaxed mb-8 italic">
+            <p className="font-reading text-sm text-foreground/50 leading-relaxed mb-8 italic">
               {secondary}
             </p>
           )}

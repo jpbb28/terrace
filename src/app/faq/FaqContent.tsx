@@ -25,7 +25,7 @@ export default function FaqContent() {
           : "About Montréal terrace season, the site, and how the data works."}
       </p>
 
-      <div className="space-y-0">
+      <div className="font-reading space-y-0">
         {faqs.map((faq, i) => (
           <div key={i} className="py-6 border-b border-border first:border-t">
             <h2 className="font-semibold text-foreground mb-2 text-base">
@@ -44,31 +44,31 @@ export default function FaqContent() {
             )}
           </div>
         ))}
+        <div className="py-6 border-b border-border">
+          <h2 className="font-semibold text-foreground mb-2 text-base">
+            {lang === "fr" ? "Comment vous joindre?" : "How do I get in touch?"}
+          </h2>
+          <p className="text-sm text-foreground/70 leading-relaxed">
+            {lang === "fr" ? "Écris-nous à " : "Email us at "}
+            <a
+              href="mailto:hello@terrasseseason.com"
+              className="text-accent hover:underline font-medium"
+            >
+              hello@terrasseseason.com
+            </a>
+            {lang === "fr" ? ", ou suis-nous sur " : ", or follow along on "}
+            <a
+              href="https://instagram.com/terrasseseason"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline font-medium"
+            >
+              Instagram (@terrasseseason)
+            </a>
+            .
+          </p>
+        </div>
       </div>
-
-      <p className="text-sm text-muted mt-10">
-        {lang === "fr" ? (
-          <>
-            Autre chose?{" "}
-            <a
-              href="mailto:hello@terrasseseason.com"
-              className="text-accent hover:underline"
-            >
-              hello@terrasseseason.com
-            </a>
-          </>
-        ) : (
-          <>
-            Something else?{" "}
-            <a
-              href="mailto:hello@terrasseseason.com"
-              className="text-accent hover:underline"
-            >
-              hello@terrasseseason.com
-            </a>
-          </>
-        )}
-      </p>
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default function BlogIndexContent() {
           Terrasse Season
         </p>
         <h1 className="font-display text-[2.6rem] md:text-[3.2rem] font-bold leading-[1.08] text-foreground mb-4">
-          {lang === "fr" ? "Notes" : "Notes"}
+          {lang === "fr" ? "Le blogue" : "Notes"}
         </h1>
         <div className="flex items-center gap-3">
           <div className="h-px w-10 bg-accent" />

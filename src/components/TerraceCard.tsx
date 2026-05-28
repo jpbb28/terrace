@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Terrace, TerraceType } from "@/lib/types";
 import { useLang } from "@/lib/LanguageContext";
-import { cuisineTypeFR } from "@/lib/i18n";
+import { cuisineTypeFR, neighborhoodFR } from "@/lib/i18n";
 import { slugify } from "@/lib/utils";
 import FavoriteButton from "@/components/FavoriteButton";
 
@@ -312,7 +312,9 @@ export default function TerraceCard({
           </div>
 
           <p className="text-xs text-muted mb-2">
-            {terrace.neighborhood}
+            {lang === "fr"
+              ? (neighborhoodFR[terrace.neighborhood] ?? terrace.neighborhood)
+              : terrace.neighborhood}
             {distance !== undefined && (
               <span className="text-accent font-medium">
                 {" · "}

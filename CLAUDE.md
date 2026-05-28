@@ -14,9 +14,14 @@ Discover every terrace and patio in Montreal.
 
 - **Framework**: Next.js 16 (App Router, TypeScript)
 - **Styling**: Tailwind CSS v4, warm/earthy theme
-- **Fonts**: Playfair Display (display) + DM Sans (body) via Google Fonts
+- **Fonts**: Playfair Display (display headings) + DM Sans (app UI body) + Lora (long-form reading) via Google Fonts. Apply the `.font-reading` class (globals.css → Lora serif) to prose bodies: About/FAQ/Terms, terrace descriptions on SEO pages, and the `TerraceDetail` panel. App UI (filters, cards, map, nav) stays DM Sans; headings stay Playfair. The small list `TerraceCard` snippets intentionally stay DM Sans.
+- **Icons**: `lucide-react` for filter/UI icons (PawPrint/Umbrella/Flame/Clock on the attribute filters). Brand icons (Instagram) were removed from lucide — hand-roll inline SVG for those (see `ContactBlock.tsx`).
 - **Map**: Leaflet + react-leaflet (sepia-filtered OSM tiles)
 - **Data**: Static seed data (170 terraces), no database yet
+
+## Press / Media Credits
+
+Featured in MTL Blog (May 2026, `mtlblog.com/montreal-restaurants-terrasses-map`). Logo at `public/mtlbloglogo.png`. The credit lives in three spots: (1) a desktop-only "As seen in {logo}" link left of the Submit button in both nav bars (`SiteNav.tsx` + homepage header in `page.tsx`); (2) a press card quoting the article headline on the About page (`AboutContent.tsx`, EN + FR, headline kept in English); (3) a small link in the homepage bottom-of-list footer. `ContactBlock.tsx` is the shared email + Instagram block (bottom of About; rendered as a closing Q&A on FAQ).
 
 ## File Structure
 

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Logo from "@/components/Logo";
 import NavMenu from "@/components/NavMenu";
 import { useLang } from "@/lib/LanguageContext";
@@ -37,9 +38,9 @@ export default function SiteNav({
   // Language toggle: a Link to the other-language URL when we know it (always,
   // for current call sites); otherwise fall back to flipping client state.
   const desktopToggleClass =
-    "text-[11px] px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent hover:bg-accent hover:text-white transition-all font-semibold tracking-wide cursor-pointer";
+    "text-[11px] text-muted hover:text-foreground hover:underline transition-colors font-semibold tracking-wide cursor-pointer";
   const mobileToggleClass =
-    "text-[11px] px-3 py-1.5 rounded-lg border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors font-semibold tracking-wide";
+    "text-[11px] px-1.5 py-1 text-muted hover:text-foreground hover:underline transition-colors font-semibold tracking-wide";
 
   const langToggle = (className: string, label: string) =>
     altHref ? (
@@ -94,26 +95,46 @@ export default function SiteNav({
 
         {/* Actions */}
         <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="https://www.mtlblog.com/montreal-restaurants-terrasses-map"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[11px] text-muted hover:text-foreground transition-colors whitespace-nowrap"
+          >
+            <span className="hidden lg:inline">
+              {effLang === "fr" ? "Vu sur" : "As seen in"}
+            </span>
+            <Image
+              src="/mtlbloglogo.png"
+              alt="MTL Blog"
+              width={500}
+              height={378}
+              className="h-5 w-auto"
+            />
+          </a>
+          <div className="w-px h-4 bg-border shrink-0" />
           <Link
             href="/submit"
             className="text-xs px-4 py-1.5 rounded-full bg-accent text-white hover:bg-accent-hover transition-colors font-medium whitespace-nowrap"
           >
             {effLang === "fr" ? "Soumettre une terrasse" : "Submit a terrace"}
           </Link>
-          {langToggle(
-            desktopToggleClass,
-            effLang === "en" ? "Français" : "English",
-          )}
-          <div className="w-px h-4 bg-border shrink-0 ml-1" />
-          <a
-            href="https://instagram.com/terrasseseason"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted hover:text-foreground transition-colors whitespace-nowrap"
-          >
-            @terrasseseason
-          </a>
-          <NavMenu lang={effLang} size="sm" />
+          {langToggle(desktopToggleClass, effLang === "en" ? "FR" : "EN")}
+          <NavMenu
+            lang={effLang}
+            size="sm"
+            renderTop={(close) => (
+              <a
+                href="https://instagram.com/terrasseseason"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={close}
+                className="block px-4 py-2 text-xs text-accent font-medium hover:bg-foreground/[0.04] transition-colors"
+              >
+                @terrasseseason
+              </a>
+            )}
+          />
         </div>
       </header>
 

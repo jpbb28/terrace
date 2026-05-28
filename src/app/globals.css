@@ -50,6 +50,12 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* Serif body type for long-form reading pages (About, FAQ, Terms). The app
+   UI stays on --font-sans; headings keep --font-display via .font-display. */
+.font-reading {
+  font-family: var(--font-lora), Georgia, "Times New Roman", serif;
+}
+
 .scrollbar-none {
   scrollbar-width: none;
 }
@@ -296,10 +302,22 @@ body {
 
 /* ── Section pop highlight ── */
 @keyframes sectionPop {
-  0%   { transform: scale(1);     box-shadow: 0 0 0 0   rgba(196, 93, 62, 0); }
-  25%  { transform: scale(1.012); box-shadow: 0 0 0 8px rgba(196, 93, 62, 0.18); }
-  65%  { transform: scale(1.004); box-shadow: 0 0 0 4px rgba(196, 93, 62, 0.08); }
-  100% { transform: scale(1);     box-shadow: 0 0 0 0   rgba(196, 93, 62, 0); }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(196, 93, 62, 0);
+  }
+  25% {
+    transform: scale(1.012);
+    box-shadow: 0 0 0 8px rgba(196, 93, 62, 0.18);
+  }
+  65% {
+    transform: scale(1.004);
+    box-shadow: 0 0 0 4px rgba(196, 93, 62, 0.08);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(196, 93, 62, 0);
+  }
 }
 
 .section-pop {

@@ -251,7 +251,7 @@ export default function TerraceDetail({
         </p>
 
         {/* Description */}
-        <p className="text-sm text-foreground/75 mb-6 leading-relaxed">
+        <p className="font-reading text-sm text-foreground/75 mb-6 leading-relaxed">
           {lang === "fr" && terrace.descriptionFr
             ? terrace.descriptionFr
             : terrace.description}
