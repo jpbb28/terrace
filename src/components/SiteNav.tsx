@@ -68,7 +68,7 @@ export default function SiteNav({
           <div className="mt-[3px]">
             <Logo className="w-7 h-7 shrink-0" />
           </div>
-          <div>
+          <div className="text-center">
             <h1 className="font-display text-lg font-bold tracking-tight leading-none group-hover:text-accent transition-colors">
               Terrasse Season
             </h1>
@@ -83,7 +83,7 @@ export default function SiteNav({
         {/* Season open CTA */}
         <Link
           href="/open"
-          className="shrink-0 text-xs px-4 py-2 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors font-medium whitespace-nowrap shadow-sm"
+          className="ml-6 shrink-0 text-xs px-4 py-2 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors font-medium whitespace-nowrap shadow-sm"
         >
           {effLang === "fr"
             ? "Terrasses ouvertes cette saison"
@@ -143,7 +143,7 @@ export default function SiteNav({
         <div className="flex items-center justify-between">
           <Link href={home} className="flex items-center gap-2">
             <Logo className="w-6 h-6 shrink-0" />
-            <div>
+            <div className="text-center">
               <h1 className="font-display text-base font-bold tracking-tight leading-none">
                 Terrasse Season
               </h1>

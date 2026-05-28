@@ -131,7 +131,7 @@ export default function TermsContent() {
       </h1>
       <p className="text-sm text-muted mb-10">Last updated: May 2025</p>
 
-      <div className="space-y-8 text-sm text-foreground/75 leading-relaxed">
+      <div className="font-reading space-y-8 text-sm text-foreground/75 leading-relaxed">
         <section>
           <h2 className="font-semibold text-foreground text-base mb-2">
             Accuracy of information

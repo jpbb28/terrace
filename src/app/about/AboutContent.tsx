@@ -140,7 +140,7 @@ export default function AboutContent() {
       </p>
       <h1 className="font-display text-3xl font-bold mb-8">Terrasse Season</h1>
 
-      <div className="prose-like space-y-5 text-base text-foreground/80 leading-relaxed">
+      <div className="prose-like font-reading space-y-5 text-base text-foreground/80 leading-relaxed">
         <p>
           Terrasse Season is a directory of outdoor dining spots in Montréal:
           terraces, patios, rooftops, and backyards across the city&apos;s 24
