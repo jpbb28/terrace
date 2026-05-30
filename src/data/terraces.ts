@@ -532,7 +532,7 @@ export const terraces: Terrace[] = [
     terraceType: ["courtyard"], // confirmed: "interior courtyard garden"
     covered: false,
     dogFriendly: false,
-    heated: false,
+    heated: true,
     website: "https://wolfandworkman.com",
     instagram: "@wolfandworkman",
     photos: [
