@@ -38,6 +38,24 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    // Reverse proxy PostHog through a first-party path so ad/tracker
+    // blockers don't drop analytics requests to *.posthog.com.
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/array/:path*",
+        destination: "https://us-assets.i.posthog.com/array/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+    ];
+  },
   async headers() {
     return [
       {
