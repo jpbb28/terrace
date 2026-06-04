@@ -397,6 +397,10 @@ export default function Home() {
       setMapCenter([t.lat, t.lng]);
       setMapZoom(16);
     }
+    // Track the view here (once) rather than in TerraceDetail's mount effect:
+    // the detail renders in both the desktop and mobile layout slots, and CSS
+    // only hides one — both stay mounted, so an effect there fires twice.
+    trackEvent(id, "view");
     setSelectedId(id);
   }, []);
 

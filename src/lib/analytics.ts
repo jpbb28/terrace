@@ -46,8 +46,16 @@ export function trackEvent(terraceId: string, eventType: EventType) {
       session_id: getSessionId(),
       device_type,
     }),
-  }).catch((err) => {
-    // fire and forget — don't block UI
-    console.error("trackEvent failed:", err);
-  });
+  })
+    .then((res) => {
+      // fetch does not reject on HTTP errors (e.g. a 400 from a rejected row),
+      // so check explicitly — otherwise a failing insert is completely silent.
+      if (!res.ok) {
+        console.error(`trackEvent failed: ${res.status} for "${eventType}"`);
+      }
+    })
+    .catch((err) => {
+      // network-level failure — fire and forget, don't block UI
+      console.error("trackEvent network error:", err);
+    });
 }

@@ -193,6 +193,19 @@ Full schema in memory file `supabase_schema.md`. Tables:
 
 **Data API grants (new tables)**: as of Oct 30 2026 Supabase no longer auto-grants anon/authenticated access on `public` tables. Every new table that should be reachable via supabase-js / PostgREST needs an explicit `GRANT ... TO anon, authenticated, service_role` in the same migration that creates it. Pattern lives in `supabase/migrations/20260515000000_explicit_data_api_grants.sql`. If a route returns PostgREST error code `42501`, a grant is missing. `shared_lists` (migration `20260525000000_shared_lists.sql`) is the locked-down variant: RLS enabled, **no** anon/authenticated grants, `grant all ... to service_role` only — both create and read go through server code using `SUPABASE_SERVICE_KEY` (`src/lib/supabaseAdmin.ts`).
 
+## Analytics event tracking (`terrace_events`)
+
+Frontend usage events are written by `trackEvent(terraceId, eventType)` in `src/lib/analytics.ts`. The canonical list of event types is the `EventType` union at the top of that file: `view`, `website_click`, `directions`, `phone_click`, `instagram`, `share`, `card_click`, `map_marker_click`.
+
+- **Insert mechanism**: `trackEvent` POSTs directly to the PostgREST endpoint (`/rest/v1/terrace_events`) with `fetch(..., { keepalive: true })`, **not** the supabase-js client. `keepalive` is required so the request survives the page being backgrounded — e.g. when `navigator.share()` opens the OS share sheet or a `tel:` link / same-tab navigation fires. A plain non-keepalive insert is cancelled mid-flight in those cases (this silently dropped `share`/`phone_click` events). The function checks `res.ok` and `console.error`s on any non-2xx — `fetch` does **not** reject on a 400, so without this an insert failure is completely invisible.
+- **`view` is tracked once in `page.tsx`'s `openTerrace`, NOT in `TerraceDetail`'s mount effect.** `TerraceDetail` renders in two layout slots (desktop panel + mobile view) and CSS only hides one — both stay mounted, so an effect there fires twice and double-counts. Other events (clicks) come from the single visible element and are fine.
+
+### ⚠️ Adding a new analytics event type — DB step required
+
+`terrace_events` previously had a dashboard-created `CHECK` constraint (`terrace_events_event_type_check`) that whitelisted only a subset of event types and rejected the rest with HTTP 400. Because inserts are fire-and-forget and `fetch` ignores 400s, four event types (`card_click`, `map_marker_click`, `share`, `phone_click`) were silently dropped for **months**. Fixed by `supabase/migrations/20260604000000_fix_event_type_check.sql`, which **drops the constraint** — analytics ingestion is now permissive and the `EventType` union is the only source of truth.
+
+So today, adding an event type is just: add it to the `EventType` union and call `trackEvent`. **No DB change is needed** as long as the constraint stays dropped. **If anyone ever re-adds a value `CHECK` on `event_type`, it must list every type in the union, and the same value must be added to the constraint in production whenever the union grows** — otherwise events silently 400. Prefer leaving it unconstrained. Note migrations here are **not auto-applied**; production is dashboard-managed, so schema changes must also be run by hand in the Supabase SQL editor (the migration file is the committed record).
+
 ## Opening date approval flow
 
 Submissions from the `/open` page no longer go live immediately. Pipeline:

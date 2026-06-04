@@ -40,7 +40,8 @@ export default function TerraceDetail({
   useEffect(() => {
     setActivePhoto(0);
     setSeasonData("loading");
-    trackEvent(terrace.id, "view");
+    // NOTE: "view" is tracked in page.tsx's openTerrace, not here. This component
+    // mounts in both layout slots (desktop + mobile), so tracking here double-counts.
     fetch(`/api/season-dates?terraceId=${encodeURIComponent(terrace.id)}`)
       .then((r) => r.json())
       .then(({ data }) => setSeasonData(data ?? null))
@@ -108,14 +109,17 @@ export default function TerraceDetail({
               onClick={() => {
                 trackEvent(terrace.id, "share");
                 const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
-                const text = t.shareTerraceMessage(terrace.name);
+                // Embed the URL in the text rather than passing a separate `url`
+                // field: many share targets render only `text` and drop `url`
+                // when both are present, which loses the link.
+                const message = `${t.shareTerraceMessage(terrace.name)} ${url}`;
                 if (navigator.share) {
                   navigator
-                    .share({ title: terrace.name, text, url })
+                    .share({ title: terrace.name, text: message })
                     .catch(() => {});
                 } else {
                   navigator.clipboard
-                    .writeText(`${text} ${url}`)
+                    .writeText(message)
                     .then(() => {
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
