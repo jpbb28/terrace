@@ -170,6 +170,8 @@ export const translations = {
     myListCount: (n: number) => `My list (${n})`,
     myListEmpty: "Tap the heart on any terrace to save it here.",
     shareList: "Share list",
+    shareTerraceMessage: (name: string) =>
+      `Check out ${name} on Terrasse Season, a map of every terrace in Montreal:`,
     shareListNameLabel: "Name this list (optional)",
     shareListNamePlaceholder: "e.g. Date-night terraces",
     createShareLink: "Create share link",
@@ -358,6 +360,8 @@ export const translations = {
     myListCount: (n: number) => `Ma liste (${n})`,
     myListEmpty: "Touchez le cœur sur une terrasse pour l'ajouter ici.",
     shareList: "Partager la liste",
+    shareTerraceMessage: (name: string) =>
+      `Découvrez ${name} sur Terrasse Season, la carte de toutes les terrasses de Montréal :`,
     shareListNameLabel: "Nommer cette liste (optionnel)",
     shareListNamePlaceholder: "ex. Terrasses pour un souper en amoureux",
     createShareLink: "Créer un lien de partage",

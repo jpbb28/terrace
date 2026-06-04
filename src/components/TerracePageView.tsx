@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { formatHours } from "@/lib/utils";
+import { getDaysSchedule } from "@/lib/utils";
 import type { Terrace } from "@/lib/types";
 import type { Lang } from "@/lib/i18n";
 import { translations, cuisineTypeFR, neighborhoodFR } from "@/lib/i18n";
@@ -256,7 +256,7 @@ export default function TerracePageView({
   const ui = UI[lang];
   const t = translations[lang];
   const jsonLd = buildTerraceJsonLd(terrace, slug, lang);
-  const hoursLines = formatHours(terrace.openingPeriods, lang);
+  const schedule = getDaysSchedule(terrace.openingPeriods, lang);
   const { primary, secondary } = descriptions(terrace, lang);
 
   const features = [
@@ -385,16 +385,20 @@ export default function TerracePageView({
           </div>
 
           {/* Hours */}
-          {hoursLines.length > 0 && (
+          {schedule.length > 0 && (
             <div className="mb-6 p-4 rounded-xl bg-foreground/[0.03] border border-border">
               <p className="text-[10px] uppercase tracking-wider text-muted mb-2.5 font-medium">
                 {ui.terraceHours}
               </p>
               <div className="space-y-1">
-                {hoursLines.map((line) => (
-                  <p key={line} className="text-sm text-foreground/80">
-                    {line}
-                  </p>
+                {schedule.map(({ dayName, hours }) => (
+                  <div
+                    key={dayName}
+                    className="flex justify-between gap-4 text-sm"
+                  >
+                    <span className="text-foreground/60">{dayName}</span>
+                    <span className="text-foreground/80">{hours}</span>
+                  </div>
                 ))}
               </div>
               <p className="text-[11px] text-muted italic mt-3 pt-3 border-t border-border">
@@ -402,7 +406,7 @@ export default function TerracePageView({
               </p>
             </div>
           )}
-          {!hoursLines.length && terrace.openingHours && (
+          {!schedule.length && terrace.openingHours && (
             <div className="mb-6 p-4 rounded-xl bg-foreground/[0.03] border border-border">
               <p className="text-[10px] uppercase tracking-wider text-muted mb-1 font-medium">
                 {ui.hours}

@@ -108,11 +108,14 @@ export default function TerraceDetail({
               onClick={() => {
                 trackEvent(terrace.id, "share");
                 const url = `${window.location.origin}/terraces/${slugify(terrace.name)}`;
+                const text = t.shareTerraceMessage(terrace.name);
                 if (navigator.share) {
-                  navigator.share({ title: terrace.name, url }).catch(() => {});
+                  navigator
+                    .share({ title: terrace.name, text, url })
+                    .catch(() => {});
                 } else {
                   navigator.clipboard
-                    .writeText(url)
+                    .writeText(`${text} ${url}`)
                     .then(() => {
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
