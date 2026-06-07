@@ -163,6 +163,7 @@ export default function SharedListView({
               onClick={() => router.push(`/?terrace=${tt.id}`)}
               priority={i === 0}
               compact
+              imageSizes="(min-width: 768px) 232px, (min-width: 640px) 30vw, 50vw"
             />
           ))}
         </div>

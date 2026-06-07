@@ -16,6 +16,13 @@ interface TerraceCardProps {
   distance?: number;
   priority?: boolean;
   compact?: boolean;
+  /**
+   * `sizes` for the compact-card image. Each call site renders the compact card
+   * in a different grid, so the displayed width differs — pass a value that
+   * mirrors the real layout so Next serves a matching resolution (and the
+   * browser scales it by DPR). The default matches the homepage left grid.
+   */
+  imageSizes?: string;
 }
 
 export default function TerraceCard({
@@ -25,6 +32,7 @@ export default function TerraceCard({
   distance,
   priority = false,
   compact = false,
+  imageSizes = "(min-width: 768px) 16vw, calc(100vw - 24px)",
 }: TerraceCardProps) {
   const { t, lang } = useLang();
 
@@ -100,7 +108,7 @@ export default function TerraceCard({
                 alt={terrace.name}
                 fill
                 className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
-                sizes="(min-width: 768px) 240px, calc(100vw - 24px)"
+                sizes={imageSizes}
                 priority={priority && activePhoto === 0}
               />
               {/* Type badge overlay */}

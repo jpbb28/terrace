@@ -17,7 +17,7 @@ Discover every terrace and patio in Montreal.
 - **Fonts**: Playfair Display (display headings) + DM Sans (app UI body) + Lora (long-form reading) via Google Fonts. Apply the `.font-reading` class (globals.css → Lora serif) to prose bodies: About/FAQ/Terms, terrace descriptions on SEO pages, and the `TerraceDetail` panel. App UI (filters, cards, map, nav) stays DM Sans; headings stay Playfair. The small list `TerraceCard` snippets intentionally stay DM Sans.
 - **Icons**: `lucide-react` for filter/UI icons (PawPrint/Umbrella/Flame/Clock on the attribute filters). Brand icons (Instagram) were removed from lucide — hand-roll inline SVG for those (see `ContactBlock.tsx`).
 - **Map**: Leaflet + react-leaflet (sepia-filtered OSM tiles)
-- **Data**: Static seed data (170 terraces), no database yet
+- **Data**: Static seed data (217 terraces), no database yet
 
 ## Press / Media Credits
 
@@ -44,7 +44,7 @@ src/
 │   ├── SiteNav.tsx         # Top nav + language toggle (link on slug pages)
 │   └── FilterBar.tsx       # Search + filters (24 neighborhoods)
 ├── data/
-│   └── terraces.ts         # Seed data (180 Montreal terraces, sourced from 12+ publications)
+│   └── terraces.ts         # Seed data (217 Montreal terraces, sourced from 12+ publications)
 └── lib/
     ├── types.ts            # TypeScript types (HourPeriod, Terrace, neighborhoods, terrace types)
     └── utils.ts            # isOpenNow(), formatHours() — Montreal timezone aware
@@ -137,7 +137,7 @@ When the user pastes pending submissions (JSON from the `submissions` table) for
 1. Save the pasted JSON to `scripts/submissions-input.json`.
 2. Run `node scripts/verify-submissions.cjs` — for each submission, calls `places:searchText` and writes `scripts/submissions-verified.json` with submitter data, Google data, and a `recommended_opening_periods` field that has already been capped to terrace-bylaw hours and merged with any earlier submitter close times. Flags include `street_number_mismatch`, `no_match`, `hours_capped`, `submitter_earlier_day_N`.
 3. Review `submissions-verified.json`. Investigate any flags before proceeding (manually correct the `name`/`address` or skip the entry).
-4. Append entries to `src/data/terraces.ts`. Use the next sequential `id` (currently up through 207). For each entry:
+4. Append entries to `src/data/terraces.ts`. Use the next sequential `id` (currently up through 223 — IDs have gaps and some out-of-order high values, so use max+1, i.e. 224). For each entry:
    - **Always from Google**: `placeId`, `lat`, `lng`, `googleRating`, `googleReviewCount`
    - **`openingPeriods`**: copy from `recommended_opening_periods` in the verified JSON (already merged + capped). Don't write descriptions that name specific late close times like "until 3 AM" — those refer to indoor hours.
    - **Always from submitter**: `terraceType`, `capacity`, `covered`, `dogFriendly`, `heated`, `instagram`, raw `description`
