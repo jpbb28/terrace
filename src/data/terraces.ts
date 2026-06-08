@@ -7400,4 +7400,37 @@ export const terraces: Terrace[] = [
     descriptionFr:
       "Café-bar italien de la rue Stanley, en plein cœur du centre-ville, qui sert espresso, pâtisseries et plats légers sur une terrasse en façade ensoleillée.",
   },
+  {
+    id: "224",
+    placeId: "ChIJ5Zj2spgbyUwRN7kwaWezP04",
+    googleRating: 4.8,
+    googleReviewCount: 147,
+    name: "Bar Edicola",
+    address: "1111 Rue Cypress",
+    lat: 45.4991811,
+    lng: -73.572032,
+    neighborhood: "Downtown",
+    cuisineType: "Italian / Wine Bar",
+    terraceType: ["sidewalk"],
+    covered: false,
+    dogFriendly: false,
+    heated: false,
+    website: "https://baredicola.com/",
+    instagram: "@edicolabar",
+    phone: "514-419-3232",
+    photos: ["/photos/224/main.webp", "/photos/224/2.webp"],
+    openingPeriods: [
+      { day: 0, open: "09:00", close: "23:00" },
+      { day: 1, open: "08:00", close: "23:00" },
+      { day: 2, open: "08:00", close: "23:00" },
+      { day: 3, open: "08:00", close: "23:00" },
+      { day: 4, open: "08:00", close: "00:00" },
+      { day: 5, open: "08:00", close: "00:00" },
+      { day: 6, open: "09:00", close: "00:00" },
+    ],
+    description:
+      "An all-day Italian espresso bar, wine and aperitivo counter on rue Cypress, just off Crescent Street downtown. Mornings are for espresso and pastries; evenings turn to negronis, Campari spritzes and Italian small plates, served along an enclosed wooden terrace set out on the street.",
+    descriptionFr:
+      "Bar à espresso, vin et aperitivo à l'italienne, ouvert toute la journée, rue Cypress, à deux pas de la rue Crescent au centre-ville. Le matin, place à l'espresso et aux viennoiseries. En soirée, ce sont les negronis, les spritz Campari et les petites assiettes italiennes, servis sur une terrasse en bois fermée installée sur rue.",
+  },
 ];
