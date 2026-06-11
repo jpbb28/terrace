@@ -457,6 +457,7 @@ export const cuisineTypeFR: Record<string, string> = {
   "Ice Cream": "Crème glacée",
   "Iranian / Persian": "Iranien / Persan",
   "Irish / English": "Irlandais / Anglais",
+  "Irish Pub": "Pub irlandais",
   "Italian / Pizza": "Italien / Pizza",
   "Italian Aperitivo": "Apéritif italien",
   "Italian Bakery / Café": "Boulangerie italienne / Café",
