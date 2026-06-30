@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Home from "@/app/page";
+import Home from "@/components/HomeClient";
+import HomeJsonLd from "@/app/HomeJsonLd";
 
 export const metadata: Metadata = {
   title:
@@ -43,5 +44,10 @@ export const metadata: Metadata = {
 // Renders the same interactive home app; the /fr layout's French provider makes
 // every child component render in French.
 export default function FrenchHome() {
-  return <Home />;
+  return (
+    <>
+      <HomeJsonLd />
+      <Home />
+    </>
+  );
 }
