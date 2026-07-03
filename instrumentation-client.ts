@@ -3,10 +3,15 @@ import type { ErrorEvent, EventHint } from "@sentry/nextjs";
 import posthog from "posthog-js";
 
 // Script origins that aren't our code: browser extensions and other injected
-// scripts. Errors thrown from these are noise we can't fix (e.g. the
-// `app:///<hash>/script.js` "Invalid or unexpected token" from extension blobs).
+// scripts (in-app WebViews, e.g. Facebook/Instagram/Samsung browsers, inject
+// their own JS into the page). Errors thrown from these are noise we can't fix
+// (e.g. `app:///<hash>/script.js` "Invalid or unexpected token" from extension
+// blobs, or a bare `app:///` "Unexpected token 'else'" from a WebView shim).
+// Our own client code is always served from https://, so any `app:///` frame on
+// the browser is injected — but exclude `_next`/`src` in case Sentry ever
+// rewrites our own bundle to that scheme.
 const THIRD_PARTY_FRAME =
-  /^(chrome|moz|safari|safari-web)-extension:|^webkit-masked-url:|^app:\/\/\/[a-f0-9]+\/script\.js/i;
+  /^(chrome|moz|safari|safari-web)-extension:|^webkit-masked-url:|^app:\/\/\/(?!(_next|src)\/)/i;
 
 function isThirdPartyError(event: ErrorEvent): boolean {
   const frames = event.exception?.values?.flatMap(
