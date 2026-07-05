@@ -4397,30 +4397,6 @@ export const terraces: Terrace[] = [
       "Terrasse en bord de rue. Menu axé sur le homard. Sources: RestoMontreal.",
   },
   {
-    id: "125",
-    placeId: "ChIJa1TsNFQayUwRsyZ2zcTixkQ",
-    googleRating: 4.1,
-    googleReviewCount: 1253,
-    name: "Maison Saint-Paul",
-    address: "343 Rue Saint-Paul E",
-    lat: 45.5091789,
-    lng: -73.5518607,
-    neighborhood: "Old Montreal",
-    cuisineType: "Bar / Lounge",
-    terraceType: ["courtyard"], // confirmed: "Front & back courtyard"
-    covered: false,
-    dogFriendly: false,
-    heated: false,
-    website: "https://maisonsaintpaul.ca/",
-    instagram: "@maisonsaintpaul",
-    photos: [],
-    openingPeriods: [],
-    description:
-      "Front and back courtyard terraces. Live DJs Wed-Sat. Sources: RestoMontreal.",
-    descriptionFr:
-      "Terrasses-cours avant et arrière. DJ en direct mer-sam. Sources: RestoMontreal.",
-  },
-  {
     id: "126",
     placeId: "ChIJF47_p1cayUwR1uC4VBovwI0",
     googleRating: 4.5,
