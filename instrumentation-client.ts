@@ -30,7 +30,14 @@ Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   tracesSampleRate: 1.0,
   debug: false,
-  ignoreErrors: [/Invalid LatLng object/],
+  ignoreErrors: [
+    /Invalid LatLng object/,
+    // Non-Error promise rejections (rejected with {}, a CustomEvent, etc.).
+    // Sentry synthesizes these messages for values it can't attribute to a
+    // stack frame — overwhelmingly browser extensions / in-app WebView shims,
+    // not our code (a real app bug rejects with an Error that has frames).
+    /captured as promise rejection/,
+  ],
   beforeSend(event: ErrorEvent, _hint: EventHint) {
     return isThirdPartyError(event) ? null : event;
   },
