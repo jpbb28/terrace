@@ -101,6 +101,7 @@ src/
 - `capacity` only set when source provides a number
 - Neighborhoods: 24 types covering core Montreal areas
 - No pop-ups, ephemeral spots, or locations outside Montreal proper
+- **One entry per venue — `placeId` is the identity key.** Two ids sharing a `placeId` put two pins on the map and two cards in the list, and if the names slugify alike (`La Catrina` / `Restaurant La Catrina`) only the lower id is reachable at `/terraces/[slug]`, so the newer entry's data is dead weight. Three such pairs (23/208, 56/218, 129/216) were merged in Sept 2026. When merging, keep the **lower** id and repoint any `terrace_events` rows from the discarded id, or its traffic silently drops out of the engagement numbers.
 - `openingPeriods` — structured hours from Google Places API (`{day, open, close}[]`); populated via `node scripts/fetch-hours.js` then `node scripts/apply-hours.js`. Re-run seasonally (winter/summer hours differ). `placeId` stored per terrace to enable cheap future refreshes.
 - `openingHours` — legacy display string, kept for terraces not yet in Places data
 
@@ -139,8 +140,10 @@ When the user pastes pending submissions (JSON from the `submissions` table) for
 
 1. Save the pasted JSON to `scripts/submissions-input.json`.
 2. Run `node scripts/verify-submissions.cjs` — for each submission, calls `places:searchText` and writes `scripts/submissions-verified.json` with submitter data, Google data, and a `recommended_opening_periods` field that has already been capped to terrace-bylaw hours and merged with any earlier submitter close times. Flags include `street_number_mismatch`, `no_match`, `hours_capped`, `submitter_earlier_day_N`.
-3. Review `submissions-verified.json`. Investigate any flags before proceeding (manually correct the `name`/`address` or skip the entry).
-4. Append entries to `src/data/terraces.ts`. Use the next sequential `id` (currently up through 223 — IDs have gaps and some out-of-order high values, so use max+1, i.e. 224). For each entry:
+3. Review `submissions-verified.json`. Investigate any flags before proceeding (manually correct the `name`/`address` or skip the entry). Two checks the scripts don't do:
+   - **Dedupe first.** `verify-submissions.cjs` now flags this automatically (`duplicate_of_existing_id_N`, `duplicate_within_batch_of_idx_N`, `slug_collision_with_id_N`) and prints a `DUPLICATE WARNING(S)` block — **never append an entry that carries one of those flags.** A newly-opened spot often draws several submissions in a day (spelling and address vary: "OMBRÉ BAR" / "Ombre Bar", "2020 Rue Drummond" / "2020 Drummon"), and venues already in the file get resubmitted. Resolve into **one** entry — keep the **lower** id (reviews, analytics and any shared links point at it), take the union of the fields, and where submitters conflict on hours prefer the set that matches Google.
+   - **Check the photos actually show the venue.** Download every submitted/corrected photo and look at it. `md5sum` across a batch catches the same file being uploaded to two different listings — that's how the Sept 2026 Casa Del Popolo "correction" was caught (it carried an Ombre Bar photo and blanked a live website).
+4. Append entries to `src/data/terraces.ts`. Use the next sequential `id` (currently up through 227 — IDs have gaps and some out-of-order high values, so use max+1, i.e. 228). For each entry:
    - **Always from Google**: `placeId`, `lat`, `lng`, `googleRating`, `googleReviewCount`
    - **`openingPeriods`**: copy from `recommended_opening_periods` in the verified JSON (already merged + capped). Don't write descriptions that name specific late close times like "until 3 AM" — those refer to indoor hours.
    - **Always from submitter**: `terraceType`, `capacity`, `covered`, `dogFriendly`, `heated`, `instagram`, raw `description`
@@ -153,8 +156,11 @@ When the user pastes pending submissions (JSON from the `submissions` table) for
 
 ### Helper scripts
 
-- `scripts/verify-submissions.cjs` — runs Google Places lookup + diff against submitter data
+- `scripts/fetch-pending-submissions.cjs` — pulls every `status='pending'` row from `submissions` into `submissions-input.json`. Use this rather than pasting the notification emails: they omit the row UUIDs (needed to approve) and the uploaded photo URLs.
+- `scripts/verify-submissions.cjs` — runs Google Places lookup + diff against submitter data, and guards against duplicates by matching the resolved `placeId` (and the slugified name) against everything already in `terraces.ts` plus the rest of the batch
 - `scripts/approve-submissions.cjs` — marks the batch as approved in Supabase
+- `scripts/fetch-corrections.cjs` — dumps the whole `corrections` table as JSON (there is no pending-only filter; check the `status` field)
+- `scripts/set-correction-status.cjs <uuid> <applied|rejected>` — closes out a correction after you've applied or rejected it by hand
 - `scripts/fetch-coords.js` — re-fetches `lat`/`lng` for every terrace by `placeId` (audit pass). Run periodically to catch any drift.
 - `scripts/verify-placeids.js` — sanity-checks that each stored `placeId` still resolves to the same business name/address
 

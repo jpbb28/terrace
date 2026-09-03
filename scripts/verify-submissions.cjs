@@ -25,6 +25,47 @@ const ROOT = path.resolve(__dirname, "..");
 const INPUT = path.join(ROOT, "scripts", "submissions-input.json");
 const OUTPUT = path.join(ROOT, "scripts", "submissions-verified.json");
 
+// Existing listings, scraped out of terraces.ts (a `require` won't work on TS).
+const TERRACES_TS = fs.readFileSync(
+  path.join(ROOT, "src", "data", "terraces.ts"),
+  "utf-8",
+);
+const EXISTING_BY_PLACE_ID = new Map();
+const EXISTING_BY_SLUG = new Map();
+
+// Mirrors slugify() in src/lib/utils.ts - two listings whose names slugify the
+// same collide on /terraces/[slug] and only the first one is ever reachable.
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+{
+  // Walk the file line by line; every entry opens with id and (almost always)
+  // carries a placeId and a name a few lines later.
+  let id = null,
+    placeId = null;
+  for (const line of TERRACES_TS.split("\n")) {
+    let m;
+    if ((m = line.match(/^\s*id: "(\d+)",\s*$/))) {
+      id = m[1];
+      placeId = null;
+    } else if ((m = line.match(/^\s*placeId: "([^"]+)",\s*$/))) {
+      placeId = m[1];
+    } else if ((m = line.match(/^\s*name: "(.*)",\s*$/)) && id) {
+      const name = m[1];
+      if (placeId) EXISTING_BY_PLACE_ID.set(placeId, { id, name });
+      EXISTING_BY_SLUG.set(slugify(name), { id, name });
+      id = null;
+      placeId = null;
+    }
+  }
+}
+
 async function searchPlace(name, address) {
   const url = "https://places.googleapis.com/v1/places:searchText";
   const body = {
@@ -144,6 +185,8 @@ function mergePeriods(googlePeriods, submitterPeriods) {
 (async () => {
   const submissions = JSON.parse(fs.readFileSync(INPUT, "utf-8"));
   const results = [];
+  const seenPlaceIds = new Map(); // placeId -> first submission idx seen
+  const dupeWarnings = [];
 
   for (const sub of submissions) {
     process.stdout.write(`[${sub.idx}] ${sub.name} ... `);
@@ -157,6 +200,39 @@ function mergePeriods(googlePeriods, submitterPeriods) {
     const subNum = streetNumber(sub.address);
     const gNum = streetNumber(place.formattedAddress);
     if (subNum && gNum && subNum !== gNum) flags.push("street_number_mismatch");
+
+    // Duplicate guards. A venue that is already listed, or submitted twice in
+    // one batch, must be merged into the existing entry - never appended as a
+    // second id. Two ids sharing a placeId means two map pins and two cards for
+    // one venue, and if the names also slugify alike the newer entry's SEO page
+    // is unreachable (only the first match wins in generateStaticParams).
+    const already = EXISTING_BY_PLACE_ID.get(place.id);
+    if (already) {
+      flags.push(`duplicate_of_existing_id_${already.id}`);
+      dupeWarnings.push(
+        `  [${sub.idx}] ${sub.name} is ALREADY LISTED as id ${already.id} ` +
+          `("${already.name}") - same placeId ${place.id}. ` +
+          `Merge into ${already.id}; do not add a new entry.`,
+      );
+    }
+    const earlier = seenPlaceIds.get(place.id);
+    if (earlier !== undefined) {
+      flags.push(`duplicate_within_batch_of_idx_${earlier}`);
+      dupeWarnings.push(
+        `  [${sub.idx}] ${sub.name} is the same venue as submission [${earlier}] ` +
+          `(placeId ${place.id}). Merge them into one entry.`,
+      );
+    } else {
+      seenPlaceIds.set(place.id, sub.idx);
+    }
+    const slugClash = EXISTING_BY_SLUG.get(slugify(sub.name));
+    if (slugClash && (!already || slugClash.id !== already.id)) {
+      flags.push(`slug_collision_with_id_${slugClash.id}`);
+      dupeWarnings.push(
+        `  [${sub.idx}] "${sub.name}" slugifies to the same URL as id ${slugClash.id} ` +
+          `("${slugClash.name}") - rename one or merge.`,
+      );
+    }
 
     const periodsFromGoogle = googlePeriodsToOurFormat(place);
     const periodsFromSubmitter = sub.opening_periods
@@ -205,6 +281,13 @@ function mergePeriods(googlePeriods, submitterPeriods) {
   }
 
   fs.writeFileSync(OUTPUT, JSON.stringify(results, null, 2));
+
+  if (dupeWarnings.length) {
+    console.log(
+      `\n!! ${dupeWarnings.length} DUPLICATE WARNING(S) - resolve before appending to terraces.ts:`,
+    );
+    for (const w of dupeWarnings) console.log(w);
+  }
   console.log(`\nWrote ${results.length} verified entries to ${OUTPUT}`);
 })().catch((e) => {
   console.error(e);

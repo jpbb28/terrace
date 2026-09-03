@@ -785,18 +785,19 @@ export const terraces: Terrace[] = [
     placeId: "ChIJD9mWCU0ayUwR_cRwhTUnfos",
     googleRating: 4.1,
     googleReviewCount: 2408,
-    name: "Le Sainte-Élisabeth",
+    name: "Pub Le Sainte-Élisabeth",
     address: "1412 Rue Sainte-Élisabeth",
     lat: 45.5123179,
     lng: -73.5622678,
-    neighborhood: "Downtown",
+    neighborhood: "Latin Quarter",
     cuisineType: "Pub",
-    terraceType: ["courtyard"], // confirmed: "secret bi-leveled courtyard terrace"
+    terraceType: ["backyard", "courtyard"], // confirmed: "secret bi-leveled courtyard terrace"
     covered: false,
-    dogFriendly: false,
+    dogFriendly: true,
     heated: true,
     website: "https://pubsteeli.com",
     instagram: "@pubsteelisabeth",
+    phone: "514-833-0866",
     photos: [
       "/photos/23/main.webp",
       "/photos/23/1.webp",
@@ -805,17 +806,18 @@ export const terraces: Terrace[] = [
       "/photos/23/9.webp",
     ],
     openingPeriods: [
-      { day: 1, open: "16:30", close: "23:30" },
-      { day: 2, open: "16:30", close: "23:30" },
-      { day: 3, open: "16:30", close: "23:30" },
-      { day: 4, open: "16:30", close: "23:30" },
-      { day: 5, open: "16:30", close: "23:30" },
-      { day: 6, open: "16:30", close: "23:30" },
+      { day: 0, open: "16:30", close: "22:30" },
+      { day: 1, open: "16:30", close: "23:00" },
+      { day: 2, open: "16:30", close: "23:00" },
+      { day: 3, open: "16:30", close: "23:00" },
+      { day: 4, open: "16:30", close: "23:00" },
+      { day: 5, open: "16:30", close: "23:00" },
+      { day: 6, open: "16:30", close: "23:00" },
     ],
     description:
-      "Pub tucked off Sainte-Catherine Street with a secret bi-leveled courtyard terrace. Walls covered in creeping vines, heat lamps. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+      "Pub tucked off Sainte-Catherine Street in the Latin Quarter, with a secret bi-leveled courtyard terrace and a sprawling hidden backyard. Walls covered in creeping vines, heat lamps, dogs welcome. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries, user submission.",
     descriptionFr:
-      "Pub niché en retrait de la rue Sainte-Catherine avec une terrasse-cour secrète sur deux niveaux. Murs recouverts de vignes grimpantes, lampes chauffantes. Sources: Time Out, Daily Hive, Tourisme Montreal, Montreal Diaries.",
+      "Pub niché en retrait de la rue Sainte-Catherine, dans le Quartier latin, avec une terrasse-cour secrète sur deux niveaux et une grande arrière-cour cachée. Murs couverts de vignes grimpantes, lampes chauffantes, chiens bienvenus. Sources : Time Out, Daily Hive, Tourisme Montréal, Montreal Diaries, soumission d'utilisateur.",
   },
   {
     id: "24",
@@ -2009,17 +2011,24 @@ export const terraces: Terrace[] = [
     neighborhood: "Plateau-Mont-Royal",
     cuisineType: "Iranian / Persian",
     terraceType: ["backyard"], // confirmed: "Secluded and lush hidden garden"
+    capacity: 50,
     covered: false,
-    dogFriendly: false,
+    dogFriendly: true,
     heated: false,
     website: "https://www.azalearesto.com",
     instagram: "@azalea.buvette.caviste",
+    phone: "514-824-5955",
     photos: [
       "/photos/56/main.webp",
-      "/photos/56/0.webp",
+      "/photos/56/2.webp",
       "/photos/56/3.webp",
+      "/photos/56/4.webp",
+      "/photos/56/5.webp",
+      "/photos/56/6.webp",
       "/photos/56/7.webp",
       "/photos/56/8.webp",
+      "/photos/56/9.webp",
+      "/photos/56/10.webp",
     ],
     openingPeriods: [
       { day: 0, open: "14:00", close: "21:00" },
@@ -2031,9 +2040,9 @@ export const terraces: Terrace[] = [
       { day: 6, open: "14:00", close: "21:00" },
     ],
     description:
-      "Secluded and lush hidden garden. Persian mezze, natural/organic wines. Sources: Tastet, Tourisme Montreal.",
+      "Secluded and lush hidden garden. Persian mezze, natural/organic wines. Sources: Tastet, Tourisme Montreal, user submission.",
     descriptionFr:
-      "Jardin caché isolé et luxuriant. Mezze persans, vins naturels/biologiques. Sources: Tastet, Tourisme Montreal.",
+      "Jardin caché isolé et luxuriant. Mezze persans, vins naturels/biologiques. Sources : Tastet, Tourisme Montréal, soumission d'utilisateur.",
   },
   {
     id: "57",
@@ -4481,18 +4490,26 @@ export const terraces: Terrace[] = [
     googleRating: 4.1,
     googleReviewCount: 1590,
     name: "La Catrina",
-    address: "117 Rue de la Commune O",
+    address: "119 Rue de la Commune O",
     lat: 45.50382,
     lng: -73.5539833,
     neighborhood: "Old Montreal",
     cuisineType: "Mexican",
     terraceType: ["sidewalk"], // confirmed: "Street terrace"
+    capacity: 66,
     covered: false,
-    dogFriendly: false,
+    dogFriendly: true,
     heated: false,
-    website: "https://restaurantlacatrina.ca/en/",
+    website: "https://www.restaurantlacatrina.ca",
     instagram: "@lacatrina_mtl",
-    photos: [],
+    phone: "514-543-7172",
+    photos: [
+      "/photos/129/main.webp",
+      "/photos/129/2.webp",
+      "/photos/129/3.webp",
+      "/photos/129/4.webp",
+      "/photos/129/5.webp",
+    ],
     openingPeriods: [
       { day: 0, open: "12:00", close: "22:30" },
       { day: 1, open: "12:00", close: "22:00" },
@@ -4502,9 +4519,10 @@ export const terraces: Terrace[] = [
       { day: 5, open: "12:00", close: "23:00" },
       { day: 6, open: "12:00", close: "23:00" },
     ],
-    description: "Street terrace. DJ on some nights. Sources: RestoMontreal.",
+    description:
+      "Sidewalk terrace in Old Montreal serving modern, authentic Mexican cuisine in a caliente atmosphere. DJ on some nights. Sources: RestoMontreal, user submission.",
     descriptionFr:
-      "Terrasse de rue. DJ certains soirs. Sources: RestoMontreal.",
+      "Terrasse en façade dans le Vieux-Montréal, qui propose une cuisine mexicaine moderne et authentique dans une ambiance caliente. DJ certains soirs. Sources : RestoMontreal, soumission d'utilisateur.",
   },
 
   // DOWNTOWN / QUARTIER DES SPECTACLES
@@ -6868,38 +6886,6 @@ export const terraces: Terrace[] = [
   },
 
   // LATIN QUARTER
-  {
-    id: "208",
-    placeId: "ChIJD9mWCU0ayUwR_cRwhTUnfos",
-    googleRating: 4.1,
-    googleReviewCount: 2408,
-    name: "Pub Le Sainte-Élisabeth",
-    address: "1412 Rue Ste-Élisabeth",
-    lat: 45.5123179,
-    lng: -73.5622678,
-    neighborhood: "Latin Quarter",
-    cuisineType: "Pub",
-    terraceType: ["backyard", "courtyard"],
-    covered: false,
-    dogFriendly: true,
-    heated: false,
-    website: "https://pubsteeli.com/",
-    phone: "514-833-0866",
-    photos: [],
-    openingPeriods: [
-      { day: 0, open: "14:30", close: "22:30" },
-      { day: 1, open: "16:30", close: "23:00" },
-      { day: 2, open: "16:30", close: "23:00" },
-      { day: 3, open: "16:30", close: "23:00" },
-      { day: 4, open: "16:30", close: "23:00" },
-      { day: 5, open: "16:30", close: "23:00" },
-      { day: 6, open: "16:30", close: "23:00" },
-    ],
-    description:
-      "Montreal pub with a sprawling hidden backyard and courtyard terrace tucked off Rue Sainte-Élisabeth in the Latin Quarter. Dog-friendly. Sources: User submission.",
-    descriptionFr:
-      "Pub montréalais avec une grande terrasse en arrière-cour et cour intérieure cachée, nichée rue Sainte-Élisabeth dans le Quartier Latin. Chiens bienvenus. Sources : Soumission d'utilisateur.",
-  },
 
   // OLD MONTREAL (continued)
   {
@@ -7112,47 +7098,6 @@ export const terraces: Terrace[] = [
   },
 
   {
-    id: "216",
-    placeId: "ChIJbfJE4FobyUwRywyRy0pwzZE",
-    googleRating: 4.1,
-    googleReviewCount: 1590,
-    name: "Restaurant La Catrina",
-    address: "119 Rue de la Commune Ouest",
-    lat: 45.50382,
-    lng: -73.5539833,
-    neighborhood: "Old Montreal",
-    cuisineType: "Mexican",
-    terraceType: ["sidewalk"],
-    capacity: 66,
-    covered: false,
-    dogFriendly: true,
-    heated: false,
-    website: "https://www.restaurantlacatrina.ca",
-    instagram: "@lacatrina_mtl",
-    phone: "514-543-7172",
-    photos: [
-      "/photos/216/main.webp",
-      "/photos/216/2.webp",
-      "/photos/216/3.webp",
-      "/photos/216/4.webp",
-      "/photos/216/5.webp",
-    ],
-    openingPeriods: [
-      { day: 0, open: "12:00", close: "22:30" },
-      { day: 1, open: "12:00", close: "22:00" },
-      { day: 2, open: "12:00", close: "22:00" },
-      { day: 3, open: "12:00", close: "22:00" },
-      { day: 4, open: "12:00", close: "22:00" },
-      { day: 5, open: "12:00", close: "23:00" },
-      { day: 6, open: "12:00", close: "23:00" },
-    ],
-    description:
-      "Sidewalk terrace in Old Montreal serving modern, authentic Mexican cuisine in a caliente atmosphere. Sources: User submission.",
-    descriptionFr:
-      "Terrasse sur trottoir dans le Vieux-Montréal, qui propose une cuisine mexicaine moderne et authentique dans une ambiance caliente. Sources : Soumission d'utilisateur.",
-  },
-
-  {
     id: "217",
     placeId: "ChIJEYKOUUUbyUwRA3JorBoC7SI",
     googleRating: 4.5,
@@ -7190,42 +7135,6 @@ export const terraces: Terrace[] = [
       "Sidewalk terrace a few steps from the river, with a unique charm and a seasonal menu. Sources: User submission.",
     descriptionFr:
       "Terrasse sur trottoir à quelques pas du fleuve, au charme unique, avec une cuisine de saison. Sources : Soumission d'utilisateur.",
-  },
-
-  {
-    id: "218",
-    placeId: "ChIJ9Xajc1YbyUwR6yTqKvvfonA",
-    googleRating: 4.6,
-    googleReviewCount: 263,
-    name: "Azalea",
-    address: "4306 Rue Saint-Denis",
-    lat: 45.5224257,
-    lng: -73.5799502,
-    neighborhood: "Plateau-Mont-Royal",
-    cuisineType: "Persian",
-    capacity: 50,
-    covered: false,
-    dogFriendly: true,
-    heated: false,
-    website: "https://www.azalearesto.com/",
-    phone: "514-824-5955",
-    photos: [
-      "/photos/218/main.webp",
-      "/photos/218/2.webp",
-      "/photos/218/3.webp",
-      "/photos/218/4.webp",
-      "/photos/218/5.webp",
-    ],
-    openingPeriods: [
-      { day: 0, open: "14:00", close: "21:00" },
-      { day: 1, open: "14:00", close: "21:00" },
-      { day: 2, open: "14:00", close: "21:00" },
-      { day: 3, open: "14:00", close: "21:00" },
-      { day: 4, open: "14:00", close: "21:00" },
-      { day: 5, open: "14:00", close: "21:00" },
-      { day: 6, open: "14:00", close: "21:00" },
-    ],
-    description: "",
   },
 
   // LITTLE BURGUNDY
@@ -7493,5 +7402,36 @@ export const terraces: Terrace[] = [
       "The Bishop Street location of the McKibbin's Irish pub family downtown, serving pub grub, a long beer list and regular live music. The rear courtyard is large and very private, screened off from the street, with extra seating on the sidewalk out front. Sources: User submission.",
     descriptionFr:
       "L'adresse de la rue Bishop de la famille de pubs irlandais McKibbin's, au centre-ville, avec cuisine de pub, une longue carte de bières et de la musique en direct régulièrement. La cour arrière est vaste et très intime, à l'abri des regards de la rue, avec des places supplémentaires sur le trottoir en façade. Sources : Soumission d'utilisateur.",
+  },
+  {
+    id: "227",
+    placeId: "ChIJ6dPYAgAbyUwRz27Lmw6WeBU",
+    googleRating: 5,
+    googleReviewCount: 20,
+    name: "OMBRÉ BAR",
+    address: "2020 Rue Drummond",
+    lat: 45.4996363,
+    lng: -73.5765577,
+    neighborhood: "Downtown",
+    cuisineType: "Cocktail Bar",
+    terraceType: ["sidewalk"],
+    capacity: 50,
+    covered: false,
+    dogFriendly: true,
+    heated: false,
+    website: "https://ocoiffurespa.com/en/o-lounge/",
+    instagram: "@ombrebar",
+    photos: ["/photos/227/main.webp", "/photos/227/2.webp"],
+    openingPeriods: [
+      { day: 2, open: "11:00", close: "21:30" },
+      { day: 3, open: "11:00", close: "21:30" },
+      { day: 4, open: "11:00", close: "21:30" },
+      { day: 5, open: "11:00", close: "21:30" },
+      { day: 6, open: "11:00", close: "21:30" },
+    ],
+    description:
+      "A cocktail bar attached to the O Coiffure Spa salon on Drummond downtown, with a sidewalk terrace of lounge seating screened by planters. Creative signature cocktails, mocktails and bar snacks, in a relaxed setting where you can get your hair and nails done and stay for a drink. Sources: User submission.",
+    descriptionFr:
+      "Bar à cocktails rattaché au salon O Coiffure Spa, rue Drummond au centre-ville, avec une terrasse en façade aménagée en coin lounge et bordée de jardinières. Cocktails signature créatifs, mocktails et bouchées, dans une ambiance décontractée où l'on peut se faire coiffer ou faire une manucure avant de rester prendre un verre. Sources : Soumission d'utilisateur.",
   },
 ];
